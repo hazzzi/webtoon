@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-팀 깃허브 테스트
+팀 깃허브 테스트 
 </body>
 </html>
