@@ -9,6 +9,10 @@
 <body>
 <h1>test1.jsp</h1>
 수정
+
 <h3>client</h3>
+
+    <h3>server</h3>
+
 </body>
 </html>
