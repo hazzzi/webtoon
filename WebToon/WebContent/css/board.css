@@ -83,10 +83,10 @@ header {
 	min-height: 2000px;
 }
 
-.cont_butt {
+.content_top {
 /* 	border: 1px solid #fff; */
 	width: 1550px;
-	height: 100px;
+	min-height: 100px;
 	margin: 0 auto;
 	padding-top: 50px;
 }
@@ -127,12 +127,35 @@ header {
    width: 1514px;
    height: 30px;
    background-color: #fff;
-   margin-left:492px;
    float: left;
-   margin-top: 5px;
+   margin-top: 8px;
    }
-   
 
+.posting {
+	/* border: 1px solid blue; */
+	width: 1550px;
+	display: block;
+	margin: 8px auto;
+}
+
+.cont_category {
+/* 	background-color: white; */
+	margin-top: 8px;
+	border: 1px solid white;
+	width: 1514px;
+	height: 30px;
+}
+
+.cont_category>span {
+	border: 1px solid pink;
+}
+
+/* top-button */
+.top1{
+   position: fixed;
+   right: 50px;
+   bottom: 100px; 
+}
 
 /*copyright*/
 #copyright {
