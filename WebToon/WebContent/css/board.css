@@ -33,7 +33,7 @@ body{
 
 
 
-/* 메인 헤더 */
+/* header */
 header {
 	border: 1px solid #fff;
 	background-image: url("../images/banner.jpg");
@@ -46,7 +46,7 @@ header {
 
 #top {
 	overflow: hidden;
-	height: 10em;
+	height: 175px;
 	padding: 40px 0 0 0;
 }
 
@@ -67,7 +67,7 @@ header {
 	width: 100px;
 	position: absolute;
 	right:100px;
-	bottom:1.1em;
+	top: 40px;
 	
 }
 #profile>img{
@@ -78,9 +78,60 @@ header {
 }
 
 
+/* content */
+.content {
+	min-height: 2000px;
+}
 
+.cont_butt {
+/* 	border: 1px solid #fff; */
+	width: 1550px;
+	height: 100px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
 
+.board_butt {
+	width: 500px;
+	height: 100px;
+	margin: -2px;
+	margin-right: 5px;
+	color:#666666;
+	display:inline-block;
+	background-color: #fff;
+	border-radius: 5px;
+	border:1px solid #dcdcdc;
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+}
 
+.board_butt>a {
+	color: #666666;
+	font-size: 50px;
+	position: relative;
+	top:40px;
+	left: 147.5px;
+}
+
+.board_butt:hover {
+	background-color:#f6f6f6;
+}
+
+.board_butt:active {
+	position:relative;
+	top:1px;
+}
+
+#search {
+   width: 1514px;
+   height: 30px;
+   background-color: #fff;
+   margin-left:492px;
+   float: left;
+   margin-top: 5px;
+   }
+   
 
 
 /*copyright*/
@@ -106,49 +157,3 @@ header {
 	text-decoration: underline;
 }
 
-.board_butt, .gallery_butt, .fanart_butt {
-	-moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
-	-webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
-	box-shadow: inset 0px 0px 0px 0px #ffffff;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff
-		), color-stop(1, #f6f6f6));
-	background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-	background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-	background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-	background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
-	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
-		endColorstr='#f6f6f6', GradientType=0);
-	background-color: #ffffff;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	border: 1px solid #dcdcdc;
-	display: inline-block;
-	cursor: pointer;
-	color: #666666;
-	font-family: Arial;
-	font-size: 19px;
-	font-weight: bold;
-	padding: 9px 61px;
-	text-decoration: none;
-	text-shadow: 0px 0px 0px #ffffff;
-}
-
-.board_butt, .gallery_butt, .fanart_butt:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6
-		), color-stop(1, #ffffff));
-	background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-	background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-	background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-	background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
-	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6',
-		endColorstr='#ffffff', GradientType=0);
-	background-color: #f6f6f6;
-}
-
-.board_butt, .gallery_butt, .fanart_butt:active {
-	position: relative;
-	top: 1px;
-}
