@@ -1,8 +1,9 @@
 @CHARSET "UTF-8";
+/* 폰트 */
 @font-face {font-family: 'NanumBarunpenR';	src: url("../font/NanumBarunpenR.ttf") format('truetype');}
 @font-face {font-family: 'MaplestoryLight';src: url("../font/Maplestory Light.ttf") format('truetype');}
 
-/* 초기값 설정 */
+/* 페이지 초기값 설정 */
 * {
 	margin: 0;
 	padding: 0;
@@ -32,7 +33,7 @@ body{
 
 
 
-/* 메인 헤더 */
+/* header 영역 (시작) */
 header {
 	border: 1px solid #fff;
 	background-image: url("../img/banner.jpg");
@@ -47,7 +48,6 @@ header {
 	overflow: hidden;
 	height: 175px;
 	padding: 40px 0 0 0;
-	
 }
 
 #logo {
@@ -70,12 +70,14 @@ header {
 	top: 40px;
 	
 }
+
 #profile>img{
 	vertical-align: middle;
 	width: 81px;
 	height: 81px;
 	border-radius: 50%;
 }
+/* header 영역 (끝) */
 
 
 
