@@ -45,7 +45,7 @@ header {
 
 #top {
 	overflow: hidden;
-	height: 10em;
+	height: 175px;
 	padding: 40px 0 0 0;
 	
 }
@@ -67,7 +67,7 @@ header {
 	width: 100px;
 	position: absolute;
 	right:100px;
-	bottom:1.1em;
+	top: 40px;
 	
 }
 #profile>img{
