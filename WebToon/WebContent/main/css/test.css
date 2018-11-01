@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+@font-face {font-family: 'NanumBarunpenR';	src: url("../font/NanumBarunpenR.ttf") format('truetype');}
+@font-face {font-family: 'MaplestoryLight';src: url("../font/Maplestory Light.ttf") format('truetype');}
+
+/* 초기값 설정 */
+* {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #fff;		
+}
+body{
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 10pt;
+	line-height: 1.2em;
+	color: #333;
+	min-height: 900px;
+}
+
+#wrap {
+	background-color: rgb(16, 18, 20);
+	min-width: 1200px;
+	min-height:100%;
+	margin: 0 auto;
+}
+.clear { clear: both;}
+
+
+
+/* 메인 헤더 */
+header {
+	border: 1px solid #fff;
+	background-image: url("../img/banner.jpg");
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	position: relative;
+	box-sizing: border-box;
+}
+
+#top {
+	overflow: hidden;
+	height: 10em;
+	padding: 40px 0 0 0;
+	
+}
+
+#logo {
+	width: 100%;
+	height: 100%;
+	font-family: 'MaplestoryLight', sans-serif;
+	font-weight: bold;
+	font-size: 5.5em;
+	text-align: center;
+	line-height: 100%;
+	padding: 0 0 0 20px;
+	box-sizing: border-box;
+	z-index: -1;
+}
+
+#profile{
+	width: 100px;
+	position: absolute;
+	right:100px;
+	bottom:1.1em;
+	
+}
+#profile>img{
+	vertical-align: middle;
+	width: 81px;
+	height: 81px;
+	border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
