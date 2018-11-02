@@ -19,12 +19,12 @@ body{
 	font-family: 'NanumBarunpenR', sans-serif;
 	font-size: 10pt;
 	line-height: 1.2em;
-	color: #333;
+	color: #101214;
 	min-height: 900px;
 }
 
 #wrap {
-	background-color: rgb(16, 18, 20);
+	background-color: #101214;
 	min-width: 1200px;
 	min-height:100%;
 	margin: 0 auto;
@@ -32,13 +32,36 @@ body{
 .clear { clear: both;}
 
 
+/* content 영역 (시작) */
 
-/* header 영역 (시작) */
-
-/* header 영역 (끝) */
-
+/* content 영역 (끝) */
 
 
+
+/* footer 영역 (시작) */
+
+#copyright {
+	overflow: hidden;
+	padding: 3em 0em 6em 0em;
+	border-top: 1px solid #212124;
+	text-align: center;
+	font-family: -webkit-body;
+}
+
+#copyright p {
+	font-size: 1em;
+}
+
+#copyright a {
+	color: #949494;
+	text-decoration: none;
+	margin: 15px;
+}
+
+#copyright a:hover {
+	text-decoration: underline;
+}
+/* footer 영역 (끝) */
 
 
 
