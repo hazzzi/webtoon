@@ -19,6 +19,9 @@
    
    <jsp:include page="header_main.jsp"></jsp:include>
     <article>
+    <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
+          <section class="post_sec"></section>
+      <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
     </article>
    
    
