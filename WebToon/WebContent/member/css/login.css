@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+background-color: rgb(16, 18, 20);
+}
+
+.div {
+	background-image: url("../img/banner.jpg");
+	border: 1px solid;
+	margin: auto auto;
+	padding: 10px 10px;
+	width: 300px; 
+	text-align: center;
+	margin-top: 100px;
+	border-radius: 10px;
+} 
+
+.b {
+	color: white;
+}
+
+.login {
+	color: white;
+	margin: auto auto ;
+	text-align: center;
+	display: inline-block;	
+	font-size: 20px;
+	width: 130px;
+}
+
+
+.login>a{
+	text-decoration: none;
+	color: white;
+}
+
+.join {
+	margin: auto auto ;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	width:130px; height: 40px;
+	border-bottom: 1px solid white;
+	border-left: 1px solid white;
+}
+
+.join>a{
+	text-decoration: none;
+	color: gray;
+}
+
+.id_input>input {
+	margin-top: 100px;
+	width: 250px; height: 30px;
+}
+
+.pwd_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.login_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+
+.search_input>a>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.naver_login>a>input {
+	background-color: green;
+	margin-top: 100px;
+	width: 250px; height: 30px;
+}
+
+.kakao_login>a>input {
+	background-color: yellow;
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.hpname {
+	color: white;
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}

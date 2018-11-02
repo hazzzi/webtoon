@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+background-color: rgb(16, 18, 20);
+}
+
+.div {
+	background-image: url("../img/banner.jpg");
+	border: 1px solid;
+	margin: auto auto;
+	padding: 10px 10px;
+	width: 300px; 
+	text-align: center;
+	margin-top: 100px;
+	border-radius: 10px;
+} 
+
+.b {
+	color: white;
+}
+
+.login {
+	color: white;
+	margin: auto auto ;
+	text-align: center;
+	display: inline-block;	
+	font-size: 20px;
+	width: 130px; height: 40px;
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.login>a{
+	text-decoration: none;
+	color: gray;
+}
+
+.join {
+	color: white;
+	margin: auto auto ;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	width:130px;
+}
+
+.join>a{
+	text-decoration: none;
+	color: white;
+}
+
+.id_input>input {
+	margin-top: 100px;
+	width: 250px; height: 30px;
+}
+
+.email_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.pwd_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.pwd_hint>select,.pwd_hint>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.nic_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+
+.join_input>input {
+	margin-top: 50px;
+	width: 250px; height: 30px;
+}
+
+
+.hpname {
+	color: white;
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
