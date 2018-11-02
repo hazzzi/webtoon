@@ -25,7 +25,7 @@
 			<div id="info">
 				<span>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을 받아보세요.</span>
 			</div>
-			<div id="srch">
+			<div id="srch-main">
 				<input type="text">
 				<a href="#"></a>		
 			</div>
