@@ -91,7 +91,7 @@ header {
 	padding-top: 50px;
 }
 
-.board_butt {
+.board_butt, .board_butt2 {
 	width: 500px;
 	height: 100px;
 	margin-right: 5px;
@@ -100,9 +100,13 @@ header {
 	background-color: #ddd;
 	border-radius: 3px;
 	border:1px solid #dcdcdc;
-	font-family:Arial;
+	font-family:"MaplestoryLight", Arial, sans-serif;
 	font-size:19px;
 	font-weight:bold;
+}
+
+.board_butt2{
+	
 }
 
 .board_butt>a {
@@ -113,11 +117,28 @@ header {
 	left: 147.5px;
 }
 
+.board_butt2>a{
+	color: #666666;
+	font-size: 50px;
+	position: relative;
+	top:40px;
+	left: 184.5px;
+}
+
 .board_butt:hover {
 	background-color:#f6f6f6;
 }
 
+.board_butt2:hover {
+	background-color:#f6f6f6;
+}
+
 .board_butt:active {
+	position:relative;
+	top:1px;
+}
+
+.board_butt2:active {
 	position:relative;
 	top:1px;
 }
