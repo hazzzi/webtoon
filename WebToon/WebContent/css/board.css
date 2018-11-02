@@ -95,10 +95,10 @@ header {
    height: 100px;
    margin-right: 5px;
    color:#000;
-   display:inline-block;
-   
+   display:inline-block; 
    border-radius: 3px;
-   border:1px solid #dcdcdc;
+   border:1px solid #fff;
+   border-style: dotted;
    font-family:"MaplestoryLight", Arial, sans-serif;
    font-size:19px;
    font-weight:bold;
@@ -130,7 +130,7 @@ header {
 
 .board_butt:active {
    position:relative;
-   top:1px;
+   top:3px;
 }
 
 .board_butt2:active {
