@@ -97,8 +97,8 @@ header {
    color:#000;
    display:inline-block; 
    border-radius: 3px;
-   border:1px solid #fff;
-   border-style: dotted;
+/*    border:1px solid #fff; */
+/*    border-style: dotted; */
    font-family:"MaplestoryLight", Arial, sans-serif;
    font-size:19px;
    font-weight:bold;
