@@ -91,21 +91,20 @@ header {
 }
 
 .board_butt, .board_butt2 {
+   /* border:1px solid #dcdcdc; */
    width: 500px;
    height: 100px;
    margin-right: 5px;
    color:#000;
-   display:inline-block;
-   
+   display:inline-block;  
    border-radius: 3px;
-   border:1px solid #dcdcdc;
    font-family:"MaplestoryLight", Arial, sans-serif;
    font-size:19px;
    font-weight:bold;
 }
 
 .board_butt>a {
-   color: #666666;
+   color: #b8b5c1;
    font-size: 50px;
    position: relative;
    top:40px;
@@ -113,7 +112,7 @@ header {
 }
 
 .board_butt2>a{
-   color: #666666;
+   color: #b8b5c1;
    font-size: 50px;
    position: relative;
    top:40px;
@@ -280,7 +279,8 @@ header {
 #copyright a {
    color: #949494;
    text-decoration: none;
-   margin: 15px;
+   margin: 20px;
+   font-size: 17px;
 }
 
 #copyright a:hover {
