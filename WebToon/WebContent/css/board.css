@@ -94,12 +94,11 @@ header {
 .board_butt {
 	width: 500px;
 	height: 100px;
-	margin: -2px;
 	margin-right: 5px;
 	color:#000;
 	display:inline-block;
 	background-color: #ddd;
-	border-radius: 5px;
+	border-radius: 3px;
 	border:1px solid #dcdcdc;
 	font-family:Arial;
 	font-size:19px;
@@ -138,12 +137,12 @@ header {
    display: inline-block;
     text-align: center;
     margin-top: 8px;
-    width: 1516px;
+    width: 1520px;
 }
 
 #srch>input{
    box-sizing: border-box;
-   width: 1516px;
+   width: 1522px;
    height: 43px;
    margin-right: -40px;
    display: block;
@@ -162,25 +161,26 @@ header {
    display: block;
    background-image: url("../images/search.png");
    background-size: cover;
-   float: left;
+   float: right;
+   position: relative;
+   bottom: 42px;
 }
 
 #news_notice {
     
-    width:1494px;
+    width:1503px;
     height: 13px;
-    margin-top:5px;
-    border: 2px solid ;
+    margin-top:3px;
     padding: 10px;
     background-color:white;
+    margin-top: 7px;
+    margin-bottom: 2px;
 }
 
 #context {
-    width:1494px;
-    height: 30px;
-    border: 2px solid #212124;
+   width:1503px;
+   height: 30px;
    padding: 10px;
-   margin-top:0px;
    border-top: none;
    background-color:white;
 }
@@ -198,7 +198,7 @@ header {
 /* 	background-color: white; */
 	margin-top: 8px;
 	border: 1px solid white;
-	width: 1514px;
+	width: 1522px;
 	height: 30px;
 	color: white;
 	text-align: center;
@@ -211,6 +211,7 @@ header {
 	position: relative;
 	top: 5px;
 	padding-right: 155px;
+	left: 82px;
 }
 
 /* top-button */
