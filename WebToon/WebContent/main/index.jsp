@@ -22,6 +22,7 @@
 	<!-- 메인 컨텐츠 영역  (시작) 다른페이지 작업시 삭제할 부분-->
 	<!-- <script src="js/event.js"></script> -->
 	<!-- 슬라이드 이용 -->
+	<!-- ddd -->
 	<% for(int i=0 ; i<10 ; i++){ %>
 	<div id="sildeshow">
 		<div id="content">
