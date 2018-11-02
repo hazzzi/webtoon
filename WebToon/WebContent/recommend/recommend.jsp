@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천받기</title>
 
-<link rel="stylesheet" href="../main/css/header.css">
+<link href="../main/css/header.css" rel="stylesheet" >
 <link href="css/recommend.css" rel="stylesheet">
 <script src="../js/jquery-3.3.1.js"></script>
 </head>
@@ -16,18 +16,19 @@
 		<div class="wrap">
 			<div class="rec">
 				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
+					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
 			<div class="content">
-				<b>대학일기</b>
+				<b>외모지상주의</b>
 			</div>
 			<div class="author">
-				<b>자까 · 에피소드 / 네이버</b>
+				<b>박태준 · 스토리 / 네이버</b>
 			</div>
 			<div>
 				<button class="webtoon_btn">웹툰보기</button>
+				<b class="bb">평가하기</b>
 			</div>
-			<div class="star"> <b>평가하기</b>
+			<div class="star"> 
 				<p class="star_rating">
 					<a href="#" >★</a> 
 					<a href="#" >★</a> 
@@ -50,18 +51,19 @@
 		<div class="wrap">
 			<div class="rec">
 				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/597447/thumbnail/title_thumbnail_20150410225440_t125x101.jpg">
+					src="https://shared-comic.pstatic.net/thumb/webtoon/325629/thumbnail/title_thumbnail_20110508235932_t83x90.jpg">
 			</div>
 			<div class="content">
-				<b>프리드로우</b>
+				<b>패션왕</b>
 			</div>
 			<div class="author">
-				<b>전선욱 · 스토리 / 네이버</b>
+				<b>기안84 · 스토리 / 네이버</b>
 			</div>
 			<div>
 				<button class="webtoon_btn">웹툰보기</button>
+				<b class="bb">평가하기</b>
 			</div>
-			<div class="star"> <b>평가하기</b>
+			<div class="star"> 
 				<p class="star_rating">
 					<a href="#" >★</a> 
 					<a href="#" >★</a> 
@@ -83,18 +85,19 @@
 		<div class="wrap">
 			<div class="rec">
 				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
+					src="https://shared-comic.pstatic.net/thumb/webtoon/150388/thumbnail/title_thumbnail_20100331155005_t83x90.jpg" >
 			</div>
 			<div class="content">
-				<b>대학일기</b>
+				<b>폭풍의 전학생</b>
 			</div>
 			<div class="author">
-				<b>자까 · 에피소드 / 네이버</b>
+				<b>강냉이 · 스토리 / 네이버</b>
 			</div>
 			<div>
 				<button class="webtoon_btn">웹툰보기</button>
+				<b class="bb">평가하기</b>
 			</div>
-			<div class="star"> <b>평가하기</b>
+			<div class="star">
 				<p class="star_rating">
 					<a href="#" >★</a> 
 					<a href="#" >★</a> 
