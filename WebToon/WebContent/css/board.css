@@ -211,21 +211,22 @@ header {
 .cont_category {
 /* 	background-color: white; */
 	margin-top: 8px;
-	border: 1px solid white;
-	width: 1522px;
+	border: 1px double white;
+	border-right-style: none;
+	border-left-style: none;	
+	width: 1524px;
 	height: 30px;
 	color: white;
 	text-align: center;
 }
 
 .cont_category>span {
-/* 	border: 1px solid pink; */
 	font-size: 20px;
 	color: white;
 	position: relative;
-	top: 5px;
-	padding-right: 155px;
-	left: 82px;
+	top: 6px;
+	padding-left: 36px;
+	margin-right: 150px;
 }
 
 /* top-button */
