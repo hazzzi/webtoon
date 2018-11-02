@@ -209,6 +209,8 @@ header {
    padding: 10px;
    border-top: none;
    background-color:white;
+   font-size: 22px;
+   font-weight: bold;
 }
 
 
@@ -226,8 +228,8 @@ header {
    margin: 8px auto;
 }
 
-.cont_category {
-/*    background-color: white; */
+/* .cont_category {
+   background-color: white;
    margin-top: 8px;
    border: 1px solid white;
    border-right: none;
@@ -239,14 +241,20 @@ header {
 }
 
 .cont_category>span {
-/*    border: 1px solid pink; */
+   border: 1px solid pink;
    font-size: 20px;
    color: white;
    position: relative;
    top: 5px;
    padding-right: 155px;
    left: 82px;
+} */
+
+.board_table {
+	color: white;
 }
+
+
 
 /* top-button */
 .top1{
