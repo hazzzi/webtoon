@@ -270,8 +270,6 @@ header {
    font-family: -webkit-body;
 }
 
-
-
 #copyright p {
    font-size: 1em;
 }
@@ -286,3 +284,5 @@ header {
 #copyright a:hover {
    text-decoration: underline;
 }
+
+
