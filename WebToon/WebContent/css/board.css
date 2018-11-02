@@ -186,9 +186,9 @@ header {
 }
 
 #news_notice {
-    
+    font-size:20px;
     width:1503px;
-    height: 13px;
+    height: 30px;
     margin-top:3px;
     padding: 10px;
     background-color:white;
@@ -196,15 +196,27 @@ header {
     margin-bottom: 2px;
 }
 
+.notice{
+	padding-top: 5px;
+}
+
+
+
 #context {
    width:1503px;
-   height: 30px;
+   height: 100px;
    padding: 10px;
    border-top: none;
    background-color:white;
 }
 
 
+#hr{
+	width: 1522px;
+	margin: 15px 0;
+	border: 1px dotted #c0c0c0;
+
+}
 
 .posting {
    /* border: 1px solid blue; */
