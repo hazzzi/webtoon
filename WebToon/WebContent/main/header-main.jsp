@@ -1,15 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-		<header>
+   
+	<header id="head">
 		<div id="top">
 			<div id="logo">
-				<a href="#">오늘 뭐 볼까</a>
+				<i class="fa fa-search co"></i>
+				<a href="#">오늘 뭐 볼까?</a>
 				<!-- 프로필 이미지  -->
 				<div id="profile">
-					<img src="https://via.placeholder.com/100">
+					<img src="https://via.placeholder.com/100" id="imgtrans"><br>
+					<span>가나다</span>
 				</div>
 			</div>
 		</div>
+<!-- 		
+		<div id="navbar">
+		  <a class="active" href="javascript:void(0)">Home</a>
+		  <a href="javascript:void(0)">News</a>
+		  <a href="javascript:void(0)">Contact</a>
+		</div> -->
 		
 	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (시작) -->
 		<div id="banner">
@@ -18,7 +27,7 @@
 			</div>
 			<div id="srch">
 				<input type="text">
-				<a href="#" id="search"></a>			
+				<a href="#"></a>		
 			</div>
 			<div class="clear"></div>
 			<div id="menu">
