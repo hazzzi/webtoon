@@ -22,26 +22,10 @@
      <!-- content 영역 -->
       <div class="content">
            <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
-             <div class="content_top">
-            <div class="board_butt"><a>자유게시판</a></div>
-            <div class="board_butt2"><a>갤러리</a></div>
-            <div class="board_butt2"><a>팬아트</a></div>
-                
-         
-           <!-- 공지사항 영역 시작 -->
-               <div id="news_notice">
-                  <h1 class="notice">공지사항</h1>
-               </div>
-               <div id="context">
-                  	욕하지 마세요!!
-               </div>
-                <hr id="hr">
-             </div> 
-            
-           <!-- 공지사항 영역 끝 -->
-    <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
+           <jsp:include page="header_main.jsp"></jsp:include>  
+    	   <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
        
-    <!-- 카테고리 영역 시작-->
+     <!-- 카테고리 영역 시작-->
         <div class="posting">
          <div class="cont_category"><span>글번호 | </span>
                               <span>[말머리] | </span>
@@ -70,11 +54,9 @@
 
 
    </div>
-      <!-- 상단 이동 바 -->
-         <nav class="top1">
-               <a href="#"><img alt="TOP" src="../images/top.png" width="45px"></a>
-         </nav>
-         <!-- 상단 이동 바 끝-->
+        <!-- 상단 이동 바 -->
+		<jsp:include page="search_engine.jsp"></jsp:include>
+        <!-- 상단 이동 바 끝-->
 
    <!-- content 영역 끝 -->
    </article>
