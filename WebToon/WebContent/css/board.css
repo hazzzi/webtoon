@@ -35,7 +35,6 @@ body{
 
 /* header */
 header {
-   border: 1px solid #fff;
    background-image: url("../images/banner.jpg");
    background-repeat: no-repeat;
    background-position: center top;
