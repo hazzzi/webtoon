@@ -201,6 +201,7 @@ header {
 	width: 1514px;
 	height: 30px;
 	color: white;
+	text-align: center;
 }
 
 .cont_category>span {
