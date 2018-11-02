@@ -40,10 +40,7 @@
          </div>
       <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
          <!-- 검색창 영역 시작 -->
-               <div id="srch">
-                  <input type="text">
-                  <a href="#"></a>         
-             </div>
+               <jsp:include page="search_engine.jsp"></jsp:include>
            <!-- 검색창 영역 끝-->
         </div> 
     <!-- 카테고리 영역 끝-->
@@ -55,7 +52,7 @@
 
    </div>
         <!-- 상단 이동 바 -->
-		<jsp:include page="search_engine.jsp"></jsp:include>
+		<jsp:include page="top.jsp"></jsp:include>
         <!-- 상단 이동 바 끝-->
 
    <!-- content 영역 끝 -->

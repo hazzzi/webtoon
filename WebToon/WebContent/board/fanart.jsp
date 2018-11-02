@@ -16,8 +16,8 @@
    <!-- header 시작 -->
    <jsp:include page="header.jsp"></jsp:include>
    <!--/ header 끝 -->
-   </div>
    
+   <jsp:include page="header_main.jsp"></jsp:include>
     <article>
     </article>
    
@@ -25,9 +25,9 @@
    
    
    
-   
-   
-   
+   <jsp:include page="search_engine.jsp"></jsp:include>
+   <jsp:include page="top.jsp"></jsp:include>
+   </div>
    <!-- footer 영역 시작-->
    <jsp:include page="footer.jsp"></jsp:include>
    <!-- footer 영역 끝  -->
