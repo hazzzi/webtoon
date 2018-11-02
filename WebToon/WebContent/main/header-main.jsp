@@ -22,18 +22,18 @@
 		
 	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (시작) -->
 		<div id="banner">
-			<div id="info">
-				<span>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을 받아보세요.</span>
-			</div>
-			<div id="srch-main">
-				<input type="text">
-				<a href="#"></a>		
-			</div>
-			<div class="clear"></div>
 			<div id="menu">
 				<a href="#">추천 받기</a>
 				<a href="#">자유 게시판</a>
 			</div>
+			<div id="srch">
+				<input type="text">
+				<a href="#"></a>		
+			</div>
+			<div id="info">
+				<span>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을 받아보세요.</span>
+			</div>
+			<div class="clear"></div>
 		</div>
 	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (끝) -->
 	</header>
