@@ -22,44 +22,46 @@
      <!-- content 영역 -->
       <div class="content">
            <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
-             <div class="content_top">
-            <div class="board_butt"><a>자유게시판</a></div>
-            <div class="board_butt2"><a>갤러리</a></div>
-            <div class="board_butt2"><a>팬아트</a></div>
-                
-         
-           <!-- 공지사항 영역 시작 -->
-               <div id="news_notice">
-                  <h1 class="notice">공지사항</h1>
-               </div>
-               <div id="context">
-                  	욕하지 마세요!!
-               </div>
-                <hr id="hr">
-             </div> 
-            
-           <!-- 공지사항 영역 끝 -->
-    <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
+           <jsp:include page="header_main.jsp"></jsp:include>  
+    	   <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
        
-    <!-- 카테고리 영역 시작-->
+     <!-- 카테고리 영역 시작-->
         <div class="posting">
-         <div class="cont_category"><span>글번호 | </span>
+         <!-- <div class="cont_category"><span>글번호 | </span>
                               <span>[말머리] | </span>
                               <span>제목 | </span>
                               <span>댓글 수 | </span>
                               <span>작성자 | </span>
                               <span>조회 수 | </span>
-                              <span>작성날짜</span></div>
+                              <span>작성날짜</span>
+         </div> -->
+          <table border="1" class="board_table">
+          	<tr>
+          	  <th>글 번호</th>
+          	  <th>[말머리]</th>
+          	  <th>제목</th>
+          	  <th>댓글 수</th>
+          	  <th>작성자</th>
+          	  <th>조회 수</th>
+          	  <th>작성 날짜</th>          	  
+          	</tr>
+          	<tr>
+          	  <td>1</td>
+          	  <td>[10대]</td>
+          	  <td>안녕하세요</td>
+          	  <td>23</td>
+          	  <td>달자</td>
+          	  <td>169</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          </table>
         <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
           <div class="bd_content">
     
-         </div>
+          </div>
       <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
          <!-- 검색창 영역 시작 -->
-               <div id="srch">
-                  <input type="text">
-                  <a href="#"></a>         
-             </div>
+               <jsp:include page="search_engine.jsp"></jsp:include>
            <!-- 검색창 영역 끝-->
         </div> 
     <!-- 카테고리 영역 끝-->
@@ -70,11 +72,9 @@
 
 
    </div>
-      <!-- 상단 이동 바 -->
-         <nav class="top1">
-               <a href="#"><img alt="TOP" src="../images/top.png" width="45px"></a>
-         </nav>
-         <!-- 상단 이동 바 끝-->
+        <!-- 상단 이동 바 -->
+		<jsp:include page="top.jsp"></jsp:include>
+        <!-- 상단 이동 바 끝-->
 
    <!-- content 영역 끝 -->
    </article>
