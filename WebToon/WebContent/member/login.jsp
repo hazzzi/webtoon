@@ -41,15 +41,15 @@
 </div>
 
 <div class="naver_login">
-<a href="#"><input type="button" value="네이버 이이디로 로그인"></a>
+<a href="#"><img alt="네이버로그인" src="./img/naver_login.PNG"> </a>
 </div>
 
 <div class="kakao_login">
-<a href="#"><input type="button" value="카카오 아이디로 로그인"></a>
+<a href="#"><img alt="카카오로그인" src="./img/kakao_account_login_btn_medium_wide.png"></a>
 </div>
 
 <div class="hpname">
-오늘 뭐 볼까
+오늘 뭐 볼까?
 </div>
 	
 </div>

@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 /* 오후 12:20 2018-11-02 수정 */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -75,19 +76,20 @@ background-color: rgb(16, 18, 20);
 	width: 250px; height: 30px;
 }
 
-.naver_login>a>input {
-	background-color: green;
-	margin-top: 100px;
-	width: 250px; height: 30px;
+.naver_login>a>img {
+
+	margin-top: 10px;
+	width: 250px; height: 40px;
 }
 
-.kakao_login>a>input {
-	background-color: yellow;
+.kakao_login>a>img {
+
 	margin-top: 10px;
-	width: 250px; height: 30px;
+	width: 250px; height: 40px;
 }
 
 .hpname {
+	/* font-family: 'MaplestoryLight', sans-serif; */
 	color: white;
 	margin-top: 20px;
 	font-weight: bold;
