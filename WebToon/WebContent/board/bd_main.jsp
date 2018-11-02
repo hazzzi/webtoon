@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/board.css">
 <link rel="stylesheet" href="../main/css/test.css">
@@ -10,18 +12,7 @@
 <!-- wrap 영역 시작 -->
 <div id="wrap">
    <!-- header 시작 -->
-   <header>
-     <!-- 탑 헤더 영역 시작 -->
-      <div id="top">
-         <div id="logo">
-            <a href="#">오늘 뭐 볼까?</a>
-            <div id="profile">
-               <img src="https://via.placeholder.com/100">
-            </div>
-         </div>
-      </div>
-    <!-- 탑 헤더 영역 끝 -->
-   </header>
+   <jsp:include page="header.jsp"></jsp:include>
    <!--/ header 끝 -->
 
    <!-- article 영역 시작 -->
@@ -33,15 +24,14 @@
             <div class="board_butt"><a>자유게시판</a></div>
             <div class="board_butt2"><a>갤러리</a></div>
             <div class="board_butt2"><a>팬아트</a></div>
-         
-           
+                
          
            <!-- 공지사항 영역 시작 -->
                <div id="news_notice">
                   <h1 class="notice">공지사항</h1>
                </div>
                <div id="context">
-                  욕하지 마세요!!
+                  	욕하지 마세요!!
                </div>
                 <hr id="hr">
              </div> 
@@ -89,13 +79,7 @@
  <!-- article 영역 끝 -->
    
    <!-- footer 영역 시작-->
-     <footer>
-      <hr class="copy_line">
-         <div id="copyright" class="container">
-            <a href="#">도움말</a>|<a href="#">문의사항</a>|<a href="#">개인정보처리방침</a>|<a
-            href="#">약관</a>
-         </div>  
-        </footer> 
+   <jsp:include page="footer.jsp"></jsp:include>
    <!-- footer 영역 끝  -->
 </div>
 <!-- wrap 영역 끝 -->

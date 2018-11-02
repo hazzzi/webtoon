@@ -91,21 +91,20 @@ header {
 }
 
 .board_butt, .board_butt2 {
+   /* border:1px solid #dcdcdc; */
    width: 500px;
    height: 100px;
    margin-right: 5px;
    color:#000;
-   display:inline-block;
-   
+   display:inline-block;  
    border-radius: 3px;
-   border:1px solid #dcdcdc;
    font-family:"MaplestoryLight", Arial, sans-serif;
    font-size:19px;
    font-weight:bold;
 }
 
 .board_butt>a {
-   color: #666666;
+   color: #b8b5c1;
    font-size: 50px;
    position: relative;
    top:40px;
@@ -113,7 +112,7 @@ header {
 }
 
 .board_butt2>a{
-   color: #666666;
+   color: #b8b5c1;
    font-size: 50px;
    position: relative;
    top:40px;
@@ -152,7 +151,8 @@ header {
    box-sizing: border-box;
    display: inline-block;
    text-align: center;
-   margin-top: 10px;
+   margin-top: 20px;
+   margin-bottom: 10px;
    width: 520px;
    margin-left: 998px;
    border-radius: 30px;   
@@ -186,9 +186,9 @@ header {
 }
 
 #news_notice {
-    
+    font-size:20px;
     width:1503px;
-    height: 13px;
+    height: 30px;
     margin-top:3px;
     padding: 10px;
     background-color:white;
@@ -196,15 +196,27 @@ header {
     margin-bottom: 2px;
 }
 
+.notice{
+   padding-top: 5px;
+}
+
+
+
 #context {
    width:1503px;
-   height: 30px;
+   height: 100px;
    padding: 10px;
    border-top: none;
    background-color:white;
 }
 
 
+#hr{
+   width: 1522px;
+   margin: 15px 0;
+   border: 1px dotted #c0c0c0;
+
+}
 
 .posting {
    /* border: 1px solid blue; */
@@ -267,7 +279,8 @@ header {
 #copyright a {
    color: #949494;
    text-decoration: none;
-   margin: 15px;
+   margin: 20px;
+   font-size: 17px;
 }
 
 #copyright a:hover {
