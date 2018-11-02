@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/test.css">
-<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/header-main.css">
 </head>
 <body>
 <div id="wrap">
@@ -16,6 +16,7 @@
 	<!-- header 영역 (시작) -->
 	<jsp:include page="header-main.jsp" />
 	<!-- header 영역 (끝) -->
+	
 	
 	<!-- 메인 컨텐츠 영역  (시작) 다른페이지 작업시 삭제할 부분-->
 	<!-- 슬라이드 이용 -->
