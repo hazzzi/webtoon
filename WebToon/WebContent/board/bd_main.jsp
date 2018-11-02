@@ -27,13 +27,34 @@
        
      <!-- 카테고리 영역 시작-->
         <div class="posting">
-         <div class="cont_category"><span>글번호 | </span>
+         <!-- <div class="cont_category"><span>글번호 | </span>
                               <span>[말머리] | </span>
                               <span>제목 | </span>
                               <span>댓글 수 | </span>
                               <span>작성자 | </span>
                               <span>조회 수 | </span>
-                              <span>작성날짜</span></div>
+                              <span>작성날짜</span>
+         </div> -->
+          <table border="1" class="board_table">
+          	<tr>
+          	  <th>글 번호</th>
+          	  <th>[말머리]</th>
+          	  <th>제목</th>
+          	  <th>댓글 수</th>
+          	  <th>작성자</th>
+          	  <th>조회 수</th>
+          	  <th>작성 날짜</th>          	  
+          	</tr>
+          	<tr>
+          	  <td>1</td>
+          	  <td>[10대]</td>
+          	  <td>안녕하세요</td>
+          	  <td>23</td>
+          	  <td>달자</td>
+          	  <td>169</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          </table>
         <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
           <div class="bd_content">
     

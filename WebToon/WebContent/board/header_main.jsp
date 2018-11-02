@@ -12,7 +12,7 @@
                   <h1 class="notice">공지사항</h1>
                </div>
                <div id="context">
-                  	욕하지 마세요!!
+                  	* 욕설 확인 될 경우 바로 삭제조치 합니다.
                </div>
                 <hr id="hr">
        		 </div> 
