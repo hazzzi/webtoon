@@ -122,14 +122,6 @@ header {
 	top:1px;
 }
 
-/* #search {
-   width: 1514px;
-   height: 30px;
-   background-color: #fff;
-   float: left;
-   margin-top: 8px;
-   } */
-
 /* search */
 #srch{
    height: 40px;
@@ -154,6 +146,7 @@ header {
     font-weight: bold;
     padding: 0 50px 0 20px;
 }
+
 #srch>a{
    box-sizing: border-box;
    width: 40px;
