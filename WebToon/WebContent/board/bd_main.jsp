@@ -37,7 +37,7 @@
         <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
           <div class="bd_content">
     
-         </div>
+          </div>
       <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
          <!-- 검색창 영역 시작 -->
                <jsp:include page="search_engine.jsp"></jsp:include>
