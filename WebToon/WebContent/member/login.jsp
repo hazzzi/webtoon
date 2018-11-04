@@ -7,13 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css">
-<style type="text/css">
 
 
-</style>
 </head>
 <body>
-<form action="#" method="post">
+<form action="#" method="post" name="f"  >
 <div class="div">
 
 <div class="login">
