@@ -37,7 +37,7 @@
 </div>
 
 <div class="search_input">
-<a href="#"><input type="button" value="아이디/비밀번호 찾기"></a>
+<a href="forgetid.jsp"><input type="button" value="아이디/비밀번호 찾기"></a>
 </div>
 
 <div class="naver_login">

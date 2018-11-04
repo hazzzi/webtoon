@@ -7,11 +7,13 @@
 }
 
 body {
-background-color: rgb(16, 18, 20);
+background-image: url("../img/banner.jpg");
+background-repeat: no-repeat;
+background-size: cover;
 }
 
-.div {
-	background-image: url("../img/banner.jpg");
+.div {background-color:rgb(16, 18, 20,0.2);/* 기존 색 rgb(16, 18, 20) */
+	
 	border: 1px solid;
 	margin: auto auto;
 	padding: 10px 10px;

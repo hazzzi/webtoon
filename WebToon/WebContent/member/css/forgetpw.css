@@ -1,5 +1,4 @@
-@CHARSET "UTF-8";
-/* 오후 12:20 2018-11-02 수정 */
+@CHARSET "EUC-KR";
 * {
 	margin: 0;
 	padding: 0;
@@ -25,71 +24,61 @@ background-size: cover;
 	color: white;
 }
 
-.login {
+.forgetid {
+		margin: auto auto ;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	width:130px; height: 40px;
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+}
+
+
+.forgetid>a{
+	text-decoration: none;
+	color: gray;
+}
+
+.forgetpw {
+
 	color: white;
 	margin: auto auto ;
 	text-align: center;
 	display: inline-block;	
 	font-size: 20px;
-	width: 130px; height: 40px;
-	border-bottom: 1px solid white;
-	border-right: 1px solid white;
+	width: 130px;
 }
 
-.login>a{
-	text-decoration: none;
-	color: gray;
-}
+.forgetpw>a{
 
-.join {
+		text-decoration: none;
 	color: white;
-	margin: auto auto ;
-	text-align: center;
-	display: inline-block;
-	font-size: 20px;
-	width:130px;
-}
+} 
 
-.join>a{
-	text-decoration: none;
-	color: white;
-}
+.ex>p{color:white;
+margin-top:10px;}
 
-.id_input>input {
-	margin-top: 100px;
-	width: 250px; height: 30px;
-}
 
-.email_input>input {
+.getpw>input {
 	margin-top: 10px;
 	width: 250px; height: 30px;
 }
 
-.pwd_input>input {
-	margin-top: 10px;
-	width: 250px; height: 30px;
-}
-
-.pwd_hint>select,.pwd_hint>input {
-	margin-top: 10px;
-	width: 250px; height: 30px;
-}
-
-.nic_input>input {
-	margin-top: 10px;
-	width: 250px; height: 30px;
-}
-
-
-.join_input>input {
+.id>input {
 	margin-top: 50px;
 	width: 250px; height: 30px;
 }
 
+.pwd_hint>select {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+.answer_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+.loginpage>a{
 
-.hpname {
-	color: white;
-	margin-top: 20px;
-	font-weight: bold;
-	font-size: 20px;
+color:white;
 }
