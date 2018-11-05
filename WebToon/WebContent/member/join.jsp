@@ -7,13 +7,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/join.css">
-<style type="text/css">
+<script type="text/javascript">
 
+function checking(){
+	var pass = document.f.pass.value;
+	var repass = document.f.repass.value;
 
-</style>
+	if (document.f.pass.value != document.f.repass.value) {
+         alert("비밀번호가 일치하지 않습니다")
+         document.f.pass.value = ""
+        	 document.f.repass.value = ""
+         document.f.pass.focus()
+         return false;
+     }
+}
+</script>
 </head>
 <body>
-<form action="#" method="post">
+<form action="login.jsp" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
 
 <div class="login">
@@ -29,7 +40,7 @@
 </div>
 
 <div class="email_input">
-<input type="email" name="id" placeholder="이메일" required>
+<input type="email" name="email" placeholder="이메일" required>
 </div>
 
 <div class="pwd_input">
@@ -37,7 +48,7 @@
 </div>
 
 <div class="pwd_input">
-<input type="password" name="pass" placeholder="비밀번호확인" required>
+<input type="password" name="repass" placeholder="비밀번호확인" required>
 </div>
 
 <div class="pwd_hint">
@@ -52,11 +63,11 @@
 </div>
 
 <div class="pwd_hint">
-<input type="text" name="pass" placeholder="비밀번호 힌트 답" required>
+<input type="text" name="pass_htnt" placeholder="비밀번호 힌트 답" required>
 </div>
 
 <div class="nic_input">
-<input type="text" name="pass" placeholder="닉네임" required>
+<input type="text" name="pass_answer" placeholder="닉네임" required>
 </div>
 
 <div class="pwd_hint">

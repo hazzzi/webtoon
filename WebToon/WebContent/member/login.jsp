@@ -7,13 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css">
-<style type="text/css">
 
 
-</style>
 </head>
 <body>
-<form action="#" method="post">
+<form action="#" method="post" name="f"  >
 <div class="div">
 
 <div class="login">
@@ -37,19 +35,19 @@
 </div>
 
 <div class="search_input">
-<a href="#"><input type="button" value="아이디/비밀번호 찾기"></a>
+<a href="forgetid.jsp"><input type="button" value="아이디/비밀번호 찾기"></a>
 </div>
 
 <div class="naver_login">
-<a href="#"><input type="button" value="네이버 이이디로 로그인"></a>
+<a href="#"><img alt="네이버로그인" src="./img/naver_login.PNG"> </a>
 </div>
 
 <div class="kakao_login">
-<a href="#"><input type="button" value="카카오 아이디로 로그인"></a>
+<a href="#"><img alt="카카오로그인" src="./img/kakao_account_login_btn_medium_wide.png"></a>
 </div>
 
 <div class="hpname">
-오늘 뭐 볼까
+오늘 뭐 볼까?
 </div>
 	
 </div>

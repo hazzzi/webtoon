@@ -34,8 +34,43 @@ body{
 
 /* content 영역 (시작) */
 
-/* content 영역 (끝) */
+#sildeshow{
+	color: #eee;
+	margin: 65px auto 0 auto;
+	max-width: 800px;
+	font-size: 25px;
+	text-align: center;
+}
 
+#sildeshow>h2{
+	display: block;
+}
+
+
+@media all and (min-width:1200px){
+	#sildeshow {
+		max-width:1300px;
+	}
+}
+#content {
+	min-width: 1288px;
+}
+#content>h2{
+	margin: 0 70px;
+	text-align: left;
+}
+
+#con-img{
+	margin: 40px 20px;
+}
+
+#con-img>section{
+	display: inline-block;
+}
+
+
+
+/* content 영역 (끝) */
 
 
 /* footer 영역 (시작) */

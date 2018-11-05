@@ -20,25 +20,33 @@
 	
 	
 	<!-- 메인 컨텐츠 영역  (시작) 다른페이지 작업시 삭제할 부분-->
-	<script src="js/event.js"></script>
+	<!-- <script src="js/event.js"></script> -->
 	<!-- 슬라이드 이용 -->
+	<!-- ddd -->
+	<% for(int i=0 ; i<10 ; i++){ %>
 	<div id="sildeshow">
 		<div id="content">
-			<h2>장르1</h2>
-			<section class="webtoon-img">
-				<img src="https://via.placeholder.com/250">
-			</section>
-			<section class="webtoon-img">
-				<img src="https://via.placeholder.com/250">
-			</section>
-			<section class="webtoon-img">
-				<img src="https://via.placeholder.com/250">
-			</section>
-			<section class="webtoon-img">
-				<img src="https://via.placeholder.com/250">
-			</section>
+			<h2>장르<%=i+1 %></h2>
+			<div id="con-img">
+				<section class="webtoon-img">
+					<img src="https://via.placeholder.com/235">
+				</section>
+				<section class="webtoon-img">
+					<img src="https://via.placeholder.com/235">
+				</section>
+				<section class="webtoon-img">
+					<img src="https://via.placeholder.com/235">
+				</section>
+				<section class="webtoon-img">
+					<img src="https://via.placeholder.com/235">
+				</section>
+				<section class="webtoon-img">
+					<img src="https://via.placeholder.com/235">
+				</section>
+			</div>
 		</div>
 	</div>
+	<%} %>
 	<!-- 메인 컨텐츠 영역  (끝) 다른페이지 작업시 삭제할 부분-->
 	
 	<!-- footer 영역 (시작)-->
