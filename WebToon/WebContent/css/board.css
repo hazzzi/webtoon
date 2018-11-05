@@ -123,10 +123,12 @@ header {
 
 .board_butt>a:hover, .board_butt2>a:hover {
    color:#fff;
+   
 }
 
 .board_butt>a:FOCUS, .board_butt2>a:FOCUS {
    color:#fff;
+   
 }
 
 .board_butt:active,.board_butt2:active {
@@ -368,6 +370,7 @@ td>a:HOVER {
     letter-spacing: 4px;
     width: 320px;
 }
+
 
 /* fanart css (끝) */
 
