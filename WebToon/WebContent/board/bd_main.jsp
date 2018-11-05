@@ -98,13 +98,16 @@
 			    <li><a href="#">&gt;</a></li> 
 			</ul>   
           </div>
-      <!--  게시글 영역 테두리 -->
+               
            <!-- 검색창 영역 시작 -->
                <jsp:include page="search_engine.jsp"></jsp:include>
            <!-- 검색창 영역 끝-->           		
+         <jsp:include page="write.jsp"></jsp:include>
+
         </div> 
     <!-- 카테고리 영역 끝-->
-    
+
+
    </div>
         <!-- 상단 이동 바 -->
 		<jsp:include page="top.jsp"></jsp:include>

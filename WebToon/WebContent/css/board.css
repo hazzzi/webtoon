@@ -122,10 +122,12 @@ header {
 
 .board_butt>a:HOVER,.board_butt>a:FOCUS {
    color:#fff;
+   
 }
 
 .board_butt2>a:HOVER,.board_butt2>a:FOCUS {
    color:#fff;
+   
 }
 
 .board_butt:ACTIVE,.board_butt2:ACTIVE {
@@ -301,6 +303,28 @@ td>a:HOVER {
     border:1px solid #8000ff;  
     background-color:#8000ff;  
 }
+
+.write{
+	width: 150px;
+    height: 41px;
+    background-color: white;
+    margin-left: 301px;
+    position: relative;
+    top: -36px;
+/*     border-collapse: collapse; */
+    border: none;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.write:HOVER{
+	background-color: #d0a2ff;
+}
+
+
 
 /* top-button */
 .top1{
