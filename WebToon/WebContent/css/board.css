@@ -333,9 +333,41 @@ td>a:HOVER {
    text-decoration: underline;
 }
 
-/* fanart css */
+/* fanart css (시작)*/
 
-/* fanart css */
+.fan_content{
+	min-height: 1500px;
+}
+
+.fan_posting{
+ /* border: 1px solid blue; */
+   width: 1550px;
+   display: block;
+   margin: 8px auto;
+}
+
+.fan_content2{
+	width: 1524px;
+/*     border: 1px solid #212124; */
+    min-height: 300px
+    margin-top: 7px;
+}
+
+.fan_content2>img{
+	padding: 8.3px;
+}
+
+.fan_paging{
+/*  	color: #fff; */
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px 630px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
+}
+
+/* fanart css (끝) */
 
 
 
