@@ -38,16 +38,22 @@
 <a href="forgetid.jsp"><input type="button" value="아이디/비밀번호 찾기"></a>
 </div>
 
+<a href="#">
 <div class="naver_login">
-<a href="#"><img alt="네이버로그인" src="./img/naver_login.PNG"> </a>
+<span class="nspan1"><img src="./img/naver_logo.PNG" alt="네이버로그인"></span>
+<span class="nspan2">네이버 계정으로 로그인</span>
 </div>
+</a>
 
+<a href="#">
 <div class="kakao_login">
-<a href="#"><img alt="카카오로그인" src="./img/kakao_account_login_btn_medium_wide.png"></a>
+<span class="kspan1"><img src="./img/kakao_logo.png" alt="카카오로그인"></span>
+<span class="kspan2">카카오 계정으로 로그인</span>
 </div>
+</a>
 
 <div class="hpname">
-오늘 뭐 볼까?
+오늘 뭐 볼까
 </div>
 	
 </div>
