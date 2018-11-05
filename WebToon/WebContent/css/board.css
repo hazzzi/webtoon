@@ -295,9 +295,30 @@ td>a:HOVER {
    text-decoration: underline;
 }
 
-/* fanart css */
+/* fanart css (시작)*/
 
-/* fanart css */
+.fan_content{
+	min-height: 2000px;
+}
+
+.fan_posting{
+ /* border: 1px solid blue; */
+   width: 1550px;
+   display: block;
+   margin: 8px auto;
+}
+
+.fan_content{
+   width: 1524px;
+   border: 1px solid #212124;
+   min-height: 1800px;
+   margin-top: 7px;
+ 
+   
+}
+
+
+/* fanart css (끝) */
 
 
 
