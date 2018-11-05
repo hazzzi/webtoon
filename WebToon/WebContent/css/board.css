@@ -125,6 +125,10 @@ header {
    color:#fff;
 }
 
+.board_butt>a:FOCUS, .board_butt2>a:FOCUS {
+   color:#fff;
+}
+
 .board_butt:active,.board_butt2:active {
    position:relative;
    top:1px;
