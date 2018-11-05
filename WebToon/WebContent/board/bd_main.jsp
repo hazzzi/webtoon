@@ -111,7 +111,7 @@
          <!-- 검색창 영역 시작 -->
                <jsp:include page="search_engine.jsp"></jsp:include>
            <!-- 검색창 영역 끝-->
-         <jsp:include page="write.jsp"></jsp:include>
+          <input type="button" value="글 쓰기" class="write">
         </div> 
     <!-- 카테고리 영역 끝-->
     
