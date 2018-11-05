@@ -35,29 +35,55 @@
                               <span>조회 수 | </span>
                               <span>작성날짜</span>
          </div> -->
-          <table border="1" class="board_table">
-          	<tr>
-          	  <th>글 번호</th>
+        <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
+          <div class="bd_content">
+    		<table border="1" class="board_table">
+          	<tr>         	
+          	  <th class="table_sh">글 번호</th>
           	  <th>[말머리]</th>
           	  <th>제목</th>
-          	  <th>댓글 수</th>
-          	  <th>작성자</th>
-          	  <th>조회 수</th>
-          	  <th>작성 날짜</th>          	  
+          	  <th class="table_sh">댓글 수</th>
+          	  <th class="table_mid">작성자</th>
+          	  <th class="table_sh">조회 수</th>
+          	  <th>작성 날짜</th>      	    	  
           	</tr>
           	<tr>
           	  <td>1</td>
-          	  <td>[10대]</td>
-          	  <td>안녕하세요</td>
-          	  <td>23</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">안녕하세요</a></td>
+          	  <td>5</td>
           	  <td>달자</td>
-          	  <td>169</td>
+          	  <td>50</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<tr>
+          	  <td>2</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">출석체크 합니다~</a></td>
+          	  <td>19</td>
+          	  <td>달자달자</td>
+          	  <td>2</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<tr>
+          	  <td>3</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
+          	  <td>134</td>
+          	  <td>제리</td>
+          	  <td>9999</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<tr>
+          	  <td>4</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">출첵 ㅇㅇ</a></td>
+          	  <td>10</td>
+          	  <td>토미</td>
+          	  <td>78</td>
           	  <td>2018.11.02</td>
           	</tr>
           </table>
-        <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
-          <div class="bd_content">
-    
           </div>
       <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
          <!-- 검색창 영역 시작 -->
