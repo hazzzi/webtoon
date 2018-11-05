@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../main/css/test.css">
 <link rel="stylesheet" href="../main/css/header-main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <!-- wrap 영역 시작 -->
@@ -24,7 +25,11 @@
            <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
            <jsp:include page="header_main.jsp"></jsp:include>  
     	   <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
-       
+       		<script type="text/javascript">
+				$(document).ready(function(){
+					$('#bdFree').html("★자유게시판★");
+				});
+			</script>
      <!-- 카테고리 영역 시작-->
         <div class="posting">
          <!-- <div class="cont_category"><span>글번호 | </span>

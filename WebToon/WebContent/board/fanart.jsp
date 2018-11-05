@@ -21,7 +21,11 @@
 
 		<div class="fan_content">
 			<jsp:include page="header_main.jsp"></jsp:include>
-
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#bd_fan').html("★팬아트★");
+				});
+			</script>
 			<article>
 			<div class="fan_posting">
 				<div class="fan_content2">
