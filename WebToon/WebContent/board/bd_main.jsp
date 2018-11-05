@@ -32,15 +32,7 @@
 			</script>
      <!-- 카테고리 영역 시작-->
         <div class="posting">
-         <!-- <div class="cont_category"><span>글번호 | </span>
-                              <span>[말머리] | </span>
-                              <span>제목 | </span>
-                              <span>댓글 수 | </span>
-                              <span>작성자 | </span>
-                              <span>조회 수 | </span>
-                              <span>작성날짜</span>
-         </div> -->
-        <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
+        <!--  게시글 영역 테두리 -->
           <div class="bd_content">
     		<table border="1" class="board_table">
           	<tr>         	
@@ -106,21 +98,17 @@
 			    <li><a href="#">&gt;</a></li> 
 			</ul>   
           </div>
-      <!--  게시글 영역 테두리 예제  -->
-     
-         <!-- 검색창 영역 시작 -->
+               
+           <!-- 검색창 영역 시작 -->
                <jsp:include page="search_engine.jsp"></jsp:include>
-           <!-- 검색창 영역 끝-->
-          <input type="button" value="글 쓰기" class="write">
+
+         <jsp:include page="write.jsp"></jsp:include>
+
+
         </div> 
     <!-- 카테고리 영역 끝-->
-    
-    
-    <!-- 이 곳에 게시물 영역이 들어갑니다. --> 
 
-	
-	
-	
+
    </div>
         <!-- 상단 이동 바 -->
 		<jsp:include page="top.jsp"></jsp:include>
