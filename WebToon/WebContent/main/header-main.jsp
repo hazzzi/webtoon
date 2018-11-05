@@ -26,7 +26,7 @@
 		<div id="banner">
 			<div id="menu">
 				<a href="#">추천 받기</a>
-				<a href="#">자유 게시판</a>
+				<a href="../board/bd_main.jsp">자유 게시판</a>
 			</div>
 			<div id="srch">
 				<input type="text" placeholder="작품 검색">

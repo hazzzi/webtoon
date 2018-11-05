@@ -4,7 +4,7 @@
 		<div id="top">
 			<div id="logo">
 				<i class="fa fa-search co"></i>
-				<a href="#">오늘 뭐 볼까?</a>
+				<a href="../main/index.jsp">오늘 뭐 볼까?</a>
 				<!-- 프로필 이미지  -->
 				<div id="profile">
 					<img src="https://via.placeholder.com/100" id="imgtrans"><br>

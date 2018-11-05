@@ -21,7 +21,11 @@
 
 		<div class="fan_content">
 			<jsp:include page="header_main.jsp"></jsp:include>
-
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#bd_fan').html("★팬아트★");
+				});
+			</script>
 			<article>
 			<div class="fan_posting">
 				<div class="fan_content2">
@@ -48,6 +52,7 @@
 				<!-- 팬아트의 콘텐츠가 들어갈 영역 (끝) -->
 				
 				<jsp:include page="search_engine.jsp"></jsp:include>
+				 <jsp:include page="write.jsp"></jsp:include>
 			</div>
 		</div>
 		</article>
