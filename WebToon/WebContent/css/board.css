@@ -207,7 +207,8 @@ header {
    font-size: 22px;
    font-weight: bold;
    position: relative;
-   left: 493px;
+   top: 0;
+   left: 415px;
 }
 
 #context span {
@@ -222,7 +223,7 @@ header {
    margin: 15px 0;
    border: 1px dotted #c0c0c0;
    position: relative;
-   left: 493px;
+   left: 415px;
 }
 
 /* 게시물  */
