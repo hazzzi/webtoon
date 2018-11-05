@@ -206,19 +206,23 @@ header {
    background-color:white;
    font-size: 22px;
    font-weight: bold;
+   position: relative;
+   left: 493px;
 }
 
 #context span {
 	display: inline-block;
 	margin-top: 10px;
 	padding: 5px;
+	    
 }
 
 #hr{
    width: 1522px;
    margin: 15px 0;
    border: 1px dotted #c0c0c0;
-
+   position: relative;
+   left: 493px;
 }
 
 /* 게시물  */
@@ -317,7 +321,6 @@ td>a:HOVER {
     font-family: 'NanumBarunpenR', sans-serif;
     font-size: 20px;
     font-weight: bold;
-
 }
 
 .write:HOVER{

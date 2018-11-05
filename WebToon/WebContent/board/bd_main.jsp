@@ -23,8 +23,15 @@
      <!-- content 영역 -->
       <div class="content">
            <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
-           <jsp:include page="header_main.jsp"></jsp:include>  
+           <jsp:include page="header_main.jsp"></jsp:include>    
+          
+           <div id="context">
+                  	<span>* 타인의 명예를 훼손하거나 인격을 모독하는 발언은 삼가해 주세요.</span><br>
+                  	<span>* 혐오성 혹은 음란성을 띄고 있는 자극적인 글은 삭제 조치됩니다. </span><br>
+               </div>
+              
     	   <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
+    	    <hr id="hr">
        		<script type="text/javascript">
 				$(document).ready(function(){
 					$('#bdFree').html("★자유게시판★");
@@ -101,8 +108,9 @@
                
            <!-- 검색창 영역 시작 -->
                <jsp:include page="search_engine.jsp"></jsp:include>
-           <!-- 검색창 영역 끝-->           		
+
          <jsp:include page="write.jsp"></jsp:include>
+
 
         </div> 
     <!-- 카테고리 영역 끝-->
