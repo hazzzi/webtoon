@@ -97,7 +97,6 @@ header {
    width: 500px;
    height: 100px;
    margin-right: 5px;
-   color:#000;
    display:inline-block;  
    border-radius: 3px;
    font-family:"MaplestoryLight", Arial, sans-serif;
@@ -121,17 +120,17 @@ header {
    left: 184.5px;
 }
 
-.board_butt>a:hover, .board_butt2>a:hover {
+.board_butt>a:HOVER,.board_butt>a:FOCUS {
    color:#fff;
    
 }
 
-.board_butt>a:FOCUS, .board_butt2>a:FOCUS {
+.board_butt2>a:HOVER,.board_butt2>a:FOCUS {
    color:#fff;
    
 }
 
-.board_butt:active,.board_butt2:active {
+.board_butt:ACTIVE,.board_butt2:ACTIVE {
    position:relative;
    top:1px;
 }
@@ -161,7 +160,7 @@ header {
    float: left;
    border: none;
    background-color: #ddd;
-   font-size: 20px;
+   font-size: 26px;
    font-family: 'NanumBarunpenR', sans-serif;
    font-weight: bold;
    padding: 0 50px 0 20px;
