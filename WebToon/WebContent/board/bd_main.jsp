@@ -47,6 +47,7 @@
           	  <th class="table_sh">조회 수</th>
           	  <th>작성 날짜</th>      	    	  
           	</tr>
+          	<% for(int i=0 ; i<5 ; i++){ %>
           	<tr>
           	  <td>1</td>
           	  <td>[자유게시판]</td>
@@ -83,6 +84,7 @@
           	  <td>78</td>
           	  <td>2018.11.02</td>
           	</tr>
+          	<%} %>
           </table>
           	<ul class="paging">  
           		<li><a href="#">&lt;</a></li>

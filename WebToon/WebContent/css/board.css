@@ -80,7 +80,7 @@ header {
 /* 전체 content 영역 */
 .content {
 /*    border: 1px solid pink; */
-   min-height: 2000px;
+   min-height: 1000px;
 }
 
 /* 버튼, 공지사항 영역 */
@@ -136,19 +136,21 @@ header {
 
 
 /* search */
-#srch{
+#bd_srch{
    height: 40px;
    box-sizing: border-box;
    display: inline-block;
    text-align: center;
    margin-top: 20px;
-   margin-bottom: 10px;
+   margin-bottom: 20px;
    width: 520px;
-   margin-left: 998px;
-   border-radius: 30px;   
+   margin-left: 505px;
+   border-radius: 30px;  
+   position: relative;
+   left:25px; 
 }
 
-#srch>input{
+#bd_srch>input{
    box-sizing: border-box;
    width: 530px;
    height: 43px;
@@ -163,7 +165,7 @@ header {
    padding: 0 50px 0 20px;
    border-radius: 30px;
 }
-#srch>a{
+#bd_srch>a{
    box-sizing: border-box;
    width: 40px;
    height: 41px;
@@ -172,7 +174,7 @@ header {
    background-size: cover;
    float: right;
    position: relative;
-   bottom: 0px;
+   bottom: 42px;
 }
 
 /* 공지사항 */
@@ -229,7 +231,7 @@ header {
 .bd_content{
    width: 1524px;
 /*   border: 1px solid #212124; */
-   min-height: 1800px;
+   min-height: 800px;
    margin-top: 7px;
 }
 
