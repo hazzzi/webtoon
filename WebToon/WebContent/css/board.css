@@ -89,7 +89,7 @@ header {
    width: 1550px;
    min-height: 100px;
    margin: 0 auto;
-   padding-top: 50px;
+   padding-top: 80px;
 }
 
 .board_butt, .board_butt2 {
@@ -129,6 +129,7 @@ header {
    position:relative;
    top:1px;
 }
+
 
 /* search */
 #srch{
