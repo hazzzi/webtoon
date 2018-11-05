@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+/* 폰트 */
+@font-face {font-family: 'NanumBarunpenR';	src: url("../css/font/NanumBarunpenR.ttf") format('truetype');}
+@font-face {font-family: 'MaplestoryLight';src: url("../css/font/Maplestory Light.ttf") format('truetype');}
+
+*{margin: 0;
+padding: 0;}
+body{
+   background-color:rgb(16, 18, 20);
+   font-family: 'NanumBarunpenR', sans-serif;
+   font-size: 10pt;
+   line-height: 1.2em;
+   color: #333;
+   min-height: 900px;
+    margin: 0 auto;
+}
+.clear{clear: both;}
+.wrap {
+	border:1px solid yellow;
+   background-color: rgb(16, 18, 20);
+   min-width: 1200px;
+  
+   margin: 0 auto;
+}
+
+.profile_menu{
+	border:1px solid white;
+	width:820px;
+   height:620px;
+     margin: 0 auto;
+}
+#wd1{
+	border:1px solid blue;
+	height:300px;
+	width:400px;  
+	float: left;
+	
+}
+#wd2{background-color:fuchsia;
+	border:1px solid red;
+	height:300px;
+	width:400px; 
+	margin-left:400px;  
+}
+#wd3{background-color:gray;
+	border:1px solid blue;
+	height:300px;
+	width:400px; 
+		float: left; 
+}
+#wd4{background-color:gray;
+	border:1px solid blue;
+	height:300px;
+	width:400px;  
+}
+
+/*
+.wd2{
+	border:1px solid green;
+	height:200px;
+	width:300px;
+	   margin: 0 auto;
+}
+
+.wd3{
+	border:1px solid blue;
+	height:200px;
+	width:300px;
+	float: left;
+	   margin: 0 auto;
+}
+
+
+
+.wd4{
+	border:1px solid green;
+	height:200px;
+	width:300px;
+	   margin: 0 auto;
+}
+
+ */
