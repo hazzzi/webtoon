@@ -308,10 +308,10 @@ td>a:HOVER {
 	width: 150px;
     height: 41px;
     background-color: white;
-    margin-left: 301px;
+    margin-left: 345px;
     position: relative;
-    top: -36px;
-/*     border-collapse: collapse; */
+    top: -80px;
+    /* border-collapse: collapse; */
     border: none;
     border-radius: 30px;
     font-family: 'NanumBarunpenR', sans-serif;
