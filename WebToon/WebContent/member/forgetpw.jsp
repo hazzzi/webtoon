@@ -17,9 +17,10 @@
 <div class="forgetpw">
 <a href="forgetpw.jsp"><strong>비밀번호 찾기</strong></a>
 </div>
-<div class="ex"><p>회원가입에 등혹된 정보로 비밀번호를 찾을 수 있습니다.</p></div>
 
-<div class="id"><input type="text"name="id"  readonly value="아이디" ></div>
+<div class="ex">등록된 아이디와 비밀번호 힌트를 입력하세요</div>
+
+<div class="id"><input type="text"name="id" placeholder="아이디" ></div>
 
 <div class="pwd_hint">
 <select name="sel_hint" required>
@@ -42,9 +43,13 @@
 <input type="submit" value="비밀번호 찾기">
 </div>
 <div class="loginpage"><a href="login.jsp">로그인 하기</a></div>
+
+<div class="hpname">
+오늘 뭐 볼까
+</div>
+
 </div>
 </form>
-
 
 </body>
 </html>
