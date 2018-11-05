@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+/* top-button */
+.top1{
+   position: fixed;
+   right: 30px;
+   bottom: 30px; 
+   z-index: 1;
+}
+
+
+/*copyright*/
+#copyright {
+   overflow: hidden;
+   padding: 3em 0em 6em 0em;
+   border-top: 1px solid #212124;
+   text-align: center;
+   font-family: -webkit-body;
+}
+
+#copyright p {
+   font-size: 1em;
+}
+
+#copyright a {
+   color: #949494;
+   text-decoration: none;
+   margin: 20px;
+   font-size: 17px;
+}
+
+#copyright a:hover {
+   text-decoration: underline;
+}
