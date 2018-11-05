@@ -11,11 +11,8 @@
                <div id="news_notice">
                   <h1 class="notice">공지사항</h1>
                </div>
-               <div id="context">
-                  	<span>* 욕설 확인 될 경우 바로 삭제조치 합니다.</span><br>
-                  	<span>* 등업 원하시는 분들은 공지사항 확인해 주세요.</span><br>
-               </div>
-                <hr id="hr">
+               
+                
        		 </div> 
             
            <!-- 공지사항 영역 끝 -->
