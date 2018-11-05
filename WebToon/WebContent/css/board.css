@@ -77,21 +77,23 @@ header {
 }
 
 
-/* content */
+/* 전체 content 영역 */
 .content {
+/*    border: 1px solid pink; */
    min-height: 2000px;
 }
 
+/* 버튼, 공지사항 영역 */
 .content_top {
-/*    border: 1px solid #fff; */
+/*    border: 1px solid #ff0000; */
    width: 1550px;
    min-height: 100px;
    margin: 0 auto;
-   padding-top: 50px;
+   padding-top: 80px;
 }
 
 .board_butt, .board_butt2 {
-   /* border:1px solid #dcdcdc; */
+/*    border:1px solid #dcdcdc; */
    width: 500px;
    height: 100px;
    margin-right: 5px;
@@ -119,31 +121,15 @@ header {
    left: 184.5px;
 }
 
-.board_butt:hover {
-   background-color:#f6f6f6;
+.board_butt>a:hover, .board_butt2>a:hover {
+   color:#fff;
 }
 
-.board_butt2:hover {
-   background-color:#f6f6f6;
-}
-
-.board_butt:active {
+.board_butt:active,.board_butt2:active {
    position:relative;
    top:1px;
 }
 
-.board_butt2:active {
-   position:relative;
-   top:1px;
-}
-
-/* #search {
-   width: 1514px;
-   height: 30px;
-   background-color: #fff;
-   float: left;
-   margin-top: 8px;
-   } */
 
 /* search */
 #srch{
@@ -168,10 +154,10 @@ header {
    border: none;
    background-color: #ddd;
    font-size: 20px;
-    font-family: 'NanumBarunpenR', sans-serif;
-    font-weight: bold;
-    padding: 0 50px 0 20px;
-    border-radius: 30px;
+   font-family: 'NanumBarunpenR', sans-serif;
+   font-weight: bold;
+   padding: 0 50px 0 20px;
+   border-radius: 30px;
 }
 #srch>a{
    box-sizing: border-box;
@@ -182,10 +168,12 @@ header {
    background-size: cover;
    float: right;
    position: relative;
-   bottom: 42px;
+   bottom: 0px;
 }
 
+/* 공지사항 */
 #news_notice {
+/* 	border: 1px solid blue; */
     font-size:20px;
     width:1503px;
     height: 30px;
@@ -202,7 +190,7 @@ header {
 }
 
 
-
+/* 공지사항 내용  */
 #context {
    width:1503px;
    height: 100px;
@@ -213,6 +201,11 @@ header {
    font-weight: bold;
 }
 
+#context span {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 5px;
+}
 
 #hr{
    width: 1522px;
@@ -221,54 +214,96 @@ header {
 
 }
 
+/* 게시물  */
 .posting {
-   /* border: 1px solid blue; */
+/*    border: 1px solid blue; */
    width: 1550px;
    display: block;
    margin: 8px auto;
 }
 
-/* .cont_category {
-   background-color: white;
-   margin-top: 8px;
-   border: 1px solid white;
-   border-right: none;
-   border-left: none;
-   width: 1522px;
-   height: 30px;
-   color: white;
-   text-align: center;
+.bd_content{
+   width: 1524px;
+/*   border: 1px solid #212124; */
+   min-height: 1800px;
+   margin-top: 7px;
 }
-
-.cont_category>span {
-   border: 1px solid pink;
-   font-size: 20px;
-   color: white;
-   position: relative;
-   top: 5px;
-   padding-right: 155px;
-   left: 82px;
-} */
 
 .board_table {
-	color: white;
+	border-collapse:collapse;
+	background-color: white;
+	width: 1526px;
+	text-align: center;
+	font-weight: bold;
 }
 
+.board_table th {
+	background-color: #e4e4e4;
+	font-size: 22px;
+	height: 40px;
+}
 
+.board_table td {
+	font-size: 20px;
+	height: 35px;
+}
+
+td.table_sh {
+	width: 30px;
+}
+
+td.table_mid {
+	width: 150px;
+}
+
+td>a {
+	color: black;
+}
+
+td>a:HOVER {
+	color: #8000ff;
+	text-decoration: underline;
+}
+
+/* paging */
+.paging {
+	list-style:none;  
+    float:left;  
+    display:inline-block;
+    margin: 20px 630px 0 615px;
+    width: 400px;
+}
+
+.paging>li {
+	color:#fff;
+	float:left;  
+}
+
+.paging>li>a {
+	color:#fff;
+	float: left;  
+    padding:4px;  
+    margin-right:3px;  
+    width:20px;    
+    font-size: 20px; 
+    font-weight: bold;
+    text-align:center;  
+    text-decoration:none;  
+}
+
+.paging>li>a:HOVER, .paging>li>a:FOCUS {
+	color:#fff;  
+    border:1px solid #8000ff;  
+    background-color:#8000ff;  
+}
 
 /* top-button */
 .top1{
    position: fixed;
-   right: 50px;
-   bottom: 100px; 
+   right: 30px;
+   bottom: 30px; 
 }
 
-.bd_content{
-   width: 1524px;
-   border: 1px solid #212124;
-   min-height: 2000px;
-   margin-top: 7px;
-}
 
 /*copyright*/
 #copyright {
@@ -294,9 +329,41 @@ header {
    text-decoration: underline;
 }
 
-/* fanart css */
+/* fanart css (시작)*/
 
-/* fanart css */
+.fan_content{
+	min-height: 1500px;
+}
+
+.fan_posting{
+ /* border: 1px solid blue; */
+   width: 1550px;
+   display: block;
+   margin: 8px auto;
+}
+
+.fan_content2{
+	width: 1524px;
+/*     border: 1px solid #212124; */
+    min-height: 300px
+    margin-top: 7px;
+}
+
+.fan_content2>img{
+	padding: 8.3px;
+}
+
+.fan_paging{
+/*  	color: #fff; */
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px 630px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
+}
+
+/* fanart css (끝) */
 
 
 
