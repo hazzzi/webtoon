@@ -84,8 +84,22 @@
           	  <td>2018.11.02</td>
           	</tr>
           </table>
+          	<ul class="paging">  
+          		<li><a href="#">&lt;</a></li>
+	    		<li><a href="#">1</a></li>  
+	    		<li><a href="#">2</a></li>  
+	    		<li><a href="#">3</a></li>  
+	   		 	<li><a href="#">4</a></li>  
+			    <li><a href="#">5</a></li>  
+			    <li><a href="#">6</a></li>  
+			    <li><a href="#">7</a></li>  
+			    <li><a href="#">8</a></li>  
+			    <li><a href="#">9</a></li>  
+			    <li><a href="#">10</a></li>
+			    <li><a href="#">&gt;</a></li> 
+			</ul>   
           </div>
-      <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
+      <!--  게시글 영역 테두리 예제  -->
          <!-- 검색창 영역 시작 -->
                <jsp:include page="search_engine.jsp"></jsp:include>
            <!-- 검색창 영역 끝-->
