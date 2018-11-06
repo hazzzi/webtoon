@@ -7,6 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>회원가입</title>
 <script type="text/javascript">
 
 function checking(){
@@ -24,6 +27,7 @@ function checking(){
 </script>
 </head>
 <body>
+<a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
 <form action="login.jsp" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
 
@@ -88,7 +92,8 @@ function checking(){
 
 
 <div class="hpname">
-오늘 뭐 볼까
+<i class="fa fa-search co"></i>
+오늘 뭐 볼까?
 </div>
 	
 </div>
