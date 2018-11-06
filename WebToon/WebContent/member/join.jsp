@@ -71,7 +71,7 @@ function checking(){
 </div>
 
 <div class="nic_input">
-<input type="text" name="pass_answer" placeholder="닉네임" required>
+<input type="text" name="nic" placeholder="닉네임" required>
 </div>
 
 <div class="pwd_hint">
