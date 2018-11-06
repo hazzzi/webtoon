@@ -25,7 +25,7 @@
 	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (시작) -->
 		<div id="banner">
 			<div id="menu">
-				<a href="#">추천 받기</a>
+				<a href="../member/join.jsp">추천 받기</a>
 				<a href="../board/bd_main.jsp">자유 게시판</a>
 			</div>
 			<div id="srch">
