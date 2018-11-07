@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>추천받기</title>
+
+<link href="../main/css/header.css" rel="stylesheet" >
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="../main/css/test.css">
@@ -18,32 +20,26 @@
 		<div class="wrap">
 			<div class="rec">
 				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
+					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
 			<div class="content">
-				<b>대학일기</b>
+				<b>외모지상주의</b>
 			</div>
 			<div class="author">
-				<b>자까 · 에피소드 / 네이버</b>
+				<b>박태준 · 스토리 / 네이버</b>
 			</div>
 			<div>
 				<button class="webtoon_btn">웹툰보기</button>
+				<b class="bb">평가하기</b>
 			</div>
-			<div class="star"> <b>평가하기</b>
+			<div class="star"> 
 				<p class="star_rating">
 					<a href="#" >★</a> 
-					<a href="#" >★</a> 
+					<a href="#" id="2">★</a> 
 					<a href="#" >★</a>
 					<a href="#" >★</a> 
 					<a href="#" >★</a>
 				</p>
-				<script type="text/javascript">
-					$(".star_rating a").click(function() {
-						$(this).parent().children("a").removeClass("on");
-						$(this).addClass("on").prevAll("a").addClass("on");
-						return false;
-					});
-				</script>
 			</div>
 			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의
 				대학일기</div>
@@ -52,18 +48,19 @@
 		<div class="wrap">
 			<div class="rec">
 				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/597447/thumbnail/title_thumbnail_20150410225440_t125x101.jpg">
+					src="https://shared-comic.pstatic.net/thumb/webtoon/325629/thumbnail/title_thumbnail_20110508235932_t83x90.jpg">
 			</div>
 			<div class="content">
-				<b>프리드로우</b>
+				<b>패션왕</b>
 			</div>
 			<div class="author">
-				<b>전선욱 · 스토리 / 네이버</b>
+				<b>기안84 · 스토리 / 네이버</b>
 			</div>
 			<div>
 				<button class="webtoon_btn">웹툰보기</button>
+				<b class="bb">평가하기</b>
 			</div>
-			<div class="star"> <b>평가하기</b>
+			<div class="star"> 
 				<p class="star_rating">
 					<a href="#" >★</a> 
 					<a href="#" >★</a> 
@@ -85,18 +82,19 @@
 		<div class="wrap">
 			<div class="rec">
 				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
+					src="https://shared-comic.pstatic.net/thumb/webtoon/150388/thumbnail/title_thumbnail_20100331155005_t83x90.jpg" >
 			</div>
 			<div class="content">
-				<b>대학일기</b>
+				<b>폭풍의 전학생</b>
 			</div>
 			<div class="author">
-				<b>자까 · 에피소드 / 네이버</b>
+				<b>강냉이 · 스토리 / 네이버</b>
 			</div>
 			<div>
 				<button class="webtoon_btn">웹툰보기</button>
+				<b class="bb">평가하기</b>
 			</div>
-			<div class="star"> <b>평가하기</b>
+			<div class="star">
 				<p class="star_rating">
 					<a href="#" >★</a> 
 					<a href="#" >★</a> 
