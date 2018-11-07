@@ -11,11 +11,11 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
- 
- 
-  
+
   <style>
       #columns{
+      flex:50%;
+      padding:0 4px;
         column-width:350px;
         column-gap: 1px;
 		position:static;
@@ -29,13 +29,17 @@
         padding:10px;
         box-shadow: 2px 2px 5px rgba(0,0,0,0.5);;
       }
+      
       #columns figure img{
         width:100%;
         resize: both;
         float: center; /* 가운데 정렬 */
- 		max-width: 500px; /* 넓이를 지정 */
+ 		max-width: auto; /* 넓이를 지정 */
 	    height: auto; /* 높이를 지정 */
         margin: 5px 0;
+        
+        margin-top:8px;
+        vertical-align:middle;
         
       }
       #columns figure figcaption{
@@ -47,7 +51,7 @@
       width: 1503px;
       padding: 10px;
       margin: auto;
-      }
+      }-->
     </style>
 </head>
 <body>
@@ -61,49 +65,49 @@
 	<div class="gallary">
 		<jsp:include page="header_main.jsp"></jsp:include>
 		
+		<script type="text/javascript">
+				$(document).ready(function(){
+					$('#bd_gall').html("★갤러리★");
+				});
+			</script>
 		<article>
 
 	
 	<div class="gallary2">	
 	<% for(int i=0 ; i<10 ; i++){%>
+	 <%  for(int a=0; i<4; i++){%>
 		  <div id="columns">
-		 <%  for(int a=0; i<4; i++){%>
+		<!-- 사진영역  -->
       		<figure>
-      		  <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/rapunzel.jpg">
+      		  <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/rapunzel.jpg" style="width:100%">
         		<figcaption>고</figcaption>
       		</figure>
       
-     	    <figure>
-       		   <img src="https://via.placeholder.com/285">
+     	   	 <figure>
+       		   <img src="https://via.placeholder.com/285" style="width:auto;">
         		<figcaption>양</figcaption>
       		</figure>
-      
-       		<figure>
-        		<img src="https://via.placeholder.com/285">
-        		<figcaption>이</figcaption>
-     		</figure>1
-     	
-     
-	
-			
-     	
+    	
       	<%} %>
       <%} %>
      
 </div>
 	</div>
-		</div>
-		</article>
-		<span class="fan_paging">
+
+		
+		<span class="gallary_paging">
 				<a href="#">&lt;</a>
 				<%for(int i=0; i<10; i++){ %>
 				<a href="#"><%=i+1 %></a>
 				<% }%>
 				<a href="#">&gt;</a>
 			</span>
+			
 		<jsp:include page="search_engine.jsp"></jsp:include>
-		
+		 <jsp:include page="write.jsp"></jsp:include>
+	</div>	
 </div>
+</article>
 			<!-- top 버튼 -->
 			<jsp:include page="top.jsp"></jsp:include>
 
