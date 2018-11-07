@@ -7,13 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css">
-<style type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>로그인</title>
 
-
-</style>
 </head>
 <body>
-<form action="#" method="post">
+<a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
+<form action="#" method="post" name="f"  >
 <div class="div">
 
 <div class="login">
@@ -37,19 +37,26 @@
 </div>
 
 <div class="search_input">
-<a href="#"><input type="button" value="아이디/비밀번호 찾기"></a>
+<a href="forgetid.jsp"><input type="button" value="아이디/비밀번호 찾기"></a>
 </div>
 
+<a href="#">
 <div class="naver_login">
-<a href="#"><input type="button" value="네이버 이이디로 로그인"></a>
+<span class="nspan1"><img src="./img/naver_logo.PNG" alt="네이버로그인"></span>
+<span class="nspan2">네이버 계정으로 로그인</span>
 </div>
+</a>
 
+<a href="#">
 <div class="kakao_login">
-<a href="#"><input type="button" value="카카오 아이디로 로그인"></a>
+<span class="kspan1"><img src="./img/kakao_logo.png" alt="카카오로그인"></span>
+<span class="kspan2">카카오 계정으로 로그인</span>
 </div>
+</a>
 
 <div class="hpname">
-오늘 뭐 볼까
+<i class="fa fa-search co"></i>
+오늘 뭐 볼까?
 </div>
 	
 </div>

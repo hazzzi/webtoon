@@ -77,25 +77,26 @@ header {
 }
 
 
-/* content */
+/* 전체 content 영역 */
 .content {
-   min-height: 2000px;
+/*    border: 1px solid pink; */
+   min-height: 1000px;
 }
 
+/* 버튼, 공지사항 영역 */
 .content_top {
-/*    border: 1px solid #fff; */
+/*    border: 1px solid #ff0000; */
    width: 1550px;
    min-height: 100px;
    margin: 0 auto;
-   padding-top: 50px;
+   padding-top: 80px;
 }
 
 .board_butt, .board_butt2 {
-   /* border:1px solid #dcdcdc; */
+/*    border:1px solid #dcdcdc; */
    width: 500px;
    height: 100px;
    margin-right: 5px;
-   color:#000;
    display:inline-block;  
    border-radius: 3px;
    font-family:"MaplestoryLight", Arial, sans-serif;
@@ -119,46 +120,38 @@ header {
    left: 184.5px;
 }
 
-.board_butt:hover {
-   background-color:#f6f6f6;
+.board_butt>a:HOVER,.board_butt>a:FOCUS {
+   color:#fff;
+   
 }
 
-.board_butt2:hover {
-   background-color:#f6f6f6;
+.board_butt2>a:HOVER,.board_butt2>a:FOCUS {
+   color:#fff;
+   
 }
 
-.board_butt:active {
+.board_butt:ACTIVE,.board_butt2:ACTIVE {
    position:relative;
    top:1px;
 }
 
-.board_butt2:active {
-   position:relative;
-   top:1px;
-}
-
-/* #search {
-   width: 1514px;
-   height: 30px;
-   background-color: #fff;
-   float: left;
-   margin-top: 8px;
-   } */
 
 /* search */
-#srch{
+#bd_srch{
    height: 40px;
    box-sizing: border-box;
    display: inline-block;
    text-align: center;
    margin-top: 20px;
-   margin-bottom: 10px;
+   margin-bottom: 20px;
    width: 520px;
-   margin-left: 998px;
-   border-radius: 30px;   
+   margin-left: 505px;
+   border-radius: 30px;  
+   position: relative;
+   left:25px; 
 }
 
-#srch>input{
+#bd_srch>input{
    box-sizing: border-box;
    width: 530px;
    height: 43px;
@@ -167,13 +160,13 @@ header {
    float: left;
    border: none;
    background-color: #ddd;
-   font-size: 20px;
-    font-family: 'NanumBarunpenR', sans-serif;
-    font-weight: bold;
-    padding: 0 50px 0 20px;
-    border-radius: 30px;
+   font-size: 26px;
+   font-family: 'NanumBarunpenR', sans-serif;
+   font-weight: bold;
+   padding: 0 50px 0 20px;
+   border-radius: 30px;
 }
-#srch>a{
+#bd_srch>a{
    box-sizing: border-box;
    width: 40px;
    height: 41px;
@@ -185,7 +178,9 @@ header {
    bottom: 42px;
 }
 
+/* 공지사항 */
 #news_notice {
+/* 	border: 1px solid blue; */
     font-size:20px;
     width:1503px;
     height: 30px;
@@ -197,69 +192,149 @@ header {
 }
 
 .notice{
-   padding-top: 5px;
+	padding-top: 5px;
+	font-size: 35px;
 }
 
 
-
+/* 공지사항 내용  */
 #context {
    width:1503px;
    height: 100px;
    padding: 10px;
    border-top: none;
    background-color:white;
+   font-size: 22px;
+   font-weight: bold;
+   position: relative;
 }
 
+#context span {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 5px;
+	    
+}
 
 #hr{
    width: 1522px;
    margin: 15px 0;
    border: 1px dotted #c0c0c0;
-
+   position: relative;
 }
 
+/* 게시물  */
 .posting {
-   /* border: 1px solid blue; */
+/*    border: 1px solid blue; */
    width: 1550px;
    display: block;
-   margin: 8px auto;
-}
-
-.cont_category {
-/*    background-color: white; */
-   margin-top: 8px;
-   border: 1px solid white;
-   border-right: none;
-   border-left: none;
-   width: 1522px;
-   height: 30px;
-   color: white;
-   text-align: center;
-}
-
-.cont_category>span {
-/*    border: 1px solid pink; */
-   font-size: 20px;
-   color: white;
-   position: relative;
-   top: 5px;
-   padding-right: 155px;
-   left: 82px;
-}
-
-/* top-button */
-.top1{
-   position: fixed;
-   right: 50px;
-   bottom: 100px; 
+   margin: 20px auto;
 }
 
 .bd_content{
    width: 1524px;
-   border: 1px solid #212124;
-   min-height: 2000px;
+/*   border: 1px solid #212124; */
+   min-height: 800px;
    margin-top: 7px;
 }
+
+.board_table {
+	border-collapse:collapse;
+	background-color: white;
+	width: 1526px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.board_table th {
+	background-color: #e4e4e4;
+	font-size: 22px;
+	height: 40px;
+}
+
+.board_table td {
+	font-size: 20px;
+	height: 35px;
+}
+
+td.table_sh {
+	width: 30px;
+}
+
+td.table_mid {
+	width: 150px;
+}
+
+td>a {
+	color: black;
+}
+
+td>a:HOVER {
+	color: #0080ff;
+	text-decoration: underline;
+}
+
+/* paging */
+.paging {
+	list-style:none;  
+    float:left;  
+    display:inline-block;
+    margin: 20px 630px 0 615px;
+    width: 400px;
+}
+
+.paging>li {
+	color:#fff;
+	float:left;  
+}
+
+.paging>li>a {
+	color:#fff;
+	float: left;  
+    padding:4px;  
+    margin-right:3px;  
+    width:20px;    
+    font-size: 20px; 
+    font-weight: bold;
+    text-align:center;  
+    text-decoration:none;  
+}
+
+.paging>li>a:HOVER, .paging>li>a:FOCUS {
+	color:#fff;  
+    border:1px solid #8000ff;  
+    background-color:#8000ff;  
+}
+
+.write{
+	width: 150px;
+    height: 41px;
+    background-color: white;
+    margin-left: 345px;
+    position: relative;
+    top: -80px;
+    /* border-collapse: collapse; */
+    border: none;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.write:HOVER{
+	background-color: #399cff;
+	color: #fff;
+}
+
+
+
+/* top-button */
+.top1{
+   position: fixed;
+   right: 30px;
+   bottom: 30px; 
+}
+
 
 /*copyright*/
 #copyright {
@@ -269,8 +344,6 @@ header {
    text-align: center;
    font-family: -webkit-body;
 }
-
-
 
 #copyright p {
    font-size: 1em;
@@ -286,3 +359,44 @@ header {
 #copyright a:hover {
    text-decoration: underline;
 }
+
+/* fanart css (시작)*/
+
+.fan_content{
+	min-height: 1500px;
+}
+
+.fan_posting{
+ /* border: 1px solid blue; */
+   width: 1550px;
+   display: block;
+   margin: 8px auto;
+}
+
+.fan_content2{
+	width: 1524px;
+/*     border: 1px solid #212124; */
+    min-height: 300px
+    margin-top: 7px;
+}
+
+.fan_content2>img{
+	padding: 8.3px;
+}
+
+.fan_paging{
+/*  	color: #fff; */
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px 630px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
+}
+
+/* fanart css (끝) */
+
+
+
+
+

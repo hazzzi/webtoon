@@ -7,13 +7,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/join.css">
-<style type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<title>회원가입</title>
+<script type="text/javascript">
 
-</style>
+function checking(){
+	var pass = document.f.pass.value;
+	var repass = document.f.repass.value;
+
+	if (document.f.pass.value != document.f.repass.value) {
+         alert("비밀번호가 일치하지 않습니다")
+         document.f.pass.value = ""
+        	 document.f.repass.value = ""
+         document.f.pass.focus()
+         return false;
+     }
+}
+</script>
 </head>
 <body>
-<form action="#" method="post">
+<a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
+<form action="login.jsp" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
 
 <div class="login">
@@ -29,7 +44,7 @@
 </div>
 
 <div class="email_input">
-<input type="email" name="id" placeholder="이메일" required>
+<input type="email" name="email" placeholder="이메일" required>
 </div>
 
 <div class="pwd_input">
@@ -37,7 +52,7 @@
 </div>
 
 <div class="pwd_input">
-<input type="password" name="pass" placeholder="비밀번호확인" required>
+<input type="password" name="repass" placeholder="비밀번호확인" required>
 </div>
 
 <div class="pwd_hint">
@@ -52,11 +67,11 @@
 </div>
 
 <div class="pwd_hint">
-<input type="text" name="pass" placeholder="비밀번호 힌트 답" required>
+<input type="text" name="pass_htnt" placeholder="비밀번호 힌트 답" required>
 </div>
 
 <div class="nic_input">
-<input type="text" name="pass" placeholder="닉네임" required>
+<input type="text" name="nic" placeholder="닉네임" required>
 </div>
 
 <div class="pwd_hint">
@@ -77,7 +92,8 @@
 
 
 <div class="hpname">
-오늘 뭐 볼까
+<i class="fa fa-search co"></i>
+오늘 뭐 볼까?
 </div>
 	
 </div>

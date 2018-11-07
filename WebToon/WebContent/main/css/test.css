@@ -18,50 +18,111 @@ a{
 body{
 	font-family: 'NanumBarunpenR', sans-serif;
 	font-size: 10pt;
-	line-height: 1.2em;
+	/* line-height: 1.2em; */
+	/* color: #101214; */
 	color: #101214;
 	min-height: 900px;
 }
 
 #wrap {
-	background-color: #101214;
+	background-color: #f9f9f9;
 	min-width: 1200px;
-	min-height:100%;
+	min-height: -webkit-fill-available;
 	margin: 0 auto;
+	width: 100%;
+	position: relative;
 }
 .clear { clear: both;}
 
 
 /* content 영역 (시작) */
 
+#sildeshow{
+	color: #000;
+	margin: 65px auto 0 auto;
+	max-width:1300px;
+/* 	max-width: 800px; */
+	font-size: 25px;
+	text-align: center;
+}
+
+#sildeshow>h2{
+	display: block;
+}
+
+#content {
+	/* min-width: 1300px; */
+	box-sizing: border-box;
+	padding: 50px 0;
+}
+/* #content>h2{
+	margin: 0 70px;
+	text-align: left;
+} */
+
+#con-img{
+	/* height: 235px; */
+	margin: 50px auto;
+}
+
+
+#con-img>div{
+	/* display: inline-block; */
+	/* width:175px; */
+	/* width:1300px; */
+	/* height:235px; */
+}
+
+#con-img>div img{
+	width: 190px;
+    /* position: relative; */
+    display: block;
+    margin: 0 7px 15px 7px;  
+}
+#con-img>div label{
+	cursor: pointer;
+    display: block;
+    margin: 0 0 12px 0;
+    line-height: 30px;
+    text-align: center;
+}
+
+#con-img>div a{
+	display: table;
+    width: 70%;
+    margin: 0 auto;
+    cursor: pointer;
+    color: #000;
+}
+
+
+
+
+/* 슬라이드 시작  */
+
+/* Next & previous buttons */
+#con-img>a{
+	display: inline-block;
+    font-size: 65px;
+    position: relative;
+    bottom: 120px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+
+#main-content-div{
+	margin-top: 100px;
+}
+
+#main-content-div>h2{
+	margin: 0 70px;
+	text-align: left;
+}
 /* content 영역 (끝) */
 
 
-
-/* footer 영역 (시작) */
-
-#copyright {
-	overflow: hidden;
-	padding: 3em 0em 6em 0em;
-	border-top: 1px solid #212124;
-	text-align: center;
-	font-family: -webkit-body;
-}
-
-#copyright p {
-	font-size: 1em;
-}
-
-#copyright a {
-	color: #949494;
-	text-decoration: none;
-	margin: 15px;
-}
-
-#copyright a:hover {
-	text-decoration: underline;
-}
-/* footer 영역 (끝) */
 
 
 

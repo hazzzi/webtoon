@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/board.css">
 <link rel="stylesheet" href="../main/css/test.css">
+<link rel="stylesheet" href="../main/css/header-main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <!-- wrap 영역 시작 -->
@@ -20,59 +23,104 @@
      <!-- content 영역 -->
       <div class="content">
            <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
-             <div class="content_top">
-            <div class="board_butt"><a>자유게시판</a></div>
-            <div class="board_butt2"><a>갤러리</a></div>
-            <div class="board_butt2"><a>팬아트</a></div>
-                
-         
-           <!-- 공지사항 영역 시작 -->
-               <div id="news_notice">
-                  <h1 class="notice">공지사항</h1>
-               </div>
-               <div id="context">
-                  	욕하지 마세요!!
-               </div>
-                <hr id="hr">
-             </div> 
-            
-           <!-- 공지사항 영역 끝 -->
-    <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
-       
-    <!-- 카테고리 영역 시작-->
+           <jsp:include page="header_main.jsp"></jsp:include>    
+           
+            <!-- <script type="text/javascript">
+				$(document).ready(function(){
+					$('#bdContext').text('<span>* 타인의 명예를 훼손하거나 인격을 모독하는 발언은 삼가해 주세요.</span><br>');
+					$('#fanContext').text('<span>* 나아는 팬아트다.</span><br>');
+				});
+			</script> -->
+			
+    	   <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
+       		<script type="text/javascript">
+				$(document).ready(function(){
+					$('#bdFree').html("★자유게시판★");
+				});
+			</script>
+     <!-- 카테고리 영역 시작-->
         <div class="posting">
-         <div class="cont_category"><span>글번호 | </span>
-                              <span>[말머리] | </span>
-                              <span>제목 | </span>
-                              <span>댓글 수 | </span>
-                              <span>작성자 | </span>
-                              <span>조회 수 | </span>
-                              <span>작성날짜</span></div>
-        <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
+        <!--  게시글 영역 테두리 -->
           <div class="bd_content">
-    
-         </div>
-      <!--  게시글 영역 테두리 예제입니다 나중에 지워도 돼요-->
-         <!-- 검색창 영역 시작 -->
-               <div id="srch">
-                  <input type="text">
-                  <a href="#"></a>         
-             </div>
-           <!-- 검색창 영역 끝-->
+    		<table border="1" class="board_table">
+          	<tr>         	
+          	  <th class="table_sh">글 번호</th>
+          	  <th>[말머리]</th>
+          	  <th>제목</th>
+          	  <th class="table_sh">댓글 수</th>
+          	  <th class="table_mid">작성자</th>
+          	  <th class="table_sh">조회 수</th>
+          	  <th>작성 날짜</th>      	    	  
+          	</tr>
+          	<% for(int i=0 ; i<5 ; i++){ %>
+          	<tr>
+          	  <td>1</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">안녕하세요</a></td>
+          	  <td>5</td>
+          	  <td>달자</td>
+          	  <td>50</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<tr>
+          	  <td>2</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">출석체크 합니다~</a></td>
+          	  <td>19</td>
+          	  <td>달자달자</td>
+          	  <td>2</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<tr>
+          	  <td>3</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
+          	  <td>134</td>
+          	  <td>제리</td>
+          	  <td>9999</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<tr>
+          	  <td>4</td>
+          	  <td>[자유게시판]</td>
+          	  <td><a href="#">출첵 ㅇㅇ</a></td>
+          	  <td>10</td>
+          	  <td>토미</td>
+          	  <td>78</td>
+          	  <td>2018.11.02</td>
+          	</tr>
+          	<%} %>
+          </table>
+          	<ul class="paging">  
+          		<li><a href="#">&lt;</a></li>
+	    		<li><a href="#">1</a></li>  
+	    		<li><a href="#">2</a></li>  
+	    		<li><a href="#">3</a></li>  
+	   		 	<li><a href="#">4</a></li>  
+			    <li><a href="#">5</a></li>  
+			    <li><a href="#">6</a></li>  
+			    <li><a href="#">7</a></li>  
+			    <li><a href="#">8</a></li>  
+			    <li><a href="#">9</a></li>  
+			    <li><a href="#">10</a></li>
+			    <li><a href="#">&gt;</a></li> 
+			</ul>   
+          </div>
+               
+           <!-- 검색창 영역 시작 -->
+               <jsp:include page="search_engine.jsp"></jsp:include>
+
+         <jsp:include page="write.jsp"></jsp:include>
+
+
         </div> 
     <!-- 카테고리 영역 끝-->
-    
-    
-    <!-- 이 곳에 게시물 영역이 들어갑니다. --> 
-
 
 
    </div>
-      <!-- 상단 이동 바 -->
-         <nav class="top1">
-               <a href="#"><img alt="TOP" src="../images/top.png" width="45px"></a>
-         </nav>
-         <!-- 상단 이동 바 끝-->
+        <!-- 상단 이동 바 -->
+		<jsp:include page="top.jsp"></jsp:include>
+        <!-- 상단 이동 바 끝-->
 
    <!-- content 영역 끝 -->
    </article>

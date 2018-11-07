@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+    background-image: url(../img/banner.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100px;
+    width: 100%;
+
+    font-size: 25px;
+    
+    border-bottom: 1px solid #e5e5e5;
+    /* 상단바 고정 */
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+div#top{
+	height: 100%;
+	width: 70%;
+	line-height: 2;
+	margin: 0 auto;
+}
+
+
+
+div#logo{
+	display: inline-block;
+}
+
+nav#menu{
+	display: inline-block;
+	/* margin-left: 25%; */
+    float: right;
+    /* height: 100%;
+    line-height: 4.1; */
+    margin: 25px 0;
+    height: 50px;
+}
+
+nav#menu li{
+	display: inline-block;
+	margin: 0 10px;
+	box-sizing: border-box;
+}
+
+nav#menu li:HOVER {
+	border-bottom: 3px solid #cac1dd;
+}

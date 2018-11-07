@@ -1,23 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="css/header.css" rel="stylesheet">
-<title>Insert title here</title>
-</head>
-<body>
-<header>
+   
+	<header id="head">
 		<div id="top">
 			<div id="logo">
-				<a href="#">오늘 뭐 볼까</a>
-				<!-- 프로필 이미지  -->
-				<div id="profile">
-					<img src="https://via.placeholder.com/100">
-				</div>
+			<h1>
+				<i class="fa fa-search" style="color:#fff"></i>
+				<a href="#">오늘 뭐 볼까?</a>
+			</h1>
 			</div>
+			<nav id="menu">
+				<ul>
+					<li>
+						<a href="#">검색</a>
+					</li>
+					<li>
+						<a href="#">추천</a>
+					</li>
+					<li>
+						<a href="#">게시판</a>
+					</li>
+					<li>
+						<div id="profile">
+							<a href="#">
+								<span>닉네임</span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</nav>
+				<!-- 프로필 이미지  -->
 		</div>
 		</header>
-</body>
-</html>
+
+

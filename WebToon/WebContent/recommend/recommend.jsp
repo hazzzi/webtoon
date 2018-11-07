@@ -7,11 +7,15 @@
 <title>추천받기</title>
 
 <link href="../main/css/header.css" rel="stylesheet" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../main/css/header.css">
+<link rel="stylesheet" href="../main/css/test.css">
 <link href="css/recommend.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="../js/jquery-3.3.1.js"></script>
 </head>
 <body>
-<jsp:include page="../main/header.jsp" />
+	<jsp:include page="../main/header.jsp" />
 <article>
 		<div class="wrap">
 			<div class="rec">

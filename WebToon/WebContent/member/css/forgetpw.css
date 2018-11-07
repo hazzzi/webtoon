@@ -1,0 +1,92 @@
+@CHARSET "EUC-KR";
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+background-image: url("../img/banner.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.div {background-color:rgb(16, 18, 20,0.2);
+	
+	border: 1px solid;
+	margin: auto auto;
+	padding: 10px 10px;
+	width: 330px; 
+	text-align: center;
+	margin-top: 100px;
+	border-radius: 10px;
+} 
+.b {
+	color: white;
+}
+
+.forgetid {
+		margin: auto auto ;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	width:130px; height: 40px;
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+}
+
+
+.forgetid>a{
+	text-decoration: none;
+	color: gray;
+}
+
+.forgetpw {
+
+	color: white;
+	margin: auto auto ;
+	text-align: center;
+	display: inline-block;	
+	font-size: 20px;
+	width: 130px;
+}
+
+.forgetpw>a{
+	text-decoration: none;
+	color: white;
+} 
+
+.ex {
+	margin-top: 30px;
+	color:#c0c0c0;
+}
+
+.getpw>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+
+.id>input {
+	margin-top: 30px;
+	width: 250px; height: 30px;
+}
+
+.pwd_hint>select {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+.answer_input>input {
+	margin-top: 10px;
+	width: 250px; height: 30px;
+}
+.loginpage>a{
+
+color:white;
+}
+
+.hpname {
+	/* font-family: 'MaplestoryLight', sans-serif; */
+	color: white;
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
