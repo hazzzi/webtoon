@@ -24,11 +24,11 @@
 }
 
 
-/* .owl-theme .owl-nav [class*=owl-]:hover {
+.owl-theme .owl-nav [class*=owl-]:hover {
 	background: #cac1dd;
 	color: #FFF;
 	text-decoration: none
-} */
+}
 
 .owl-theme .owl-nav .disabled {
 	opacity: .5;
