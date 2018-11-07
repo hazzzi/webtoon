@@ -31,18 +31,11 @@
 			<div class="star"> 
 				<p class="star_rating">
 					<a href="#" >★</a> 
-					<a href="#" >★</a> 
+					<a href="#" id="2">★</a> 
 					<a href="#" >★</a>
 					<a href="#" >★</a> 
 					<a href="#" >★</a>
 				</p>
-				<script type="text/javascript">
-					$(".star_rating a").click(function() {
-						$(this).parent().children("a").removeClass("on");
-						$(this).addClass("on").prevAll("a").addClass("on");
-						return false;
-					});
-				</script>
 			</div>
 			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의
 				대학일기</div>
