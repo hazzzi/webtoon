@@ -7,10 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>로그인</title>
 
 </head>
 <body>
+<a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
 <form action="#" method="post" name="f"  >
 <div class="div">
 
@@ -53,7 +55,8 @@
 </a>
 
 <div class="hpname">
-오늘 뭐 볼까
+<i class="fa fa-search co"></i>
+오늘 뭐 볼까?
 </div>
 	
 </div>

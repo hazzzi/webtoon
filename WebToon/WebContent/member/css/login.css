@@ -6,10 +6,38 @@
 	padding: 0;
 }
 
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
+}
+
+@font-face {
+	font-family: 'MaplestoryLight';
+	src: url("../font/Maplestory Light.ttf") format('truetype');
+}
+
 body {
-background-image: url("../img/banner.jpg");
-background-repeat: no-repeat;
-background-size: cover;
+	background-image: url("../img/banner.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+
+input {
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 15px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.back {
+	font-size: 25px;
+	margin: 30px;
+	color: #eee;
+	font-weight: bold;
+	vertical-align: middle;
 }
 
 .div {background-color:rgb(16, 18, 20,0.2);/* 기존 색 rgb(16, 18, 20) */
@@ -28,11 +56,12 @@ background-size: cover;
 }
 
 .login {
-	color: white;
+	
+	ccolor: #eee;
 	margin: auto auto ;
 	text-align: center;
 	display: inline-block;	
-	font-size: 20px;
+	font-size: 25px;
 	width: 130px;
 }
 
@@ -43,13 +72,14 @@ background-size: cover;
 }
 
 .join {
+	color: #eee;
 	margin: auto auto ;
 	text-align: center;
 	display: inline-block;
-	font-size: 20px;
+	font-size: 25px;
 	width:130px; height: 40px;
-	border-bottom: 1px solid white;
-	border-left: 1px solid white;
+	border-bottom: 1px solid #eee;
+	border-left: 1px solid #eee;
 }
 
 .join>a{
@@ -58,24 +88,51 @@ background-size: cover;
 }
 
 .id_input>input {
+	box-sizing: border-box;
+	padding: 5px;
+	border: none;
+	font-weight: bold;
+	background-color:#eee;
+    color:#3c2f55;
 	margin-top: 100px;
 	width: 250px; height: 30px;
 }
 
 .pwd_input>input {
+	box-sizing: border-box;
+	padding: 5px;
+	border: none;
+	font-weight: bold;
+	background-color:#eee;
+    color:#3c2f55;
 	margin-top: 10px;
 	width: 250px; height: 30px;
 }
 
 .login_input>input {
+	border: none;
+	font-weight: bold;
+	background-color:#cac1dd;
+    color:#3c2f55;
 	margin-top: 10px;
 	width: 250px; height: 30px;
 }
 
+.login_input>input:HOVER {
+	cursor: pointer;
+}
 
 .search_input>a>input {
+	border: none;
+	font-weight: bold;
+	background-color:#cac1dd;
+    color:#3c2f55;
 	margin-top: 10px;
 	width: 250px; height: 30px;
+}
+
+.search_input>a>input:HOVER {
+	cursor: pointer;
 }
 
 .naver_login {
@@ -151,9 +208,9 @@ background-size: cover;
 }
 
 .hpname {
-	/* font-family: 'MaplestoryLight', sans-serif; */
-	color: white;
+	color: #eee;
 	margin-top: 20px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 25px;
+	font-family: 'MaplestoryLight', sans-serif;
 }
