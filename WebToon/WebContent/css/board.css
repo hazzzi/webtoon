@@ -243,6 +243,7 @@ header {
 	width: 1526px;
 	text-align: center;
 	font-weight: bold;
+	border-color: #fff;
 }
 
 .board_table th {
@@ -273,37 +274,24 @@ td>a:HOVER {
 	text-decoration: underline;
 }
 
-/* paging */
-/* .paging {
-	list-style:none;  
-    float:left;  
-    display:inline-block;
-    margin: 20px 630px 0 615px;
-    width: 400px;
-}
-
-.paging>li {
-	color:#fff;
-	float:left;  
-}
-
-.paging>li>a {
-	color:#fff;
-	float: left;  
-    padding:4px;  
-    margin-right:3px;  
-    width:20px;    
-    font-size: 20px; 
+.board_paging{
+    font-size: 26px;
     font-weight: bold;
-    text-align:center;  
-    text-decoration:none;  
+    margin: 20px 630px 0 630px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
 }
 
-.paging>li>a:HOVER, .paging>li>a:FOCUS {
-	color:#fff;  
-    border:1px solid #8000ff;  
-    background-color:#8000ff;  
-} */
+.board_paging a {
+	color: #514862;
+}
+
+.board_paging a:HOVER {
+	color: #000000;
+}
+
+
 
 .write{
 	width: 150px;
