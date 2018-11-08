@@ -3,6 +3,7 @@
    
 	<header id="head">
 		<div id="top">
+			<div id="inner-top">
 			<div id="logo">
 			<h1>
 				<i class="fa fa-search" style="color:#fff"></i>
@@ -33,6 +34,7 @@
 					</li>
 				</ul>
 			</nav>
+			</div>
 				<!-- 프로필 이미지  -->
 		</div>
 <!-- 		

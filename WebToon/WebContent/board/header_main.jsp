@@ -17,7 +17,6 @@
                   </p>
                   <p class="fanContext">
                   	<span>* 나는 팬아트 게시판이다. </span><br>
-                  	<span>* 나는 팬아트 게시판이다. </span><br>                 
                   </p>	
                </div>
                <hr id="hr">

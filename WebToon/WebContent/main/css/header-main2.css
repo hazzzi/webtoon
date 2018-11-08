@@ -11,6 +11,9 @@ body {
 }
 
 header {
+}
+
+header#head{
     background-image: url(../img/banner.jpg);
     background-repeat: no-repeat;
     background-position: left top;
@@ -18,18 +21,27 @@ header {
     box-sizing: border-box;
     height: 100px;
     width: 100%;
-
     font-size: 25px;
     
-    border-bottom: 1px solid #e5e5e5;
     /* 상단바 고정 */
-    position: fixed;
+    position: relative;
     top: 0;
-    z-index: 2;
+    z-index: 3;
 }
+
+.fixed{
+	position: fixed !important;
+    box-shadow: 0 5px 10px #333;
+}
+
+div#inner-top{
+	width: 1200px;
+}
+
 div#top{
 	height: 100%;
 	width: 70%;
+	min-width:600px;
 	line-height: 2;
 	margin: 0 auto;
 }

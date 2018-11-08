@@ -32,6 +32,20 @@
 	<!-- header 영역 (시작) -->
 	<jsp:include page="header.jsp" />
 	<!-- header 영역 (끝) -->
+	<script>
+		var RecentView;
+		$(document).ready(function(){
+			var scrollPosition;
+			$(window).scroll(function(){
+				scrollPosition = $(this).scrollTop();
+				if (scrollPosition > 30) {
+					$('#head').addClass('fixed');
+				} else {
+					$('#head').removeClass('fixed');
+				}
+			});
+		});
+	</script>
  
  <div id="main-content-div">
 			<p>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을 받아보세요.</p>

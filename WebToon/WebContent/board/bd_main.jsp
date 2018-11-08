@@ -15,7 +15,7 @@
 <!-- wrap 영역 시작 -->
 <div id="wrap">
    <!-- header 시작 -->
-   <jsp:include page="header.jsp"></jsp:include>
+  <jsp:include page="../main/header.jsp"></jsp:include>
    <!--/ header 끝 -->
 
    <!-- article 영역 시작 -->
@@ -35,7 +35,8 @@
     	   <!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
        		<script type="text/javascript">
 				$(document).ready(function(){
-					$('#bdFree').html("★자유게시판★");
+					$('#bdFree').css('color','#514862');
+					$('#bdFree').html("｜ 자유게시판 ｜ ");
 				});
 			</script>
      <!-- 카테고리 영역 시작-->
@@ -91,20 +92,13 @@
           	</tr>
           	<%} %>
           </table>
-          	<ul class="paging">  
-          		<li><a href="#">&lt;</a></li>
-	    		<li><a href="#">1</a></li>  
-	    		<li><a href="#">2</a></li>  
-	    		<li><a href="#">3</a></li>  
-	   		 	<li><a href="#">4</a></li>  
-			    <li><a href="#">5</a></li>  
-			    <li><a href="#">6</a></li>  
-			    <li><a href="#">7</a></li>  
-			    <li><a href="#">8</a></li>  
-			    <li><a href="#">9</a></li>  
-			    <li><a href="#">10</a></li>
-			    <li><a href="#">&gt;</a></li> 
-			</ul>   
+          	<span class="fan_paging">
+				<a href="#">&lt;</a>
+				<%for(int i=0; i<10; i++){ %>
+				<a href="#"><%=i+1 %></a>
+				<% }%>
+				<a href="#">&gt;</a>
+				</span>  
           </div>
                
            <!-- 검색창 영역 시작 -->

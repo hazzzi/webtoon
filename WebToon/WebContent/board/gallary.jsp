@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/board.css">
-<link rel="stylesheet" href="../main/css/test.css">
+<!-- <link rel="stylesheet" href="../main/css/test.css"> -->
 <link rel="stylesheet" href="../main/css/header-main.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +49,6 @@
       }
       .gallary {
       width: 1503px;
-      padding: 10px;
       margin: auto;
       }-->
     </style>
@@ -59,7 +58,7 @@
 	<div id="wrap">
 
 		<!-- header 시작 -->
-		<jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="../main/header.jsp"></jsp:include>
 		<!--/ header 끝 -->
 		
 	<div class="gallary">
@@ -67,7 +66,8 @@
 		
 		<script type="text/javascript">
 				$(document).ready(function(){
-					$('#bd_gall').html("★갤러리★");
+					$('#bd_gall').css('color', '#514862');
+					$('#bd_gall').html("｜ 갤러리 ｜ ");
 				});
 			</script>
 		<article>
@@ -94,7 +94,6 @@
 </div>
 	</div>
 
-		
 		<span class="gallary_paging">
 				<a href="#">&lt;</a>
 				<%for(int i=0; i<10; i++){ %>
