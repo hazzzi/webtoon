@@ -16,7 +16,7 @@
                   	<span>* 혐오성 혹은 음란성을 띄고 있는 자극적인 글은 삭제 조치됩니다. </span><br>
                   </p>
                   <p class="fanContext">
-                  	<span>* 나는 팬아트 게시판이다. </span><br>
+                  	<span>* 저작권을 위배하는 글에 관해서 위 사이트는 책임지지 않습니다.  </span><br>
                   </p>	
                </div>
                <hr id="hr">
