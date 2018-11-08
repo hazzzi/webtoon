@@ -15,7 +15,6 @@ a{
    color: #fff;      
 }
 body{
-   background-color:rgb(16, 18, 20);
    font-family: 'NanumBarunpenR', sans-serif;
    font-size: 10pt;
    line-height: 1.2em;
@@ -121,12 +120,12 @@ header {
 }
 
 .board_butt>a:HOVER,.board_butt>a:FOCUS {
-   color:#fff;
-   
+   color:#695e80; 
 }
 
 .board_butt2>a:HOVER,.board_butt2>a:FOCUS {
-   color:#fff;
+	color:#695e80;
+/*    color:#887c9e; */
    
 }
 
@@ -211,7 +210,7 @@ header {
 
 #context span {
 	display: inline-block;
-	margin-top: 10px;
+	margin-top: 8px;
 	padding: 5px;
 	    
 }
@@ -275,7 +274,7 @@ td>a:HOVER {
 }
 
 /* paging */
-.paging {
+/* .paging {
 	list-style:none;  
     float:left;  
     display:inline-block;
@@ -304,7 +303,7 @@ td>a:HOVER {
 	color:#fff;  
     border:1px solid #8000ff;  
     background-color:#8000ff;  
-}
+} */
 
 .write{
 	width: 150px;
@@ -314,7 +313,7 @@ td>a:HOVER {
     position: relative;
     top: -80px;
     /* border-collapse: collapse; */
-    border: none;
+    border: 2px solid #74668c;
     border-radius: 30px;
     font-family: 'NanumBarunpenR', sans-serif;
     font-size: 20px;
@@ -322,7 +321,7 @@ td>a:HOVER {
 }
 
 .write:HOVER{
-	background-color: #399cff;
+	background-color: #74668c;
 	color: #fff;
 }
 
@@ -367,7 +366,6 @@ td>a:HOVER {
 }
 
 .fan_posting{
- /* border: 1px solid blue; */
    width: 1550px;
    display: block;
    margin: 8px auto;
@@ -375,23 +373,29 @@ td>a:HOVER {
 
 .fan_content2{
 	width: 1524px;
-/*     border: 1px solid #212124; */
-    min-height: 300px
+    min-height: 300px;
     margin-top: 7px;
 }
 
-.fan_content2>img{
+.fan_content2 img{
 	padding: 8.3px;
 }
 
 .fan_paging{
-/*  	color: #fff; */
     font-size: 26px;
     font-weight: bold;
     margin: 10px 630px;
     display: inline-block;
     letter-spacing: 4px;
     width: 320px;
+}
+
+.fan_paging a {
+	color: #514862;
+}
+
+.fan_paging a:HOVER {
+	color: #000000;
 }
 
 /* fanart css (끝) */

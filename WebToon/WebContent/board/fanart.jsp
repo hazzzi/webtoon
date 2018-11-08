@@ -16,14 +16,15 @@
 	<div id="wrap">
 
 		<!-- header 시작 -->
-		<jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="../main/header.jsp"></jsp:include>
 		<!--/ header 끝 -->
 
 		<div class="fan_content">
 			<jsp:include page="header_main.jsp"></jsp:include>
 			<script type="text/javascript">
 				$(document).ready(function(){
-					$('#bd_fan').html("★팬아트★");
+					$('#bd_fan').css('color','#514862');
+					$('#bd_fan').html("｜ 팬아트 ｜ ");
 				});
 			</script>
 			<article>
@@ -33,12 +34,13 @@
 					<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
 <!-- 					인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 					<% for(int i=0 ; i<5 ; i++){ %>
-					<img src="https://via.placeholder.com/285">
-					<img src="https://via.placeholder.com/285"> 
-					<img src="https://via.placeholder.com/285"> 
-					<img src="https://via.placeholder.com/285"> 
-					<img src="https://via.placeholder.com/285">
+					<a href="#"><img src="https://via.placeholder.com/285"></a>
+					<a href="#"><img src="https://via.placeholder.com/285"></a>
+					<a href="#"><img src="https://via.placeholder.com/285"></a>
+					<a href="#"><img src="https://via.placeholder.com/285"></a>
+					<a href="#"><img src="https://via.placeholder.com/285"></a>					
 					<%} %>
+					
 				</div>
 				
 				
