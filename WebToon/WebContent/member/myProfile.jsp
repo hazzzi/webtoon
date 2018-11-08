@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/myProfile.css">
-
+<link rel="stylesheet" href="../main/css/footer-main.css">
 </head>
 <body>
 <div id="wrap">
@@ -88,17 +88,7 @@
      
      
  <!-- footer 영역 (시작)-->
-	 <div class="clear"></div>
-	<hr>
-	
-	<footer>
-		<div id="copyright">
-			<a href="#">도움말</a>|
-			<a href="#">문의사항</a>|
-			<a href="#">개인정보처리방침</a>|
-			<a href="#">약관</a>
-		</div>
-	</footer>
+<jsp:include page="../main/footer.jsp"></jsp:include>
 	<!-- footer 영역 (끝)-->
    
 </div>
