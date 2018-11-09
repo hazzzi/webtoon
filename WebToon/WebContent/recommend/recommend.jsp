@@ -21,6 +21,16 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
+		<script>
+		var RecentView;
+		$(document).ready(function(){
+			$("#header-srch").hide();
+			$("#a_srch").click(function(){
+				$(".tmp").toggle();
+		        $("#header-srch").toggle(500);
+		    });
+		});
+	</script>
 	<article class="rec_main">
 		<div class="wrap">
 			<div class="rec">
@@ -34,11 +44,9 @@
 				<b>박태준 · 스토리 / 네이버</b>
 				
 			</div>
-			<div>
+			<div class="rec_select">
 				<button class="webtoon_btn">웹툰보러 갈까?</button>
 				<b class="bb">평가하기</b>
-			</div>
-			<div class="rec_star">
 			
 				<jsp:include page="star_barr.jsp"></jsp:include>
 				
