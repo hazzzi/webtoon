@@ -4,14 +4,35 @@
 	padding: 0;
 }
 
-body {
-background-image: url("../img/banner.jpg");
-background-repeat: no-repeat;
-background-size: cover;
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
 }
 
-.div {background-color:rgb(16, 18, 20,0.2);
-	
+@font-face {
+	font-family: 'MaplestoryLight';
+	src: url("../font/Maplestory Light.ttf") format('truetype');
+}
+
+body {
+	background-image: url("../img/banner.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+
+input {
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	box-sizing: border-box;
+	padding: 5px;
+	border: none;
+	color: #eee
+}
+
+.div {
+	background-color:rgb(16, 18, 20,0.2);
 	border: 1px solid;
 	margin: auto auto;
 	padding: 10px 10px;
@@ -21,32 +42,35 @@ background-size: cover;
 	border-radius: 10px;
 } 
 .b {
-	color: white;
+	color: #eee;
 }
 
 .forgetid {
-	color: white;
+/* 	border: 1px solid red; */
+	ccolor: #eee;
 	margin: auto auto ;
 	text-align: center;
 	display: inline-block;	
-	font-size: 20px;
+	font-size: 25px;
 	width: 130px;
 }
 
 
 .forgetid>a{
 	text-decoration: none;
-	color: white;
+	color: #eee;
 }
 
 .forgetpw {
+/* 	border: 1px solid red; */
+	color: #eee;
 	margin: auto auto ;
 	text-align: center;
 	display: inline-block;
-	font-size: 20px;
+	font-size: 25px;
 	width:130px; height: 40px;
-	border-bottom: 1px solid white;
-	border-left: 1px solid white;
+	border-bottom: 1px solid #eee;
+	border-left: 1px solid #eee;
 }
 
 .forgetpw>a{
@@ -65,23 +89,27 @@ background-size: cover;
 }
 
 .email>input {
-	margin-top: 10px;
+	margin-top: 30px;
 	width: 250px; height: 30px;
 }
 
 .getid>input {
+	background-color:#cac1dd;
+    color:#3c2f55;
 	margin-top: 10px;
+	margin-bottom: 10px;
 	width: 250px; height: 30px;
 }
 
 .loginpage>a{
-	color:white;
+	color: #eee;
 }
 
 .hpname {
 	/* font-family: 'MaplestoryLight', sans-serif; */
-	color: white;
+	color: #eee;
 	margin-top: 20px;
 	font-weight: bold;
 	font-size: 20px;
+	font-family: 'NanumBarunpenR', sans-serif;
 }
