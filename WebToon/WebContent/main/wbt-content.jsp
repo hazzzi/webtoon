@@ -11,12 +11,12 @@
 				src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg"
 				alt="Avatar" class="avatar">
 			<div class="content">
-				<b>유미의세포들</b>
+				<a><b>유미의세포들</b></a>
 			</div>
 			<div class="author">
 				<b>이동건 · 에피소드 / 네이버</b>
 			</div>
-			<div>
+			<div class="wbt-search">
 				<a href="#">웹툰보기</a>
 			</div>
 		</div>
