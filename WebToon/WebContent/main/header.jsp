@@ -24,7 +24,13 @@
 						<div id="profile">
 							<a href="#">
 								<span>닉네임</span>
+								<i class="fa fa-caret-down"></i>
 							</a>
+							<div class="dropdown-content">
+						      <a href="#">회원정보1</a>
+						      <a href="#">회원정보2</a>
+						      <a href="#">로그아웃/로그인</a>
+						    </div>
 						</div>
 					</li>
 				</ul>
