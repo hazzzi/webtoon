@@ -56,7 +56,7 @@ a {
 }
 
 .login {
-	
+/* 	border: 1px solid red; */
 	ccolor: #eee;
 	margin: auto auto ;
 	text-align: center;
@@ -72,6 +72,7 @@ a {
 }
 
 .join {
+/* 	border: 1px solid red; */
 	color: #eee;
 	margin: auto auto ;
 	text-align: center;
@@ -94,7 +95,7 @@ a {
 	font-weight: bold;
 	background-color:#eee;
     color:#3c2f55;
-	margin-top: 100px;
+	margin-top: 70px;
 	width: 250px; height: 30px;
 }
 
@@ -211,6 +212,6 @@ a {
 	color: #eee;
 	margin-top: 20px;
 	font-weight: bold;
-	font-size: 25px;
-	font-family: 'MaplestoryLight', sans-serif;
+	font-size: 20px;
+	font-family: 'NanumBarunpenR', sans-serif;
 }

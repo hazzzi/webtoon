@@ -9,7 +9,7 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="css/test.css">
-<link rel="stylesheet" href="css/header-main2.css">
+<link rel="stylesheet" href="css/main-header.css">
 <link rel="stylesheet" href="css/footer-main.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -30,7 +30,7 @@
 	<!-- Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분-->
 	
 	<!-- header 영역 (시작) -->
-	<jsp:include page="header.jsp" />
+	<jsp:include page="main-header.jsp" />
 	<!-- header 영역 (끝) -->
 	<script>
 		var RecentView;
@@ -38,7 +38,7 @@
 			var scrollPosition;
 			$(window).scroll(function(){
 				scrollPosition = $(this).scrollTop();
-				if (scrollPosition > 30) {
+				if (scrollPosition > 0) {
 					$('#head').addClass('fixed');
 				} else {
 					$('#head').removeClass('fixed');
@@ -46,11 +46,27 @@
 			});
 		});
 	</script>
- 
+ <div id="main-banner">
+ 	<div>
+ 		<div>
+	 		<nav id="main-banner-nav">
+				<ul>
+					<li>
+						<a href="#">추천</a>
+					</li>
+					<li>
+						<a href="#">게시판</a>
+					</li>
+				</ul>
+			</nav>
+ 			<span>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을 받아보세요.</span>
+ 		</div>
+ 	</div>
+ </div>
  <div id="main-content-div">
-			<p>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을 받아보세요.</p>
 	<div id="sildeshow">
 		<div id="content">
+			<h3>로맨스</h3>
 			<div id="con-img" class="owl-carousel owl-theme">
 					<!-- <a class=".owl-nav">&#10094;</a> -->
 				<div class="webtoon-img">

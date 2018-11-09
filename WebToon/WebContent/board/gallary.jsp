@@ -49,7 +49,6 @@
       }
       .gallary {
       width: 1503px;
-      padding: 10px;
       margin: auto;
       }-->
     </style>
@@ -95,7 +94,6 @@
 </div>
 	</div>
 
-		
 		<span class="gallary_paging">
 				<a href="#">&lt;</a>
 				<%for(int i=0; i<10; i++){ %>

@@ -45,8 +45,8 @@ a {
 	vertical-align: middle;
 }
 
-.div {background-color:rgb(16, 18, 20,0.2);
-	
+.div {
+	background-color:rgb(16, 18, 20,0.2);
 	border: 1px solid;
 	margin: auto auto;
 	padding: 10px 10px;
@@ -56,7 +56,7 @@ a {
 	border-radius: 10px;
 } 
 .b {
-	color: white;
+	color: #eee;
 }
 
 .login {
@@ -96,7 +96,7 @@ a {
 	font-weight: bold;
 	background-color:#eee;
     color:#3c2f55;
-	margin-top: 100px;
+	margin-top: 70px;
 	width: 250px; height: 30px;
 }
 
@@ -154,17 +154,16 @@ a {
 	width: 250px; height: 30px;
 }
 
+.join_input>input:HOVER {
+	cursor: pointer;
+}
 
 .hpname {
 /*  	border: 1px solid red;	 */
 	color: #eee;
 	margin-top: 20px;
 	font-weight: bold;
-	font-size: 25px;
-	font-family: 'MaplestoryLight', sans-serif;
+	font-size: 20px;
+	font-family: 'NanumBarunpenR', sans-serif;
 	
-}
-
-.hpname>p {
-	display: inline-block;
 }

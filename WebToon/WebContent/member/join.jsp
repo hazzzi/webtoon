@@ -2,21 +2,17 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- 오후 12:20 2018-11-02 수정 -->
-
-<html>
+ <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/join.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<title>회원가입</title>
+ <title>회원가입</title>
 <script type="text/javascript">
-
-function checking(){
+ function checking(){
 	var pass = document.f.pass.value;
 	var repass = document.f.repass.value;
-
-	if (document.f.pass.value != document.f.repass.value) {
+ 	if (document.f.pass.value != document.f.repass.value) {
          alert("비밀번호가 일치하지 않습니다")
          document.f.pass.value = ""
         	 document.f.repass.value = ""
@@ -30,32 +26,25 @@ function checking(){
 <a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
 <form action="login.jsp" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
-
-<div class="login">
+ <div class="login">
 <a href="login.jsp"><strong>로그인</strong></a>
 </div>
-
-<div class="join">
+ <div class="join">
 <a href="join.jsp"><strong>회원가입</strong></a>
 </div>
-
-<div class="id_input">
+ <div class="id_input">
 <input type="text" name="id" placeholder="아이디" required>
 </div>
-
-<div class="email_input">
+ <div class="email_input">
 <input type="email" name="email" placeholder="이메일" required>
 </div>
-
-<div class="pwd_input">
+ <div class="pwd_input">
 <input type="password" name="pass" placeholder="비밀번호" required>
 </div>
-
-<div class="pwd_input">
+ <div class="pwd_input">
 <input type="password" name="repass" placeholder="비밀번호확인" required>
 </div>
-
-<div class="pwd_hint">
+ <div class="pwd_hint">
 <select name="sel_hint" required>
 <option value="">비밀번호 힌트를 선택하세요</option>
 <option value="1">나의 좌우명은?</option>
@@ -65,16 +54,13 @@ function checking(){
 <option value="5">제일 좋아하는 음식은?</option>
 </select>
 </div>
-
-<div class="pwd_hint">
+ <div class="pwd_hint">
 <input type="text" name="pass_htnt" placeholder="비밀번호 힌트 답" required>
 </div>
-
-<div class="nic_input">
+ <div class="nic_input">
 <input type="text" name="nic" placeholder="닉네임" required>
 </div>
-
-<div class="pwd_hint">
+ <div class="pwd_hint">
 <select name="sel_age" required>
 <option value="">연령</option>
 <option value="1">10대</option>
@@ -84,14 +70,10 @@ function checking(){
 <option value="5">50대 이상</option>
 </select>
 </div>
-
-<div class="join_input">
+ <div class="join_input">
 <input type="submit" value="회원가입">
 </div>
-
-
-
-<div class="hpname">
+ <div class="hpname">
 <i class="fa fa-search co"></i>
 오늘 뭐 볼까?
 </div>

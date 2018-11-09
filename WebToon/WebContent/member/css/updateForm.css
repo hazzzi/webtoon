@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+ }	
+
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
+}
+
+body {
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+ 
+#update_wrap{
+/* 	border:1px solid red; */
+	text-align: center;
+	height: 700px; width: 100%;
+}
+
+#rif{
+/* 	border:1px solid #cac1dd; */
+	border-bottom: 1px solid #cac1dd;
+	border-top: 1px solid #cac1dd;
+	margin:auto auto;
+	display: inline-block;
+ 	}
+#rif_title{
+	width:350px;
+	height:100px;
+	margin:0 auto;
+	font-size:30px;
+	margin-top:20px;
+	margin-bottom:20px;
+	}
+	
+#rif_photo{
+/* 	border:1px solid red; */
+	width:300px;
+	height: 350px;
+	text-align: center;
+	float: left;
+	}
+
+#profileImg{
+/* 	border:1px solid red; */
+	display:inline-block;
+	margin-top: 20px;
+	margin-bottom:10px;
+	}
+	
+#profileImg>img{
+	border-radius: 70px;
+	}
+
+.profileImg_Btn>input {
+	width: 100px; height: 30px;
+	font-weight: bold;
+	border: none;
+	background-color:#cac1dd;
+    color:#3c2f55;
+}
+	
+#rif_text{
+/* 	border: 1px solid red; */
+	width:800px;
+	height: 350px;
+	}
+	
+table{
+	margin:0 auto;	
+	}
+	
+th{
+	font-size:18px;
+	width:70px;
+	height:50px;
+/* 	background-color: #d5dced; */
+	}
+	
+td{ 
+	width:300px;
+	height:50px;
+	text-align: left;
+	padding-left:10px;
+	}
+
+input {
+	width: 250px; height: 30px;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+
+select {
+	width: 250px; height: 30px;
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#sub>input {
+	width: 100px; height: 30px;
+	font-weight: bold;
+	border: none;
+	background-color:#cac1dd;
+    color:#3c2f55;
+    margin-bottom: 20px;
+}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
