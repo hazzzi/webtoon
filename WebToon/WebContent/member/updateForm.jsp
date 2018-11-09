@@ -27,8 +27,8 @@
 	</div>
 	
 	<div id="rif_text">
-	<table border="1">
-	<tr><th>이름</th><td><input type="text" name="id" readonly></td></tr>
+	<table border="0">
+	<tr><th>아이디</th><td><input type="text" name="id" readonly></td></tr>
 	<tr><th>닉네임</th><td><input type="text" name="nikname" ></td></tr>
 	<tr><th>이메일</th><td><input type="email" name="email" ></td></tr>
 	<tr><th>비밀번호 힌트</th><td><select name="sel_hint" required>

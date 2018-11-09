@@ -23,7 +23,7 @@
 	}
 	
 #rif_photo{
-	border:1px solid red;
+	/* border:1px solid red; */
 	width:300px;
 	height: 400px;
 	text-align: center;
@@ -31,7 +31,7 @@
 	}
 
 #profileImg{
-	border:1px solid red;
+	/* border:1px solid red; */
 	display:inline-block;
 	margin-top: 20px;
 	margin-bottom:10px;
@@ -42,7 +42,7 @@
 	}
 	
 #rif_text{
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	width:800px;
 	height: 400px;
 	}
@@ -51,9 +51,10 @@ table{
 	margin:0 auto;	
 	}
 	
-th{
+th{font-size:18px;
 	width:70px;
 	height:50px;
+	background-color: #d5dced;
 	}
 	
 td{ width:300px;
