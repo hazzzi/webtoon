@@ -364,6 +364,10 @@ td>a:HOVER {
    text-decoration: underline;
 }
 
+#header-srch>a {
+	bottom: -7px !important;
+}
+
 /* fanart css (시작)*/
 
 .fan_content{
