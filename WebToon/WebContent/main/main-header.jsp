@@ -10,21 +10,16 @@
 				<a href="#">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
-			<nav id="menu">
+			<nav id="menu" style="width: 70%">
 				<ul>
 					<li>
-<!-- 						<div id="srch">
-							<input type="text" placeholder="작품 검색">
-							<a href="#"></a>		
-						</div> -->
-						<a href="#">검색</a>
+						<!-- <A HREF="#">검색</A> -->
+						<div id="srch">
+							<input type="text" placeholder="검색">
+							<a href="#"><i class="fa fa-search"></i></a>
+						</div>
 					</li>
 					<li>
-						<a href="#">추천</a>
-					</li>
-					<li>
-						<a href="#">게시판</a>
-					</li>
 					<li>
 						<div id="profile">
 							<a href="#">
@@ -37,14 +32,6 @@
 			</div>
 				<!-- 프로필 이미지  -->
 		</div>
-<!-- 		
-		<div id="navbar">
-		  <a class="active" href="javascript:void(0)">Home</a>
-		  <a href="javascript:void(0)">News</a>
-		  <a href="javascript:void(0)">Contact</a>
-		</div> -->
-		
-	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (시작) -->
 	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (끝) -->
 	</header>
 

@@ -9,11 +9,19 @@
 }
 
 .wrap {
+<<<<<<< HEAD
 /* 	border:1px solid red; */
 	background-color: #fff;
 	margin: auto auto;
 	height: 500px; width: 100%;
 	text-align: center;
+=======
+	/* border:1px solid yellow; */
+   	background-color:#fff;
+   	min-width: 1200px;
+  	min-height:100%;
+    margin: 0 auto;
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 }
 
 .wrap>div {
@@ -37,8 +45,53 @@
 	margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .wrap>div:HOVER {
 /* 	border: 2px solid white; */
+=======
+#wd1 img,#wd2>img,#wd3>img,#wd4>img{margin-left:70px;
+			margin-top: 20px;}
+#wd1_1,#wd2_1,#wd3_1,#wd4_1{margin-top: 10xp;}
+	
+#wd1_1>h2{display: inline-block;
+margin-top: 10px;
+margin-left: 55px;}
+
+#wd2_1>h2{
+margin-top: 10px;
+margin-left: 50px;
+}
+#wd3_1>h2{
+	margin-top: 10px;
+margin-left: 48px;
+}
+#wd4_1>h2{
+	margin-top: 10px;
+margin-left: 68px;
+}
+#wd1_1>p,#wd2_1>p,#wd3_1>p,#wd4_1>p{
+	font-size: 15px;
+display: inline-block;
+}
+#wd1_1>p{margin-top: 5px;margin-left: 45px;}
+#wd2_1>p{margin-top: 5px;margin-left: 48px;}
+#wd3_1>p{margin-top: 5px;margin-left: 48px;}		
+#wd4_1>p{margin-top: 5px;margin-left: 50px;}
+
+#wd1,#wd2,#wd3,#wd4{
+	border: 4px solid white;
+	background-color:#101214;
+	border-radius:30px;
+	height:200px;
+	width:200px; 
+	float: left;
+	color:#eee;
+		margin-left:20px;
+		transition: all 0.3s;}
+		
+#wd1:HOVER,#wd2:HOVER,#wd3:HOVER,#wd4:HOVER{
+	border: 2px solid white;
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 	background-color:#cac1dd;
 	color:#3c2f55;
 	cursor: pointer;
@@ -52,6 +105,23 @@ img:NTH-OF-TYPE(2){
 	display: none;
 }
 
+<<<<<<< HEAD
 .wrap>div:HOVER img:NTH-OF-TYPE(2) {
 	display: inline-table;
 }
+=======
+
+#wd3 .img3_2{display:none;}
+#wd3:HOVER .img3_1{display:none;}
+#wd3:HOVER .img3_2{display:inline-table;}
+
+
+#wd4 .img4_2{display:none;}
+#wd4:HOVER .img4_1{display:none;}
+#wd4:HOVER .img4_2{display:inline-table;}
+
+hr{}
+
+
+
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git

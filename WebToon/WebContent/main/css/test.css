@@ -21,12 +21,12 @@ body{
 	font-weight: bold;
 	/* line-height: 1.2em; */
 	/* color: #101214; */
-	color: #101214;
+	color: #5F4B8B;
 	min-height: 900px;
 }
 
 #wrap {
-	background-color: #f9f9f9;
+	background-color: #fff;
 	min-width: 1200px;
 	min-height: -webkit-fill-available;
 	margin: 0 auto;
@@ -39,8 +39,8 @@ body{
 /* content 영역 (시작) */
 
 #sildeshow{
-	color: #000;
-	margin: 65px auto 0 auto;
+	color: #2d2442;
+	margin: 0 auto 65px auto;
 	max-width:1300px;
 /* 	max-width: 800px; */
 	font-size: 25px;
@@ -56,14 +56,14 @@ body{
 	box-sizing: border-box;
 	padding: 50px 0;
 }
-/* #content>h2{
+#content>h3{
 	margin: 0 70px;
 	text-align: left;
-} */
+}
 
 #con-img{
 	/* height: 235px; */
-	margin: 50px auto;
+	margin: 30px auto;
 }
 
 
@@ -93,7 +93,7 @@ body{
     width: 70%;
     margin: 0 auto;
     cursor: pointer;
-    color: #000;
+    color: #2d2442;
 }
 
 
@@ -111,10 +111,14 @@ body{
     cursor: pointer;
 }
 
+#con-img>a:HOVER{
+	background: 
+}
+
 
 
 #main-content-div{
-	margin-top: 100px;
+	min-height: -webkit-fill-available;;
 }
 
 #main-content-div>h2{
@@ -123,7 +127,56 @@ body{
 }
 /* content 영역 (끝) */
 
+#main-banner{
+	height: 500px;
+	margin: 0 auto 0 auto;
+    /* max-width: 1300px; */
+}
+#main-banner>div{
+	height: 100%;
+	background-color: #2d2442;
+}
 
+#main-banner>div>div{
+	opacity: 0.85;
+	height: 100%;
+	filter: grayscale(70%);
+	background-image: url("../img/background-img2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: right center;
+	text-align: center;
+}
+
+#main-banner>div>div>span{
+	font-size: 30px;
+    line-height: 25;
+    color: #000;
+}
+
+#main-banner-nav{
+	font-size: 35px;
+	position: relative;
+    top: 185px;
+    box-sizing: border-box;
+}
+
+#main-banner-nav a{
+	color: #000;
+}
+
+#main-banner-nav li{
+	display: inline-block;
+    /* border: 1px solid #000; */
+    padding: 20px 30px;
+    margin: 0 30px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+#main-banner-nav li:HOVER {
+}
 
 
 
