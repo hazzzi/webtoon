@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
-	<header id="head">
-		<div id="top">
-			<div id="logo">
+	<header id="header-head">
+		<div id="header-top">
+			<div id="header-logo">
 			<h1>
 				<i class="fa fa-search" style="color:#fff"></i>
 				<a href="#">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
 			
-			<nav id="menu">
+			<nav id="header-menu">
 				<ul>
 					<li id="first-li">
 						<a id="a_srch" style="cursor: pointer">검색</a>
-						<div id="srch">
+						<div id="header-srch">
 							<input type="text">
 							<a href="#"><i class="fa fa-search"></i></a>
 						</div>
@@ -26,7 +26,7 @@
 						<a href="#">게시판</a>
 					</li>
 					<li>
-						<div id="profile">
+						<div id="header-profile">
 							<a href="#">
 								<span>닉네임</span>
 								<i class="fa fa-caret-down"></i>
