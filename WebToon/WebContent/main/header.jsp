@@ -9,15 +9,20 @@
 				<a href="#">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
+			
 			<nav id="menu">
 				<ul>
-					<li>
-						<a href="#">검색</a>
+					<li id="first-li">
+						<a id="a_srch" style="cursor: pointer">검색</a>
+						<div id="srch">
+							<input type="text">
+							<a href="#"><i class="fa fa-search"></i></a>
+						</div>
 					</li>
-					<li>
+					<li class="tmp">
 						<a href="#">추천</a>
 					</li>
-					<li>
+					<li class="tmp">
 						<a href="#">게시판</a>
 					</li>
 					<li>
@@ -37,6 +42,6 @@
 			</nav>
 				<!-- 프로필 이미지  -->
 		</div>
-		</header>
+	</header>
 
 

@@ -107,7 +107,7 @@ box-sizing: border-box;
     font-family: 'NanumBarunpenR', sans-serif;
     font-weight: bold;
     padding: 0 50px 0 20px;
-    border-radius: 3px;
+    border-radius: 1px;
 }
 
 #srch>a{
