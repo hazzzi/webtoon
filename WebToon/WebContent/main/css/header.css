@@ -59,7 +59,7 @@ nav#menu{
     margin: 25px 0;
     height: 50px;
     text-align: center;
-    width: 60%;
+    width: 64%;
 }
 
 nav#menu li{
@@ -79,7 +79,7 @@ nav#menu li:LAST-CHILD:HOVER{
 }
 
 nav#menu li:HOVER {
-	border-bottom: 3px solid #cac1dd;
+	/* border-bottom: 3px solid #cac1dd; */
 }
 
 
@@ -111,6 +111,53 @@ nav#menu li:HOVER {
 }
 
 
+/* search */
+#srch{
+	float: right;
+    /* width: 150px; */
+    height: 40px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    margin-left: 30px;
+    font-size: 30px;
+    position: relative;
+    top: 4px;
+    z-index: 5;
+}
+
+#srch>input{
+    box-sizing: border-box;
+    width: 250px;
+    height: 100%;
+    margin-right: -40px;
+    display: block;
+    float: left;
+    border: none;
+    background-color: #eee;
+    color: #101214;
+    font-size: 20px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-weight: bold;
+    padding: 0 50px 0 20px;
+    border-radius: 1px;
+    position: relative;
+    top: 2px;
+}
+
+#srch>a{
+    box-sizing: border-box;
+    /* height: 100%; */
+    display: block;
+    float: left;
+    color: #201a2f;
+    position: relative;
+    bottom: 8px;
+}
+
+#first-li{
+	
+}
 
 
 

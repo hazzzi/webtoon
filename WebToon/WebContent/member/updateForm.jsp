@@ -13,8 +13,9 @@
 </head>
    <jsp:include page="../main/header.jsp"></jsp:include>
 <body>
+						<!--  uf= updateForm  
+							  rif=reinfo		-->
 <div id="update_wrap">
-
    <!-- header 시작 -->
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
@@ -55,7 +56,7 @@
 		</select></td></tr>		     
 	</table>
  	</div> <!--id="rif_text" -->
-	<div id="sub">
+	<div id="uf_sub">
 	<input type="submit" value="수정">
 	</div>
 </div>
