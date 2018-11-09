@@ -26,7 +26,7 @@
 </script>
 </head>
 <body>
-<div id="wrap">
+<div id="main-wrap">
 	<!-- Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분-->
 	
 	<!-- header 영역 (시작) 이부분 복사해서 가져가세요 -->

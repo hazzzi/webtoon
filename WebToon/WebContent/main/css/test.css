@@ -25,7 +25,7 @@ body{
 	min-height: 900px;
 }
 
-#wrap {
+#main-wrap {
 	background-color: #fff;
 	min-width: 1200px;
 	min-height: -webkit-fill-available;
