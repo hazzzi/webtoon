@@ -29,37 +29,39 @@
 <div id="wrap">
 	<!-- Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분-->
 	
-	<!-- header 영역 (시작) -->
+	<!-- header 영역 (시작) 이부분 복사해서 가져가세요 -->
+	<!-- 				헤드 부분 								-->
+	<!-- <link rel="stylesheet" href="css/header.css">
+		 <link rel="stylesheet" href="css/footer-main.css">  -->
 	<jsp:include page="header.jsp" />
 	
 	<script>
 		var RecentView;
 		$(document).ready(function(){
-			$("#srch").hide();
+			$("#header-srch").hide();
 			$("#a_srch").click(function(){
 				$(".tmp").toggle();
-		        $("#srch").toggle();
+		        $("#header-srch").toggle(500);
 		    });
 		});
 	</script>
 	
-	<!-- header 영역 (끝) -->
+	<!-- header 영역 (끝)  이부분 복사해서 가져가세요-->
+	
+	
+	
 	<script>
-		var RecentView;
 		$(document).ready(function(){
 			var scrollPosition;
 			$(window).scroll(function(){
 				scrollPosition = $(this).scrollTop();
 				if (scrollPosition > 0) {
-					$('#head').addClass('fixed');
+					$('#header-head').addClass('fixed');
 				} else {
-					$('#head').removeClass('fixed');
+					$('#header-head').removeClass('fixed');
 				}
 			});
 			
-			$("#hide").click(function(){
-		        $("p").hide();
-		    });
 		});
 	</script>
  <div id="main-banner">
