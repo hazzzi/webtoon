@@ -9,7 +9,7 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="css/test.css">
-<link rel="stylesheet" href="css/main-header.css">
+<link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/footer-main.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -30,7 +30,19 @@
 	<!-- Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분-->
 	
 	<!-- header 영역 (시작) -->
-	<jsp:include page="main-header.jsp" />
+	<jsp:include page="header.jsp" />
+	
+	<script>
+		var RecentView;
+		$(document).ready(function(){
+			$("#srch").hide();
+			$("#a_srch").click(function(){
+				$(".tmp").toggle();
+		        $("#srch").toggle();
+		    });
+		});
+	</script>
+	
 	<!-- header 영역 (끝) -->
 	<script>
 		var RecentView;
@@ -44,6 +56,10 @@
 					$('#head').removeClass('fixed');
 				}
 			});
+			
+			$("#hide").click(function(){
+		        $("p").hide();
+		    });
 		});
 	</script>
  <div id="main-banner">
