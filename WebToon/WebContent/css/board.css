@@ -193,6 +193,7 @@ header {
 .notice{
 	padding-top: 5px;
 	font-size: 35px;
+	color:#333;
 }
 
 
@@ -206,6 +207,7 @@ header {
    font-size: 22px;
    font-weight: bold;
    position: relative;
+   color:#333;
 }
 
 #context span {
@@ -235,6 +237,7 @@ header {
 /*   border: 1px solid #212124; */
    min-height: 800px;
    margin-top: 7px;
+   color:#333;
 }
 
 .board_table {
@@ -244,6 +247,8 @@ header {
 	text-align: center;
 	font-weight: bold;
 	border-color: #fff;
+	border-left-style: none;
+    border-right-style: none;
 }
 
 .board_table th {
