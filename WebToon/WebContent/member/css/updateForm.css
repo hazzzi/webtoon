@@ -4,13 +4,13 @@
 	margin:0;
 	padding:0;
  }	
- .clear{clear:both;}
+
  
 #wrap{text-align: center;}
 
 #rif{
 	margin:auto auto;
-	border:1px solid red;
+	/* border:1px solid red; */
 	display: inline-block;
  	}
 #rif_title{
@@ -51,13 +51,15 @@ table{
 	margin:0 auto;	
 	}
 	
-th{font-size:18px;
+th{
+	font-size:18px;
 	width:70px;
 	height:50px;
 	background-color: #d5dced;
 	}
 	
-td{ width:300px;
+td{ 
+	width:300px;
 	height:50px;
 	text-align: left;
 	padding-left:10px;
