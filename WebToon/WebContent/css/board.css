@@ -1,32 +1,37 @@
 @CHARSET "UTF-8";
-@font-face {font-family: 'NanumBarunpenR';   src: url("font/NanumBarunpenR.ttf") format('truetype');}
-@font-face {font-family: 'MaplestoryLight';src: url("font/Maplestory Light.ttf") format('truetype');}
+/* 폰트 */
+@font-face {font-family: 'NanumBarunpenR';	src: url("../main/font/NanumBarunpenR.ttf") format('truetype');}
+@font-face {font-family: 'MaplestoryLight';src: url("../main/font/Maplestory Light.ttf") format('truetype');}
 
-/* 초기값 설정 */
+/* 페이지 초기값 설정 */
 * {
-   margin: 0;
-   padding: 0;
+	margin: 0;
+	padding: 0;
 }
 li {
-   list-style: none;
+	list-style: none;
 }
 a{
-   text-decoration: none;
-   color: #fff;      
+	text-decoration: none;
+	color: #fff;		
 }
 body{
-   font-family: 'NanumBarunpenR', sans-serif;
-   font-size: 10pt;
-   line-height: 1.2em;
-   color: #333;
-   min-height: 900px;
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	/* line-height: 1.2em; */
+	/* color: #101214; */
+	color: #5F4B8B;
+	min-height: 900px;
 }
 
 #wrap {
-   background-color: rgb(16, 18, 20);
-   min-width: 1200px;
-   min-height:100%;
-   margin: 0 auto;
+	background-color: #fff;
+	min-width: 1200px;
+	min-height: -webkit-fill-available;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
 }
 .clear { clear: both;}
 
@@ -191,7 +196,6 @@ header {
 }
 
 .notice{
-	padding-top: 5px;
 	font-size: 35px;
 	color:#333;
 }
@@ -219,7 +223,7 @@ header {
 
 #hr{
    width: 1522px;
-   margin: 15px 0;
+   margin-top: 50px;
    border: 1px dotted #c0c0c0;
    position: relative;
 }
