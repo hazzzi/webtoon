@@ -57,7 +57,7 @@
  <div class="pwd_hint">
 <input type="text" name="pass_htnt" placeholder="비밀번호 힌트 답" required>
 </div>
- <div class="nic_input">
+ <div class="nik_input">
 <input type="text" name="nic" placeholder="닉네임" required>
 </div>
  <div class="pwd_hint">

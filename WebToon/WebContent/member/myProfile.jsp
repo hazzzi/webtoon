@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head>		
 <meta charset="UTF-8">
 <title>내 정보</title>
 <link rel="stylesheet" href="../main/css/test.css">
@@ -13,29 +13,29 @@
 
 </head>
 <jsp:include page="../main/main-header.jsp"></jsp:include>
-<body>
+<body>				<!--mp_ =myProfile  -->
 
-<div class="wrap">
+<div class="mp_wrap">
 
-<div class="img1">
+<div class="mp_img1">
 <img src="./img/settingsw.png">
 <img src="./img/settingshover.png"><br>
 회원정보 수정
 </div>
 
-<div class="img2">
+<div class="mp_img2">
 <img src="./img/editw.png">
 <img src="./img/edithover.png"><br>
 비밀번호 변경
 </div>
 
-<div class="img3">
+<div class="mp_img3">
 <img src="./img/copyw.png">
 <img src="./img/copyhover.png"><br>
 내가 쓴 글 보기
 </div>
 
-<div class="img4">
+<div class="mp_img4">
 <img src="./img/garbagew.png">
 <img src="./img/garbagehover.png"><br>
 회원탈퇴

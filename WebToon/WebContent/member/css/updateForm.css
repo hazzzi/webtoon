@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
-
+/*  			uf= updateForm  
+				rif=reinfo				*/
 *{
 	margin:0;
 	padding:0;
  }	
 
-<<<<<<< HEAD
-=======
+
 @font-face {
 	font-family: 'NanumBarunpenR';
 	src: url("../font/NanumBarunpenR.ttf") format('truetype');
@@ -15,7 +15,7 @@
 body {
 	font-family: 'NanumBarunpenR', sans-serif;
 }
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
+
  
 #update_wrap{
 /* 	border:1px solid red; */
@@ -28,10 +28,6 @@ body {
 	border-bottom: 1px solid #cac1dd;
 	border-top: 1px solid #cac1dd;
 	margin:auto auto;
-<<<<<<< HEAD
-	/* border:1px solid red; */
-=======
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 	display: inline-block;
  	}
 #rif_title{
@@ -106,7 +102,7 @@ select {
 	font-weight: bold;
 }
 
-#sub>input {
+#uf_sub>input {
 	width: 100px; height: 30px;
 	font-weight: bold;
 	border: none;
