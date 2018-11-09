@@ -225,6 +225,13 @@ header {
 }
 
 /* 게시물  */
+
+
+tr {
+	height: 55px;
+}
+
+
 .posting {
 /*    border: 1px solid blue; */
    width: 1550px;
@@ -255,6 +262,7 @@ header {
 	background-color: #e4e4e4;
 	font-size: 22px;
 	height: 40px;
+	border-right-style: hidden;	
 }
 
 .board_table td {
