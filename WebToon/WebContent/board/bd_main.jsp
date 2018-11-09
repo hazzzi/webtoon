@@ -4,18 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>오늘 뭐 볼까?</title>
 <link rel="stylesheet" href="../css/board.css">
-<link rel="stylesheet" href="../main/css/test.css">
-<link rel="stylesheet" href="../main/css/header-main.css">
+<link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="../main/css/footer-main.css">
 </head>
 <body>
 <!-- wrap 영역 시작 -->
 <div id="wrap">
    <!-- header 시작 -->
   <jsp:include page="../main/header.jsp"></jsp:include>
+  <script>
+		var RecentView;
+		$(document).ready(function(){
+			$("#srch").hide();
+			$("#a_srch").click(function(){
+				$(".tmp").toggle();
+		        $("#srch").toggle();
+		    });
+		});
+	</script>
    <!--/ header 끝 -->
 
    <!-- article 영역 시작 -->
@@ -92,7 +101,7 @@
           	</tr>
           	<%} %>
           </table>
-          	<span class="fan_paging">
+          	<span class="board_paging">
 				<a href="#">&lt;</a>
 				<%for(int i=0; i<10; i++){ %>
 				<a href="#"><%=i+1 %></a>

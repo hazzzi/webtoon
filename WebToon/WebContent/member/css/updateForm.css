@@ -1,9 +1,11 @@
 @CHARSET "UTF-8";
-
+/*  			uf= updateForm  
+				rif=reinfo				*/
 *{
 	margin:0;
 	padding:0;
  }	
+
 
 @font-face {
 	font-family: 'NanumBarunpenR';
@@ -13,6 +15,7 @@
 body {
 	font-family: 'NanumBarunpenR', sans-serif;
 }
+
  
 #update_wrap{
 /* 	border:1px solid red; */
@@ -99,7 +102,7 @@ select {
 	font-weight: bold;
 }
 
-#sub>input {
+#uf_sub>input {
 	width: 100px; height: 30px;
 	font-weight: bold;
 	border: none;

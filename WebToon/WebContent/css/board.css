@@ -1,32 +1,37 @@
 @CHARSET "UTF-8";
-@font-face {font-family: 'NanumBarunpenR';   src: url("font/NanumBarunpenR.ttf") format('truetype');}
-@font-face {font-family: 'MaplestoryLight';src: url("font/Maplestory Light.ttf") format('truetype');}
+/* 폰트 */
+@font-face {font-family: 'NanumBarunpenR';	src: url("../main/font/NanumBarunpenR.ttf") format('truetype');}
+@font-face {font-family: 'MaplestoryLight';src: url("../main/font/Maplestory Light.ttf") format('truetype');}
 
-/* 초기값 설정 */
+/* 페이지 초기값 설정 */
 * {
-   margin: 0;
-   padding: 0;
+	margin: 0;
+	padding: 0;
 }
 li {
-   list-style: none;
+	list-style: none;
 }
 a{
-   text-decoration: none;
-   color: #fff;      
+	text-decoration: none;
+	color: #fff;		
 }
 body{
-   font-family: 'NanumBarunpenR', sans-serif;
-   font-size: 10pt;
-   line-height: 1.2em;
-   color: #333;
-   min-height: 900px;
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	/* line-height: 1.2em; */
+	/* color: #101214; */
+	color: #5F4B8B;
+	min-height: 900px;
 }
 
 #wrap {
-   background-color: rgb(16, 18, 20);
-   min-width: 1200px;
-   min-height:100%;
-   margin: 0 auto;
+	background-color: #fff;
+	min-width: 1200px;
+	min-height: -webkit-fill-available;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
 }
 .clear { clear: both;}
 
@@ -42,13 +47,14 @@ header {
    box-sizing: border-box;
 }
 
+/* 
 #top {
    overflow: hidden;
    height: 175px;
    padding: 40px 0 0 0;
 }
-
-#logo {
+ */
+/* #logo {
    width: 100%;
    height: 100%;
    font-family: 'MaplestoryLight', sans-serif;
@@ -59,14 +65,13 @@ header {
    padding: 0 0 0 20px;
    box-sizing: border-box;
    z-index: -1;
-}
+} */
 
 #profile{
    width: 100px;
    position: absolute;
    right:100px;
    top: 40px;
-   
 }
 #profile>img{
    vertical-align: middle;
@@ -191,8 +196,8 @@ header {
 }
 
 .notice{
-	padding-top: 5px;
 	font-size: 35px;
+	color:#333;
 }
 
 
@@ -206,6 +211,7 @@ header {
    font-size: 22px;
    font-weight: bold;
    position: relative;
+   color:#333;
 }
 
 #context span {
@@ -217,12 +223,19 @@ header {
 
 #hr{
    width: 1522px;
-   margin: 15px 0;
+   margin-top: 50px;
    border: 1px dotted #c0c0c0;
    position: relative;
 }
 
 /* 게시물  */
+
+
+tr {
+	height: 55px;
+}
+
+
 .posting {
 /*    border: 1px solid blue; */
    width: 1550px;
@@ -235,6 +248,7 @@ header {
 /*   border: 1px solid #212124; */
    min-height: 800px;
    margin-top: 7px;
+   color:#333;
 }
 
 .board_table {
@@ -243,12 +257,16 @@ header {
 	width: 1526px;
 	text-align: center;
 	font-weight: bold;
+	border-color: #fff;
+	border-left-style: none;
+    border-right-style: none;
 }
 
 .board_table th {
 	background-color: #e4e4e4;
 	font-size: 22px;
 	height: 40px;
+	border-right-style: hidden;	
 }
 
 .board_table td {
@@ -273,37 +291,24 @@ td>a:HOVER {
 	text-decoration: underline;
 }
 
-/* paging */
-/* .paging {
-	list-style:none;  
-    float:left;  
-    display:inline-block;
-    margin: 20px 630px 0 615px;
-    width: 400px;
-}
-
-.paging>li {
-	color:#fff;
-	float:left;  
-}
-
-.paging>li>a {
-	color:#fff;
-	float: left;  
-    padding:4px;  
-    margin-right:3px;  
-    width:20px;    
-    font-size: 20px; 
+.board_paging{
+    font-size: 26px;
     font-weight: bold;
-    text-align:center;  
-    text-decoration:none;  
+    margin: 20px 630px 0 630px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
 }
 
-.paging>li>a:HOVER, .paging>li>a:FOCUS {
-	color:#fff;  
-    border:1px solid #8000ff;  
-    background-color:#8000ff;  
-} */
+.board_paging a {
+	color: #514862;
+}
+
+.board_paging a:HOVER {
+	color: #000000;
+}
+
+
 
 .write{
 	width: 150px;
