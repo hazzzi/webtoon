@@ -52,8 +52,13 @@ body{
 }
 
 /* 웹툰이름 b */
-.content>b {
+.content>a {
 	margin-left: 15px;
+	color: #310062;
+	cursor: pointer;
+}
+.content>a:HOVER{
+	font-weight: bold;
 }
 
 /* 웹툰작가/장르 div */
@@ -68,10 +73,10 @@ body{
 }
 
 .webtoon_btn{
-	width: 110px;
+	width: 120px;
 	margin-top: 14px;
-	margin-left: 65px;
-	background-color: #7c67af;
+	margin-left: 60px;
+	background-color: #310062;
 	color: white;
 	border: #101214;
 	text-align: center;
@@ -82,8 +87,8 @@ body{
 	font-weight: bold;
 }
 .webtoon_btn:HOVER{
-	background-color: #e8e3f0;
-	color: #7c67af;
+	background-color: #8469af;
+	color: #fff;
 }
 .webtoon_btn:ACTIVE{
 	position: relative;
