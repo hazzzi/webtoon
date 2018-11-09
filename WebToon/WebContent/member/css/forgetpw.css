@@ -4,14 +4,44 @@
 	padding: 0;
 }
 
-body {
-background-image: url("../img/banner.jpg");
-background-repeat: no-repeat;
-background-size: cover;
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
 }
 
-.div {background-color:rgb(16, 18, 20,0.2);
+@font-face {
+	font-family: 'MaplestoryLight';
+	src: url("../font/Maplestory Light.ttf") format('truetype');
+}
+
+input {
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	box-sizing: border-box;
+	padding: 5px;
+	border: none;
+}
+
+select {
+	font-family: 'NanumBarunpenR', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	box-sizing: border-box;
+	padding: 5px;
+	border: none;
+}
+
+body {
 	
+	background-image: url("../img/banner.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+
+.div {
+	background-color:rgb(16, 18, 20,0.2);
 	border: 1px solid;
 	margin: auto auto;
 	padding: 10px 10px;
@@ -21,14 +51,14 @@ background-size: cover;
 	border-radius: 10px;
 } 
 .b {
-	color: white;
+	color: #eee;
 }
 
 .forgetid {
-		margin: auto auto ;
+	margin: auto auto ;
 	text-align: center;
 	display: inline-block;
-	font-size: 20px;
+	font-size: 25px;
 	width:130px; height: 40px;
 	border-bottom: 1px solid white;
 	border-right: 1px solid white;
@@ -41,12 +71,11 @@ background-size: cover;
 }
 
 .forgetpw {
-
 	color: white;
 	margin: auto auto ;
 	text-align: center;
 	display: inline-block;	
-	font-size: 20px;
+	font-size: 25px;
 	width: 130px;
 }
 
@@ -78,9 +107,17 @@ background-size: cover;
 	margin-top: 10px;
 	width: 250px; height: 30px;
 }
-.loginpage>a{
 
-color:white;
+.loginpage>a{
+	color:#eee;
+}
+
+.getpw>input {
+	background-color:#cac1dd;
+    color:#3c2f55;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 250px; height: 30px;
 }
 
 .hpname {

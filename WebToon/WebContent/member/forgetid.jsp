@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/forgetid.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <body>
@@ -19,9 +20,8 @@
 <a href="forgetpw.jsp"><strong>비밀번호 찾기</strong></a>
 </div>
 
-<div class="ex">등록된 이름과 이메일을 입력하세요</div>
+<div class="ex">등록된 이메일을 입력하세요</div>
 
-<div class="name"><input type="text" name="name" placeholder="이름" required></div>
 <div class="email"><input type="email" name="email" placeholder="이메일" required></div>
 <div class="getid">
 <input type="submit" value="아이디 찾기">
@@ -29,7 +29,8 @@
 <div class="loginpage"><a href="login.jsp">로그인 하기</a></div>
 
 <div class="hpname">
-오늘 뭐 볼까
+<i class="fa fa-search co"></i>
+오늘 뭐 볼까?
 </div>
 
 </div>
