@@ -13,7 +13,7 @@
 <body>
 						<!--  ma=myArticle  
 							  		-->
-<div id="update_wrap">
+<div id="ma_wrap">
    <!-- header 시작 -->
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	

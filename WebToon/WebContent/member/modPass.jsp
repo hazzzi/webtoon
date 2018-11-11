@@ -12,7 +12,7 @@
    <jsp:include page="../main/header.jsp"></jsp:include>
 <body>
 						<!--  mdps=modPass		-->
-<div id="update_wrap">
+<div id="mdps_wrap">
    <!-- header 시작 -->
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
