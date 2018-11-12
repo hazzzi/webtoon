@@ -170,14 +170,15 @@ body{
     /* border: 1px solid #000; */
     padding: 20px 30px;
     margin: 0 30px;
-    background-color: #fff;
+    background-color: #d1d1d1;
     border-radius: 3px;
     transition: all 0.2s;
     cursor: pointer;
 }
-#main-banner-nav li:HOVER {
-}
 
+#main-banner-nav li:HOVER {
+	background-color: #fff;
+}
 
 
 
