@@ -116,7 +116,7 @@ body {
 }
 
 /* 별점 div */
-.rec_star {
+.rec_star_select {
 	margin-left: 4px;
 	margin-top: -30px;
 	float: left;

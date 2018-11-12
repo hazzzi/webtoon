@@ -10,17 +10,19 @@
 <link href="../main/css/header.css" rel="stylesheet">
 <link href="../main/css/test.css" rel="stylesheet">
 <link href="../main/css/wbt-content.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet"
+ 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <!--recommend폴더안 -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link href="css/recommend.css" rel="stylesheet">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link href="css/star2.css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery.barrating.min.js"></script>
+
+<link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="jss/jquery.barrating.min.js"></script>
 </head>
+ 	<jsp:include page="../main/header.jsp" /> 
 <body>
-	<jsp:include page="../main/header.jsp" />
 		<script>
 		var RecentView;
 		$(document).ready(function(){
@@ -31,6 +33,21 @@
 		    });
 		});
 	</script>
+	<script>
+		$(document).ready(function(){
+			var scrollPosition;
+			$(window).scroll(function(){
+				scrollPosition = $(this).scrollTop();
+				if (scrollPosition > 0) {
+					$('#header-head').addClass('fixed');
+				} else {
+					$('#header-head').removeClass('fixed');
+				}
+			});
+			
+		});
+	</script>
+
 	<article class="rec_main">
 		<div class="wrap">
 			<div class="rec">
@@ -47,31 +64,34 @@
 			<div class="rec_select">
 				<button class="webtoon_btn">웹툰보러 갈까?</button>
 				<b class="bb">평가하기</b>
-			
-				<jsp:include page="star_barr.jsp"></jsp:include>
-				
+				 
+				<select id="example" class="rec_star_select">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
 				<script type="text/javascript">
-					$('#aaaa').barrating({
+					$('#example').barrating({
 						theme : 'fontawesome-stars',
 						initialRating : -1
 					});
 
-					$('#aaaa').barrating({
-						theme : 'fontawesome-stars',
-						onSelect : function(value, text, event) {
-							// 별점 클릭 후 처리는 여기서 코드 
-							// 선택한 별점 값을 value로 받음
+					$('#star_barr').barrating({
+					theme : 'fontawesome-stars',
+					onSelect : function(value, text, event) {
+						// 별점 클릭 후 처리는 여기서 코드 
+						// 선택한 별점 값을 value로 받음
 						}
 					});
-					// 'set' 을 이용하여 값 설정 
-					// 		$('#example').barrating('set', 2);
+					//'set' 을 이용하여 값 설정 
+					$('#example').barrating('set', 2);
 				</script>
 			</div>
-			
+
 			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
 		</div>
-		
-	
 
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
 		
