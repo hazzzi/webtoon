@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
-	<header id="head">
-		<div id="top">
+	<header id="header-head">
+		<div id="header-top">
 			<div id="inner-top">
 			<div id="logo">
 			<h1>

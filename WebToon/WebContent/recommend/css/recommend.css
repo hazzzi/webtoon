@@ -1,25 +1,36 @@
 @CHARSET "UTF-8";
+
 *:FOCUS {
 	outline: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+.clear{
+	clear: both;
 }
 @font-face {
 	font-family: 'NanumBarunpenR';
 	src: url("../main/font/NanumBarunpenR.ttf") format('truetype');
 }
-body{
+
+body {
 	background-color: #efece2;
 }
-.rec_main{
+
+.rec_main {
 	min-width: 970px;
 	height: 100%;
-    width: 70%;
-    min-width: 600px;
-    line-height: 2;
-    margin: 0 auto;
+	width: 70%;
+	min-width: 600px;
+	margin: 0 auto;
+	font-family: 'NanumBarunpenR';
 }
 
 .wrap {
-/* 	border: 1px solid white; */
+	/* 	border: 1px solid white; */
 	width: 415px;
 	height: 270px;
 	margin: 30px 15px 50px 10px;
@@ -32,7 +43,7 @@ body{
 	width: 190px;
 	height: 180px;
 	color: white;
- 	float: left; 
+	float: left;
 	display: inline-block;
 }
 /* 웹툰썸네일 img */
@@ -40,21 +51,30 @@ body{
 	width: 190px;
 	height: 180px;
 	display: block;
+	float: left;
 }
 
 /* 웹툰이름 div */
-.content { 
-	width: 100%;
-	height: 76px;
-	color: black;
-	font-size: 30px;
-	margin-bottom: 5px;
+.content {
+	width: 200px;
+	color: #7c7c7c;
+	font-size: 12px;
+	float: left;
+	margin-top: -7px;
+	margin-left: 5px;
+	text-align: left;
 }
 
 /* 웹툰이름 b */
-.content>b {
-	margin-left: 15px;
+.content>a {
+	width: 200px;
+	height: auto;
+	color: #310062;
+	cursor: pointer;
+	font-size: 30px;
+	
 }
+
 
 /* 웹툰작가/장르 div */
 .author {
@@ -67,65 +87,39 @@ body{
 	margin-left: 15px;
 }
 
-.webtoon_btn{
-	width: 110px;
-	margin-top: 14px;
-	margin-left: 65px;
-	background-color: #7c67af;
-	color: white;
-	border: #101214;
+.webtoon_btn {
+	width: 120px;
+	/* 	margin-top: 14px; */
+	margin-left: 60px;
+	color: #ffffff;
+	border: none;
 	text-align: center;
-	font-size: 18px;
+	font-size: 15px;
 	padding: 3px;
 	border-radius: 2px 2px;
 	float: left;
 	font-weight: bold;
 }
-.webtoon_btn:HOVER{
-	background-color: #e8e3f0;
-	color: #7c67af;
+
+.webtoon_btn:HOVER {
+	background-color: #c3c3c3;
 }
-.webtoon_btn:ACTIVE{
-	position: relative;
-	top: 1px;
-	border: 
-}
-.bb{
+
+.bb {
 	color: white;
 	float: left;
-	margin-top: 8px;
+	/* 	margin-top: 8px; */
 	margin-left: 9px;
 	color: #7c7c7c;
 	letter-spacing: 0.2em;
 }
- 
+
 /* 별점 div */
-.star {
+.rec_star {
 	margin-left: 4px;
 	margin-top: -30px;
 	float: left;
 	color: white;
-}
-
-.star_rating {
-	font-size: 1;
-}
-
-.star_rating a {
-	font-size: 44px;
-	letter-spacing: 0;
-	display: inline-block;
-	margin-left: 5px;
-	color: white;
-	text-decoration: none;
-}
-
-.star_rating a:first-child {
-	margin-left: 0;
-}
-
-.star_rating a.on {
-	color: #ff0080;
 }
 
 .intro {
