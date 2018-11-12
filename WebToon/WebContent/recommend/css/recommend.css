@@ -32,7 +32,7 @@ body {
 .wrap {
 	/* 	border: 1px solid white; */
 	width: 415px;
-	height: 270px;
+	height: 305px;
 	margin: 30px 15px 50px 10px;
 	display: inline-block;
 	text-align: center;
@@ -56,7 +56,7 @@ body {
 
 /* 웹툰이름 div */
 .content {
-	width: 200px;
+	width: 155px;
 	color: #7c7c7c;
 	font-size: 12px;
 	float: left;
@@ -67,7 +67,7 @@ body {
 
 /* 웹툰이름 b */
 .content>a {
-	width: 200px;
+	width: 155px;
 	height: auto;
 	color: #310062;
 	cursor: pointer;
@@ -78,9 +78,10 @@ body {
 
 /* 웹툰작가/장르 div */
 .author {
-	width: 100%;
+	width: 155px;
 	color: #7c7c7c;
 	font-size: 12px;
+	float: left;
 }
 
 .author>b {
@@ -115,7 +116,7 @@ body {
 }
 
 /* 별점 div */
-.rec_star {
+.rec_star_select {
 	margin-left: 4px;
 	margin-top: -30px;
 	float: left;
