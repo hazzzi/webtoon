@@ -7,7 +7,9 @@
 }
 
 .br-theme-fontawesome-stars .br-widget {
+  width: 200px;
   height: 28px;
+  float: left;
   white-space: nowrap;
 }
 .br-theme-fontawesome-stars .br-widget a {
@@ -16,7 +18,8 @@
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
   margin-right: 2px;
-  font-size: 36px;
+  font-size: 40px;
+  float: left;
 }
 .br-theme-fontawesome-stars .br-widget a:after {
   content: '\f005';

@@ -8,9 +8,11 @@
 	margin: 0;
 	padding: 0;
 }
-.clear{
+
+.clear {
 	clear: both;
 }
+
 @font-face {
 	font-family: 'NanumBarunpenR';
 	src: url("../main/font/NanumBarunpenR.ttf") format('truetype');
@@ -55,9 +57,32 @@ body {
 }
 
 /* 웹툰이름 div */
+
+.rec_webtoon_div{
+	width: 200px;
+	height: 93px;
+	float: left;
+	margin-top: -7px;
+	margin-left: 5px;
+	text-align: left;
+}
+.rec_webtoon_div>a{
+	width: 200px;
+	font-size: 30px;
+	color: #210042;
+	cursor: pointer;
+	float: left;
+}
+.rec_webtoon_div>b{
+	width: 200px;
+	color: #7c7c7c;
+	font-size: 12px;
+	text-align: center;
+	float: left;
+}
 .content {
 	width: 155px;
-	color: #7c7c7c;
+/* 	height: 76px; */
 	font-size: 12px;
 	float: left;
 	margin-top: -7px;
@@ -68,13 +93,11 @@ body {
 /* 웹툰이름 b */
 .content>a {
 	width: 155px;
-	height: auto;
-	color: #310062;
+	height: 76px;
+	color: #210042;
 	cursor: pointer;
 	font-size: 30px;
-	
 }
-
 
 /* 웹툰작가/장르 div */
 .author {
@@ -90,8 +113,9 @@ body {
 
 .webtoon_btn {
 	width: 120px;
-	/* 	margin-top: 14px; */
-	margin-left: 60px;
+	margin-left: 32px;
+	position: relative;
+	top: -8px;
 	color: #ffffff;
 	border: none;
 	text-align: center;
@@ -109,18 +133,16 @@ body {
 .bb {
 	color: white;
 	float: left;
-	/* 	margin-top: 8px; */
-	margin-left: 9px;
+	margin-left: 3px;
 	color: #7c7c7c;
 	letter-spacing: 0.2em;
 }
 
-/* 별점 div */
-.rec_star_select {
-	margin-left: 4px;
-	margin-top: -30px;
+.rec_star_div {
+	width: 200px;
 	float: left;
-	color: white;
+	position: relative;
+	top: 17px;
 }
 
 .intro {
