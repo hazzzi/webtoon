@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+div#sr-content{
+	min-height: -webkit-fill-available;
+}
