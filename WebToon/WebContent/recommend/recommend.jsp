@@ -12,11 +12,11 @@
 <link href="../main/css/wbt-content.css" rel="stylesheet">
  <link rel="stylesheet"
  	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+ 	
 <!--recommend폴더안 -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link href="css/recommend.css" rel="stylesheet">
-
 <link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="jss/jquery.barrating.min.js"></script>
@@ -50,8 +50,8 @@
 	</script>
 
 	<article class="rec_main">
-		<div class="wrap">
-			<div class="rec">
+		<div class="rec_wrap_div">
+			<div class="rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
@@ -60,8 +60,8 @@
 				<b>박태준 · 스토리 / 네이버</b>
 			</div>
 			<div class="rec_star_div">
-				<button class="webtoon_btn">웹툰보러 갈까?</button>
-				<b class="bb">평가하기</b>
+				<button class="rec_webtoon_btn">웹툰보기</button>
+				<b class="rec_b">평가하기</b>
 				 
 				<select id="example1">
 					<option value="1">1</option>
@@ -88,14 +88,14 @@
 				</script>
 			</div>
 
-			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
+			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
 		</div>
 
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
 		
 		<!-- 2  -->
-		<div class="wrap">
-			<div class="rec">
+		<div class="rec_wrap_div">
+			<div class="rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/325629/thumbnail/title_thumbnail_20110508235932_t83x90.jpg">
 			</div>
@@ -104,8 +104,8 @@
 				<b>기안84 · 스토리 / 네이버</b>
 			</div>
 			<div class="rec_star_div">
-				<button class="webtoon_btn">웹툰보러 갈까?</button>
-				<b class="bb">평가하기</b>
+				<button class="rec_webtoon_btn">웹툰보기</button>
+				<b class="rec_b">평가하기</b>
 				 
 				<select id="example2">
 					<option value="1">1</option>
@@ -132,11 +132,11 @@
 				</script>
 			</div>
 
-			<div class="intro">한태성을 중심으로 벌어지는 다양한 청춘들의 스펙타클한 학원 시트콤 드라마</div>
+			<div class="rec_intro_div">한태성을 중심으로 벌어지는 다양한 청춘들의 스펙타클한 학원 시트콤 드라마</div>
 		</div>
 		<!-- 3  -->
-		<div class="wrap">
-			<div class="rec">
+		<div class="rec_wrap_div">
+			<div class="rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/150388/thumbnail/title_thumbnail_20100331155005_t83x90.jpg">
 			</div>
@@ -145,8 +145,8 @@
 				<b>강냉이 · 스토리 / 네이버</b>
 			</div>
 			<div class="rec_star_div">
-				<button class="webtoon_btn">웹툰보러 갈까?</button>
-				<b class="bb">평가하기</b>
+				<button class="rec_webtoon_btn">웹툰보기</button>
+				<b class="rec_b">평가하기</b>
 				 
 				<select id="example3">
 					<option value="1">1</option>
@@ -173,7 +173,7 @@
 				</script>
 			</div>
 
-			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의
+			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의
 				대학일기</div>
 		</div>
 	</article>
