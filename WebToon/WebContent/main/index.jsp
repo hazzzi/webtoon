@@ -9,7 +9,7 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="css/test.css">
-<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/main-header.css">
 <link rel="stylesheet" href="css/footer-main.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -27,16 +27,17 @@
 </head>
 <body>
 <div id="main-wrap">
-	<!-- Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분-->
+<%-- 	Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분
 	
-	<!-- header 영역 (시작) 이부분 복사해서 가져가세요 -->
-	<!-- 				헤드 부분 								-->
-	<!-- <link rel="stylesheet" href="css/header.css">
-		 <link rel="stylesheet" href="css/footer-main.css">  -->
-	<jsp:include page="header.jsp" />
+	header 영역 (시작) 이부분 복사해서 가져가세요 
+					헤드 부분 								
+	 <link rel="stylesheet" href="css/header.css">
+		 <link rel="stylesheet" href="css/footer-main.css">  
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		 
+ 	<jsp:include page="header.jsp" />
 	
-	<script>
-		var RecentView;
+<!-- 	<script>
 		$(document).ready(function(){
 			$("#header-srch").hide();
 			$("#a_srch").click(function(){
@@ -44,9 +45,11 @@
 		        $("#header-srch").toggle(500);
 		    });
 		});
-	</script>
+	</script> -->
 	
-	<!-- header 영역 (끝)  이부분 복사해서 가져가세요-->
+	header 영역 (끝)  이부분 복사해서 가져가세요--%>
+	
+	<jsp:include page="main-header.jsp"/> 
 	
 	
 	
@@ -70,10 +73,10 @@
 	 		<nav id="main-banner-nav">
 				<ul>
 					<li>
-						<a href="#">추천</a>
+						<a href="../recommend/recommend.jsp">추천</a>
 					</li>
 					<li>
-						<a href="#">게시판</a>
+						<a href="../board/bd_main.jsp">게시판</a>
 					</li>
 				</ul>
 			</nav>
@@ -82,11 +85,12 @@
  	</div>
  </div>
  <div id="main-content-div">
+ <!-- 반복문 돌릴 부분 -->
 	<div id="sildeshow">
 		<div id="content">
 			<h3>로맨스</h3>
 			<div id="con-img" class="owl-carousel owl-theme">
-					<!-- <a class=".owl-nav">&#10094;</a> -->
+			<!-- 반복문 돌아갈 부분 -->
 				<div class="webtoon-img">
 					<a onclick="document.getElementById('webtoon-content').style.display='block'">
 						<img class="webtoon-img" src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
@@ -136,7 +140,6 @@
 						<!-- <label>이혜</label> -->
 					</a>
 				</div>
-		  			<!-- <a class=".owl-nav">&#10095;</a> -->
 			</div>
 		</div>
 	</div>
@@ -145,6 +148,7 @@
 	<!-- 웹툰정보  -->
 			<jsp:include page="wbt-content.jsp"></jsp:include>
 	<!-- 웹툰정보  -->
+	
 	<!-- 메인 컨텐츠 영역  (끝) 다른페이지 작업시 삭제할 부분-->
 	
 	<!-- 상단 이동 바 -->

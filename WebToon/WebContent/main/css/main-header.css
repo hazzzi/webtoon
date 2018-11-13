@@ -10,7 +10,7 @@ body {
 	padding: 0;
 }
 
-header#head{
+header#header-head{
     background-image: url(../img/banner.jpg);
     background-repeat: no-repeat;
     background-position: left top;
@@ -31,11 +31,12 @@ header#head{
     box-shadow: 0 1px 5px #333;
 }
 
-div#inner-top{
+div#header-inner-top{
 	width: 1200px;
+	margin: 0 auto;
 }
 
-div#top{
+div#header-top{
 	height: 100%;
 	width: 70%;
 	min-width:600px;
@@ -45,11 +46,11 @@ div#top{
 
 
 
-div#logo{
+div#header-logo{
 	display: inline-block;
 }
 
-nav#menu{
+nav#header-menu{
 	display: inline-block;
 	/* margin-left: 25%; */
     float: right;
@@ -61,7 +62,7 @@ nav#menu{
     width: 60%;
 }
 
-nav#menu li{
+nav#header-menu li{
 	display: inline-block;
 	margin: 0 20px;
 	box-sizing: border-box;
@@ -69,20 +70,24 @@ nav#menu li{
 	transition: all 0.2s;
 }
 
-nav#menu li:LAST-CHILD{
+nav#header-menu li:LAST-CHILD{
 	float: right;
 }
 
-nav#menu li:LAST-CHILD:HOVER{
+nav#header-menu li:LAST-CHILD:HOVER{
 	border: none;
 }
 
-nav#menu li:HOVER {
-/* 	border-bottom: 3px solid #cac1dd; */
+nav#header-menu a{
+	transition: all 0.5s;
+	
+}
+nav#header-menu li>a:HOVER {
+	color: #bdb3d5;
 }
 
 
-#srch{
+#header-srch{
     height: 40px;
     box-sizing: border-box;
     display: inline-block;
@@ -93,9 +98,9 @@ nav#menu li:HOVER {
     top: 8px;
 }
 
-#srch>input{
+#header-srch>input{
 box-sizing: border-box;
-    width: 505px;
+    width: 450px;
     height: 100%;
     margin-right: -40px;
     display: block;
@@ -110,7 +115,7 @@ box-sizing: border-box;
     border-radius: 1px;
 }
 
-#srch>a{
+#header-srch>a{
     box-sizing: border-box;
     /* height: 100%; */
     display: block;
@@ -135,7 +140,7 @@ box-sizing: border-box;
     font-size: large;
 }
 
-#profile:hover .dropdown-content {
+#header-profile:hover .dropdown-content {
     display: block;
 }
 .dropdown-content a {

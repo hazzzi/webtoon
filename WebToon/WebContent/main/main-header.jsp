@@ -3,25 +3,25 @@
    
 	<header id="header-head">
 		<div id="header-top">
-			<div id="inner-top">
-			<div id="logo">
+			<div id="header-inner-top">
+			<div id="header-logo">
 			<h1>
 				<i class="fa fa-search" style="color:#fff"></i>
-				<a href="#">오늘 뭐 볼까?</a>
+				<a href="index.jsp">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
-			<nav id="menu" style="width: 70%">
+			<nav id="header-menu" style="width: 70%">
 				<ul>
 					<li>
 						<!-- <A HREF="#">검색</A> -->
-						<div id="srch">
+						<div id="header-srch">
 							<input type="text" placeholder="검색">
-							<a href="#"><i class="fa fa-search"></i></a>
+							<a href="search-result.jsp"><i class="fa fa-search"></i></a>
 						</div>
 					</li>
 					<li>
 					<li>
-						<div id="profile">
+						<div id="header-profile">
 							<a href="#">
 								<span>닉네임</span>
 								<i class="fa fa-caret-down"></i>

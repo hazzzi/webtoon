@@ -10,100 +10,170 @@
 <link href="../main/css/header.css" rel="stylesheet">
 <link href="../main/css/test.css" rel="stylesheet">
 <link href="../main/css/wbt-content.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet"
+ 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+ 	
 <!--recommend폴더안 -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link href="css/recommend.css" rel="stylesheet">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link href="css/star2.css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery.barrating.min.js"></script>
+<link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="jss/jquery.barrating.min.js"></script>
 </head>
+ 	<jsp:include page="../main/header.jsp" /> 
 <body>
-	<jsp:include page="../main/header.jsp" />
+		<script>
+		var RecentView;
+		$(document).ready(function(){
+			$("#header-srch").hide();
+			$("#a_srch").click(function(){
+				$(".tmp").toggle();
+		        $("#header-srch").toggle(500);
+		    });
+		});
+	</script>
+	
+	<script>
+		$(document).ready(function(){
+			var scrollPosition;
+			$(window).scroll(function(){
+				scrollPosition = $(this).scrollTop();
+				if (scrollPosition > 0) {
+					$('#header-head').addClass('fixed');
+				} else {
+					$('#header-head').removeClass('fixed');
+				}
+			});
+			
+		});
+	</script>
+
 	<article class="rec_main">
-		<div class="wrap">
-			<div class="rec">
+		<div class="rec_wrap_div">
+			<div class="rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
-			<div class="content">
-				<a onclick="document.getElementById('webtoon-content').style.display='block'">외모지상주의</a>
-			</div>
-			<div class="author">
+			<div class="rec_webtoon_div">
+				<a onclick="document.getElementById('webtoon-content').style.display='block'">외모지상주의 웹툰제목길이 체크</a>
 				<b>박태준 · 스토리 / 네이버</b>
-				
 			</div>
-			<div>
-				<button class="webtoon_btn">웹툰보러 갈까?</button>
-				<b class="bb">평가하기</b>
-			</div>
-			<div class="rec_star">
-			
-				<jsp:include page="star_barr.jsp"></jsp:include>
-				
+			<div class="rec_star_div">
+				<button class="rec_webtoon_btn">웹툰보기</button>
+				<b class="rec_b">평가하기</b>
+				 
+				<select id="example1">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
 				<script type="text/javascript">
-					$('#aaaa').barrating({
+					$('#example1').barrating({
 						theme : 'fontawesome-stars',
 						initialRating : -1
 					});
 
-					$('#aaaa').barrating({
-						theme : 'fontawesome-stars',
-						onSelect : function(value, text, event) {
-							// 별점 클릭 후 처리는 여기서 코드 
-							// 선택한 별점 값을 value로 받음
+					$('#star_barr').barrating({
+					theme : 'fontawesome-stars',
+					onSelect : function(value, text, event) {
+						// 별점 클릭 후 처리는 여기서 코드 
+						// 선택한 별점 값을 value로 받음
 						}
 					});
-					// 'set' 을 이용하여 값 설정 
-					// 		$('#example').barrating('set', 2);
+						//'set' 을 이용하여 값 설정 
+					//$('#example').barrating('set', 2);
 				</script>
 			</div>
-			
-			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
+
+			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
 		</div>
-		
-	
 
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
 		
 		<!-- 2  -->
-		<div class="wrap">
-			<div class="rec">
+		<div class="rec_wrap_div">
+			<div class="rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/325629/thumbnail/title_thumbnail_20110508235932_t83x90.jpg">
 			</div>
-			<div class="content">
+			<div class="rec_webtoon_div">
 				<a>패션왕</a>
-			</div>
-			<div class="author">
 				<b>기안84 · 스토리 / 네이버</b>
 			</div>
-			<div>
-				<button class="webtoon_btn">웹툰보러 갈까?</button>
-				<b class="bb">평가하기</b>
+			<div class="rec_star_div">
+				<button class="rec_webtoon_btn">웹툰보기</button>
+				<b class="rec_b">평가하기</b>
+				 
+				<select id="example2">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<script type="text/javascript">
+					$('#example2').barrating({
+						theme : 'fontawesome-stars',
+						initialRating : -1
+					});
+
+					$('#star_barr').barrating({
+					theme : 'fontawesome-stars',
+					onSelect : function(value, text, event) {
+						// 별점 클릭 후 처리는 여기서 코드 
+						// 선택한 별점 값을 value로 받음
+						}
+					});
+						//'set' 을 이용하여 값 설정 
+					//$('#example').barrating('set', 2);
+				</script>
 			</div>
 
-			<div class="intro">한태성을 중심으로 벌어지는 다양한 청춘들의 스펙타클한 학원 시트콤 드라마</div>
+			<div class="rec_intro_div">한태성을 중심으로 벌어지는 다양한 청춘들의 스펙타클한 학원 시트콤 드라마</div>
 		</div>
 		<!-- 3  -->
-		<div class="wrap">
-			<div class="rec">
+		<div class="rec_wrap_div">
+			<div class="rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/150388/thumbnail/title_thumbnail_20100331155005_t83x90.jpg">
 			</div>
-			<div class="content">
+			<div class="rec_webtoon_div">
 				<a>폭풍의 전학생</a>
-			</div>
-			<div class="author">
 				<b>강냉이 · 스토리 / 네이버</b>
 			</div>
-			<div>
-				<button class="webtoon_btn">웹툰보러 갈까?</button>
-				<b class="bb">평가하기</b>
+			<div class="rec_star_div">
+				<button class="rec_webtoon_btn">웹툰보기</button>
+				<b class="rec_b">평가하기</b>
+				 
+				<select id="example3">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<script type="text/javascript">
+					$('#example3').barrating({
+						theme : 'fontawesome-stars',
+						initialRating : -1
+					});
+
+					$('#star_barr').barrating({
+					theme : 'fontawesome-stars',
+					onSelect : function(value, text, event) {
+						// 별점 클릭 후 처리는 여기서 코드 
+						// 선택한 별점 값을 value로 받음
+						}
+					});
+						//'set' 을 이용하여 값 설정 
+					//$('#example').barrating('set', 2);
+				</script>
 			</div>
 
-			<div class="intro">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의
+			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의
 				대학일기</div>
 		</div>
 	</article>

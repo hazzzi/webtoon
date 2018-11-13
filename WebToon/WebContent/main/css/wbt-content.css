@@ -11,12 +11,12 @@
 /* Center the image and position the close button */
 .imgcontainer {
     /* text-align: center; */
-    margin: 30px 0 12px 30px;
+    margin: 45px 15px;
     position: relative;
 }
 .imgcontainer>div{
 	display: inline-block;
-	color: #eee;
+	color: #2d2442;
 }
 
 img.avatar {
@@ -28,16 +28,31 @@ img.avatar {
 }
 .content b{
 	font-size: 25px;
+	color: #2d2442;
 }
 .author>b{
 	font-size: 10px;
 }
-.wbt-search>a{
-	
-}
+
 
 .container {
-    padding: 16px;
+    padding: 16px 16px 80px 16px;
+    font-size: 21px;
+}
+#wbt-board{
+    text-align: center;
+    margin: 0 auto;
+    color: #272037;
+}
+#wbt-board td,th{
+    margin: 15px 16px;
+    display: inline-block;
+}
+
+#wbt-board th{
+	float:left;
+	font-size: 25px;
+	color: #110e18; 
 }
 
 span.psw {
@@ -62,27 +77,29 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-    /* background-color: #101214; */
-    background-image: url("../img/banner.jpg");
-    background-position: left center;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #101214;
-    width: 60%; /* Could be more or less, depending on screen size */
+    background-color: #ffffff;
+    margin: 5% auto 15% auto;
+    border: 1px solid #fff;
+    width: 70%;
+    min-width: 910px;
+    max-width: 1100px;
 }
 
 /* The Close Button (x) */
 .close {
     position: absolute;
-    right: 375px;
-    top: -45px;
-    color: #eee;
+    right: 20px;
+    top: -30px;
+    /* left: 50px; */
+    color: #130013;
     font-size: 55px;
     font-weight: bold;
+    transition: all 0.2s;
 }
 
 .close:hover,
 .close:focus {
-    color: #927eb8;
+    color: #40325a;
     cursor: pointer;
 }
 
@@ -114,6 +131,57 @@ span.psw {
 }
 
 
+#wbt-info{
+	margin: 0 40px;
+	width: 100%;
+	display: inherit;
+}
+
+#wbt-info>div{
+	position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
+#wbt-info b{
+	font-size: 20px;
+	color: #130013;
+}
+
+#wbt-content {
+    bottom: 200px;
+}
+#wbt-content a{
+	font-size: 35px;
+	display: inline-block;
+	color: #130013;
+}
+
+#wbt-author{
+    bottom: 150px;
+    right: 183px;
+}
+
+#wbt-search{
+    color: #fff;
+    padding: 10px;
+    right: 400px;
+    bottom: 20px;
+    background-color: lavender;
+    border-radius: 1px;
+}
+#wbt-search a{
+	font-size: 20px;
+	color: #130013;
+}
+
+
+#wbt-bo-cont>a{
+	color: #130013;
+    font-size: 23px;
+    float: right;
+    /* margin-right: 20px; */
+    margin: 30px 20px 0 0;
+}
 
 
 
