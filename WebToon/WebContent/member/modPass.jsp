@@ -25,11 +25,12 @@
 	<div id="mdps_text">
 	<table border="0">
 	<tr><th>현재 비밀번호</th><td><input type="passward" name="pass" readonly></td></tr>
-	<tr><th>새 비밀번호</th><td><input type="passward" name="newpass" ></td></tr>
-	<tr><th>새 비밀번호 확인</th><td><input type="passward" name="renewpass" ></td></tr>     
+	<tr><th>새 비밀번호</th><td><input type="passward" name="newpass" required></td></tr>
+	<tr><th>새 비밀번호 확인</th><td><input type="passward" name="renewpass" required></td></tr>     
 	</table>
  	</div> <!--id="rif_text" -->
 	<div id="mdps_sub">
+	<input type="button" value="뒤로가기" onclick="location.href='myProfile.jsp'">
 	<input type="submit" value="수정">
 	</div>
 </div>

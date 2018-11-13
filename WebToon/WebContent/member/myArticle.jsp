@@ -2,14 +2,14 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<title>내가 쓴 글</title>
+<title>내가 쓴 글 보기</title>
 <link rel="stylesheet" href="../main/css/test.css">
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../main/css/footer-main.css">
 <link rel="stylesheet" href="css/myArticle.css">
 </head>
-   <jsp:include page="../main/header.jsp"></jsp:include>
+<jsp:include page="../main/header.jsp"></jsp:include>
 <body>
 						<!--  ma=myArticle  
 							  		-->
@@ -17,7 +17,13 @@
    <!-- header 시작 -->
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
-<div id="ma_title"><h1>내가 쓴 글 모아보기</h1></div>
+<div id="ma_title"><h1>내가 쓴 글 보기</h1></div>
+
+<div class="mya_back">
+<input type="button" value="뒤로가기" onclick="location.href='myProfile.jsp'">
+</div>
+
+<div class="clear"></div>
 
 <form action="#" method="post">
 <div id="ma"><!--reinfo  -->
@@ -81,14 +87,26 @@
 				<td>78</td>
 				<td>2018.11.02</td>
 			</tr>
+			<tr>
+				<td>5</td>
+				<td>[자유게시판]</td>
+				<td><a href="#">출첵 ㅇㅇ</a></td>
+				<td>10</td>
+				<td>나</td>
+				<td>78</td>
+				<td>2018.11.02</td>
+			</tr>
 						<%} %>			
 			
 		</table>
  	</div> <!--id="rif_text" -->
 	<div id="ma_sub">
 	<input type="search" id="mt_search" name="mt_search">
-	<input type="submit" id="mt_submit" value="수정">
+	<input type="submit" id="mt_submit" value="검색">
 	</div>
+	
+	<div class="clear"></div>
+	
 </div>
 <!--회원 정보 수정 부분   -->
 
