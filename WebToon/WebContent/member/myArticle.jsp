@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<title>³»°¡ ¾´ ±Û º¸±â</title>
+<title>ë‚´ê°€ ì“´ ê¸€ ë³´ê¸°</title>
 <link rel="stylesheet" href="../main/css/test.css">
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,13 +14,13 @@
 						<!--  ma=myArticle  
 							  		-->
 <div id="ma_wrap">
-   <!-- header ½ÃÀÛ -->
-   <!--/ header ³¡ -->
-<!--È¸¿ø Á¤º¸ ¼öÁ¤ ºÎºÐ  -->	
-<div id="ma_title"><h1>³»°¡ ¾´ ±Û º¸±â</h1></div>
+   <!-- header ì‹œìž‘ -->
+   <!--/ header ë -->
+<!--íšŒì› ì •ë³´ ìˆ˜ì • ë¶€ë¶„  -->	
+<div id="ma_title"><h1>ë‚´ê°€ ì“´ ê¸€ ë³´ê¸°</h1></div>
 
 <div class="mya_back">
-<input type="button" value="µÚ·Î°¡±â" onclick="location.href='myProfile.jsp'">
+<input type="button" value="ë’¤ë¡œê°€ê¸°" onclick="location.href='myProfile.jsp'">
 </div>
 
 <div class="clear"></div>
@@ -31,68 +31,68 @@
 	<div id="ma_text">
 		<table border="0">
 			<tr>
-				<th>±Û ¹øÈ£</th>
+				<th>ê¸€ ë²ˆí˜¸</th>
 				<th>
 				
 					<select name="sel_text" required>	
-						<option value="1">ÀüÃ¼±Û</option>
-						<option value="2">ÀÚÀ¯°Ô½ÃÆÇ</option>
-						<option value="3">°¶·¯¸®</option>
-						<option value="4">ÆÒ¾ÆÆ®</option>
+						<option value="1">ì „ì²´ê¸€</option>
+						<option value="2">ìžìœ ê²Œì‹œíŒ</option>
+						<option value="3">ê°¤ëŸ¬ë¦¬</option>
+						<option value="4">íŒ¬ì•„íŠ¸</option>
 					</select>
 					
 				</th>
-				<th>Á¦¸ñ</th>
-				<th>´ñ±Û ¼ö</th>
-				<th>ÀÛ¼ºÀÚ</th>
-				<th>Á¶È¸¼ö</th>
-				<th>ÀÛ¼º ³¯Â¥</th>
+				<th>ì œëª©</th>
+				<th>ëŒ“ê¸€ ìˆ˜</th>
+				<th>ìž‘ì„±ìž</th>
+				<th>ì¡°íšŒìˆ˜</th>
+				<th>ìž‘ì„± ë‚ ì§œ</th>
 			</tr>
 				
 				
 				<% for(int i=0 ; i<2 ; i++){ %>
 			<tr>
 				<td>1</td>
-				<td>[ÀÚÀ¯°Ô½ÃÆÇ]</td>
-				<td><a href="#">¾È³çÇÏ¼¼¿ä</a></td>
+				<td>[ìžìœ ê²Œì‹œíŒ]</td>
+				<td><a href="#">ì•ˆë…•í•˜ì„¸ìš”</a></td>
 				<td>5</td>
-				<td>³ª</td>
+				<td>ë‚˜</td>
 				<td>50</td>
 				<td>2018.11.02</td>
 			</tr>
 			<tr>
 				<td>2</td>
-				<td>[ÀÚÀ¯°Ô½ÃÆÇ]</td>
-				<td><a href="#">Ãâ¼®Ã¼Å© ÇÕ´Ï´Ù~</a></td>
+				<td>[ìžìœ ê²Œì‹œíŒ]</td>
+				<td><a href="#">ì¶œì„ì²´í¬ í•©ë‹ˆë‹¤~</a></td>
 				<td>19</td>
-				<td>³ª</td>
+				<td>ë‚˜</td>
 				<td>2</td>
 				<td>2018.11.02</td>
 			</tr>
 			<tr>
 				<td>3</td>
-				<td>[ÀÚÀ¯°Ô½ÃÆÇ]</td>
-				<td><a href="#">¿Í ÀÌ·± À¥ÆäÀÌÁö°¡ »ý°å´Ù´Ï ³Ê¹« ÁÁ¾Æ¿ä</a></td>
+				<td>[ìžìœ ê²Œì‹œíŒ]</td>
+				<td><a href="#">ì™€ ì´ëŸ° ì›¹íŽ˜ì´ì§€ê°€ ìƒê²¼ë‹¤ë‹ˆ ë„ˆë¬´ ì¢‹ì•„ìš”</a></td>
 				<td>134</td>
-				<td>³ª</td>
+				<td>ë‚˜</td>
 				<td>9999</td>
 				<td>2018.11.02</td>
 			</tr>
 			<tr>
 				<td>4</td>
-				<td>[ÀÚÀ¯°Ô½ÃÆÇ]</td>
-				<td><a href="#">ÃâÃ½ ¤·¤·</a></td>
+				<td>[ìžìœ ê²Œì‹œíŒ]</td>
+				<td><a href="#">ì¶œì²µ ã…‡ã…‡</a></td>
 				<td>10</td>
-				<td>³ª</td>
+				<td>ë‚˜</td>
 				<td>78</td>
 				<td>2018.11.02</td>
 			</tr>
 			<tr>
 				<td>5</td>
-				<td>[ÀÚÀ¯°Ô½ÃÆÇ]</td>
-				<td><a href="#">ÃâÃ½ ¤·¤·</a></td>
+				<td>[ìžìœ ê²Œì‹œíŒ]</td>
+				<td><a href="#">ì¶œì²µ ã…‡ã…‡</a></td>
 				<td>10</td>
-				<td>³ª</td>
+				<td>ë‚˜</td>
 				<td>78</td>
 				<td>2018.11.02</td>
 			</tr>
@@ -102,17 +102,17 @@
  	</div> <!--id="rif_text" -->
 	<div id="ma_sub">
 	<input type="search" id="mt_search" name="mt_search">
-	<input type="submit" id="mt_submit" value="°Ë»ö">
+	<input type="submit" id="mt_submit" value="ê²€ìƒ‰">
 	</div>
 	
 	<div class="clear"></div>
 	
 </div>
-<!--È¸¿ø Á¤º¸ ¼öÁ¤ ºÎºÐ   -->
+<!--íšŒì› ì •ë³´ ìˆ˜ì • ë¶€ë¶„   -->
 
 
-<!-- footer ¿µ¿ª (½ÃÀÛ)-->
-	<!-- footer ¿µ¿ª (³¡)-->
+<!-- footer ì˜ì—­ (ì‹œìž‘)-->
+	<!-- footer ì˜ì—­ (ë)-->
 
 </form>
 </div>

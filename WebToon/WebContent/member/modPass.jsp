@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<title>ºñ¹Ð¹øÈ£ º¯°æ</title>
+<title>ë¹„ë°€ë²ˆí˜¸ ë³€ê²½</title>
 <link rel="stylesheet" href="../main/css/test.css">
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,10 +13,10 @@
 <body>
 						<!--  mdps=modPass		-->
 <div id="mdps_wrap">
-   <!-- header ½ÃÀÛ -->
-   <!--/ header ³¡ -->
-<!--È¸¿ø Á¤º¸ ¼öÁ¤ ºÎºÐ  -->	
-<div id="mdps_title"><h1>ºñ¹Ð ¹øÈ£ º¯°æ</h1></div>
+   <!-- header ì‹œìž‘ -->
+   <!--/ header ë -->
+<!--íšŒì› ì •ë³´ ìˆ˜ì • ë¶€ë¶„  -->	
+<div id="mdps_title"><h1>ë¹„ë°€ ë²ˆí˜¸ ë³€ê²½</h1></div>
 
 <form action="#" method="post">
 <div id="mdps"><!--reinfo  -->
@@ -24,21 +24,21 @@
 	
 	<div id="mdps_text">
 	<table border="0">
-	<tr><th>ÇöÀç ºñ¹Ð¹øÈ£</th><td><input type="passward" name="pass" readonly></td></tr>
-	<tr><th>»õ ºñ¹Ð¹øÈ£</th><td><input type="passward" name="newpass" required></td></tr>
-	<tr><th>»õ ºñ¹Ð¹øÈ£ È®ÀÎ</th><td><input type="passward" name="renewpass" required></td></tr>     
+	<tr><th>í˜„ìž¬ ë¹„ë°€ë²ˆí˜¸</th><td><input type="password" name="pass" required></td></tr>
+	<tr><th>ìƒˆ ë¹„ë°€ë²ˆí˜¸</th><td><input type="password" name="newpass" required></td></tr>
+	<tr><th>ìƒˆ ë¹„ë°€ë²ˆí˜¸ í™•ì¸</th><td><input type="password" name="renewpass" required></td></tr>     
 	</table>
  	</div> <!--id="rif_text" -->
 	<div id="mdps_sub">
-	<input type="button" value="µÚ·Î°¡±â" onclick="location.href='myProfile.jsp'">
-	<input type="submit" value="¼öÁ¤">
+	<input type="button" value="ë’¤ë¡œê°€ê¸°" onclick="location.href='myProfile.jsp'">
+	<input type="submit" value="ìˆ˜ì •">
 	</div>
 </div>
-<!--È¸¿ø Á¤º¸ ¼öÁ¤ ºÎºÐ   -->
+<!--íšŒì› ì •ë³´ ìˆ˜ì • ë¶€ë¶„   -->
 
 
-<!-- footer ¿µ¿ª (½ÃÀÛ)-->
-	<!-- footer ¿µ¿ª (³¡)-->
+<!-- footer ì˜ì—­ (ì‹œìž‘)-->
+	<!-- footer ì˜ì—­ (ë)-->
 
 </form>
 </div>

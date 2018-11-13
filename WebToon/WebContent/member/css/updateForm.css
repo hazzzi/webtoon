@@ -14,11 +14,12 @@
 
 body {
 	font-family: 'NanumBarunpenR', sans-serif;
+	box-sizing: border-box;
 }
 
  
 #update_wrap{
-/* 	border:1px solid red; */
+	border:1px solid red;
 	text-align: center;
 	height: 700px; width: 100%;
 }
