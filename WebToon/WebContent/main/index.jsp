@@ -92,22 +92,22 @@
 			<div id="con-img" class="owl-carousel owl-theme">
 			<!-- 반복문 돌아갈 부분 -->
 				<div class="webtoon-img">
-					<a onclick="document.getElementById('webtoon-content').style.display='block'">
-						<img class="webtoon-img" src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
-						<label>유미의 세포들</label>
+					<a class="openwbt1">
+						<img class="a1" src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+						<label id="label">유미의 세포들</label>
 						<!-- <label>이동건</label> -->
 					</a>
 				</div>
 				<div class="webtoon-img"> 
-					<a href="#">
-						<img src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t83x90.jpg">
+					<a class="openwbt2">
+						<img class="a2" src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t83x90.jpg">
 						<label>헬퍼 2 : 킬베로스</label>
 						<!-- <label>삭</label> -->
 					</a>
 				</div>
 				<div class="webtoon-img">
-					<a href="#">
-						<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
+					<a class="openwbt3">
+						<img class="a3" src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
 						<label>냐한남자</label>
 						<!-- <label>올소</label> -->
 					</a>
@@ -143,14 +143,42 @@
 			</div>
 		</div>
 	</div>
-	 </div>
+</div>
 <%-- 	<%} %> --%>
+	 	<script>
+		$(document).ready(function(){
+			$('.openwbt').click(function(index){
+				$.ajax('wbt-content.jsp',{
+					data: { src: $('.a1').attr('src')},
+					success: function(data){
+						$('body').append(data);
+					}
+				});
+			});
+			$('.openwbt2').click(function(index){
+				$.ajax('wbt-content.jsp',{
+					data: { src: $('.a2').attr('src'), id: <%%>},
+					success: function(data){
+						$('body').append(data);
+					}
+				});
+			});
+			$('.openwbt3').click(function(index){
+				$.ajax('wbt-content.jsp',{
+					data: { src: $('.a3').attr('src')},
+					success: function(data){
+						$('body').append(data);
+					}
+				});
+			});
+			
+		});
+	</script>
 	<!-- 웹툰정보  -->
-			<jsp:include page="wbt-content.jsp"></jsp:include>
+			<%-- <jsp:include page="wbt-content.jsp"></jsp:include> --%>
 	<!-- 웹툰정보  -->
 	
 	<!-- 메인 컨텐츠 영역  (끝) 다른페이지 작업시 삭제할 부분-->
-	
 	<!-- 상단 이동 바 -->
 		<jsp:include page="top.jsp"></jsp:include>
     <!-- 상단 이동 바 끝-->
@@ -159,5 +187,6 @@
 		<jsp:include page="footer.jsp"></jsp:include>
 	<!-- footer 영역 (끝)-->
 </div>
+
 </body>
 </html>
