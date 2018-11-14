@@ -376,6 +376,11 @@ td>a:HOVER {
 /* fanart css (끝) */
 
 
+/* bd_writngPage css(글쓰기 화면) */
 
-
-
+.bw_writing {
+	border: 1px solid red;
+	width: 1700px;
+	min-height: 1000px;
+	margin: 0 auto;
+}
