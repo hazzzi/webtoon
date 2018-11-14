@@ -46,11 +46,16 @@ body{
    padding-top: 80px;
 }
 
+.butt_div{
+	display: inline-block;
+	margin-left: 219px;
+}
+
 .board_butt, .board_butt2 {
 /*    border:1px solid #dcdcdc; */
    width: 500px;
    height: 100px;
-   margin-right: 5px;
+   margin-right: 25px;
    display:inline-block;  
    border-radius: 3px;
    font-family:"MaplestoryLight", Arial, sans-serif;
@@ -80,7 +85,6 @@ body{
 
 .board_butt2>a:HOVER,.board_butt2>a:FOCUS {
 	color:#695e80;
-/*    color:#887c9e; */
    
 }
 

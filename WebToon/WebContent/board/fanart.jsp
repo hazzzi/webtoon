@@ -45,7 +45,7 @@
 				<div class="fan_content2">
 
 					<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
-					<!-- 					인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
+					<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 					<% for(int i=0 ; i<5 ; i++){ %>
 					<a href="#"><img src="https://via.placeholder.com/285"></a> <a
 						href="#"><img src="https://via.placeholder.com/285"></a> <a
@@ -61,7 +61,6 @@
 					<a href="#"><%=i+1 %></a> <% }%> <a href="#">&gt;</a>
 				</span>
 				<!-- 팬아트의 콘텐츠가 들어갈 영역 (끝) -->
-
 				<jsp:include page="search_engine.jsp"></jsp:include>
 				<jsp:include page="write.jsp"></jsp:include>
 			</div>
