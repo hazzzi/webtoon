@@ -22,8 +22,8 @@
 <script src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
 </head>
- 	<jsp:include page="../main/header.jsp" /> 
 <body>
+ 	<jsp:include page="../main/header.jsp" /> 
 
 	<script>
 		var RecentView;
@@ -59,7 +59,7 @@
 					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
 			<div class="rec_webtoon_div">
-				<a onclick="document.getElementById('webtoon-content').style.display='block'">외모지상주의 웹툰제목길이 체크</a>
+				<a>외모지상주의 웹툰제목길이 체크</a>
 				<b>박태준 · 스토리 / 네이버</b>
 			</div>
 			<div class="rec_star_div">
@@ -99,8 +99,7 @@
 			<button>더보기</button>
 		</div>
 		
-		
-		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
+		<%-- <jsp:include page="../main/wbt-content.jsp"></jsp:include> --%>
 		
 	</article>
 	

@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+#rec_c {
+	min-height: -webkit-fill-available;
+}
+#rec_c_top{
+	width: 100%;
+	height: 180px;
+	border-bottom: 2px solid #dfdfdf;
+}
+#rec_c_top>a{
+	border: 1px solid red;
+	text-transform: none;
+	font-weight: bold;
+	font-size: 30px;
+	color: #a851ff;
+	padding-bottom: 5px;
+	float: left;
+}
+#rec_c_span{
+	font-size: 20px;
+	float: left;
+}
