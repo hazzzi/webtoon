@@ -47,6 +47,7 @@ header#header-head{
     height: 100px;
     width: 100%;
     font-size: 25px;
+    min-width: 1400px;
     
     /* 상단바 고정 */
 /*     position: sticky;
