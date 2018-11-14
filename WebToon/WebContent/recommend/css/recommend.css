@@ -20,7 +20,7 @@
 
 body {
 	background-color: white;
-	height: auto;
+	height: -webkit-fill-available;
 }
 
 .rec_main {

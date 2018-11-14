@@ -99,13 +99,9 @@
 			<button>더보기</button>
 		</div>
 		
-		<%-- <jsp:include page="../main/wbt-content.jsp"></jsp:include> --%>
+		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
 		
 	</article>
-	
-	
-	
-	
 	
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>
