@@ -14,11 +14,12 @@
 
 body {
 	font-family: 'NanumBarunpenR', sans-serif;
+	box-sizing: border-box;
 }
 
  
 #update_wrap{
-/* 	border:1px solid red; */
+	border:1px solid red;
 	text-align: center;
 	height: 700px; width: 100%;
 }
@@ -65,9 +66,15 @@ body {
 	background-color:#cac1dd;
     color:#3c2f55;
 }
+
+.profileImg_Btn>input:HOVER {
+	cursor: pointer;
+}
+
 	
 #rif_text{
 /* 	border: 1px solid red; */
+	margin-top: 20px;
 	width:800px;
 	height: 350px;
 	}
@@ -109,6 +116,10 @@ select {
 	background-color:#cac1dd;
     color:#3c2f55;
     margin-bottom: 20px;
+}
+
+#uf_sub>input:HOVER {
+	cursor: pointer;
 }
 
 

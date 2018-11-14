@@ -4,7 +4,11 @@
 *{
 	margin:0;
 	padding:0;
- }	
+ }
+ 
+ .clear {
+ 	clear: both;
+ }
 
 
 @font-face {
@@ -20,7 +24,7 @@ body {
 #ma_wrap{
 /* 	border:1px solid red; */
 	text-align: center;
-	height: 700px; width: 100%;
+	height: 900px; width: 100%;
 }
 
 #ma{
@@ -32,19 +36,20 @@ body {
  	}
 
 #ma_title{
-	width:500px;
-	height:100px;
-	margin:0 auto;
-	font-size:30px;
-	margin-top:20px;
+/* 	border: 1px solid red;  */
+	width: 500px;
+	height: 100px;
+	display: inline-block;
+	margin: 0 auto;
+	font-size: 30px;
+	margin-top: 20px;
 	margin-bottom:20px;
-	 border: 1px solid red; 
 	}
 	
 
 	
 #ma_text{
-	border: 1px solid red; 
+/* 	border: 1px solid red;  */
 	min-width:800px;
 	min-height: 100px;
 	}
@@ -68,6 +73,11 @@ td{ color:#3c2f55;
 	padding-left:10px;
 	font-family: 'NanumBarunpenR', sans-serif;
 	}
+	
+td>a {
+	color:#3c2f55;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
 
 input {
 	width: 250px; height: 30px;
@@ -81,27 +91,45 @@ select {
 	font-weight: bold;
 	}
 
+#ma_sub>#mt_search{
+	width: 200px; height: 30px;
+	font-weight: bold;
+/* 	border: none; */
+}
 #ma_sub>#mt_submit {
 	width: 100px; height: 30px;
+/* 	margin-left: 10px; */
 	font-weight: bold;
 	border: none;
 	background-color:#cac1dd;
     color:#3c2f55;
     font-family: 'NanumBarunpenR', sans-serif;
 	}
-#ma_sub>#mt_search{
-	width: 200px;
+	
+#ma_sub>#mt_submit:HOVER {
+	cursor: pointer;
+}
+
+#ma_sub{
+/* 	border:1px solid red; */
+	margin:10px;
+/* 	padding-left: 10px; */
+	float: right;
+}
+
+.mya_back>input {
+	float: right;
+	width: 100px; height: 30px;
+	margin: 10px;
 	font-weight: bold;
 	border: none;
 	background-color:#cac1dd;
     color:#3c2f55;
-    font-family: 'NanumBarunpenR', sans-serif;
+    font-family: 'NanumBarunpenR', sans-serif;	
 }
 
-#ma_sub{
-	margin:10px;
-	width:320px;
-	float: right;
+.mya_back>input:HOVER {
+	cursor: pointer;
 }
 	
 	

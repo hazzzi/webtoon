@@ -43,6 +43,7 @@ body {
 	
 #mdps_text{
 	/* border: 1px solid red; */ 
+	margin-top: 20px;
 	width:800px;
 	height: 200px;
 	}
@@ -85,6 +86,12 @@ select {
     color:#3c2f55;
     margin-bottom: 20px;
 }
+
+#mdps_sub>input:HOVER {
+	cursor: pointer;
+}
+
+
 
 
 	
