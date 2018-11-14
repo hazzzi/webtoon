@@ -37,7 +37,7 @@ img.avatar {
 
 .container {
     padding: 16px 16px 80px 16px;
-    font-size: 21px;
+    font-size: large;
 }
 #wbt-board{
     text-align: center;
@@ -80,8 +80,8 @@ span.psw {
     background-color: #ffffff;
     margin: 5% auto 15% auto;
     border: 1px solid #fff;
-    width: 70%;
-    min-width: 910px;
+    width: 50%;
+    min-width: 900px;
     max-width: 1100px;
 }
 
