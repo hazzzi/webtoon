@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
 <html>
-<title>È¸¿ø Å»Åð</title>
+<title>íšŒì› íƒˆí‡´</title>
 <link rel="stylesheet" href="../main/css/test.css">
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,29 +14,30 @@
 <body>
 						<!--  wdm=withdrawMember		-->
 <div id="wdm_wrap">
-   <!-- header ½ÃÀÛ -->
-   <!--/ header ³¡ -->
-<!--È¸¿ø Á¤º¸ ¼öÁ¤ ºÎºÐ  -->	
-<div id="wdm_title"><h1>È¸¿ø Å»Åð</h1></div>
+   <!-- header ì‹œìž‘ -->
+   <!--/ header ë -->
+<!--íšŒì› ì •ë³´ ìˆ˜ì • ë¶€ë¶„  -->	
+<div id="wdm_title"><h1>íšŒì› íƒˆí‡´</h1></div>
 
 <form action="#" method="post">
 <div id="wdm"><!--reinfo  -->
-	<div id="wdm_exp"><p>È¸¿ø Å»Åð ½Ã Áï½Ã Á¤º¸°¡ »èÁ¦µÇ¸ç, Àç°¡ÀÔÀÌ °¡´ÉÇÕ´Ï´Ù.</p></div>
+	<div id="wdm_exp"><p>íšŒì› íƒˆí‡´ ì‹œ ëª¨ë“  ì •ë³´ê°€ ì‚­ì œë©ë‹ˆë‹¤.</p></div>
 	
 	<div id="wdm_text">
 	<table border="0">
-	<tr><th>ÇöÀç ºñ¹Ð¹øÈ£</th><td><input type="passward" name="pass" readonly></td></tr>
+	<tr><th>í˜„ìž¬ ë¹„ë°€ë²ˆí˜¸</th><td><input type="password" name="pass" required></td></tr>
 	</table>
  	</div> <!--id="rif_text" -->
 	<div id="wdm_sub">
-	<input type="submit" value="¼öÁ¤">
+	<input type="button" value="ë’¤ë¡œê°€ê¸°" onclick="location.href='myProfile.jsp'">
+	<input type="submit" value="íƒˆí‡´">
 	</div>
 </div>
-<!--È¸¿ø Á¤º¸ ¼öÁ¤ ºÎºÐ   -->
+<!--íšŒì› ì •ë³´ ìˆ˜ì • ë¶€ë¶„   -->
 
 
-<!-- footer ¿µ¿ª (½ÃÀÛ)-->
-	<!-- footer ¿µ¿ª (³¡)-->
+<!-- footer ì˜ì—­ (ì‹œìž‘)-->
+	<!-- footer ì˜ì—­ (ë)-->
 
 </form>
 </div>

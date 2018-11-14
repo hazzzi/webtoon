@@ -16,7 +16,7 @@
 <body>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
-		<!-- header 시작 -->
+		<!-- header 영역 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
 
 		<script>
@@ -29,7 +29,7 @@
 			});
 		</script>
 		
-		<!--/ header 끝 -->
+		<!-- header 영역 끝 -->
 
 		<!-- article 영역 시작 -->
 		<article> <!-- content 영역 -->
