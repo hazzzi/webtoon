@@ -17,15 +17,14 @@
 <!--recommend폴더안 -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link href="css/recommend.css" rel="stylesheet">
+<link href="css/search_recommend.css" rel="stylesheet">
 <link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
 </head>
  	<jsp:include page="../main/header.jsp" /> 
 <body>
-
-	<script>
+		<script>
 		var RecentView;
 		$(document).ready(function(){
 			$("#header-srch").hide();
@@ -51,31 +50,29 @@
 		});
 	</script>
 
-	<article class="rec_main">
-	<%for(int a=0; a<=8; a++){%>
-		<div class="rec_wrap_div">
-			<div class="rec_img_div">
+	<article class="search_rec_main">
+		<div class="search_rec_wrap_div">
+			<div class="search_rec_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
-			<div class="rec_webtoon_div">
+			<div class="search_rec_webtoon_div">
 				<a onclick="document.getElementById('webtoon-content').style.display='block'">외모지상주의 웹툰제목길이 체크</a>
 				<b>박태준 · 스토리 / 네이버</b>
 			</div>
-			<div class="rec_star_div">
-				<button class="rec_webtoon_btn">웹툰보기</button>
-				<b class="rec_b">평가하기</b>
+			<div class="search_rec_star_div">
+				<button class="search_rec_webtoon_btn">웹툰보기</button>
+				<b class="search_rec_b">평가하기</b>
 				 
-				<select id="example<%=a%>">
+				<select id="example">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
 					<option value="5">5</option>
 				</select>
-				
 				<script type="text/javascript">
-					$('#example<%=a%>').barrating({
+					$('#example').barrating({
 						theme : 'fontawesome-stars',
 						initialRating : -1
 					});
@@ -91,23 +88,12 @@
 					//$('#example').barrating('set', 2);
 				</script>
 			</div>
-
-			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
+			<div class="search_rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
 		</div>
-		<%} %>
-		<div id="rec_next_div">
-			<button>더보기</button>
+		<div id="search_rec_next_div">
 		</div>
-		
-		
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
-		
 	</article>
-	
-	
-	
-	
-	
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>
 </html>
