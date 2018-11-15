@@ -98,6 +98,7 @@
 		<div id="rec_next_div">
 			<button>더보기</button>
 		</div>
+		<div style="clear: both;"></div>
 		
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
 		
