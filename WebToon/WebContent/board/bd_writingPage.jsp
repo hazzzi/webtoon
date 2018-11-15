@@ -21,13 +21,13 @@
 	<div class="bw_writing">
 		<div class="bw_subject">
 			<input type="text" placeholder="제목" class="bw_sub_tex">
+			<div id="bw_img">
+				<a href="#"><i class="fa fa-file-image-o"
+					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
+				<a href="#"><i class="fa fa-check" style="font-size: 48px; color: gray;"></i></a>
+			</div>
 		</div>
-		
-		<div id="bw_img">
-		<img alt="글쓰기" src="../images/글쓰기.png" width="74px" height="74px">
-		<img alt="사진첨부" src="../images/포토.png" width="70px" height="70px">
-		</div>
-		
+
 		<div class="clear"></div>
 		<div class="bw_content">
 			<textarea rows="30" cols="120" class="tex01"></textarea>

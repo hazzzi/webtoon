@@ -415,10 +415,12 @@ td>a:HOVER {
 }
 
 
-=======
 #bw_img{
-	margin-left: 1540px;
-	position: fixed;
+	display: inline-block;
+	width:130px;
+	margin: -45px 0 0 1521px;
+	position: relative;
+	bottom: 20px;
 	padding-left: 20px; 
 }
 
