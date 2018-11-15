@@ -24,7 +24,8 @@ body {
 #ma_wrap{
 /* 	border:1px solid red; */
 	text-align: center;
-	height: 900px; width: 100%;
+	width: 100%;
+	min-height: -webkit-fill-available;
 }
 
 #ma{
