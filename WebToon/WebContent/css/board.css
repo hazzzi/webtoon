@@ -30,6 +30,10 @@ body{
 }
 .clear { clear: both;}
 
+hr {
+  height: 3px;
+  background-color: #eed;
+  border: none;}
 
 
 /* header */
@@ -418,7 +422,6 @@ td>a:HOVER {
 .tex01 {
 	padding: 10px;
 	font-size: 30px;
-	margin-bottom: 65px;
 	font-family: 'NanumBarunpenR';
 	resize: none;
 }
@@ -432,4 +435,14 @@ td>a:HOVER {
 	bottom: 20px;
 	padding-left: 20px; 
 }
+/* 
+.bw_content_hr {
+	border: 0;
+	height: 5px;
+	color: #000;
+	margin: 30px 0;
+} */
 
+hr {
+	margin: 10px;
+}

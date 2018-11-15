@@ -24,17 +24,18 @@
 			<div id="bw_img">
 				<a href="#"><i class="fa fa-file-image-o"
 					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
-				<a href="#"><i class="fa fa-check" style="font-size: 48px; color: gray;"></i></a>
+				<a href="#"><i class="fa fa-check"
+					style="font-size: 48px; color: gray;"></i></a>
 			</div>
 		</div>
-
+<!-- class="bw_hr" -->
 		<div class="clear"></div>
 		<hr>
 		<div class="bw_content">
 			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
-			
+			<hr>
 		</div>
-		
+
 	</div>
 	<!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
