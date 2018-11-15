@@ -368,7 +368,6 @@ td>a:HOVER {
 
 .bw_subject {
 	margin-left: 10px;
-	display: inline-block;
 }
 
 .bw_content {
@@ -376,6 +375,7 @@ td>a:HOVER {
 }
 
 .bw_sub_tex {
+	display: inline-block;
 	font-size: 45px;
 	padding:10px;
 }
@@ -390,4 +390,6 @@ td>a:HOVER {
 	font-size: 30px;
 	margin-bottom: 65px;
 	font-family: 'NanumBarunpenR';
+	resize: none;
 }
+
