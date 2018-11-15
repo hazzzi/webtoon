@@ -405,6 +405,7 @@ td>a:HOVER {
 }
 
 .bw_sub_tex {
+	display: inline-block;
 	font-size: 45px;
 	padding:10px;
 }
@@ -419,10 +420,16 @@ td>a:HOVER {
 	font-size: 30px;
 	margin-bottom: 65px;
 	font-family: 'NanumBarunpenR';
+	resize: none;
 }
 
+
 #bw_img{
-	margin-left: 1540px;
-	position: fixed;
+	display: inline-block;
+	width:130px;
+	margin: -45px 0 0 1521px;
+	position: relative;
+	bottom: 20px;
 	padding-left: 20px; 
 }
+
