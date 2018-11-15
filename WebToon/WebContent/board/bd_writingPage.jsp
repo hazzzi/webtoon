@@ -20,8 +20,14 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-	
-
+		<div class="bw_subject">
+			<input type="text" placeholder="제목" class="bw_sub_tex">
+		</div>
+		<img alt="글쓰기" src="../images/글쓰기.png">
+		<img alt="사진첨부" src="../images/포토.png">
+		<div class="bw_content">
+			<textarea rows="30" cols="120" class="tex01"></textarea>
+		</div>
 
 	</div>
 	<!-- 본문 영역 끝 -->

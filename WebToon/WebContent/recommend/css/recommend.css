@@ -19,8 +19,8 @@
 }
 
 body {
-	background-color: #efece2;
-	height: auto;
+	background-color: white;
+	height: -webkit-fill-available;
 }
 
 .rec_main {

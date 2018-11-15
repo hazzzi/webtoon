@@ -31,6 +31,32 @@ body{
 .clear { clear: both;}
 
 
+
+/* header */
+header {
+   background-image: url("../images/banner.jpg");
+   background-repeat: no-repeat;
+   background-position: center top;
+   background-size: cover;
+   position: relative;
+   box-sizing: border-box;
+}
+
+#profile{
+   width: 100px;
+   position: absolute;
+   right:100px;
+   top: 40px;
+}
+#profile>img{
+   vertical-align: middle;
+   width: 81px;
+   height: 81px;
+   border-radius: 50%;
+}
+
+
+
 /* 전체 content 영역 */
 .content {
 /*    border: 1px solid pink; */
@@ -352,8 +378,35 @@ td>a:HOVER {
 /* bd_writngPage css(글쓰기 화면) */
 
 .bw_writing {
-	border: 1px solid red;
+/* 	border: 1px solid red; */
 	width: 1700px;
 	min-height: 1000px;
 	margin: 0 auto;
+	padding-top: 60px;
+}
+
+.bw_subject {
+	margin-left: 10px;
+	display: inline-block;
+}
+
+.bw_content {
+	    margin: 10px 0 0 10px;	
+}
+
+.bw_sub_tex {
+	font-size: 45px;
+	padding:10px;
+}
+
+.tex00 {
+	font-family: 'NanumBarunpenR';
+	padding: 10px;
+}
+
+.tex01 {
+	padding: 10px;
+	font-size: 30px;
+	margin-bottom: 65px;
+	font-family: 'NanumBarunpenR';
 }
