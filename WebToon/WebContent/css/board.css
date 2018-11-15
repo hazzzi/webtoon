@@ -391,8 +391,17 @@ td>a:HOVER {
 	float: left;
 }
 
+.bw_subject input {
+	font-family: 'NanumBarunpenR', Arial, sans-serif;
+	border-style: none;
+}
+
 .bw_content {
-	    margin: 10px 0 0 10px;	
+	 margin: 10px 0 0 10px;
+}
+
+.bw_content textarea{
+	border-style: none;
 }
 
 .bw_sub_tex {

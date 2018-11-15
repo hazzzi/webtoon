@@ -23,16 +23,14 @@
 			<input type="text" placeholder="제목" class="bw_sub_tex">
 		</div>
 		
-		<div id="bw_img">
-		<img alt="글쓰기" src="../images/글쓰기.png" width="74px" height="74px">
-		<img alt="사진첨부" src="../images/포토.png" width="70px" height="70px">
-		</div>
 		
 		<div class="clear"></div>
+		<hr>
 		<div class="bw_content">
-			<textarea rows="30" cols="120" class="tex01"></textarea>
+			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+			
 		</div>
-
+		
 	</div>
 	<!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
