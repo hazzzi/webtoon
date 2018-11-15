@@ -81,6 +81,7 @@
 		$('.close').click(function(){
 			$('#webtoon-content').remove();
 		});
+		
 	});
 	
 </script>

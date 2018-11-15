@@ -85,6 +85,7 @@
  	</div>
  </div>
  <div id="main-content-div">
+ <% for(int i=0; i<15; i++) {%>
  <!-- 반복문 돌릴 부분 -->
 	<div id="sildeshow">
 		<div id="content">
@@ -143,6 +144,7 @@
 			</div>
 		</div>
 	</div>
+	<%} %>
 </div>
 <%-- 	<%} %> --%>
 	 	<script>

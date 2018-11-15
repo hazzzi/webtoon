@@ -25,7 +25,7 @@ body {
 
 .rec_main {
 	min-width: 1300px;
-	height: 840px;
+	min-height: -webkit-fill-available;
 	width: 70%;
 	margin: 0 auto;
 	font-family: 'NanumBarunpenR';
@@ -35,7 +35,10 @@ body {
 	/* 	border: 1px solid white; */
 	width: 415px;
 	height: 240px;
-	margin: 30px 0 -30px 26px;
+	box-sizing: border-box;
+	padding: 30px 10px 30px 10px;
+	/* margin: 30px 0 -30px 26px; */
+	margin: 30px 0;
 	display: inline-block;
 	text-align: center;
 	font-family: 'NanumBarunpenR', sans-serif;
@@ -126,8 +129,10 @@ body {
 	width: 100%;
 	float: left;
 	text-align: center;
-	position: relative;
-	top: 30px;
+	/* position: relative;
+	top: 30px; */
+	margin-bottom: 30px;
+	margin-top: 40px;
 }
 #rec_next_div>button{
 	background-color: #a8a8a8;
