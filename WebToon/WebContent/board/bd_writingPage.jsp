@@ -14,7 +14,6 @@
 <script src="../main/js/jquery-3.3.1.js"></script>
 </head>
 <body>
-<body>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<!-- header 영역 끝-->
@@ -23,8 +22,13 @@
 		<div class="bw_subject">
 			<input type="text" placeholder="제목" class="bw_sub_tex">
 		</div>
-		<img alt="글쓰기" src="../images/글쓰기.png">
-		<img alt="사진첨부" src="../images/포토.png">
+		
+		<div id="bw_img">
+		<img alt="글쓰기" src="../images/글쓰기.png" width="74px" height="74px">
+		<img alt="사진첨부" src="../images/포토.png" width="70px" height="70px">
+		</div>
+		
+		<div class="clear"></div>
 		<div class="bw_content">
 			<textarea rows="30" cols="120" class="tex01"></textarea>
 		</div>

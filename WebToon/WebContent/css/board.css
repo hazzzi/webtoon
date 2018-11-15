@@ -388,6 +388,7 @@ td>a:HOVER {
 .bw_subject {
 	margin-left: 10px;
 	display: inline-block;
+	float: left;
 }
 
 .bw_content {
@@ -409,4 +410,10 @@ td>a:HOVER {
 	font-size: 30px;
 	margin-bottom: 65px;
 	font-family: 'NanumBarunpenR';
+}
+
+#bw_img{
+	margin-left: 1540px;
+	position: fixed;
+	padding-left: 20px; 
 }
