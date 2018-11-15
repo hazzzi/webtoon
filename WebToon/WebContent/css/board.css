@@ -227,6 +227,7 @@ tr {
 .board_table td {
 	font-size: 20px;
 	height: 35px;
+	padding: 10px;
 }
 
 td.table_sh {
@@ -237,6 +238,10 @@ td.table_mid {
 	width: 150px;
 }
 
+td.table_img{
+	width: 20px;
+}
+
 td>a {
 	color: black;
 }
@@ -244,6 +249,10 @@ td>a {
 td>a:HOVER {
 	color: #0080ff;
 	text-decoration: underline;
+}
+
+#bd_img{
+	
 }
 
 .board_paging{
