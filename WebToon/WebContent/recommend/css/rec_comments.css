@@ -29,8 +29,8 @@
 }
 .rec_comments_main_wrap{
 	width: 100%;
-	height: 840px;
-	margin: 0 auto;
+/* 	height: 840px; */
+	margin: 40px auto;
 	font-family: 'NanumBarunpenR';
 	text-align: center;
 	position: relative;
