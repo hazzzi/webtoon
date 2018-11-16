@@ -435,13 +435,10 @@ td>a:HOVER {
 	bottom: 20px;
 	padding-left: 20px; 
 }
-/* 
-.bw_content_hr {
-	border: 0;
-	height: 5px;
-	color: #000;
-	margin: 30px 0;
-} */
+
+#bw_img i:FOCUS{
+	color: #00ff00;
+}
 
 hr {
 	margin: 10px;

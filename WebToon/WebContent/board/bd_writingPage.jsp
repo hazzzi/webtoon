@@ -22,7 +22,7 @@
 		<div class="bw_subject">
 			<input type="text" placeholder="제목" class="bw_sub_tex">
 			<div id="bw_img">
-				<a href="#"><i class="fa fa-file-image-o"
+				<a href="#"><i class="fa fa-file-image-o" id="bw_pho_icon"
 					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
 				<a href="#"><i class="fa fa-check"
 					style="font-size: 48px; color: gray;"></i></a>
