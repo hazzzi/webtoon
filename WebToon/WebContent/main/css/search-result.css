@@ -1,4 +1,267 @@
 @CHARSET "UTF-8";
-div#sr-content{
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
+}
+header#header-head{   
+    /* 상단바 고정 */
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+div#sr-main{
 	min-height: -webkit-fill-available;
 }
+
+
+
+div#sr-content{
+	height: 350px;
+	box-shadow: 0 1px 5px #ddd;
+	position: relative;
+}
+
+div#sr-content-box{
+	height: 100%;
+    width: 70%;
+    max-width: 1080px;
+    line-height: 2;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    bottom: 106px;
+}
+div#sr-con-background{
+	position: inherit;
+	height: 130px;
+	width: 100%;
+	background-color: #d5cde4;
+/* 	background-image: url("https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg"); */
+/* 	background-image: url("https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG06_917b189b-7c3c-44c4-a732-9d53da41240c.jpg"); */
+/* 	background-image: url("https://s.pstatic.net/static/www/img/2018/sp_search.svg"); */
+	z-index: 1;
+}
+
+div#sr-content-img{
+/* 	border: 1px solid red; */
+/*     margin: auto 0; */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+div#sr-content-img p,div#sr-content-img img{
+	display: inline-block;
+	position: absolute;
+}
+
+div#sr-content-img>img{
+	border: 3px solid #fff;
+	width: 190px;
+	top: 80px;
+    left: 50px;
+}
+div#sr-content-img>p{
+	top: 110px;
+    left: 290px;
+}
+div#sr-content-img>p>a{
+	color:#1b1526;
+	display: inline-block;
+	width: 100%;
+	transition: all 0.1s;
+    background-color: #d5cde4;
+}
+div#sr-content-img>p>a:HOVER{
+    background-color: #a59cc9;
+}
+div#sr-content-img>p:NTH-OF-TYPE(1){
+	font-size: 45px;
+	font-weight: bold;
+}
+div#sr-content-img>p:NTH-OF-TYPE(2){
+	font-size: 25px;
+    font-weight: bold;
+    left: 500px;
+    top: 130px;
+}
+div#sr-content-img>p:NTH-OF-TYPE(3){
+	font-size: 22px;
+	top:180px;
+	color: #9d8dc2;
+}
+div#sr-content-img>p:NTH-OF-TYPE(4){
+	font-size: 22px;
+    top: 180px;
+    left: 350px;
+	color: #9d8dc2;
+}
+div#sr-content-img>p:NTH-OF-TYPE(5){
+    width: 150px;
+    height: 50px; 
+    font-size: 25px;
+    top: 240px;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+div.sr-content-fill{
+	max-width: 1000px;
+	min-height: 800px;
+	margin : 20px auto 50px auto;
+	width: 70%;
+}
+div.sr-content-fill>div{
+	border: 1px solid #d5cde4;
+	border-radius: 5px;
+	font-size: 17px;
+	display: inline-block;
+}
+
+div#sr-content-info{
+	width: 60%;
+    padding: 0px 20px;
+    box-sizing: border-box;
+}
+
+div#sr-content-info>div{
+	margin: 20px;
+	padding: 10px;
+}
+div#sr-content-info h2{
+	font-size: 35px;
+	margin-bottom: 30px; 
+}
+
+div.sr-content-default>h2{
+/* 	border: 1px solid red; */
+}
+div.sr-content-default>p{
+	color:#443560;
+	margin: 10px 0;
+}
+div.sr-content-default>p:NTH-OF-TYPE(1){
+/* 	border: 1px solid red; */
+	font-size: 25px;
+}
+div.sr-content-default>p:NTH-OF-TYPE(5){
+	margin-top: 20px;
+}
+
+div.sr-content-star i{
+	font-size: 60px !important;
+}
+div.sr-content-star{
+	text-align: center;
+}
+div.sr-content-star>h2{
+	text-align: left;
+}
+div.sr-content-star>p:NTH-OF-TYPE(1){
+	margin-top: 10px;
+	font-size: 25px;
+}
+div.sr-content-star>p:NTH-OF-TYPE(2){
+	margin-top:5px;
+	font-size: 18px;
+}
+
+div.sr-content-comment{
+}
+
+div.sr-content-comment>p{
+	display: inline-block;
+}
+div.sr-content-comment>p:NTH-OF-TYPE(2){
+	float: right;
+}
+div.sr-content-comment>p>a{
+	color: #1b1526;
+}
+div.sr-content-comment>h2{
+	display: inline-block;
+}
+/* 리뷰 영역 */
+div.sr-content-comment>div{
+    border-radius: 5px;
+    background-color: #f7f5fa;
+    padding: 5px;
+    /* clear: both; */
+    /* display: inline-block; */
+    float: left;
+    margin: 0 5px;
+    width: 220px;
+    height: 300px;
+    position: relative;
+    box-sizing: border-box;
+}
+div.sr-content-comment>div>img{
+    width: 50px;
+    display: inline-block;
+    /* border: 1px solid; */
+    margin: 10px 0 0 10px;
+}
+div.sr-content-comment>div>p:NTH-OF-TYPE(1){
+	display: inline-block;
+    /* border: 1px solid red; */
+    /* margin: 0 10px 20px 10px; */
+    position: absolute;
+    top: 28px;
+    left: 70px;
+    font-size: 20px;
+}
+div.sr-content-comment>div>p:NTH-OF-TYPE(2){
+	margin: 10px;
+}
+
+div.sr-content-rec>div img{
+	width: 97% !important;
+}
+
+
+div.sr-content-sub{
+	width: 38%;
+    height: 500px;
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
