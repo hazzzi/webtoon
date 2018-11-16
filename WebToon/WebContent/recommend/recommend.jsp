@@ -52,7 +52,7 @@
 	</script>
 
 	<article class="rec_main">
-	<%for(int a=0; a<=8; a++){%>
+	<%for(int a=0; a<=40; a++){%>
 		<div class="rec_wrap_div">
 			<div class="rec_img_div">
 				<img
@@ -60,7 +60,7 @@
 			</div>
 			<div class="rec_webtoon_div">
 				<a>외모지상주의 웹툰제목길이 체크</a>
-				<b>박태준 · 스토리 / 네이버</b>
+				<b>박태준 / 스토리 · 네이버</b>
 			</div>
 			<div class="rec_star_div">
 				<button class="rec_webtoon_btn">웹툰보기</button>
