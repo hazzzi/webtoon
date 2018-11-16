@@ -22,7 +22,12 @@
 		    loop:true,
 		    items: 3,
 		    dots: true
-		})
+		});
+		$('.owl-carousel1').owlCarousel({
+		    loop:true,
+		    items: 2,
+		    dots: true
+		});
 	});
 </script>
 
@@ -75,7 +80,7 @@
 			 		<p><i class="fa fa-pencil"></i>올소</p>
 			 		<p>2018 · 스토리  · 드라마</p>
 			 		<p>네이버 · 연재중</p>
-			 		<p>냥줍을 잘못하면...남자친구가 생깁니다(?)</p>
+			 		<p>냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)</p>
 		 		</div>
 		 		<hr>
 		 		<div class="sr-content-star">
@@ -100,12 +105,16 @@
 		 				<p>사용자이름</p>
 		 				<hr>
 		 				<p>로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</p>
+		 				<hr>
+		 				<i class="fa fa-thumbs-o-up"></i><p>35</p>
 		 			</div>
 		 			<div>
 		 				<img src="img/member.png" width="100px">
 		 				<p>사용자이름</p>
 		 				<hr>
 		 				<p>로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기</p>
+		 				<hr>
+		 				<i class="fa fa-thumbs-o-up"></i><p>35</p>
 		 			</div>
 		 		</div>
 		 		<div style="clear: both; margin: inherit; padding: 15px;"></div>
@@ -134,6 +143,31 @@
 		 		</div>
 		 	</div>
 		 	<div class="sr-content-sub">
+		 		<div class="sr-content-sub-art">
+		 			<h2>팬아트</h2>
+		 			<p><a href="../board/fanart.jsp">더보기</a></p>
+		 			<div>
+		 				<a href="#">
+				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+			 			</a>
+		 				<a href="#">
+				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+			 			</a>
+		 			</div>
+		 		</div>
+		 		<hr>
+		 		<div class="sr-content-sub-star">
+		<!--  			<h2>내 별점</h2>
+		 			<i class="fa fa-star"></i>
+		 			<i class="fa fa-star"></i>
+		 			<i class="fa fa-star"></i>
+		 			<i class="fa fa-star"></i>
+		 			<i class="fa fa-star-half-full"></i>
+		 			<p>4.5</p> -->
+		 			
+		 			<p class="mg">더 많은 웹툰을 평가해주세요!</p>
+		 			<a href="../recommend/recommend.jsp">평가하기</a>
+		 		</div>
 		 	</div>
 		 	</div>
 		 </div>
