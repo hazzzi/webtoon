@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../font/NanumBarunpenR.ttf") format('truetype');
+}
+header#header-head{   
+    /* 상단바 고정 */
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+div.sach-main{
+	min-height: -webkit-fill-available;
+    height: 100%;
+    width: 70%;
+    max-width: 1080px;
+    line-height: 2;
+    margin: 0 auto;
+    padding: 30px 50px;
+    box-sizing: border-box;
+}
+div.sach-background>h2{
+    margin: 0 auto;
+    width: 70%;
+    max-width: 1080px;
+    height: 100%;
+    font-size: 35px;
+    line-height: 2.8;
+    padding-left: 50px;
+}
+div.sach-background{
+	position: inherit;
+	height: 100px;
+	width: 100%;
+	background-color: #d5cde4;
+	z-index: 1;
+}
+
+div.sach-rt{
+	height: 150px;
+    margin-bottom: 30px;
+}
+div.sach-rt>a{
+	color: #1b1526;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+div.sach-rt>a>img{
+	height: 100%;
+}
+div.sach-rt>a>span{
+    display: inline-block;
+    position: absolute;
+    width: 50%;
+    font-size: 25px;
+    padding-left: 20px;
+}
+div.sach-rt>a>span:NTH-OF-TYPE(2) {
+	top: 40px;
+}
+div.sach-rt>a>span:NTH-OF-TYPE(3) {
+	top: 90px;
+}

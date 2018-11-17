@@ -121,6 +121,7 @@ div.sr-content-fill>div{
 }
 
 div#sr-content-info{
+	min-width: 565px;
 	width: 60%;
     padding: 0px 20px;
     box-sizing: border-box;
