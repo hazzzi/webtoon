@@ -48,6 +48,7 @@ hr {
 	height: 3px;
 	background-color: #0c131747;
 	border: none;
+	margin: 10px;
 }
 
 article {
@@ -148,10 +149,9 @@ header {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	width: 520px;
-	margin-left: 505px;
 	border-radius: 30px;
 	position: relative;
-	left: 25px;
+	left: 505px;
 }
 
 #bd_srch>input {
@@ -235,6 +235,7 @@ tr {
 	width: 100%;
 	display: block;
 	margin: 20px auto;
+	position: relative;
 }
 
 .bd_content {
@@ -314,10 +315,8 @@ td>a:HOVER {
 	width: 150px;
 	height: 41px;
 	background-color: white;
-	margin-left: 345px;
-	position: relative;
-	top: -64px;
-	left: 782px;
+	position: absolute;
+	right: 0px;
 	border: 2px solid #74668c;
 	border-radius: 30px;
 	font-family: 'NanumBarunpenR', sans-serif;
@@ -347,7 +346,8 @@ td>a:HOVER {
 
 /* fanart css (시작)*/
 .fan_content {
-	min-height: 1500px;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 
 .fan_posting {
@@ -385,65 +385,71 @@ td>a:HOVER {
 
 /* fanart css (끝) */
 
+
 /* bd_writngPage css(글쓰기 화면) */
+
+/* bd_writingPage wrapper 영역 */
 .bw_writing {
-	/* 	border: 1px solid red; */
 	width: 1700px;
+	max-width: 1400px;
 	min-height: 1000px;
 	margin: 0 auto;
 	padding-top: 60px;
 }
 
+/* 글 작성 전체 영역 */
+.bw_content {
+	margin: 10px 0 0 10px;
+}
+
+/* 상단 컨텐츠 영역(제목, 카테고리, 버튼) */
 .bw_subject {
 	margin-left: 10px;
 	display: inline-block;
 	float: left;
 }
 
-.bw_subject input {
+/* 제목   */
+.bw_sub_tex {
 	font-family: 'NanumBarunpenR', Arial, sans-serif;
 	border-style: none;
-}
-
-.bw_content {
-	margin: 10px 0 0 10px;
-}
-
-.bw_content textarea {
-	border-style: none;
-}
-
-.bw_sub_tex {
 	display: inline-block;
 	font-size: 45px;
 	padding: 10px;
 }
 
-.tex00 {
-	font-family: 'NanumBarunpenR';
-	padding: 10px;
+
+/* 게시판 카테고리 */
+.bd_sel {
+	width: 250px;
+	height: 40px;
+	padding-top: 5px;
+	font-size: 22px;
 }
 
+/* 글 작성, 이미지 첨부 버튼 */
+#bw_img {
+	display: inline-block;
+	width: 130px;
+	margin: -45px 0 0 1265px;
+	position: relative;
+	bottom: 20px;
+	padding-left: 20px;
+}
+
+
+#bw_img i:FOCUS {
+	color: #00ff00;
+}
+
+/* 글 내용 전체 content 영역 */
 .tex01 {
+	border-style: none;
+	max-width: 1400px;
 	padding: 10px;
 	font-size: 30px;
 	font-family: 'NanumBarunpenR';
 	resize: none;
 }
 
-#bw_img {
-	display: inline-block;
-	width: 130px;
-	margin: -45px 0 0 1521px;
-	position: relative;
-	bottom: 20px;
-	padding-left: 20px;
-}
 
-#bw_img i:FOCUS {
-	color: #00ff00;
-}
-
-hr {
-	margin: 10px;
-}
