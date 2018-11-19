@@ -12,6 +12,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../main/css/footer-main.css">
 <script src="../main/js/jquery-3.3.1.js"></script>
+<script type="text/javascript"
+	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
 	<!-- header 영역 시작 -->
@@ -28,14 +30,13 @@
 					style="font-size: 48px; color: gray;"></i></a>
 			</div>
 		</div>
-<!-- class="bw_hr" -->
+		<!-- class="bw_hr" -->
 		<div class="clear"></div>
 		<hr>
 		<div class="bw_content">
 			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
 			<hr>
 		</div>
-
 	</div>
 	<!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
