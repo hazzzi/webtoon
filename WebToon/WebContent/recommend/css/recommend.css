@@ -9,8 +9,15 @@
 	padding: 0;
 }
 
-.clear {
-	clear: both;
+header#header-head {
+	/* 상단바 고정 */
+	position: sticky;
+	top: 0;
+	z-index: 3;
+}
+.fixed{
+	/* position: fixed !important; */
+    box-shadow: 0 1px 5px #333;
 }
 
 @font-face {
@@ -20,11 +27,43 @@
 
 body {
 	background-color: white;
-	height: -webkit-fill-available;
+}
+
+.rec_top_background {
+	position: inherit;
+	height: 100px;
+	width: 100%;
+	background-color: #d5cde4;
+	color: black;
+}
+
+.rec_top_background>p:NTH-OF-TYPE(1) {
+	text-align: center;
+	font-size: 35px;
+	padding-top: 30px;
+}
+
+.rec_top_background>p:NTH-OF-TYPE(2) {
+	text-align: center;
+}
+
+#rec_star_menu {
+	width: 100%;
+	text-align: center;
+	background-color: #d5cde4;
+
+	position: sticky;
+	top: 90px;
+	z-index: 3;
+}
+
+#rec_star_menu>a {
+	color: black;
+	font-size: 30px;
 }
 
 .rec_main {
-	min-width: 1300px;
+	min-width: 1350px;
 	min-height: -webkit-fill-available;
 	width: 70%;
 	margin: 0 auto;
@@ -33,12 +72,11 @@ body {
 
 .rec_wrap_div {
 	/* 	border: 1px solid white; */
-	width: 415px;
+	width: 447px;
 	height: 240px;
 	box-sizing: border-box;
-	padding: 30px 10px 30px 10px;
-	/* margin: 30px 0 -30px 26px; */
-	margin: 30px 0;
+	padding: 0px 10px 30px 30px;
+	margin: 15px 0;
 	display: inline-block;
 	text-align: center;
 	font-family: 'NanumBarunpenR', sans-serif;
@@ -57,11 +95,11 @@ body {
 	height: 180px;
 	display: block;
 	float: left;
+	border-radius: 5px 5px;
 }
 
 /* 웹툰이름, 작가 영역  */
-
-.rec_webtoon_div{
+.rec_webtoon_div {
 	width: 200px;
 	height: 93px;
 	float: left;
@@ -69,14 +107,16 @@ body {
 	margin-left: 5px;
 	text-align: left;
 }
-.rec_webtoon_div>a{
+
+.rec_webtoon_div>a {
 	width: 200px;
 	font-size: 30px;
 	color: #210042;
 	cursor: pointer;
 	float: left;
 }
-.rec_webtoon_div>b{
+
+.rec_webtoon_div>b {
 	width: 200px;
 	color: #7c7c7c;
 	font-size: 12px;
@@ -125,7 +165,8 @@ body {
 	margin-top: 10px;
 	text-align: left;
 }
-#rec_next_div{
+
+#rec_next_div {
 	width: 100%;
 	float: left;
 	text-align: center;
@@ -134,7 +175,8 @@ body {
 	margin-bottom: 30px;
 	margin-top: 40px;
 }
-#rec_next_div>button{
+
+#rec_next_div>button {
 	background-color: #a8a8a8;
 	color: #ffffff;
 	border: none;
@@ -144,6 +186,7 @@ body {
 	padding: 5px 40px;
 	font-weight: bold;
 }
+
 #rec_next_div>button:HOVER {
 	background-color: #828282;
 }
