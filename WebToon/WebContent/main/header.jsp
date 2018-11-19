@@ -6,7 +6,7 @@
 			<div id="header-logo">
 			<h1>
 				<i class="fa fa-search" style="color:#fff"></i>
-				<a href="../main/index.jsp">오늘 뭐 볼까?</a>
+				<a href="../main/main-home.jsp">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
 			
