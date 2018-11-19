@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="css/search-result.css">
+<link rel="stylesheet" href="css/wbt-content.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script type="text/javascript">
@@ -97,7 +98,7 @@
 		 		<div class="sr-content-comment">
 		 			<h2>리뷰</h2>
 		 			<p>+2349</p>
-		 			<p><a href="../recommend/rec_comments.jsp">더보기</a></p>
+		 			<p><a class="review-action" style="cursor: pointer;">리뷰남기기</a>|<a href="../recommend/rec_comments.jsp">더보기</a></p>
 		 			<!-- 상위 2개 리뷰 -->
 		 			<br>
 		 			<div>
@@ -172,6 +173,14 @@
 		 	</div>
 		 </div>
 	</div>
+	<jsp:include page="wbt-content.jsp"></jsp:include>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.review-action').click(function(index){
+			$('#webtoon-content').show();
+		});
+	});
+	</script>
 	<jsp:include page="top.jsp"></jsp:include>
 	<jsp:include page="footer.jsp"></jsp:include>
 </div>

@@ -86,7 +86,7 @@
  </div>
  <div id="main-content-div">
  <% for(int i=0; i<15; i++) {%>
- <!-- 반복문 돌릴 부분 -->
+ <!-- 반복문 돌아갈 부분 -->
 	<div id="sildeshow">
 		<div id="content">
 			<h3>로맨스</h3>
@@ -100,6 +100,7 @@
 						<!-- <label>이동건</label> -->
 					</a>
 				</div>
+			<!-- 반복문 돌아갈 부분 -->
 				<div class="webtoon-img"> 
 					<a class="openwbt2">
 						<img class="a2" src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t83x90.jpg">

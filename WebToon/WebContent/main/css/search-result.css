@@ -179,6 +179,7 @@ div.sr-content-comment>p:NTH-OF-TYPE(2){
 	float: right;
 }
 div.sr-content-comment>p>a{
+	padding: 0 10px;
 	color: #1b1526;
 }
 div.sr-content-comment>h2{
