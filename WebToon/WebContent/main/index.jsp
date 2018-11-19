@@ -93,7 +93,7 @@
 			<div id="con-img" class="owl-carousel owl-theme">
 			<!-- 반복문 돌아갈 부분 -->
 				<div class="webtoon-img">
-					<a class="openwbt1">
+					<a onclick="">
 						<img class="a1" src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
 						<label id="label">유미의 세포들</label>
 						<!-- <label>이동건</label> -->
