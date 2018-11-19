@@ -57,9 +57,14 @@ div.sach-rt>a>span{
     font-size: 25px;
     padding-left: 20px;
 }
+div.sach-rt>a>span:NTH-OF-TYPE(1) {
+    font-size: 30px;
+}
 div.sach-rt>a>span:NTH-OF-TYPE(2) {
-	top: 40px;
+    color: #9d8dc2;
+	top: 45px;
 }
 div.sach-rt>a>span:NTH-OF-TYPE(3) {
+    color: #9d8dc2;
 	top: 90px;
 }

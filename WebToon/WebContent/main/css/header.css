@@ -34,6 +34,9 @@ body{
 	width: 100%;
 	position: relative;
 }
+input[type="text"]{
+	outline: none;
+}
 .clear { clear: both;}
 
 
@@ -158,7 +161,7 @@ nav#header-menu li>a:HOVER {
     z-index: 5;
 }
 
-#header-srch>input{
+#header-srch>input[type="text"]{
     box-sizing: border-box;
     width: 250px;
     height: 100%;
@@ -185,6 +188,27 @@ nav#header-menu li>a:HOVER {
     color: #201a2f;
     position: relative;
     bottom: 8px;
+}
+#header-srch button{
+	box-sizing: border-box;
+    border: none;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 205px;
+    float: right;
+    width: 50px;
+    height: 100%;
+    background: #eee;
+    color: #201a2f;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 

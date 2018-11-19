@@ -14,10 +14,12 @@
 				<ul>
 					<li>
 						<!-- <A HREF="#">검색</A> -->
-						<div id="header-srch">
-							<input type="text" placeholder="검색">
-							<a href="search-result.jsp"><i class="fa fa-search"></i></a>
-						</div>
+						<form action="../main/search.jsp" method="get" style="display: unset;" class="example">
+							<div id="header-srch">
+								<input type="text" name="query" placeholder="웹툰 검색">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</div>
+						</form>
 					</li>
 					<li>
 					<li>
