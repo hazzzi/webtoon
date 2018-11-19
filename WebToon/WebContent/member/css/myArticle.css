@@ -97,7 +97,7 @@ select {
 	font-weight: bold;
 /* 	border: none; */
 }
-#ma_sub>#mt_submit {
+#ma_sub>#mt_submit, .del_member {
 	width: 100px; height: 30px;
 /* 	margin-left: 10px; */
 	font-weight: bold;
