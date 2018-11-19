@@ -14,10 +14,12 @@
 				<ul>
 					<li id="first-li">
 						<a id="a_srch" style="cursor: pointer">검색</a>
-						<div id="header-srch">
-							<input type="text">
-							<a href="../main/search.jsp?query=a"><i class="fa fa-search"></i></a>
-						</div>
+						<form action="../main/search.jsp" method="get" style="display: unset;" class="example">
+							<div id="header-srch">
+								<input type="text" name="query" placeholder="웹툰 검색">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</div>
+						</form>
 					</li>
 					<li class="tmp">
 						<a href="../recommend/recommend.jsp">추천</a>

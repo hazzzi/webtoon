@@ -174,11 +174,14 @@ body{
     /* border: 1px solid #000; */
     /* padding: 20px 30px; */
     margin: 0 30px;
-    width: 113px;
+    width: 150px;
     height: 85px;
     background-color: #d1d1d1;
     border-radius: 3px;
     transition: all 0.2s;
+}
+#main-banner-nav li:NTH-OF-TYPE(1){
+	width: 115px;
 }
 
 #main-banner-nav li:HOVER {
