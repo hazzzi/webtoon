@@ -347,7 +347,8 @@ td>a:HOVER {
 
 /* fanart css (시작)*/
 .fan_content {
-	min-height: 1500px;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 
 .fan_posting {
@@ -387,8 +388,8 @@ td>a:HOVER {
 
 /* bd_writngPage css(글쓰기 화면) */
 .bw_writing {
-	/* 	border: 1px solid red; */
 	width: 1700px;
+	max-width: 1400px;
 	min-height: 1000px;
 	margin: 0 auto;
 	padding-top: 60px;
@@ -411,6 +412,7 @@ td>a:HOVER {
 
 .bw_content textarea {
 	border-style: none;
+	max-width: 1400px;
 }
 
 .bw_sub_tex {
@@ -434,7 +436,7 @@ td>a:HOVER {
 #bw_img {
 	display: inline-block;
 	width: 130px;
-	margin: -45px 0 0 1521px;
+	margin: -45px 0 0 1265px;
 	position: relative;
 	bottom: 20px;
 	padding-left: 20px;
