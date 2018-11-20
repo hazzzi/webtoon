@@ -290,10 +290,7 @@ td>a:HOVER {
 	text-decoration: underline;
 }
 
-#bd_img {
-	
-}
-
+/* 자유게시판 페이징 */
 .board_paging {
 	font-size: 26px;
 	font-weight: bold;
@@ -311,6 +308,7 @@ td>a:HOVER {
 	color: #000000;
 }
 
+/* 글 쓰기 버튼  */
 .write {
 	width: 150px;
 	height: 41px;
@@ -345,18 +343,16 @@ td>a:HOVER {
 }
 
 /* fanart css (시작)*/
+
+/* content 영역  */
 .fan_content {
 	max-width: 1400px;
 	margin: 0 auto;
-}
-
-.fan_posting {
-	width: 100%;
 	display: block;
-	margin: 20px auto;
 	position: relative;
 }
 
+/* 본문 콘텐트(img)가 들어갈 영역 */
 .fan_content2 {
 	width: 1524px;
 	min-height: 300px;
@@ -367,6 +363,7 @@ td>a:HOVER {
 	padding: 8.5px;
 }
 
+/* 팬아트 페이징 */
 .fan_paging {
 	font-size: 26px;
 	font-weight: bold;

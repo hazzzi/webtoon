@@ -41,7 +41,6 @@
 				});
 			</script>
 			<article>
-			<div class="fan_posting">
 				<div class="fan_content2">
 
 					<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
@@ -67,7 +66,6 @@
 				<jsp:include page="search_engine.jsp"></jsp:include>
 
 				 <input type="button" value="글 쓰기" class="write" onclick="location.href='fan_writingPage.jsp'">
-</div>
 			</div>
 			<!-- 카테고리 영역 끝-->
 
