@@ -296,7 +296,8 @@ hr {
 <div class="detail_content">
 <table class="main">
 <tr>
-    <th style="text-align: left;vertical-align: center center; font-size: 30px; display:inline;">TITLE 안녕하세요 안녕하세요 제목입니다.</th>
+    <th style="text-align: left;vertical-align: center center; font-size: 30px; display:inline;">TITLE&nbsp;&nbsp;</th>
+    <th style="text-align: left;font-size: 30px;">제목입니다 제목입니다</th>
 </tr>
 <hr>
 </table>
