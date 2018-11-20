@@ -72,7 +72,7 @@
 							<td>1</td>
 							<td>[자유게시판]</td>
 							<td class="table_img"><img src="../images/bd_img.png" width="30px" height="30px"></td>
-							<td><a href="#">안녕하세요</a></td>
+							<td><a href="bd_detailPage.jsp">안녕하세요</a></td>
 							<td>5</td>
 							<td>달자</td>
 							<td>50</td>
@@ -82,7 +82,7 @@
 							<td>2</td>
 							<td>[자유게시판]</td>
 							<td class="table_img"><img src="../images/bd_none_img.png" width="30px" height="30px"></td>
-							<td><a href="#">출석체크 합니다~</a></td>
+							<td><a href="bd_detailPage.jsp">출석체크 합니다~</a></td>
 							<td>19</td>
 							<td>달자달자</td>
 							<td>2</td>
@@ -92,7 +92,7 @@
 							<td>3</td>
 							<td>[자유게시판]</td>
 							<td class="table_img"><img src="../images/bd_none_img.png" width="30px" height="30px"></td>
-							<td><a href="#">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
+							<td><a href="bd_detailPage.jsp">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
 							<td>134</td>
 							<td>제리</td>
 							<td>9999</td>
@@ -102,7 +102,7 @@
 							<td>4</td>
 							<td>[자유게시판]</td>
 							<td class="table_img"><img src="../images/bd_none_img.png" width="30px" height="30px"></td>
-							<td><a href="#">출첵 ㅇㅇ</a></td>
+							<td><a href="bd_detailPage.jsp">출첵 ㅇㅇ</a></td>
 							<td>10</td>
 							<td>토미</td>
 							<td>78</td>
