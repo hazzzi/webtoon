@@ -307,7 +307,7 @@ hr {
 		<span>2018.11.19 | </span>
 		<span>김야옹 | </span>
 		<span>조회수가 들어갈 거햐 | </span>
-		</div>
+		</div>  
 		<div id="article-content">
 		내용입니다 내용입니다 내용입니다
 		</div>
