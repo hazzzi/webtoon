@@ -15,6 +15,7 @@
 </head>
 <body>
 <div id="main-wrap">
+	<!-- search-result header 영역 (시작) -->
 	<jsp:include page="header.jsp" />
 	<script>
 		$(document).ready(function(){
@@ -36,23 +37,32 @@
 			});
 		});
 	</script>
+	<!-- search-result header 영역 (끝) -->
+
 		<div class="sach-background">
 			<h2>검색 결과</h2>
 		</div>
-	<div class="sach-main">
-		<!-- 반복문 돌아가는 부분 -->
-		<%for(int i=0; i<5; i++){ %>
-		<div class="sach-rt">
-			<a href="search-result.jsp">
-				<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
-				<span>냐한남자</span>
-				<span>올소</span>
-				<span>네이버</span>
-			</a>
+		<div class="sach-main">
+		<!-- 넘어온 파라미터기준으로 디비에서 검색 select where절 이용해서 -->
+		<!-- webtoon 디비에서만 검색, subject, author 까지-->
+			<!-- 반복문 시작 -->
+			<%for(int i=0; i<5; i++){ %>
+			<div class="sach-rt">
+				<a href="search-result.jsp"> 
+					<!-- webtoon 썸네일  -->
+					<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
+					<!-- 제목 -->
+					<span>냐한남자</span> 
+					<!-- 작가 -->
+					<span>올소</span> 
+					<!-- 포털  -->
+					<span>네이버</span>
+				</a>
+			</div>
+			<%} %>
+			<!-- 반복문 끝 -->
 		</div>
-		<%} %>
-	</div>
-	<jsp:include page="top.jsp"></jsp:include>
+		<jsp:include page="top.jsp"></jsp:include>
 	<jsp:include page="footer.jsp"></jsp:include>
 </div>
 </body>

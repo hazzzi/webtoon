@@ -159,7 +159,8 @@ nav#header-menu li>a:HOVER {
     /* width: 150px; */
     height: 40px;
     box-sizing: border-box;
-    display: inline-block;
+/*  display: inline-block; */
+    display: none;
     text-align: center;
     margin-left: 30px;
     font-size: 30px;

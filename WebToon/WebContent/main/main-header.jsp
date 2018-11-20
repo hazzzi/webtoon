@@ -13,7 +13,7 @@
 			<nav id="header-menu" style="width: 70%">
 				<ul>
 					<li>
-						<!-- <A HREF="#">검색</A> -->
+						<!-- 검색 영역 form tag 통해서 값이 넘어감 -->
 						<form action="../main/search.jsp" method="get" style="display: unset;" class="example">
 							<div id="header-srch">
 								<input type="text" name="query" placeholder="웹툰 검색">
@@ -24,21 +24,28 @@
 					<li>
 					<li>
 						<div id="header-profile">
-							<a href="#">
+							<a>
+								<!-- if(사용자의 세션값이 존재하면) -->
+								<!-- db에서 사용자의 닉네임을 가져옴 -->
 								<span>닉네임</span>
+								<!-- else(세션값이 존재하지않으면) -->
+								<!-- <span>시작하기</span> -->
 								<i class="fa fa-caret-down"></i>
 							</a>
+							<!-- dropdown 영역, 비로그인시 로그인영역만 보이게 -->
 							<div class="dropdown-content">
-						      <a href="../member/myProfile.jsp">회원정보1</a>
-						      <a href="#">회원정보2</a>
-						      <a href="#">로그아웃/로그인</a>
+							<!-- if(사용자의 세션값이 존재하면) -->
+						      <a href="../member/myProfile.jsp">회원정보</a>
+						      <a href="#">내 평가</a>
+						      <a href="#">로그아웃</a>
+						     <!-- else(사용자의 세션값이 존재하지않으면, ) -->
+						     <!-- <a href="#">로그인</a> -->
 						    </div>
 						</div>
 					</li>
 				</ul>
 			</nav>
 			</div>
-				<!-- 프로필 이미지  -->
 		</div>
 	<!-- 헤더 확장, 홈에만 사용되는 부분이므로 지우시면 됩니다 (끝) -->
 	</header>
