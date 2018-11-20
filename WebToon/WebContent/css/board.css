@@ -66,7 +66,7 @@ header {
 	box-sizing: border-box;
 }
 
-#profile {
+/* #profile {
 	width: 100px;
 	position: absolute;
 	right: 100px;
@@ -78,7 +78,7 @@ header {
 	width: 81px;
 	height: 81px;
 	border-radius: 50%;
-}
+} */
 
 /* 전체 content 영역 */
 .content {
@@ -86,7 +86,7 @@ header {
 	min-height: 1000px;
 }
 
-/* 버튼, 공지사항 영역 */
+/* 버튼, 공지사항 전체 영역 */
 .content_top {
 	width: 100%;
 	min-height: 100px;
@@ -94,13 +94,14 @@ header {
 	padding-top: 80px;
 }
 
+/* 자유게시판, 팬아트 영역 */
 .butt_div {
 	display: inline-block;
 	margin-left: 219px;
 }
 
+/* 자유게시판, 팬아트 버튼 */
 .board_butt, .board_butt2 {
-	/*    border:1px solid #dcdcdc; */
 	width: 500px;
 	height: 100px;
 	margin-right: 25px;
@@ -111,6 +112,7 @@ header {
 	font-weight: bold;
 }
 
+/* 자유게시판  */
 .board_butt>a {
 	color: #b8b5c1;
 	font-size: 50px;
@@ -119,6 +121,13 @@ header {
 	left: 147.5px;
 }
 
+/* 자유게시판 호버 */
+.board_butt>a:HOVER, .board_butt>a:FOCUS {
+	color: #695e80;
+}
+
+
+/* 팬아트  */
 .board_butt2>a {
 	color: #b8b5c1;
 	font-size: 50px;
@@ -127,18 +136,11 @@ header {
 	left: 184.5px;
 }
 
-.board_butt>a:HOVER, .board_butt>a:FOCUS {
-	color: #695e80;
-}
-
+/* 팬아트 호버 */
 .board_butt2>a:HOVER, .board_butt2>a:FOCUS {
 	color: #695e80;
 }
 
-.board_butt:ACTIVE, .board_butt2:ACTIVE {
-	position: relative;
-	top: 1px;
-}
 
 /* search */
 #bd_srch {
