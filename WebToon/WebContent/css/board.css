@@ -151,7 +151,7 @@ header {
 	width: 520px;
 	border-radius: 30px;
 	position: relative;
-	left: 505px;
+	left: 435px;
 }
 
 #bd_srch>input {
@@ -351,9 +351,10 @@ td>a:HOVER {
 }
 
 .fan_posting {
-	width: 1550px;
+	width: 100%;
 	display: block;
-	margin: 8px auto;
+	margin: 20px auto;
+	position: relative;
 }
 
 .fan_content2 {
@@ -363,13 +364,13 @@ td>a:HOVER {
 }
 
 .fan_content2 img {
-	padding: 8.3px;
+	padding: 8.5px;
 }
 
 .fan_paging {
 	font-size: 26px;
 	font-weight: bold;
-	margin: 10px 630px;
+	margin: 10px 550px;
 	display: inline-block;
 	letter-spacing: 4px;
 	width: 320px;
@@ -425,6 +426,7 @@ td>a:HOVER {
 	height: 40px;
 	padding-top: 5px;
 	font-size: 22px;
+	font-family: 'NanumBarunpenR', sans-serif;
 }
 
 /* 글 작성, 이미지 첨부 버튼 */
@@ -442,6 +444,7 @@ td>a:HOVER {
 	color: #00ff00;
 }
 
+
 /* 글 내용 전체 content 영역 */
 .tex01 {
 	border-style: none;
@@ -451,5 +454,7 @@ td>a:HOVER {
 	font-family: 'NanumBarunpenR';
 	resize: none;
 }
+
+
 
 
