@@ -40,7 +40,7 @@ function modifyCommentToggle(articleNo) {
 
 .detail {
 /*    border: 1px solid blue; */
-   width: 1550px;
+   width: 1400px;
    display: block;
    margin: 20px auto;
    font-family: 'NanumBarunpenR'
@@ -120,29 +120,32 @@ function modifyCommentToggle(articleNo) {
 .comment-textarea {
     border: 1px solid silver;
     padding-bottom: 30px;
-    width: 99%;
+/*     width: 99%; */
     color:#555;
     background-color: #eee;
     font-size: 15px; 
 }
-#addComment {
+/* #addComment {
     margin-bottom: 5px;
     padding: 0.22em;
     border: 1px solid #eee;
     background-color: #fafbf7;
-}
-#addComment textarea {
+} */
+/* #addComment textarea {
     width: 99%;
     padding: 3px;
     border: 0;
     color: #555;
+} */
+
+#addComment{
+float: left;
 }
 
 /*이전글 다음글*/
 #next-prev {
-    margin: 5px, 0;
+    margin-top: 80px;
     border-top: 1px solid #e1e1e1;
-    padding-bottom: 80px;
 }
 #next-prev > p {
     margin: 5px 0;
@@ -173,9 +176,8 @@ function modifyCommentToggle(articleNo) {
     float: right;
 }
 .fi {
-	float:left;
-	margin-bottom:20px;
-	 margin-top: 20px;
+	float: left;
+    margin: 20px 0;
 }
 hr {
 	color: #74668c;
@@ -202,6 +204,35 @@ hr {
 	background-color: #74668c;
 	color: #fff;
 }
+
+.bt_c_write{
+	width: 100px;
+    height: 106px;
+    background-color: white;
+    margin-left: 10px;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+.bt_c_write:HOVER{
+	background-color: #74668c;
+	color: #fff;
+}
+
+
+#dtl_tex{
+	border-style: none;
+	font-family: 'NanumBarunpenR';
+	resize: none;
+	width: 1283px;
+	height: 136px;
+	}
+
 /*좋아요*/
 
  svg{
@@ -259,18 +290,23 @@ hr {
 <input type="button" class="bt" value="이전 글" /><br><br>
 </div>
 
-<div class="clear">
+<div class="clear"></div>
 
 <article>
-
+<div class="detail_content">
 <table class="main">
 <tr>
-    <th style="text-align: left;vertical-align: top;font-size: 30px; display:inline;">TITLE 안녕하세요 안녕하세요 제목입니다.</th>
+    <th style="text-align: left;vertical-align: center center; font-size: 30px; display:inline;">TITLE 안녕하세요 안녕하세요 제목입니다.</th>
 </tr>
 <hr>
 </table>
-		<div id="content"><hr>
-		<div id="date-writer-hit">2018 11-19   김야옹 </div>
+		<div id="content">
+		<hr>
+		<div id="date-writer-hit">
+		<span>2018.11.19 | </span>
+		<span>김야옹 | </span>
+		<span>조회수가 들어갈 거햐 | </span>
+		</div>
 		<div id="article-content">
 		내용입니다 내용입니다 내용입니다
 		</div>
@@ -280,7 +316,7 @@ hr {
 <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
 	
 	<!-- LikeBtn.com END -->		
-
+</div>
 
 	<!-- 파일 다운 및 삭제  -->	
 <div id="file-list" style="text-align: right;">
@@ -289,7 +325,7 @@ hr {
         <a href="#" title="filekey">삭제</a>
     </div>
 </div>
-</div>
+
 	<!-- 파일 다운 및 삭제 끝 -->
 			
 	<!-- 수정삭제 다음글 이전글 -->
@@ -310,16 +346,17 @@ hr {
 
 			</article>
 			<!--  댓글 쓰기 -->
-			<div class="clear">
+			<div class="clear"></div>
 				<form id="addCommentForm" style="margin: 10px 0;" action="addComment.jsp" method="post" >
     				<div id="addComment">
-       				 <textarea id="addComment-ta" name="memo" rows="7" cols="50" ></textarea>
+<!--        				 <textarea id="addComment-ta" name="memo" rows="5" cols="50" ></textarea> -->
+       				 <textarea id="dtl_tex" rows="7" cols="202"></textarea>
    					 </div>
-   				 <div style="text-align: right;">
    			
-      				  <input type="button" class="bt" value="댓글 남기기" />
-   				 </div>
+      				  <input type="button" class="bt_c_write" value="댓글 남기기" />
+   				
 				</form>
+				<div class="clear"></div>
 				
 				
 <!--  댓글 반복 시작 -->
@@ -354,15 +391,15 @@ hr {
 </div>
 
 </div>			
-		</div>
+		
 	</div>
 
-
+</div>
 </body>
 
 	
 
-<div class="clear">
+<div class="clear"></div>
 <!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
 	<jsp:include page="../main/footer.jsp"></jsp:include>
