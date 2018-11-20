@@ -79,7 +79,7 @@
 	}
 	$(document).ready(function(){
 		$('.close').click(function(){
-			$('#webtoon-content').remove();
+			$('#webtoon-content').hide();
 		});
 		
 	});

@@ -1,0 +1,180 @@
+@CHARSET "UTF-8";
+
+*:FOCUS {
+	outline: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header#header-head{   
+    /* 상단바 고정 */
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+@font-face {
+	font-family: 'NanumBarunpenR';
+	src: url("../main/font/NanumBarunpenR.ttf") format('truetype');
+}
+
+body {
+	background-color: white;
+}
+
+.rec_show_top_background {
+	width: 100%;
+	height: 64px;
+	float: left;
+	padding-left: 30px;
+	background-color: #d5cde4;
+	/* 메뉴바 고정 */
+	position: sticky;
+    top: 100px;
+    z-index: 3;
+}
+.rec_show_top_background>a {
+	width: 140px;
+	text-transform: none;
+	font-weight: bold;
+	font-size: 30px;
+	color: #210042;
+	/* padding-bottom: 8px; */
+	float: left;
+	text-align: center;
+	margin-top: 14px;
+}
+
+.rec_show_top_background>b {
+	width: 80%;
+	font-size: 40px;
+	float: left;
+	text-align: center;
+	color: #210042;
+	margin-top: 7px;
+}
+
+.rec_show_main {
+	min-width: 850px;
+	min-height: -webkit-fill-available;
+	width: 30%;
+	margin: 0 auto;
+	font-family: 'NanumBarunpenR';
+}
+
+.rec_show_wrap_div {
+	    /* border: 1px solid white; */
+    width: 100%;
+    height: 240px;
+    box-sizing: border-box;
+    /* padding: 0px 10px 30px 30px; */
+    margin: 15px 0;
+    display: inline-block;
+    /* text-align: center; */
+    font-family: 'NanumBarunpenR', sans-serif;
+    margin-left: 60px;
+}
+/* 웹툰썸네일 div */
+.rec_show_img_div {
+	width: 200px;
+	height: 200px;
+	color: white;
+	float: left;
+	display: inline-block;
+}
+/* 웹툰썸네일 img */
+.rec_show_img_div>img {
+	width: 200px;
+	height: 200px;
+	display: block;
+	float: left;
+	border-radius: 5px 5px;
+}
+
+/* 웹툰이름, 작가 영역  */
+.rec_show_webtoon_div {
+	width: 600px;
+	height: 93px;
+	float: left;
+	margin-top: -7px;
+	margin-left: 30px;
+	text-align: left;
+}
+
+.rec_show_webtoon_div>a {
+	width: 600px;
+	font-size: 45px;
+	color: #210042;
+	cursor: pointer;
+	float: left;
+}
+
+.rec_show_webtoon_div>p {
+	width: 310px;
+	color: #7c7c7c;
+	font-size: 30px;
+	text-align: left;
+	float: left;
+}
+
+.rec_show_btn_div {
+	width: 200px;
+	float: left;
+	position: relative;
+	top: 17px;
+}
+
+.rec_show_webtoon_btn {
+	width: 150px;
+	margin-left: 32px;
+	position: relative;
+	top: 45px;
+	color: #ffffff;
+	border: none;
+	text-align: center;
+	font-size: 23px;
+	padding: 10px;
+	border-radius: 2px 2px;
+	float: left;
+	font-weight: bold;
+}
+
+.rec_show_webtoon_btn:HOVER {
+	background-color: #c3c3c3;
+}
+
+.rec_show_intro_div {
+	width: 380px;
+	color: black;
+	float: left;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#rec_show_next_div {
+	width: 100%;
+	float: left;
+	text-align: center;
+	/* position: relative;
+	top: 30px; */
+	margin-bottom: 30px;
+	margin-top: 40px;
+}
+
+#rec_show_next_div>button {
+	background-color: #a8a8a8;
+	color: #ffffff;
+	border: none;
+	text-align: center;
+	font-size: 30px;
+	border-radius: 5px 5px;
+	padding: 5px 40px;
+	font-weight: bold;
+}
+
+#rec_show_next_div>button:HOVER {
+	background-color: #828282;
+}

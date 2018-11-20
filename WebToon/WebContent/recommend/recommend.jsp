@@ -17,6 +17,7 @@
 <!--recommend폴더안 -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	
 <link href="css/recommend.css" rel="stylesheet">
 <link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
@@ -43,16 +44,25 @@
 				scrollPosition = $(this).scrollTop();
 				if (scrollPosition > 0) {
 					$('#header-head').addClass('fixed');
+					$('#rec_star_menu').addClass('fixed');
 				} else {
 					$('#header-head').removeClass('fixed');
+					$('#rec_star_menu').removeClass('fixed');
 				}
 			});
-			
 		});
 	</script>
 
+	<div class="rec_top_background">
+		<p>평가한 웹툰 수 : 111 </P>
+		<p>네이버 : 40  |  다음 : 30  |  레진코믹스 : 41</p>
+		<!-- <p><a href="recommend_show.jsp">★추천 받기★</a></p> -->
+	</div>
+	<div id="rec_star_menu">
+		<a href="recommend_show.jsp">★추천 받기★</a>
+	</div>
 	<article class="rec_main">
-	<%for(int a=0; a<=8; a++){%>
+	<%for(int a=0; a<=40; a++){%>
 		<div class="rec_wrap_div">
 			<div class="rec_img_div">
 				<img
@@ -60,8 +70,9 @@
 			</div>
 			<div class="rec_webtoon_div">
 				<a>외모지상주의 웹툰제목길이 체크</a>
-				<b>박태준 · 스토리 / 네이버</b>
+				<b>박태준 / 스토리 · 네이버</b>
 			</div>
+			
 			<div class="rec_star_div">
 				<button class="rec_webtoon_btn">웹툰보기</button>
 				<b class="rec_b">평가하기</b>

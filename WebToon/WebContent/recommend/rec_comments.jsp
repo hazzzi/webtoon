@@ -29,18 +29,42 @@
 				});
 			});
 		</script>
+		
+			<script>
+		$(document).ready(function(){
+			var scrollPosition;
+			$(window).scroll(function(){
+				scrollPosition = $(this).scrollTop();
+				if (scrollPosition > 0) {
+					$('#rec_c_top').addClass('fixed');
+				} else {
+					$('#rec_c_top').removeClass('fixed');
+				}
+			});
+		});
+	</script>
 
 		<div id="rec_c">
 			<div id="rec_c_top">
-				<a>←</a><br> <b>코멘트</b>
+				<a href="javascript:history.back()"><i class="fa fa-caret-square-o-left"></i>  웹툰 정보</a> <b>COMMENTS</b>
 			</div>
 			<div id="line"></div>
 			<div class="rec_comments_main_wrap">
-			<%for(int a=0; a<=7; a++){%>
+				<%for(int a=0; a<=10; a++){%>
 				<div class="rec_box1">
-					<div class="rec_user_name">사용자 이름</div>
+					<div class="rec_user_name">
+						<img src="../main/img/member.png">
+						<p>사용자 이름</p>
+					</div>
 					<hr>
-					<div class="rec_comment">코멘트 내용</div>
+					<div class="rec_comment">
+						<p>코멘트 내용</p>
+					</div>
+					<hr>
+					<div class="rec_comment_like">
+						<i class="fa fa-thumbs-o-up"></i>
+						<p>11</p>
+					</div>
 				</div>
 				<%} %>
 			</div>

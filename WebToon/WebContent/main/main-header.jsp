@@ -7,17 +7,19 @@
 			<div id="header-logo">
 			<h1>
 				<i class="fa fa-search" style="color:#fff"></i>
-				<a href="index.jsp">오늘 뭐 볼까?</a>
+				<a href="../main/main-home.jsp">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
 			<nav id="header-menu" style="width: 70%">
 				<ul>
 					<li>
 						<!-- <A HREF="#">검색</A> -->
-						<div id="header-srch">
-							<input type="text" placeholder="검색">
-							<a href="search-result.jsp"><i class="fa fa-search"></i></a>
-						</div>
+						<form action="../main/search.jsp" method="get" style="display: unset;" class="example">
+							<div id="header-srch">
+								<input type="text" name="query" placeholder="웹툰 검색">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</div>
+						</form>
 					</li>
 					<li>
 					<li>

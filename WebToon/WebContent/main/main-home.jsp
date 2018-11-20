@@ -86,19 +86,21 @@
  </div>
  <div id="main-content-div">
  <% for(int i=0; i<15; i++) {%>
- <!-- 반복문 돌릴 부분 -->
+ <!-- 반복문 돌아갈 부분 -->
 	<div id="sildeshow">
 		<div id="content">
 			<h3>로맨스</h3>
 			<div id="con-img" class="owl-carousel owl-theme">
 			<!-- 반복문 돌아갈 부분 -->
 				<div class="webtoon-img">
-					<a class="openwbt1">
+					<a href="search-result.jsp?id=abc">
 						<img class="a1" src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+						<!-- db webtoon.getsubject -->
 						<label id="label">유미의 세포들</label>
 						<!-- <label>이동건</label> -->
 					</a>
 				</div>
+			<!-- 반복문 돌아갈 부분 -->
 				<div class="webtoon-img"> 
 					<a class="openwbt2">
 						<img class="a2" src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t83x90.jpg">

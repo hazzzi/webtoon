@@ -15,16 +15,15 @@
 <link rel="stylesheet" href="../main/css/footer-main.css">  
  	
 <!--recommend폴더안 -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link href="css/search_recommend.css" rel="stylesheet">
+<link href="css/recommend_show.css" rel="stylesheet">
 <link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
 </head>
- 	<jsp:include page="../main/header.jsp" /> 
 <body>
-		<script>
+ 	<jsp:include page="../main/header.jsp" /> 
+
+	<script>
 		var RecentView;
 		$(document).ready(function(){
 			$("#header-srch").hide();
@@ -50,50 +49,36 @@
 		});
 	</script>
 
-	<article class="search_rec_main">
-		<div class="search_rec_wrap_div">
-			<div class="search_rec_img_div">
+	<div class="rec_show_top_background">
+		<a href="javascript:history.back()"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
+	</div>
+
+	<article class="rec_show_main">
+	<%for(int a=0; a<=4; a++){%>
+		<div class="rec_show_wrap_div">
+			<div class="rec_show_img_div">
 				<img
 					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
 			</div>
-			<div class="search_rec_webtoon_div">
-				<a onclick="document.getElementById('webtoon-content').style.display='block'">외모지상주의 웹툰제목길이 체크</a>
-				<b>박태준 · 스토리 / 네이버</b>
+			<div class="rec_show_webtoon_div">
+				<a>외모지상주의 웹툰제목길이 체크</a>
+				<p>박태준</p> 
+				<p>스토리 · 네이버</p>
 			</div>
-			<div class="search_rec_star_div">
-				<button class="search_rec_webtoon_btn">웹툰보기</button>
-				<b class="search_rec_b">평가하기</b>
-				 
-				<select id="example">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-				<script type="text/javascript">
-					$('#example').barrating({
-						theme : 'fontawesome-stars',
-						initialRating : -1
-					});
-
-					$('#star_barr').barrating({
-					theme : 'fontawesome-stars',
-					onSelect : function(value, text, event) {
-						// 별점 클릭 후 처리는 여기서 코드 
-						// 선택한 별점 값을 value로 받음
-						}
-					});
-						//'set' 을 이용하여 값 설정 
-					//$('#example').barrating('set', 2);
-				</script>
+			<div class="rec_show_btn_div">
+				<button class="rec_show_webtoon_btn">웹툰보기</button>
 			</div>
-			<div class="search_rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
 		</div>
-		<div id="search_rec_next_div">
-		</div>
+		<%} %>
+<!-- 		<div id="rec_show_next_div">
+			<button>더보기</button>
+		</div> -->
+		<div style="clear: both;"></div>
+		
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
+		
 	</article>
+	
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>
 </html>
