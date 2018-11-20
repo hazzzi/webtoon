@@ -429,6 +429,14 @@ td>a:HOVER {
 	font-family: 'NanumBarunpenR', sans-serif;
 }
 
+.bd_sel2 {
+	width: 250px;
+	height: 40px;
+	padding-top: 5px;
+	font-size: 22px;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+
 /* 글 작성, 이미지 첨부 버튼 */
 #bw_img {
 	display: inline-block;

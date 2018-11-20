@@ -25,18 +25,9 @@
 				$(".tmp").toggle();
 		        $("#header-srch").toggle(500);
 		    });
-			
-
-		 	$("#bw_pho_icon").click(function(){
-				$("#bw_pho_icon").css('color', '#fff');
-			});
-		
-		
+				
 		}); 
-
 	
-		
-		
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
@@ -56,6 +47,15 @@
 				<option>시대극</option>
 				<option>스포츠</option>
 			</select>
+			
+			<select class="bd_sel2" name="">
+				<optgroup label="웹툰 선택"></optgroup>
+				<option>대학일기</option>
+				<option>조의 영역</option>
+				<option>갑분싸</option>
+				
+			</select>
+			
 			<div id="bw_img">
 				<a href="#"><i class="fa fa-file-image-o" id="bw_pho_icon"
 					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
