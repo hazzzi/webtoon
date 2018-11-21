@@ -257,7 +257,8 @@ div.sr-content-sub h2{
 div.sr-content-sub-art h2{
     display: inline-block;
 }
-div.sr-content-sub-art>p a{
+div.sr-content-sub-art>p>a{
+	padding: 0 10px;
 	color: #1b1526;
 }
 

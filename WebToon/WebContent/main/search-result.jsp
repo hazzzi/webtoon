@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="css/search-result.css">
-<link rel="stylesheet" href="css/wbt-content.css">
+<link rel="stylesheet" href="css/wbt-review.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script type="text/javascript">
@@ -129,6 +129,7 @@
 		 			<!-- 리뷰의 갯수 -->
 		 			<!-- select count(wbb_bdnum) from webtoon_borad where web_num=??-->
 		 			<p>+2349</p>
+		 			<!-- 로그인 제어 필요, 로그인시 사용가능합니다  -->
 		 			<!-- 제이쿼리 이용해서 div영역 보여줌 -->
 		 			<p><a class="review-action" style="cursor: pointer;">리뷰남기기</a>|
 		 			   <!-- 리뷰 더보기 이동 -->
@@ -189,7 +190,7 @@
 		 			<h2>팬아트</h2>
 		 			<!-- 링크는 추후수정 -->
 		 			<!-- get방식 이용 id 파라미터 값 넘기기 -->
-		 			<p><a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>|
+		 			<p><!-- <a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>| -->
 		 			   <a href="../board/fanart.jsp">더보기</a></p>
 		 			<div>
 		 				<!-- 링크는 fanart content 영역으로 수정 -->
@@ -224,7 +225,7 @@
 	</div>
 	
 	<!-- 웹툰 리뷰 작성 영역 -->
-	<jsp:include page="wbt-content.jsp"></jsp:include>
+	<jsp:include page="wbt-review.jsp"></jsp:include>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		/* 웹툰 리뷰 남기기 영역 보여주기 */
