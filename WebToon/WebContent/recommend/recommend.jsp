@@ -111,7 +111,7 @@
 		</div>
 		<div style="clear: both;"></div>
 		
-		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
+		<jsp:include page="../main/wbt-review.jsp"></jsp:include>
 		
 	</article>
 	
