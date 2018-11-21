@@ -37,13 +37,6 @@
 			<!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
 			<jsp:include page="header_main.jsp"></jsp:include>
 
-			<!-- <script type="text/javascript">
-				$(document).ready(function(){
-					$('#bdContext').text('<span>* 타인의 명예를 훼손하거나 인격을 모독하는 발언은 삼가해 주세요.</span><br>');
-					$('#fanContext').text('<span>* 나아는 팬아트다.</span><br>');
-				});
-			</script> -->
-
 			<!-- 페이지 이동 버튼, 검색창, 공지사항 영역 끝 -->
 			<script type="text/javascript">
 				$(document).ready(function() {
