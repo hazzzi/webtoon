@@ -338,8 +338,8 @@ hr {
     </div>
     <div class="fr">
     <br>
-        <input type="button" class="bt" value="목록" />
-        <input type="button" class="bt" value="새 글쓰기" />
+        <input type="button" class="bt" onclick="location.href='bd_main.jsp'" value="목록" />
+        <input type="button" class="bt" onclick="location.href='bd_writingPage.jsp'" value="새 글쓰기" />
     </div>
 	</div>
 
