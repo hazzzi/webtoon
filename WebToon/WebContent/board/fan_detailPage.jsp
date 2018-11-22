@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>오늘 뭐 볼까?</title>
-<link rel="stylesheet" href="../css/board.css">
-<link rel="stylesheet" href="../main/css/header.css">
-<link rel="stylesheet" href="../main/css/border-header.css">
+<link rel="stylesheet" href="./css/board.css">
+<link rel="stylesheet" href="./main/css/header.css">
+<link rel="stylesheet" href="./main/css/border-header.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../main/css/footer-main.css">
-<script src="../main/js/jquery-3.3.1.js"></script>
+<link rel="stylesheet" href="./main/css/footer-main.css">
+<script src="./main/js/jquery-3.3.1.js"></script>
 
 <script type="text/javascript">
 function modifyCommentToggle(articleNo) {
