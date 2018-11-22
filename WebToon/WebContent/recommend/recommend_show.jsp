@@ -40,9 +40,9 @@
 			$(window).scroll(function(){
 				scrollPosition = $(this).scrollTop();
 				if (scrollPosition > 0) {
-					$('#header-head').addClass('fixed');
+					$('.rec_show_top_background').addClass('fixed');
 				} else {
-					$('#header-head').removeClass('fixed');
+					$('.rec_show_top_background').removeClass('fixed');
 				}
 			});
 			

@@ -25,7 +25,6 @@
 </head>
 <body>
  	<jsp:include page="../main/header.jsp" /> 
-
 	<script>
 		var RecentView;
 		$(document).ready(function(){
@@ -36,33 +35,45 @@
 		    });
 		});
 	</script>
-	
 	<script>
 		$(document).ready(function(){
 			var scrollPosition;
 			$(window).scroll(function(){
 				scrollPosition = $(this).scrollTop();
 				if (scrollPosition > 0) {
-					$('#header-head').addClass('fixed');
 					$('#rec_star_menu').addClass('fixed');
 				} else {
-					$('#header-head').removeClass('fixed');
 					$('#rec_star_menu').removeClass('fixed');
 				}
 			});
 		});
 	</script>
+	   <!-- 페이지 시작시  -->
+	   <!--1. select recommend에서  S web_num 
+	   		  				      F recommend 
+	   						      W member_num  
+	      	    나온 결과 값(web_num)을 포함하지 않고 webtoon DB를 보여준다. -->
+	      	    
+	   <!--2. select recommend에서  S COUNT(web_num) 
+	   		  				      F recommend 
+	   						      W member_num 
+	      	    평가한 웹툰 수를 보여준다. -->
 
 	<div class="rec_top_background">
 		<p>평가한 웹툰 수 : 111 </P>
-		<p>네이버 : 40  |  다음 : 30  |  레진코믹스 : 41</p>
-		<!-- <p><a href="recommend_show.jsp">★추천 받기★</a></p> -->
 	</div>
 	<div id="rec_star_menu">
-		<a href="recommend_show.jsp">★추천 받기★</a>
+		<a href="recommend_show.jsp">★추천 받기★</a> <!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 	</div>
+	<%
+		int pageSize = 20; // 한 페이지에서 보여줄 웹툰 개수 설정
+		
+		int currentPage = 1; 
+		
+	%>
+	
 	<article class="rec_main">
-	<%for(int a=0; a<=40; a++){%>
+	<%for(int a=0; a<=30; a++){%>
 		<div class="rec_wrap_div">
 			<div class="rec_img_div">
 				<img
@@ -95,6 +106,8 @@
 					theme : 'fontawesome-stars',
 					onSelect : function(value, text, event) {
 						// 별점 클릭 후 처리는 여기서 코드 
+														 /* 별점 클릭시 recommend db에 저장
+														        페이지 새로고침 안하고, 평가한 별값은 그대로 화면에 나타남 */
 						// 선택한 별점 값을 value로 받음
 						}
 					});
@@ -110,11 +123,8 @@
 			<button>더보기</button>
 		</div>
 		<div style="clear: both;"></div>
-		
 		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
-		
 	</article>
-	
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>
 </html>

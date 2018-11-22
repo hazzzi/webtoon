@@ -43,18 +43,14 @@ body {
 	padding-top: 30px;
 }
 
-.rec_top_background>p:NTH-OF-TYPE(2) {
-	text-align: center;
-}
-
 #rec_star_menu {
 	width: 100%;
 	text-align: center;
 	background-color: #d5cde4;
 
 	position: sticky;
-	top: 90px;
-	z-index: 3;
+	top: 100px;
+	z-index: 2;
 }
 
 #rec_star_menu>a {
