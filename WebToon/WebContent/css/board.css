@@ -66,7 +66,7 @@ header {
 	box-sizing: border-box;
 }
 
-#profile {
+/* #profile {
 	width: 100px;
 	position: absolute;
 	right: 100px;
@@ -78,7 +78,7 @@ header {
 	width: 81px;
 	height: 81px;
 	border-radius: 50%;
-}
+} */
 
 /* 전체 content 영역 */
 .content {
@@ -86,7 +86,7 @@ header {
 	min-height: 1000px;
 }
 
-/* 버튼, 공지사항 영역 */
+/* 버튼, 공지사항 전체 영역 */
 .content_top {
 	width: 100%;
 	min-height: 100px;
@@ -94,13 +94,14 @@ header {
 	padding-top: 80px;
 }
 
+/* 자유게시판, 팬아트 영역 */
 .butt_div {
 	display: inline-block;
 	margin-left: 219px;
 }
 
+/* 자유게시판, 팬아트 버튼 */
 .board_butt, .board_butt2 {
-	/*    border:1px solid #dcdcdc; */
 	width: 500px;
 	height: 100px;
 	margin-right: 25px;
@@ -111,6 +112,7 @@ header {
 	font-weight: bold;
 }
 
+/* 자유게시판  */
 .board_butt>a {
 	color: #b8b5c1;
 	font-size: 50px;
@@ -119,6 +121,13 @@ header {
 	left: 147.5px;
 }
 
+/* 자유게시판 호버 */
+.board_butt>a:HOVER, .board_butt>a:FOCUS {
+	color: #695e80;
+}
+
+
+/* 팬아트  */
 .board_butt2>a {
 	color: #b8b5c1;
 	font-size: 50px;
@@ -127,18 +136,11 @@ header {
 	left: 184.5px;
 }
 
-.board_butt>a:HOVER, .board_butt>a:FOCUS {
-	color: #695e80;
-}
-
+/* 팬아트 호버 */
 .board_butt2>a:HOVER, .board_butt2>a:FOCUS {
 	color: #695e80;
 }
 
-.board_butt:ACTIVE, .board_butt2:ACTIVE {
-	position: relative;
-	top: 1px;
-}
 
 /* search */
 #bd_srch {
@@ -151,7 +153,7 @@ header {
 	width: 520px;
 	border-radius: 30px;
 	position: relative;
-	left: 505px;
+	left: 455px;
 }
 
 #bd_srch>input {
@@ -290,14 +292,11 @@ td>a:HOVER {
 	text-decoration: underline;
 }
 
-#bd_img {
-	
-}
-
+/* 자유게시판 페이징 */
 .board_paging {
 	font-size: 26px;
 	font-weight: bold;
-	margin: 20px 630px 0 630px;
+	margin: 20px 630px 0 560px;
 	display: inline-block;
 	letter-spacing: 4px;
 	width: 320px;
@@ -311,6 +310,7 @@ td>a:HOVER {
 	color: #000000;
 }
 
+/* 글 쓰기 버튼  */
 .write {
 	width: 150px;
 	height: 41px;
@@ -345,17 +345,16 @@ td>a:HOVER {
 }
 
 /* fanart css (시작)*/
+
+/* content 영역  */
 .fan_content {
 	max-width: 1400px;
 	margin: 0 auto;
-}
-
-.fan_posting {
-	width: 1550px;
 	display: block;
-	margin: 8px auto;
+	position: relative;
 }
 
+/* 본문 콘텐트(img)가 들어갈 영역 */
 .fan_content2 {
 	width: 1524px;
 	min-height: 300px;
@@ -363,13 +362,14 @@ td>a:HOVER {
 }
 
 .fan_content2 img {
-	padding: 8.3px;
+	padding: 8.5px;
 }
 
+/* 팬아트 페이징 */
 .fan_paging {
 	font-size: 26px;
 	font-weight: bold;
-	margin: 10px 630px;
+	margin: 10px 550px;
 	display: inline-block;
 	letter-spacing: 4px;
 	width: 320px;
@@ -425,6 +425,15 @@ td>a:HOVER {
 	height: 40px;
 	padding-top: 5px;
 	font-size: 22px;
+	font-family: 'NanumBarunpenR', sans-serif;
+}
+
+.bd_sel2 {
+	width: 250px;
+	height: 40px;
+	padding-top: 5px;
+	font-size: 22px;
+	font-family: 'NanumBarunpenR', sans-serif;
 }
 
 /* 글 작성, 이미지 첨부 버튼 */
@@ -442,14 +451,259 @@ td>a:HOVER {
 	color: #00ff00;
 }
 
+
 /* 글 내용 전체 content 영역 */
 .tex01 {
 	border-style: none;
-	max-width: 1400px;
+	max-width: 1360px;
 	padding: 10px;
 	font-size: 30px;
 	font-family: 'NanumBarunpenR';
 	resize: none;
+	max-height: 800px;
 }
+
+/* bd_detailPage */
+
+.detail_content{
+	width: 100%;
+	display: block;
+	margin: 20px auto;
+	position: relative;
+}
+
+.detail {
+/*    border: 1px solid blue; */
+   width: 1400px;
+   display: block;
+   margin: 20px auto;
+   font-family: 'NanumBarunpenR'
+}
+/*본문내용*/
+#article-content {
+    font-size: 25px;
+    color: #333;
+    min-height:300px;
+}
+#date-writer-hit {
+    display: block;
+    margin: 30ox;
+    padding: 30px;
+    font-size: 20px;
+    color: #555;
+    text-align: right;
+}
+.attach-file {
+    font-size: 11px;
+    line-height: 1.3;
+}
+/* 댓글과 댓글을 테두리로 구분 */
+.comments {
+    border-top: 1px solid #ebebeb;
+}
+/* 댓글 작성자 ID */
+.comments > span.writer {
+    display: block;
+    float: left;
+    margin: 3px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}
+/* 댓글 작성일 */
+.comments > span.date {
+    display: block;
+    float: left;
+    margin: 3px;
+    padding: 0;
+    font-size: 20px;
+    color: #555;
+}
+/* 댓글 수정|삭제 */
+ .comments > span.modify-del {
+    display: block;
+    float: right;
+    margin: 3px;
+    padding: 0;
+    font-size: 12px;
+    color: #555;
+}
+/* 댓글 수정|삭제 링크 */
+.comments a {
+    color: #555;
+    text-decoration: none;
+    font-size: 15px;
+}
+.comments a:hover {
+    color: #555;
+    text-decoration: underline;
+}
+/* 댓글 내용 */
+.comments > p {
+    clear: both;
+    margin: 0;
+    padding: 0 3px 3px 3px;
+    color: #555;
+    font-size: 15px;
+}
+.comment-form {
+    clear: both; 
+    padding: 0.22em 2.22em 0.22em 3.22em; 
+}
+.comment-textarea {
+    border: 1px solid silver;
+    padding-bottom: 30px;
+/*     width: 99%; */
+    color:#555;
+    background-color: #eee;
+    font-size: 15px; 
+}
+/* #addComment {
+    margin-bottom: 5px;
+    padding: 0.22em;
+    border: 1px solid #eee;
+    background-color: #fafbf7;
+} */
+/* #addComment textarea {
+    width: 99%;
+    padding: 3px;
+    border: 0;
+    color: #555;
+} */
+
+#addComment{
+float: left;
+}
+
+/*이전글 다음글*/
+#next-prev {
+    margin-top: 80px;
+    border-top: 1px solid #e1e1e1;
+}
+#next-prev > p {
+    margin: 5px 0;
+    padding: 10px;
+    border-bottom: 1px solid #e1e1e1;
+    font-size: 20px;
+    color: #333;
+
+}
+ #next-prev > p > a {
+    color: #333;
+    text-decoration: none;
+ 	font-size: 20px;
+}
+#next-prev > p > a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+/*수정 삭제 다음글 이전글 */
+#view-menu {
+    height: 22px;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.fi {
+	float: left;
+    margin: 20px 0;
+}
+hr {
+	color: #74668c;
+}
+
+/*버튼 호버*/
+.bt{
+	width: 100px;
+    height: 41px;
+    background-color: white;
+    margin-left: 10px;/* 345px; */
+    position: relative;
+    /* top: -80px; */
+    /* border-collapse: collapse; */
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+.bt:HOVER{
+	background-color: #74668c;
+	color: #fff;
+}
+
+.bt_c_write{
+	width: 100px;
+    height: 106px;
+    background-color: white;
+    margin-left: 10px;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+.bt_c_write:HOVER{
+	background-color: #74668c;
+	color: #fff;
+}
+
+
+#dtl_tex{
+	border-style: none;
+	font-family: 'NanumBarunpenR';
+	resize: none;
+	width: 1283px;
+	height: 136px;
+	}
+
+/*좋아요*/
+
+ svg{
+  cursor:pointer; overflow:visible; width:60px;
+  #heart{transform-origin:center; animation:animateHeartOut .3s linear forwards;}
+  #main-circ{transform-origin:29.5px 29.5px;}
+}
+
+ #checkbox{display:none;}
+
+ #checkbox:checked + label svg{
+  #heart{transform:scale(.2); fill:#E2264D; animation:animateHeart .3s linear forwards .25s;}
+    #main-circ{transition:all 2s; animation:animateCircle .3s linear forwards; opacity:1;}
+
+
+ @keyframes animateCircle{
+  40%{transform:scale(10); opacity:1; fill:#DD4688;}
+  55%{transform:scale(11); opacity:1; fill:#D46ABF;}
+  65%{transform:scale(12); opacity:1; fill:#CC8EF5;}
+  75%{transform:scale(13); opacity:1; fill:transparent; stroke:#CC8EF5; stroke-width:.5;}
+  85%{transform:scale(17); opacity:1; fill:transparent; stroke:#CC8EF5; stroke-width:.2;}
+  95%{transform:scale(18); opacity:1; fill:transparent; stroke:#CC8EF5; stroke-width:.1;}
+  100%{transform:scale(19); opacity:1; fill:transparent; stroke:#CC8EF5; stroke-width:0;}
+}
+
+ @keyframes animateHeart{
+  0%{transform:scale(.2);}
+  40%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+ @keyframes animateHeartOut{
+  0%{transform:scale(1.4);}
+  100%{transform:scale(1);}
+}
+
+
+
 
 

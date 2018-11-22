@@ -65,12 +65,6 @@
 	<div id="rec_star_menu">
 		<a href="recommend_show.jsp">★추천 받기★</a> <!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 	</div>
-	<%
-		int pageSize = 20; // 한 페이지에서 보여줄 웹툰 개수 설정
-		
-		int currentPage = 1; 
-		
-	%>
 	
 	<article class="rec_main">
 	<%for(int a=0; a<=30; a++){%>
@@ -123,7 +117,10 @@
 			<button>더보기</button>
 		</div>
 		<div style="clear: both;"></div>
-		<jsp:include page="../main/wbt-content.jsp"></jsp:include>
+		<%-- <jsp:include page="../main/wbt-content.jsp"></jsp:include> --%>
+		
+		<jsp:include page="../main/wbt-review.jsp"></jsp:include>
+		
 	</article>
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>
