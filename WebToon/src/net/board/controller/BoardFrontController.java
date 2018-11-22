@@ -20,7 +20,11 @@ public class BoardFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action =null;
 		
-		
+		if(command.equals("/board/bd_main")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/bd_main.jsp");
+		}
 		
 		
 		//이동 시작
