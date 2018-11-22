@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- Board -->
+  <servlet>
+  	<servlet-name>BoardFrontController</servlet-name>
+  	<servlet-class>net.board.controller.BoardFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BoardFrontController</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
