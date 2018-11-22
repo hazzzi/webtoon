@@ -26,7 +26,6 @@
 					<option value="스포츠">스포츠</option>
 				</select><br>
 		웹툰 연재시작일 : <select name="web_start">
-						<optgroup label="연재시작일"></optgroup>
 						<option value="2018">2018</option>
 						<option value="2017">2017</option>
 						<option value="2016">2016</option>
@@ -48,7 +47,6 @@
 						<option value="2000">2000</option>
 					</select><br>
 		웹툰 연재처 : 	<select name="web_portal">
-						<optgroup label="연재처"></optgroup>
 						<option value="네이버">네이버</option>
 						<option value="다음">다음</option>
 						<option value="레진 코믹스">레진 코믹스</option>
