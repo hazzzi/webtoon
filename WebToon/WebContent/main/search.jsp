@@ -50,7 +50,7 @@
 			<div class="sach-rt">
 				<a href="search-result.jsp"> 
 					<!-- webtoon 썸네일  -->
-					<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
+					<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG06_917b189b-7c3c-44c4-a732-9d53da41240c.jpg">
 					<!-- 제목 -->
 					<span>냐한남자</span> 
 					<!-- 작가 -->
