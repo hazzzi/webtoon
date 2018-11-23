@@ -9,7 +9,7 @@
 <title>추천받기</title>
 <link href="../main/css/header.css" rel="stylesheet">
 <link href="../main/css/test.css" rel="stylesheet">
-<link href="../main/css/wbt-content.css" rel="stylesheet">
+<link href="../main/css/wbt-review.css" rel="stylesheet">
 <link rel="stylesheet"
  	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../main/css/footer-main.css">  
@@ -48,7 +48,20 @@
 			});
 		});
 	</script>
-	   <!-- 페이지 시작시  -->
+	<script type="text/javascript">
+		$(function() {
+			$('.rec_wrap_div').slice(0, 15).show();
+			$('#load').click(function(e) {
+				e.preventDefault();
+				$(".rec_wrap_div:hidden").slice(0, 6).fadeToggle('slow');
+				if($('.rec_wrap_div:hidden').length == 0) {
+					$('#load').hide()
+				}
+			});
+		});
+	</script>
+
+	<!-- 페이지 시작시  -->
 	   <!--1. select recommend에서  S web_num 
 	   		  				      F recommend 
 	   						      W member_num  
@@ -65,16 +78,15 @@
 	<div id="rec_star_menu">
 		<a href="recommend_show.jsp">★추천 받기★</a> <!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 	</div>
-	
 	<article class="rec_main">
 	<%for(int a=0; a<=30; a++){%>
-		<div class="rec_wrap_div">
+		<div class="rec_wrap_div" style="display: none;">
 			<div class="rec_img_div">
-				<img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg">
+				<a href="../main/search-result.jsp"><img
+					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg"></a>
 			</div>
 			<div class="rec_webtoon_div">
-				<a>외모지상주의 웹툰제목길이 체크</a>
+				<a href="../main/search-result.jsp">외모지상주의 웹툰제목길이 체크</a>
 				<b>박태준 / 스토리 · 네이버</b>
 			</div>
 			
@@ -110,17 +122,22 @@
 				</script>
 			</div>
 
-			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</div>
+			<div class="rec_intro_div">로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기<%=a %></div>
 		</div>
 		<%} %>
 		<div id="rec_next_div">
-			<button>더보기</button>
+			<button id="load">더보기</button>
 		</div>
 		<div style="clear: both;"></div>
-		<%-- <jsp:include page="../main/wbt-content.jsp"></jsp:include> --%>
-		
 		<jsp:include page="../main/wbt-review.jsp"></jsp:include>
-		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/* 웹툰 리뷰 남기기 영역 보여주기 */
+				$('.review-action').click(function(index) {
+					$('#webtoon-content').show();
+				});
+			});
+		</script>
 	</article>
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>

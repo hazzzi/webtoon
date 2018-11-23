@@ -86,7 +86,7 @@ body {
 	display: inline-block;
 }
 /* 웹툰썸네일 img */
-.rec_show_img_div>img {
+.rec_show_img_div img {
 	width: 200px;
 	height: 200px;
 	display: block;
