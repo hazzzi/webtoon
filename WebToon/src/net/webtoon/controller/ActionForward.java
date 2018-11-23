@@ -1,4 +1,4 @@
-package net.main.action;
+package net.webtoon.controller;
 
 public class ActionForward {
 	// 이동방식 저장 변수
