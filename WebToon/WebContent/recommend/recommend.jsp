@@ -95,6 +95,7 @@
 				<b class="rec_b">평가하기</b>
 				 
 				<select id="example<%=a%>">
+					<option value=""></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -105,19 +106,14 @@
 				<script type="text/javascript">
 					$('#example<%=a%>').barrating({
 						theme : 'fontawesome-stars',
-						initialRating : -1
-					});
-
-					$('#star_barr').barrating({
-					theme : 'fontawesome-stars',
-					onSelect : function(value, text, event) {
-						// 별점 클릭 후 처리는 여기서 코드 
-														 /* 별점 클릭시 recommend db에 저장
-														        페이지 새로고침 안하고, 평가한 별값은 그대로 화면에 나타남 */
-						// 선택한 별점 값을 value로 받음
+						initialRating : null, // 초기값 설정
+						deselectable : true,  // 별 취소
+						onSelect : function(value, text, event) { //선택한 별점 값을 value로 받음
+							// 별점 클릭 후 처리는 여기서 코드 
+							alert(value);
 						}
 					});
-						//'set' 을 이용하여 값 설정 
+					//'set' 을 이용하여 값 설정 
 					//$('#example').barrating('set', 2);
 				</script>
 			</div>
