@@ -19,7 +19,7 @@
 	$(document).ready(function(){
 		$('.owl-carousel').owlCarousel({
 		    loop:true,
-		    items: 6,
+		    items: 5,
 		    dots: true
 		})
 	});
@@ -109,7 +109,7 @@
 							<a href="search-result.jsp?id=abc"> 
 							    <!-- 웹툰의 썸네일 링크, src="" -->
 								<img class="a1"
-									src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+									src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 								<!-- 웹툰의 제목 webtoon.getsubject --> 
 								<label id="label">유미의 세포들</label>
 							</a>
@@ -117,37 +117,37 @@
 						<!-- 반복문 끝2 -->
 						<div class="webtoon-img">
 							<a class="openwbt2"> <img class="a2"
-								src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t83x90.jpg">
+								src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t125x101.jpg">
 								<label>헬퍼 2 : 킬베로스</label> <!-- <label>삭</label> -->
 							</a>
 						</div>
 						<div class="webtoon-img">
 							<a class="openwbt3"> <img class="a3"
-								src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
+								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 								<label>냐한남자</label> <!-- <label>올소</label> -->
 							</a>
 						</div>
 						<div class="webtoon-img">
 							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/710754/thumbnail/thumbnail_IMAG10_88e596b9-3712-4ff4-95a7-280b663200ae.jpg">
+								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 								<label>화장 지워주는 남자</label> <!-- <label>이연</label> -->
 							</a>
 						</div>
 						<div class="webtoon-img">
 							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/699658/thumbnail/thumbnail_IMAG10_7a3fecc7-6bcf-4fcd-b1cb-101e8b480480.jpg">
+								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 								<label>오늘도 사랑스럽개</label> <!-- <label>이혜</label> -->
 							</a>
 						</div>
 						<div class="webtoon-img">
 							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/715772/thumbnail/thumbnail_IMAG10_45108665-e46e-49f7-9ee5-ded04dbbc6d0.jpg">
+								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 								<label>좀비딸</label> <!-- <label>이혜</label> -->
 							</a>
 						</div>
 						<div class="webtoon-img">
 							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/715772/thumbnail/thumbnail_IMAG10_45108665-e46e-49f7-9ee5-ded04dbbc6d0.jpg">
+								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 								<label>좀비딸</label> <!-- <label>이혜</label> -->
 							</a>
 						</div>

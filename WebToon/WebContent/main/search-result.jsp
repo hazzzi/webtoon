@@ -69,7 +69,7 @@
 			 	<!-- select * from webtoon where id=?? -->
 					<div id="sr-content-img">
 						<!-- webtoon 썸네일 -->
-						<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG10_a6869252-f41d-4dfc-8f43-db2714798982.jpg">
+						<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG06_917b189b-7c3c-44c4-a732-9d53da41240c.jpg">
 						<!-- 제목 -->
 						<p>냐한남자</p>
 						<!-- db 쿼리문 이용-->
@@ -166,21 +166,21 @@
 		 			<div class="owl-carousel owl-theme">
 		 				<!-- 반복문 시작 -->
 			 			<a href="#">
-				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 			 			</a>
 		 				<!-- 반복문 끝-->
 		 				<!-- 반복문은 여러개 생길 수 있음 -->
 			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t83x90.jpg">
+			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t125x101.jpg">
 			 			</a>
 			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/710754/thumbnail/thumbnail_IMAG10_88e596b9-3712-4ff4-95a7-280b663200ae.jpg">
+			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 			 			</a>
 			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/699658/thumbnail/thumbnail_IMAG10_7a3fecc7-6bcf-4fcd-b1cb-101e8b480480.jpg">
+			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t125x101.jpg">
 			 			</a>
 			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/715772/thumbnail/thumbnail_IMAG10_45108665-e46e-49f7-9ee5-ded04dbbc6d0.jpg">
+			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 			 			</a>
 		 			</div>
 		 		</div>
@@ -199,10 +199,10 @@
 		 				<!-- 최근에 올라간 팬아트 상위 2개 -->
 		 				<!-- where webtoon-number=?? -->
 		 				<a href="#">
-				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 			 			</a>
 		 				<a href="#">
-				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/651673/thumbnail/thumbnail_IMAG10_3c7a2e4c-376e-4856-9f03-6ba554dcd62a.jpg">
+				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
 			 			</a>
 		 			</div>
 		 		</div>
