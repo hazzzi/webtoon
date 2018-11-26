@@ -23,7 +23,7 @@ public class BoardFrontController extends HttpServlet{
 		if(command.equals("/board/bd_main")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./board/bd_main.jsp");
+			forward.setPath("./bd_main.jsp");
 		}
 		
 		
