@@ -1,4 +1,4 @@
-package net.board.controller;
+package net.member.controller;
 
 import java.io.IOException;
 
@@ -8,9 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BoardFrontController extends HttpServlet{
+
+
+public class MemberFrontController extends HttpServlet{
+
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
+		
 		String requestURI=request.getRequestURI();
 		String contextPath=request.getContextPath();
 		String command=requestURI.substring(contextPath.length());
@@ -20,10 +24,10 @@ public class BoardFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action =null;
 		
-		if(command.equals("/bd_main.bo")){
+		if(command.equals("/join.me")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./board/bd_main.jsp");
+			forward.setPath("./member/join.jsp");
 		}
 		
 		
@@ -39,14 +43,27 @@ public class BoardFrontController extends HttpServlet{
 			}
 		}
 		//이동 끝
+		
+		
+		
 	}
+
+	
+	
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("MemberFrontController doGet() 메서드");
 		doProcess(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("MemberFrontController doPost() 메서드");
 		doProcess(request, response);
 	}
+
 }

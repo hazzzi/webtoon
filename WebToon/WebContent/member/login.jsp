@@ -5,10 +5,13 @@
  <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<% request.setCharacterEncoding("utf-8");%>
 <!-- <script src="../main/js/naverlogin.js"></script> -->
+<script src="../main/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="member/css/login.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <title>로그인</title>
  </head>
 <body>
@@ -34,21 +37,33 @@
  <div class="search_input">
 <a href="forgetid.jsp"><input type="button" value="아이디/비밀번호 찾기"></a>
 </div>
- <a href="#">
+
+
+<div id="naverIdLogin"></div>  <!-- 버튼이 들어갈 위치 선언. ID는 반드시 지정된 값으로 설정하여야 합니다.-->
+
+  <a id="kakao-login-btn"></a>
+<a href="http://developers.kakao.com/logout"></a>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('e11c500869f19074c6667a7167a7164b');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+        alert(JSON.stringify(authObj));
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+  //]]>
+</script>
 
 
 
-<div class="naver_login" id="naverIdLogin">
-<span class="nspan1"><img src="./img/naver_logo.PNG" alt="네이버로그인"></span>
-<span class="nspan2">네이버 계정으로 로그인</span>
-</div>
-</a>
- <a href="#">
-<div class="kakao_login">
-<span class="kspan1"><img src="./img/kakao_logo.png" alt="카카오로그인"></span>
-<span class="kspan2">카카오 계정으로 로그인</span>
-</div>
-</a>
+
+
  <div class="hpname">
 <i class="fa fa-search co"></i>
 오늘 뭐 볼까?
@@ -56,24 +71,24 @@
 	
 </div>
 </form>
-
-
+<!-- 
+http://localhost:8080/WebToon/member/callback.jsp
+15Vtx9gMFtMcBn5GuDz9 -->
 <!-- 네이버아디디로로그인 초기화 Script -->
 <script type="text/javascript">
 
-
-	var naverLogin = new naver.LoginWithNaverId(
+var naverLogin = new naver.LoginWithNaverId(
 		{
-			clientId: "개발자센터에 등록한 ClientID",
-			callbackUrl: "개발자센터에 등록한 callback Url",
+			clientId: "15Vtx9gMFtMcBn5GuDz9",
+			callbackUrl: "http://localhost:8080/WebToon/member/callback.jsp",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
-			loginButton: {color: "green", type: 3, height: 33}
-			/* 로그인 버튼의 타입을 지정 */
+			loginButton: {color: "green", type: 3, height: 48} /* 로그인 버튼의 타입을 지정 */
 		}
 	);
 	
-	/* 설정정보를 초기화하고 연동을 준비 */
+   /* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();
+	
 
 </script>
 

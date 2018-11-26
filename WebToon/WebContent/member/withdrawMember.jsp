@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../main/css/footer-main.css">
-<link rel="stylesheet" href="css/withdrawMember.css">
+<link rel="stylesheet" href="member/css/withdrawMember.css">
 </head>
    <jsp:include page="../main/header.jsp"></jsp:include>
 <body>
