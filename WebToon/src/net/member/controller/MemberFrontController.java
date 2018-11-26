@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-public class MemberFromtController extends HttpServlet{
+public class MemberFrontController extends HttpServlet{
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

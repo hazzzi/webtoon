@@ -9,7 +9,7 @@
 <!-- <script src="../main/js/naverlogin.js"></script> -->
 <script src="../main/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="member/css/login.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <title>로그인</title>
