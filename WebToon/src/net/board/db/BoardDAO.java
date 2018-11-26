@@ -44,7 +44,7 @@ public class BoardDAO {
 				fb_num = rs.getInt(1)+1;
 			}
 			
-			String sql = "insert into board values(?,?,?,?,?,?,?,now())";
+			String sql = "insert into board values(?,?,?,?,?,?,?,now(),)";
 			pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, fb_num); //num
 				pstmt.setString(2, bd.getFb_category());
@@ -70,5 +70,7 @@ public class BoardDAO {
 		 return;
 	 
 	}//insertBoard end
+	
+	
 	}
 
