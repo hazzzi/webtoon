@@ -10,7 +10,12 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
+
+
+
+  <!-- Board -->
+   <!-- <servlet>
+
   	<servlet-name>BoardFrontController</servlet-name>
   	<servlet-class>net.board.controller.BoardFrontController</servlet-class>
   </servlet>
@@ -18,5 +23,8 @@
   	<servlet-name>BoardFrontController</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
+
+  </servlet-mapping>  -->
+
   
 </web-app>
