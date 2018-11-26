@@ -136,7 +136,16 @@ a {
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
+#naver_id_login {
+	margin-top: 50px;
+	margin-bottom: 10px;	
+}
+
+.naver_login {
+=======
 .naver_login  {
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 /* 	border: 1px solid red; */
 	background-color: #1EC800;
 	width: 250px; height: 30px;
@@ -146,10 +155,10 @@ a {
 	border-radius: 5px;
 }
 
-.naver_login>a {
-	color: white;	
-	text-decoration: none;	
-}
+/* .naver_login>a { */
+/* 	color: white;	 */
+/* 	text-decoration: none;	 */
+/* } */
 
 .nspan1 {
 /* 	border: 1px solid red;  */
@@ -175,7 +184,7 @@ a {
 .kakao_login {
 /* 	border: 1px solid red; */
 	background-color: rgb(255,235,0);
-	width: 250px; height: 30px;
+	width: 190px; height: 40px;
 	margin: auto auto ;
 	margin-top: 10px;
 	text-align: center;
@@ -185,6 +194,10 @@ a {
 .kakao_login>a {
 	color: white;	
 	text-decoration: none;	
+}
+
+#kakao-login-btn {
+	margin-top: 10px;
 }
 
 .kspan1 {

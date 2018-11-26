@@ -17,11 +17,13 @@
 }
 
 body {
+/* 	background-image: url("https://d1rb9b8eeq1zxg.cloudfront.net/assets/welcome/start-4bd788717bd8131015acd9786cdd3535d3badcd990f1f978a4bf4f5535223843.jpg"); */
 	background-image: url("../img/banner.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover;	
 	font-family: 'NanumBarunpenR', sans-serif;
 }
+
 
 input {
 	font-family: 'NanumBarunpenR', sans-serif;

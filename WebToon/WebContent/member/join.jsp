@@ -24,6 +24,7 @@
 </script>
 </head>
 <body>
+
 <a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
 <form action="login.jsp" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
