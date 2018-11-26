@@ -445,8 +445,20 @@ td>a:HOVER {
 	padding-left: 20px;
 }
 
-#bw_img i:FOCUS {
-	color: #00ff00;
+#bw_pho_icon:HOVER {
+	color: #1b0035!important;
+}
+
+.bw_pho_icon:HOVER {
+	color: #1b0035 !important;	
+}
+
+#bw_pho_icon2:HOVER {
+	color: #1b0035 !important;		
+}
+
+.bw_pho_icon2:HOVER {
+	color: #1b0035 !important;		
 }
 
 /* 글 내용 전체 content 영역 */
