@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,6 +50,16 @@
 				<!--  게시글 영역 테두리 -->
 				<div class="bd_content">
 					<table border="1" class="board_table">
+						<%-- <%
+							if (count == 0) {
+						%>
+						<tr>
+							<td colspan="5">게시판 글 없음</td>
+						</tr>
+						<%
+							} else {
+								SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+						%> --%>
 						<tr>
 							<th class="table_sh">글 번호</th>
 							<th>[말머리]</th>
@@ -109,6 +120,8 @@
 						</tr>
 						<%
 							}
+
+// 							}
 						%>
 					</table>
 					<span class="board_paging"> <a href="#">&lt;</a> <%

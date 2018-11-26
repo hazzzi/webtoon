@@ -30,7 +30,7 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-	 <form action="bd_writePro.jsp" method="post">
+	 <form action="./BoardWriteAction.bo" method="post">
 		<div class="bw_subject">
 			<input type="text" placeholder="제목" class="bw_sub_tex">
 			<select class="bd_sel" name="">
@@ -44,6 +44,7 @@
 					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
 				<a href="#"><i class="fa fa-check"
 					style="font-size: 48px; color: gray;"></i></a>
+					<input type="submit" class="fa fa-check" style="font-size: 48px; color: gray;">
 			</div>
 		</div>
 		<!-- class="bw_hr" -->
