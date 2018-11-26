@@ -431,20 +431,37 @@ td>a:HOVER {
 	padding-left: 20px;
 }
 
+.bw_pho_icon {
+	border: none;
+	outline:none;
+	background-color: #fff;
+	width: 30px;
+	margin-right: 20px;
+}
+
+.bw_pho_icon2 {
+	border: none;
+	outline:none;
+	background-color: #fff;
+	width: 30px;	
+}
+
 #bw_pho_icon:HOVER {
-	color: #1b0035!important;
+	color: #0f001e!important;
+	border: none;
+	background-color: #fff;
 }
 
 .bw_pho_icon:HOVER {
-	color: #1b0035 !important;	
+	color: #0f001e !important;	
 }
 
 #bw_pho_icon2:HOVER {
-	color: #1b0035 !important;		
+	color: #0f001e !important;		
 }
 
 .bw_pho_icon2:HOVER {
-	color: #1b0035 !important;		
+	color: #0f001e !important;		
 }
 
 /* 글 내용 전체 content 영역 */
