@@ -32,8 +32,7 @@
 		<!-- header 영역 끝 -->
 
 		<!-- article 영역 시작 -->
-		<article> 
-		<!-- content 영역 -->
+		<article> <!-- content 영역 -->
 		<div class="content">
 			<!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
 			<jsp:include page="header_main.jsp"></jsp:include>
