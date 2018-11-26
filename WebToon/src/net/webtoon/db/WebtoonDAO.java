@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -63,25 +64,12 @@ public class WebtoonDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if (con != null)
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			if(rs!=null){
-				try{
-				rs.close();
-				}catch(SQLException e){
-					e.printStackTrace();
-				}
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 		}
 	}
+
+	
 }

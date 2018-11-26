@@ -1,3 +1,5 @@
+<%@page import="net.webtoon.db.WebtoonBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,14 +8,13 @@
 <meta charset="UTF-8">
 <title>오늘 뭐 볼까?</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/jquery-3.3.1.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="css/test.css">
-<link rel="stylesheet" href="css/main-header.css">
-<link rel="stylesheet" href="css/footer-main.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/wbt-content.css">
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="./main/css/test.css">
+<link rel="stylesheet" href="./main/css/main-header.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
+<link rel="stylesheet" href="./main/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./main/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -26,6 +27,12 @@
 </script>
 </head>
 <body>
+<%
+	List<WebtoonBean> webtoonList = (List<WebtoonBean>)request.getAttribute("webtoonList");
+	List<String> genre = (List<String>)request.getAttribute("genre");
+	System.out.println(webtoonList.size());
+	System.out.println(genre.size());
+%>
 <div id="main-wrap">
 <%-- 	Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분
 	
@@ -93,64 +100,34 @@
 	
 	<!-- 메인 컨텐츠 영역  (시작) -->
 		<div id="main-content-div">
-			<% for(int i=0; i<15; i++) {%>
+			<% //for(int i=0; i<15; i++) {%>
 			<!-- db 장르별, 연령별, 연재사이트별, 연재여부별, 연재시작년도별 등등 -->
 			<!-- select ~~ from webtoon where ~~ -->
 			<!-- 반복문 시작1 -->
+			<% for(String g:genre){ %>
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3>로맨스</h3>
+					<h3><%=g %></h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
+						<% for(WebtoonBean wb:webtoonList){
+							if(wb.getWeb_genre().equals(g)){
+						%>						
 						<div class="webtoon-img">
 							<!-- 웹툰 이미지 클릭시, 웹툰 num get방식으로 값 넘어감 -->
-							<a href="search-result.jsp?id=abc"> 
+							<a href="./Webtoon/details?id=<%=wb.getWeb_num()%>"> 
 							    <!-- 웹툰의 썸네일 링크, src="" -->
 								<img class="a1"
-									src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
+									src="<%=wb.getWeb_thumb_link()%>">
 								<!-- 웹툰의 제목 webtoon.getsubject --> 
-								<label id="label">유미의 세포들</label>
+								<label id="label"><%=wb.getWeb_subject() %></label>
 							</a>
 						</div>
+						<%		}
+							} %>
 						<!-- 반복문 끝2 -->
-						<div class="webtoon-img">
-							<a class="openwbt2"> <img class="a2"
-								src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t125x101.jpg">
-								<label>헬퍼 2 : 킬베로스</label> <!-- <label>삭</label> -->
-							</a>
-						</div>
-						<div class="webtoon-img">
-							<a class="openwbt3"> <img class="a3"
-								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-								<label>냐한남자</label> <!-- <label>올소</label> -->
-							</a>
-						</div>
-						<div class="webtoon-img">
-							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-								<label>화장 지워주는 남자</label> <!-- <label>이연</label> -->
-							</a>
-						</div>
-						<div class="webtoon-img">
-							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-								<label>오늘도 사랑스럽개</label> <!-- <label>이혜</label> -->
-							</a>
-						</div>
-						<div class="webtoon-img">
-							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-								<label>좀비딸</label> <!-- <label>이혜</label> -->
-							</a>
-						</div>
-						<div class="webtoon-img">
-							<a href="#"> <img
-								src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-								<label>좀비딸</label> <!-- <label>이혜</label> -->
-							</a>
-						</div>
 					</div>
 				</div>
 			</div>

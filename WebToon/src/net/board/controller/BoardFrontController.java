@@ -20,10 +20,14 @@ public class BoardFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action =null;
 		
-		if(command.equals("/board/bd_main")){
+		if(command.equals("/bd_main.bo")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./bd_main.jsp");
+			forward.setPath("./board/bd_main.jsp");
+		}else if(command.equals("/bd_writingPage.bo")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/bd_writingPage.jsp");
 		}
 		
 		

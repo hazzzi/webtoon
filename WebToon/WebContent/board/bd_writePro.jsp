@@ -4,11 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>게시판 글 작성</title>
 </head>
 <body>
-	<script>
-		location.href = "/home.ma";
-	</script>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+
+<!-- useBean 들어갈 자리 -->
+
+<%
+//DAO 작업 할 자리
+%>
+
+<script type="text/javascript">
+	alert("작성 완료");
+	location.href="bd_main.jsp"
+</script>
 </body>
 </html>
