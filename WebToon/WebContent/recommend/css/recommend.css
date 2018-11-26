@@ -31,7 +31,7 @@ body {
 
 .rec_top_background {
 	position: inherit;
-	height: 100px;
+	height: 65px;
 	width: 100%;
 	background-color: #d5cde4;
 	color: black;
@@ -40,11 +40,7 @@ body {
 .rec_top_background>p:NTH-OF-TYPE(1) {
 	text-align: center;
 	font-size: 35px;
-	padding-top: 30px;
-}
-
-.rec_top_background>p:NTH-OF-TYPE(2) {
-	text-align: center;
+	padding-top: 10px;
 }
 
 #rec_star_menu {
@@ -53,8 +49,8 @@ body {
 	background-color: #d5cde4;
 
 	position: sticky;
-	top: 90px;
-	z-index: 3;
+	top: 100px;
+	z-index: 2;
 }
 
 #rec_star_menu>a {
@@ -90,7 +86,7 @@ body {
 	display: inline-block;
 }
 /* 웹툰썸네일 img */
-.rec_img_div>img {
+.rec_img_div img {
 	width: 190px;
 	height: 180px;
 	display: block;
@@ -175,18 +171,65 @@ body {
 	margin-bottom: 30px;
 	margin-top: 40px;
 }
-
-#rec_next_div>button {
-	background-color: #a8a8a8;
+/* 더보기 버튼 */
+#load {
+	display: inline-block;
+    width: 253px;
+    height: 54px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 54px;
+    outline: none;
+    position: relative;
+    z-index: 2;
+    background-color: #333;
+    border: 2px solid #333;
+    color: #fff;
+    border-radius: 5px 5px;
+    font-size: 30px;
+    /* line-height: 41px; */
+    /* margin-bottom: 0rem; */
+	/* background-color: #a8a8a8;
 	color: #ffffff;
 	border: none;
 	text-align: center;
-	font-size: 30px;
-	border-radius: 5px 5px;
 	padding: 5px 40px;
-	font-weight: bold;
+	font-weight: bold; */
 }
 
-#rec_next_div>button:HOVER {
-	background-color: #828282;
+#load:hover {
+	background-color: #fff;
+	border-color: #2d0059;
+	color: #2d0059;
+}
+#load::before,
+#load::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';top: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #333;
+}
+#load,
+#load::before,
+#load::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+#load::before {
+	right: 0;
+}
+#load::after {
+	left: 0;
+}
+#load:hover::before,
+#load:hover::after {
+	width: 0;
+	background-color: #2d0059;
 }

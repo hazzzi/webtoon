@@ -29,7 +29,7 @@ header#header-head{
 	/* 메뉴바 고정 */
 	position: sticky;
     top: 100px;
-    z-index: 3;
+    z-index: 2;
 }
 
 #rec_c_top>a {
@@ -50,6 +50,7 @@ header#header-head{
 	float: left;
 	text-align: center;
 	color: #210042;
+	letter-spacing: 0.2em;
 }
 
 /* #line {
@@ -101,6 +102,7 @@ header#header-head{
 }
 
 .rec_user_name>p {
+	width: 570px;
 	display: inline-block;
 	position: absolute;
 	top: 14px;
@@ -115,9 +117,17 @@ header#header-head{
 	font-family: 'NanumBarunpenR', sans-serif;
 	text-align: left;
 	font-size: 16px;
-	padding: 5px 0 5px 15px;
+	padding: 5px 0 5px 10px;
 }
-
+.rec_comment>p{
+	width: 622px;
+}
+.rec_comment_date{
+	text-align: left;
+    font-size: 8px;
+    margin: 0px 1px 3px 10px;
+    color: gray;
+}
 .rec_comment_like {
 	text-align: left;
 	font-size: 23px;
