@@ -23,7 +23,7 @@ public class MainFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/home.ma")){
+		if(command.equals("/home.today")){
 			action = new MainHomeAction();
 			try {
 				forward = action.execute(request, response);

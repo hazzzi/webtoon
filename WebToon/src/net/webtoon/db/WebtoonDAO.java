@@ -24,6 +24,44 @@ public class WebtoonDAO {
 		// getConnection 함수를 통해서 connection 형태로 변환가능 
 		return con;
 	}
+	public WebtoonBean getWebtoon(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		WebtoonBean wb = new WebtoonBean();
+		try {
+			con = getConnection();
+			// 게시판 글 번호 구하기
+			// num 구하기, 게시판 글 중에 가장 큰 번호
+			String sql = "select * from webtoon where web_num=?";
+			// 4 저장 <= 결과 실행
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+			}								
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		return wb;
+	}
 	
 	public void insertWebtoon(WebtoonBean webtoon) {
 		Connection con = null;
@@ -70,6 +108,36 @@ public class WebtoonDAO {
 			}
 		}
 	}
-
 	
+	
+	public void updateWebtoon(WebtoonBean webtoon) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			// 게시판 글 번호 구하기
+			// num 구하기, 게시판 글 중에 가장 큰 번호
+			String sql = "update webtoon set web_subject=?, web_author=?, web_genre=?, web_start=?, web_portal=?, web_info=?, web_ing=?, web_link=?, web_thumb_link=?"
+					+ "where web_num=?";
+			// 4 저장 <= 결과 실행
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, webtoon.getWeb_subject());
+			pstmt.setString(2, webtoon.getWeb_author());
+			pstmt.setString(3, webtoon.getWeb_genre());
+			pstmt.setString(4, webtoon.getWeb_start());
+			pstmt.setString(5, webtoon.getWeb_portal());
+			pstmt.setString(6, webtoon.getWeb_info());
+			pstmt.setString(7, webtoon.getWeb_ing());
+			pstmt.setString(8, webtoon.getWeb_link());
+			pstmt.setString(9, webtoon.getWeb_thumb_link());
+			pstmt.setInt(10, webtoon.getWeb_num());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			}
+		}
 }
