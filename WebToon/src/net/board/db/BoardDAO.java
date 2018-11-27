@@ -35,8 +35,8 @@ public class BoardDAO {
 			int fb_num = 0; 
 			
 			//가장 큰 num 값 구하는 sql문
-			String sql1 = "select max(fb_num) from free_board";
-			pstmt = con.prepareStatement(sql1);
+			String sql = "select max(fb_num) from free_board";
+			pstmt = con.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
 			
@@ -45,7 +45,10 @@ public class BoardDAO {
 				fb_num = rs.getInt(1)+1;
 			}
 			
-			String sql = "insert into free_board(fb_num, fb_mem_num, fb_mem_nik, fb_category, fb_subject, fb_content, fb_img, fb_sumlike, fb_readcount, fb_date) values(?,?,?,?,?,?,?,?,?,now())";
+			sql = "select mem_nik from member where mem_num=?";
+			
+			sql = "insert into free_board(fb_num, fb_mem_num, fb_mem_nik, fb_category, fb_subject, fb_content, fb_img, fb_sumlike, fb_readcount, fb_date)"
+					+ " values(?,?,?,?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, fb_num); //num
 				pstmt.setInt(2, bd.getFb_mem_num());
