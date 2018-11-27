@@ -66,20 +66,6 @@ header {
 	box-sizing: border-box;
 }
 
-/* #profile {
-	width: 100px;
-	position: absolute;
-	right: 100px;
-	top: 40px;
-}
-
-#profile>img {
-	vertical-align: middle;
-	width: 81px;
-	height: 81px;
-	border-radius: 50%;
-} */
-
 /* 전체 content 영역 */
 .content {
 	/*    border: 1px solid pink; */
@@ -445,8 +431,37 @@ td>a:HOVER {
 	padding-left: 20px;
 }
 
-#bw_img i:FOCUS {
-	color: #00ff00;
+.bw_pho_icon {
+	border: none;
+	outline:none;
+	background-color: #fff;
+	width: 30px;
+	margin-right: 20px;
+}
+
+.bw_pho_icon2 {
+	border: none;
+	outline:none;
+	background-color: #fff;
+	width: 30px;	
+}
+
+#bw_pho_icon:HOVER {
+	color: #0f001e!important;
+	border: none;
+	background-color: #fff;
+}
+
+.bw_pho_icon:HOVER {
+	color: #0f001e !important;	
+}
+
+#bw_pho_icon2:HOVER {
+	color: #0f001e !important;		
+}
+
+.bw_pho_icon2:HOVER {
+	color: #0f001e !important;		
 }
 
 /* 글 내용 전체 content 영역 */
@@ -560,18 +575,7 @@ td>a:HOVER {
 	background-color: #eee;
 	font-size: 15px;
 }
-/* #addComment {
-    margin-bottom: 5px;
-    padding: 0.22em;
-    border: 1px solid #eee;
-    background-color: #fafbf7;
-} */
-/* #addComment textarea {
-    width: 99%;
-    padding: 3px;
-    border: 0;
-    color: #555;
-} */
+
 #addComment {
 	float: left;
 }
@@ -630,8 +634,6 @@ hr {
 	background-color: white;
 	margin-left: 10px; /* 345px; */
 	position: relative;
-	/* top: -80px; */
-	/* border-collapse: collapse; */
 	border: 2px solid #74668c;
 	border-radius: 30px;
 	font-family: 'NanumBarunpenR', sans-serif;
