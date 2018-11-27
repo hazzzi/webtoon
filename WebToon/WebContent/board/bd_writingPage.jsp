@@ -42,9 +42,9 @@
 			<div id="bw_img">
 				<a href="#" class="bw_pho_icon"><i class="fa fa-file-image-o" id="bw_pho_icon"
 					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
-				<a href="#" class="bw_pho_icon2"><i class="fa fa-check" id="bw_pho_icon2"
-					style="font-size: 48px; color: gray;"></i></a>
-					<input type="submit" class="fa fa-check" style="font-size: 48px; color: gray;">
+				<!-- <a href="#" class="bw_pho_icon2"><i class="fa fa-check" id="bw_pho_icon2"
+					style="font-size: 48px; color: gray;"></i></a> -->
+					<input type="submit" class="fa fa-check" id="bw_pho_icon2" style="font-size: 48px; color: gray;"> 
 			</div>
 		</div>
 		<!-- class="bw_hr" -->
