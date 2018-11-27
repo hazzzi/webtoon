@@ -24,6 +24,7 @@ public class WebtoonDAO {
 		// getConnection 함수를 통해서 connection 형태로 변환가능 
 		return con;
 	}
+	
 	public WebtoonBean getWebtoon(int num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
