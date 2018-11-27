@@ -23,7 +23,8 @@ public class MemberDAO {
 		return con;
 	}
 
-	public void JoinMember(MemberBean mb) {
+	public void joinMember(MemberBean mb) {
+
 
 		int mem_num = 0;// 회원 넘버를 만드는 sql문에서 2번쨰 sql문으로 값을 전달하기 위한
 						// 변수
@@ -49,7 +50,7 @@ public class MemberDAO {
 			}
 			
 			// 회원 등록 하는 sql																	,profileimg
-			String sql2 = "insert into mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_hintans,mem_hint,mem_date member values(?,?,?,?,?,?,?,?,?,?)";
+			String sql2 = "insert into member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint) values(?,?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql2);
 			pstmt.setInt(1, mem_num);
 			pstmt.setString(2, mb.getId());
@@ -86,4 +87,63 @@ public class MemberDAO {
 				}
 		}
 	}
+	
+	
+	
+	
+	public int loginMember(String mem_id,String mem_pass){
+		int num=0;
+		try{
+			con=getConnection();
+			
+			String sql="select * from member where mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				if(rs.getString("mem_pass").equals(mem_pass)){
+					//로그인 가능하도록 num에 1을 줌
+					num=1; 
+				}else{
+					//비번틀림
+					num=0;
+				}
+			} else {
+				
+				//아이디 틀림
+				num=0;
+				
+			}
+			
+			
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		
+		
+		return num;
+	}
+	
 }

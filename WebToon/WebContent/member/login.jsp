@@ -17,7 +17,7 @@
 <body>
 
 <a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
-<form action="#" method="post" name="f"  >
+<form action="MemberLoginAction.me" method="post" name="f"  >
 <div class="div">
  <div class="login">
 <a href="login.jsp"><strong>로그인</strong></a>

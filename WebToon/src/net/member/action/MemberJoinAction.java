@@ -49,11 +49,11 @@ public class MemberJoinAction implements Action{
 		/*mb.setProgileimg(progileimg);*/
 		MemberDAO mdao = new MemberDAO();
 		
-		mdao.JoinMember(mb);
+		mdao.joinMember(mb);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./loginForm.me");
+		forward.setPath("./login.me");
 		return forward;
 	}
 
