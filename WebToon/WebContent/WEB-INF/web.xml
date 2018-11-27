@@ -22,14 +22,14 @@
   
   
   <!--member  -->
-  	<servlet>
-  	<servlet-name>MemberFrontController</servlet-name>
-  	<servlet-class>net.member.controller.MemberFrontController</servlet-class>
+  <servlet>
+    <servlet-name>MemberFrontController</servlet-name>
+    <servlet-class>net.member.controller.MemberFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>MemberFrontController</servlet-name>
-  	<url-pattern>*.me</url-pattern>
-  </servlet-mapping>
+    <servlet-name>MemberFrontController</servlet-name>
+    <url-pattern>*.me</url-pattern>
+    </servlet-mapping>
     <!--member  -->
     
     
