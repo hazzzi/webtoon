@@ -30,18 +30,20 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-	 <form action="bd_writePro.jsp" method="post">
+	 <form action="./BoardWriteAction.bo" method="post">
 		<div class="bw_subject">
-			<input type="text" placeholder="제목" class="bw_sub_tex">
-			<select class="bd_sel" name="">
+			<input type="text" placeholder="제목" class="bw_sub_tex" name="fb_subject">
+			<select class="bd_sel" name="fb_category">
 				<option>자유게시판</option>
 				<option>중고장터</option>
 				<option>자유갤러리</option>
 				<option>홍보게시판</option>
 			</select>
 			<div id="bw_img">
-				<button type="submit" class="bw_pho_icon"><i class="fa fa-file-image-o" id="bw_pho_icon"
-					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></button>
+
+				<i class="fa fa-file-image-o" id="bw_pho_icon"
+					style="font-size: 48px; color: gray; margin-left: -30px;"><input type="file" id="bw_pho_file" class="bw_pho_icon"></i>
+					
 				<button type="submit" class="bw_pho_icon2"><i class="fa fa-check" id="bw_pho_icon2"
 					style="font-size: 48px; color: gray;"></i></button>
 			</div>
@@ -50,7 +52,7 @@
 		<div class="clear"></div>
 		<hr>
 		<div class="bw_content">
-			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content"></textarea>
 			<hr>
 		</div>
 	  </form>
