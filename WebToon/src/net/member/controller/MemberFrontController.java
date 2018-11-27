@@ -1,5 +1,6 @@
 package net.member.controller;
 
+
 import java.io.*;
 
 import javax.servlet.RequestDispatcher;
@@ -42,7 +43,7 @@ public class MemberFrontController extends HttpServlet{
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/login.jsp");
-			
+
 		}else if(command.equals("/MemberLoginAction.me")){
 			action = new MemberLoginAction();
 			try{
@@ -52,6 +53,8 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 				
 			}
+
+
 		}
 		
 		
