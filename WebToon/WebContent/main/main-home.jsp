@@ -86,7 +86,7 @@
 							<!-- 추천 서비스로 이동 -->
 							<li><a href="../recommend/recommend.jsp">추천</a></li>
 							<!-- 자유 게시판으로 이동 -->
-							<li><a href="../board/bd_main.jsp">게시판</a></li>
+							<li><a href="./bd_main.bo">게시판</a></li>
 						</ul>
 					</nav>
 					<!-- ★이후의 평가 갯수는 db에서 쿼리문 이용 -->
@@ -117,7 +117,7 @@
 						%>						
 						<div class="webtoon-img">
 							<!-- 웹툰 이미지 클릭시, 웹툰 num get방식으로 값 넘어감 -->
-							<a href="./Webtoon/details?id=<%=wb.getWeb_num()%>"> 
+							<a href="./detail.wbt?id=<%=wb.getWeb_num()%>"> 
 							    <!-- 웹툰의 썸네일 링크, src="" -->
 								<img class="a1"
 									src="<%=wb.getWeb_thumb_link()%>">
