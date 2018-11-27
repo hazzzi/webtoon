@@ -79,6 +79,23 @@ public class BoardDAO {
 	 
 	}//insertBoard end
 	
+	public void updateBoard(BoardBean bd){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			con = getConnection();
+			
+			String sql = "update free_board set fb_subject=?,fb_content=? where mem_pass=?";
+			pstmt = con.prepareStatement(sql);
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public List getBoardList(){
 		
 		List<BoardBean> boardList = new ArrayList<>();

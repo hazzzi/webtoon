@@ -3,6 +3,7 @@ package net.board.action;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 
@@ -24,7 +25,13 @@ public class BoardWriteAction implements Action {
 		MultipartRequest multi = null;
 		
 		BoardBean bd = new BoardBean();
-
+		
+		HttpSession session = request.getSession();
+		int mem_num = (int)session.getAttribute("mem_num");
+		if (mem_num == 0) {
+			response.sendRedirect("./login.me");
+		}
+			
 		int fb_mem_num = Integer.parseInt(multi.getParameter("fb_mem_num"));
 		String fb_mem_nik = multi.getParameter("fb_mem_nik");
 		String fb_category = multi.getParameter("fb_category");

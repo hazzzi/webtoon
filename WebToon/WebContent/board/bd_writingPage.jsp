@@ -1,3 +1,4 @@
+<%@page import="net.board.db.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,46 +17,55 @@
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
+	<%
+		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
+	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
-		$(document).ready(function(){
+		$(document).ready(function() {
 			$("#header-srch").hide();
-			$("#a_srch").click(function(){
+			$("#a_srch").click(function() {
 				$(".tmp").toggle();
-		        $("#header-srch").toggle(500);
-		    });
+				$("#header-srch").toggle(500);
+			});
 		});
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-	 <form action="./BoardWriteAction.bo" method="post">
-		<div class="bw_subject">
-			<input type="text" placeholder="제목" class="bw_sub_tex" name="fb_subject">
-			<select class="bd_sel" name="fb_category">
-				<option>자유게시판</option>
-				<option>중고장터</option>
-				<option>자유갤러리</option>
-				<option>홍보게시판</option>
-			</select>
-			<div id="bw_img">
+		<form action="./BoardWriteAction.bo" method="post">
+			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
+			<div class="bw_subject">
+				<input type="text" placeholder="제목" class="bw_sub_tex"
+					name="fb_subject"> <select class="bd_sel"
+					name="fb_category">
+					<option>자유게시판</option>
+					<option>중고장터</option>
+					<option>자유갤러리</option>
+					<option>홍보게시판</option>
+				</select>
+				<div id="bw_img">
 
-				<i class="fa fa-file-image-o" id="bw_pho_icon"
-					style="font-size: 48px; color: gray; margin-left: -30px;"><input type="file" id="bw_pho_file" class="bw_pho_icon"></i>
-					
-				<button type="submit" class="bw_pho_icon2"><i class="fa fa-check" id="bw_pho_icon2"
-					style="font-size: 48px; color: gray;"></i></button>
+					<i class="fa fa-file-image-o" id="bw_pho_icon"
+						style="font-size: 48px; color: gray; margin-left: -30px;"><input
+						type="file" id="bw_pho_file" class="bw_pho_icon"></i>
+
+					<button type="submit" class="bw_pho_icon2">
+						<i class="fa fa-check" id="bw_pho_icon2"
+							style="font-size: 48px; color: gray;"></i>
+					</button>
+				</div>
 			</div>
-		</div>
-		<!-- class="bw_hr" -->
-		<div class="clear"></div>
-		<hr>
-		<div class="bw_content">
-			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content"></textarea>
+			<!-- class="bw_hr" -->
+			<div class="clear"></div>
 			<hr>
-		</div>
-	  </form>
+			<div class="bw_content">
+				<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"
+					name="fb_content"></textarea>
+				<hr>
+			</div>
+		</form>
 	</div>
 	<!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
