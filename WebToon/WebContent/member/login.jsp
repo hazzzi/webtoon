@@ -17,7 +17,7 @@
 <body>
 
 <a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
-<form action="#" method="post" name="f"  >
+<form action="MemberLoginAction.me" method="post" name="f"  >
 <div class="div">
  <div class="login">
 <a href="login.jsp"><strong>로그인</strong></a>
@@ -40,8 +40,23 @@
 
 
 <div id="naverIdLogin"></div>  <!-- 버튼이 들어갈 위치 선언. ID는 반드시 지정된 값으로 설정하여야 합니다.-->
+<script type="text/javascript">
 
-  <a id="kakao-login-btn"></a>
+var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "15Vtx9gMFtMcBn5GuDz9",
+			callbackUrl: "http://localhost:8080/WebToon/member/callback.jsp",
+			isPopup: true, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 48} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+	
+   /* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
+</script>
+
+<a id="kakao-login-btn"></a>
 <a href="http://developers.kakao.com/logout"></a>
 <script type='text/javascript'>
   //<![CDATA[
@@ -60,10 +75,6 @@
   //]]>
 </script>
 
-
-
-
-
  <div class="hpname">
 <i class="fa fa-search co"></i>
 오늘 뭐 볼까?
@@ -75,22 +86,7 @@
 http://localhost:8080/WebToon/member/callback.jsp
 15Vtx9gMFtMcBn5GuDz9 -->
 <!-- 네이버아디디로로그인 초기화 Script -->
-<script type="text/javascript">
 
-var naverLogin = new naver.LoginWithNaverId(
-		{
-			clientId: "15Vtx9gMFtMcBn5GuDz9",
-			callbackUrl: "http://localhost:8080/WebToon/member/callback.jsp",
-			isPopup: false, /* 팝업을 통한 연동처리 여부 */
-			loginButton: {color: "green", type: 3, height: 48} /* 로그인 버튼의 타입을 지정 */
-		}
-	);
-	
-   /* 설정정보를 초기화하고 연동을 준비 */
-	naverLogin.init();
-	
-
-</script>
 
 
 

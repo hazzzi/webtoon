@@ -1,10 +1,16 @@
 package net.member.action;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.fabric.xmlrpc.base.Data;
+
+import com.sun.prism.PixelFormat.DataType;
 
 import net.member.controller.Action;
 import net.member.controller.ActionForward;
@@ -22,13 +28,13 @@ public class MemberJoinAction implements Action{
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
 		String email=request.getParameter("email");
-		String hint=request.getParameter("hint");
-		String hintans=request.getParameter("hintans");
-		String nik=request.getParameter("nik");
-		String ages=request.getParameter("ages");
+		String hint=request.getParameter("sel_hint");
+		String hintans=request.getParameter("pass_htnt");
+		String nik=request.getParameter("nic");
+		String ages=request.getParameter("sel_age");
 		String gender=request.getParameter("gender");
-		String progileimg=request.getParameter("progileimg");
-		
+		/*String progileimg=request.getParameter("progileimg");*/
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		
 		MemberBean mb = new MemberBean();
 		mb.setId(id);
@@ -39,14 +45,15 @@ public class MemberJoinAction implements Action{
 		mb.setNik(nik);
 		mb.setAges(ages);
 		mb.setGender(gender);
-		mb.setProgileimg(progileimg);
+		mb.setDate(timestamp);
+		/*mb.setProgileimg(progileimg);*/
 		MemberDAO mdao = new MemberDAO();
 		
-		mdao.JoinMember(mb);
+		mdao.joinMember(mb);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./loginForm.me");
+		forward.setPath("./login.me");
 		return forward;
 	}
 

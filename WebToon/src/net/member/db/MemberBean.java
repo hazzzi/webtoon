@@ -1,6 +1,9 @@
 package net.member.db;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
+
+
 
 public class MemberBean {
 
@@ -12,7 +15,7 @@ public class MemberBean {
 	private String nik;
 	private String ages;
 	private String gender;
-	private Date date;
+	private Timestamp date;
 	private String progileimg;
 	
 	public String getProgileimg() {
@@ -21,10 +24,10 @@ public class MemberBean {
 	public void setProgileimg(String progileimg) {
 		this.progileimg = progileimg;
 	}
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 	public String getId() {

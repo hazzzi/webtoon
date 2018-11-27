@@ -1,5 +1,6 @@
 package net.member.controller;
 
+
 import java.io.*;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.member.action.MemberJoinAction;
+import net.member.action.MemberLoginAction;
 
 public class MemberFrontController extends HttpServlet{
 
@@ -35,11 +37,24 @@ public class MemberFrontController extends HttpServlet{
 			}catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
+				
 			}
-		}else if(command.equals("/loginForm.me")){
+		}else if(command.equals("/login.me")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/login.jsp");
+
+		}else if(command.equals("/MemberLoginAction.me")){
+			action = new MemberLoginAction();
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				
+			}
+
+
 		}
 		
 		
