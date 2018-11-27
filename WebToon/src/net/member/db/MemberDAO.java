@@ -105,7 +105,7 @@ public class MemberDAO {
 			if(rs.next()){
 				if(rs.getString("mem_pass").equals(mem_pass)){
 					//로그인 가능하도록 num에 1을 줌
-					num=1; 
+					num=rs.getInt("mem_num"); 
 				}else{
 					//비번틀림
 					num=0;
