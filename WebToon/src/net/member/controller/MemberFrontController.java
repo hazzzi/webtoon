@@ -35,6 +35,7 @@ public class MemberFrontController extends HttpServlet{
 			}catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
+				
 			}
 		}else if(command.equals("/loginForm.me")){
 			forward = new ActionForward();
