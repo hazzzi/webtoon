@@ -32,7 +32,7 @@ public class MemberLoginAction implements Action{
 			HttpSession session = request.getSession();
 			session.setAttribute("mem_id", id);
 			forward.setRedirect(true);
-			forward.setPath("./home.ma");
+			forward.setPath("./home.today");
 		}else if(num==0){
 			forward.setRedirect(true);
 			forward.setPath("./login.me");
