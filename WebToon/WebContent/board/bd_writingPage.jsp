@@ -30,6 +30,7 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
+	 <form action="bd_writePro.jsp" method="post">
 		<div class="bw_subject">
 			<input type="text" placeholder="제목" class="bw_sub_tex">
 			<select class="bd_sel" name="">
@@ -39,10 +40,10 @@
 				<option>홍보게시판</option>
 			</select>
 			<div id="bw_img">
-				<a href="#"><i class="fa fa-file-image-o" id="bw_pho_icon"
-					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
-				<a href="#"><i class="fa fa-check"
-					style="font-size: 48px; color: gray;"></i></a>
+				<button type="submit" class="bw_pho_icon"><i class="fa fa-file-image-o" id="bw_pho_icon"
+					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></button>
+				<button type="submit" class="bw_pho_icon2"><i class="fa fa-check" id="bw_pho_icon2"
+					style="font-size: 48px; color: gray;"></i></button>
 			</div>
 		</div>
 		<!-- class="bw_hr" -->
@@ -52,6 +53,7 @@
 			<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
 			<hr>
 		</div>
+	  </form>
 	</div>
 	<!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->

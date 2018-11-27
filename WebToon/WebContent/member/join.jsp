@@ -25,8 +25,8 @@
 </head>
 <body>
 
-<a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
-<form action="login.jsp" method="post"  name="f" onsubmit="return checking();">
+<a href="#"><p class="back">◀ 돌아가기</p></a>
+<form action="MemberJoinAction.me" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
  <div class="login">
 <a href="login.jsp"><strong>로그인</strong></a>
@@ -63,6 +63,9 @@
 <input type="text" name="nic" placeholder="닉네임" required>
 </div>
  <div class="pwd_hint">
+ <div>남<input type="radio" name="gender" value="남">
+여<input type="radio" name="gender" value="여"></div>
+ 
 <select name="sel_age" required>
 <option value="">연령</option>
 <option value="1">10대</option>

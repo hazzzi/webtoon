@@ -28,7 +28,7 @@
 				});
 			});
 		</script>
-		
+
 		<!-- header 영역 끝 -->
 
 		<!-- article 영역 시작 -->
@@ -58,13 +58,16 @@
 							<th class="table_mid">작성자</th>
 							<th class="table_sh">조회 수</th>
 							<th>작성 날짜</th>
-							
+
 						</tr>
-						<% for(int i=0 ; i<5 ; i++){ %>
+						<%
+							for (int i = 0; i < 5; i++) {
+						%>
 						<tr>
 							<td>1</td>
 							<td>[자유게시판]</td>
-							<td class="table_img"><img src="../images/bd_img.png" width="30px" height="30px"></td>
+							<td class="table_img"><img src="./images/bd_img.png"
+								width="30px" height="30px"></td>
 							<td><a href="bd_detailPage.jsp">안녕하세요</a></td>
 							<td>5</td>
 							<td>달자</td>
@@ -74,7 +77,8 @@
 						<tr>
 							<td>2</td>
 							<td>[자유게시판]</td>
-							<td class="table_img"><img src="../images/bd_none_img.png" width="30px" height="30px"></td>
+							<td class="table_img"><img src="./images/bd_none_img.png"
+								width="30px" height="30px"></td>
 							<td><a href="bd_detailPage.jsp">출석체크 합니다~</a></td>
 							<td>19</td>
 							<td>달자달자</td>
@@ -84,7 +88,8 @@
 						<tr>
 							<td>3</td>
 							<td>[자유게시판]</td>
-							<td class="table_img"><img src="../images/bd_none_img.png" width="30px" height="30px"></td>
+							<td class="table_img"><img src="./images/bd_none_img.png"
+								width="30px" height="30px"></td>
 							<td><a href="bd_detailPage.jsp">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
 							<td>134</td>
 							<td>제리</td>
@@ -94,17 +99,23 @@
 						<tr>
 							<td>4</td>
 							<td>[자유게시판]</td>
-							<td class="table_img"><img src="../images/bd_none_img.png" width="30px" height="30px"></td>
+							<td class="table_img"><img src="./images/bd_none_img.png"
+								width="30px" height="30px"></td>
 							<td><a href="bd_detailPage.jsp">출첵 ㅇㅇ</a></td>
 							<td>10</td>
 							<td>토미</td>
 							<td>78</td>
 							<td>2018.11.02</td>
 						</tr>
-						<%} %>
+						<%
+							}
+						%>
 					</table>
-					<span class="board_paging"> <a href="#">&lt;</a> <%for(int i=0; i<10; i++){ %>
-						<a href="#"><%=i+1 %></a> <% }%> <a href="#">&gt;</a>
+					<span class="board_paging"> <a href="#">&lt;</a> <%
+ 	for (int i = 0; i < 10; i++) {
+ %> <a href="#"><%=i + 1%></a> <%
+ 	}
+ %> <a href="#">&gt;</a>
 					</span>
 				</div>
 
