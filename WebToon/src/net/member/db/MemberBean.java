@@ -2,9 +2,6 @@ package net.member.db;
 
 import java.sql.Timestamp;
 
-
-
-
 public class MemberBean {
 
 	private String id;
