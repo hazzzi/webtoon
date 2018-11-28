@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.member.action.MemberJoinAction;
 import net.member.action.MemberLoginAction;
+import net.member.action.MemberLogoutAction;
+import net.member.action.MemberUpdateAction1;
 
 public class MemberFrontController extends HttpServlet{
 
@@ -53,9 +55,56 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 				
 			}
+		}else if(command.equals("/MemberLogoutAction.me")){
+			action = new MemberLogoutAction();
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				
+			}
+		}else if(command.equals("/withdrawMember.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/withdrawMember.jsp");
 
+		}else if(command.equals("/myProfile.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/myProfile.jsp");
+
+		}else if(command.equals("/updateForm.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/updateForm.jsp");
+
+		}else if(command.equals("/MemberUpdateAction1.me")){
+			action =new MemberUpdateAction1();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/modPass.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/modPass.jsp");
+
+		}else if(command.equals("/myArticle.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/myArticle.jsp");
+
+		}else if(command.equals("/withdrawMember.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/withdrawMember.jsp");
 
 		}
+		
 		
 		
 		//이동 시작

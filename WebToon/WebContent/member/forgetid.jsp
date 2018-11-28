@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -23,6 +23,7 @@
 <div class="ex">등록된 이메일을 입력하세요</div>
 
 <div class="email"><input type="email" name="email" placeholder="이메일" required></div>
+<div class="email"><input type="text" name="nik" placeholder="닉네임" required></div>
 <div class="getid">
 <input type="submit" value="아이디 찾기">
 </div>
