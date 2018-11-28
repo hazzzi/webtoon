@@ -50,7 +50,7 @@ public class BoardWriteAction implements Action {
 		bdao.insertBoard(bd);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./bd_main.bo");
+		forward.setPath("./BoardList.bo");
 		forward.setRedirect(true);
 		
 		return forward;

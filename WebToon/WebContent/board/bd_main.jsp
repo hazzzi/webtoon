@@ -1,3 +1,5 @@
+<%@page import="net.board.db.BoardBean"%>
+<%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -15,6 +17,21 @@
 <script src="./main/js/jquery-3.3.1.js"></script>
 </head>
 <body>
+	<%
+	int count = ((Integer)request.getAttribute("count")).intValue();
+	String pageNum = (String)request.getAttribute("pageNum");
+	
+	if(pageNum==null){
+		pageNum ="1";
+	}
+
+	int pageCount = ((Integer)request.getAttribute("pageCount")).intValue();
+	int pageBlock = ((Integer)request.getAttribute("pageBlock")).intValue();
+	int startPage = ((Integer)request.getAttribute("startPage")).intValue();
+	int endPage = ((Integer)request.getAttribute("endPage")).intValue();
+	
+	List<BoardBean> boardList = (List<BoardBean>)request.getAttribute("boardList");
+%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -50,16 +67,6 @@
 				<!--  게시글 영역 테두리 -->
 				<div class="bd_content">
 					<table border="1" class="board_table">
-						<%-- <%
-							if (count == 0) {
-						%>
-						<tr>
-							<td colspan="5">게시판 글 없음</td>
-						</tr>
-						<%
-							} else {
-								SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-						%> --%>
 						<tr>
 							<th class="table_sh">글 번호</th>
 							<th>[말머리]</th>
@@ -69,67 +76,60 @@
 							<th class="table_mid">작성자</th>
 							<th class="table_sh">조회 수</th>
 							<th>작성 날짜</th>
-
 						</tr>
 						<%
-							for (int i = 0; i < 5; i++) {
+							if(count ==0) {
 						%>
 						<tr>
-							<td>1</td>
-							<td>[자유게시판]</td>
-							<td class="table_img"><img src="./images/bd_img.png"
-								width="30px" height="30px"></td>
-							<td><a href="bd_detailPage.jsp">안녕하세요</a></td>
-							<td>5</td>
-							<td>달자</td>
-							<td>50</td>
-							<td>2018.11.02</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>[자유게시판]</td>
-							<td class="table_img"><img src="./images/bd_none_img.png"
-								width="30px" height="30px"></td>
-							<td><a href="bd_detailPage.jsp">출석체크 합니다~</a></td>
-							<td>19</td>
-							<td>달자달자</td>
-							<td>2</td>
-							<td>2018.11.02</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>[자유게시판]</td>
-							<td class="table_img"><img src="./images/bd_none_img.png"
-								width="30px" height="30px"></td>
-							<td><a href="bd_detailPage.jsp">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
-							<td>134</td>
-							<td>제리</td>
-							<td>9999</td>
-							<td>2018.11.02</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>[자유게시판]</td>
-							<td class="table_img"><img src="./images/bd_none_img.png"
-								width="30px" height="30px"></td>
-							<td><a href="bd_detailPage.jsp">출첵 ㅇㅇ</a></td>
-							<td>10</td>
-							<td>토미</td>
-							<td>78</td>
-							<td>2018.11.02</td>
+							<td>게시판 글 없음</td>
 						</tr>
 						<%
-							}
-
-// 							}
+							}else {
+								for(BoardBean bb:boardList){
+						%>
+						<tr
+							onclick="location.href='./BoardContent.bo?num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
+							<td><%=bb.getFb_num() %></td>
+							<td>[<%=bb.getFb_category() %>]
+							</td>
+							<td class="table_img">
+								<img src="./images/bd_img.png" width="30px" height="30px">
+							</td>
+							<td><a href="./BoardContent.bo?num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject() %></a></td>
+							<td>5</td>
+							<td><%=bb.getFb_mem_nik() %></td>
+							<td><%=bb.getFb_readcount() %></td>
+							<td><%=bb.getFb_date() %></td>
+						</tr>
+						<%
+								}
+ 							}
+						
 						%>
 					</table>
-					<span class="board_paging"> <a href="#">&lt;</a> <%
- 	for (int i = 0; i < 10; i++) {
- %> <a href="#"><%=i + 1%></a> <%
- 	}
- %> <a href="#">&gt;</a>
-					</span>
+					<div class="board_paging">
+						<%
+					if(endPage>pageCount){
+						endPage = pageCount;
+					}
+					
+					if(startPage>pageBlock){
+						%><a href="./BoardList.bo?pageNum=<%=startPage-pageBlock%>">&lt;</a>
+						<%
+					}
+					
+					for(int i=startPage; i<=endPage; i++){
+						%><a href="./BoardList.bo?pageNum=<%=i%>">[<%=i %>]
+						</a>
+						<%
+					}
+					
+					if(endPage<pageCount){
+						%><a href="./BoardList.bo?pageNum=<%=startPage+pageBlock%>">&gt;</a>
+						<%
+					}
+					%>
+					</div>
 				</div>
 
 				<!-- 검색창 영역 시작 -->

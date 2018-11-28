@@ -39,23 +39,23 @@ public class BoardDAO {
 
 			// 첫 행에 데이터가 있으면 가장 큰 번호에 +1
 			if (rs.next()) {
-				bd.setFb_num(rs.getInt("max(fb_num)")+1);
+				bd.setFb_num(rs.getInt("max(fb_num)") + 1);
 			}
 
 			// 충돌방지
 			pstmt.close();
 			rs.close();
-			
+
 			// member에서 mem_nik 가져오기
 			sql = "select mem_nik from member where mem_num=?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bd.getFb_mem_num());
-			
+
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()){
-				bd.setFb_mem_nik(rs.getString("mem_nik")); 
+
+			if (rs.next()) {
+				bd.setFb_mem_nik(rs.getString("mem_nik"));
 			}
 
 			sql = "insert into free_board(fb_num, fb_mem_num, fb_mem_nik, fb_category, fb_subject, fb_content, fb_img, fb_sumlike, fb_readcount, fb_date)"
@@ -117,32 +117,129 @@ public class BoardDAO {
 		}
 	}
 
-	public List getBoardList() {
+	// 게시판 글 개수 구하기
+	public int getBoardCount() {
 
-		List<BoardBean> boardList = new ArrayList<>();
-
+		int count = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		try {
 			con = getConnection();
-			String sql = "select * from free_board";
+
+			String sql = "select count(*) from free_board";
 			pstmt = con.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+
+		return count;
+
+	}
+
+	public int getBoardCount(String search) {
+		int count = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			con = getConnection();
+
+			String sql = "select count(*) from free_board where fb_subject like ?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, "%" + search + "%");
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+
+		return count;
+
+	}
+
+	// 글 목록 가져오기
+	public List<BoardBean> getBoardList(int startRow, int pageSize) {
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<BoardBean> boardList = new ArrayList<BoardBean>();
+
+		try {
+
+			con = getConnection();
+
+			String sql = "select * from free_board order by fb_num asc" + " limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow - 1);
+			pstmt.setInt(2, pageSize);
+
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				BoardBean bb = new BoardBean();
-				bb.setFb_num(rs.getInt(1));
-				bb.setFb_mem_num(rs.getInt(2));
+
+				bb.setFb_num(rs.getInt("fb_num"));
+				bb.setFb_mem_num(rs.getInt("fb_mem_num"));
 				bb.setFb_mem_nik(rs.getString("fb_mem_nik"));
 				bb.setFb_category(rs.getString("fb_category"));
 				bb.setFb_subject(rs.getString("fb_subject"));
 				bb.setFb_content(rs.getString("fb_content"));
-				bb.setFb_sumlike(rs.getInt(8));
-				bb.setFb_readcount(rs.getInt(9));
-				bb.setFb_date(rs.getDate(10));
+				bb.setFb_sumlike(rs.getInt("fb_sumlike"));
+				bb.setFb_readcount(rs.getInt("fb_readcount"));
+				bb.setFb_date(rs.getDate("fb_date"));
+					boardList.add(bb);
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
