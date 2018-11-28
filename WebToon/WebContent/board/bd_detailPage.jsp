@@ -94,8 +94,8 @@ function modifyCommentToggle(articleNo) {
 <div class="view-menu" style="margin-bottom: 47px;">
     <div class="fl">
     <br>
-        <input type="button" class="bt" value="수정" />
-        <input type="button" class="bt" value="삭제" />
+        <input type="button" class="bt" value="수정"  />
+        <input type="button" class="bt" value="삭제" onclick="location.href='./BoardDeleteAction.bo'" />
     </div>
     <div class="fr">
     <br>
@@ -111,7 +111,7 @@ function modifyCommentToggle(articleNo) {
 			<div class="clear"></div>
 				<form id="addCommentForm" style="margin: 10px 0;" action="addComment.jsp" method="post" >
     				<div id="addComment">
-<!--        				 <textarea id="addComment-ta" name="memo" rows="5" cols="50" ></textarea> -->
+
        				 <textarea id="dtl_tex" rows="7" cols="202"></textarea>
    					 </div>
    			
