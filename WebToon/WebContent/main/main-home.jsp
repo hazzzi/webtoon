@@ -84,7 +84,7 @@
 					<nav id="main-banner-nav">
 						<ul>
 							<!-- 추천 서비스로 이동 -->
-							<li><a href="../recommend/recommend.jsp">추천</a></li>
+							<li><a href="./main_recommend.rec">추천</a></li>
 							<!-- 자유 게시판으로 이동 -->
 							<li><a href="./bd_main.bo">게시판</a></li>
 						</ul>

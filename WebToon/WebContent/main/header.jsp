@@ -17,14 +17,14 @@
 						<!-- 검색 영역 form tag 통해서 값이 넘어감 -->
 						<form action="./search.wbt" method="get" style="display: unset;" class="example">
 							<div id="header-srch">
-								<input type="text" name="query" placeholder="웹툰 검색">
+								<input type="text" name="query" placeholder="웹툰 검색" id="srch-q">
 								<button type="submit"><i class="fa fa-search"></i></button>
 							</div>
 						</form>
 					</li>
 					<!-- 추천 서비스로 이동 -->
 					<li class="tmp">
-						<a href="../recommend/recommend.jsp">추천</a>
+						<a href="./main_recommend.rec">추천</a>
 					</li>
 					<!-- 자유게시판으로 이동 -->
 					<li class="tmp">
