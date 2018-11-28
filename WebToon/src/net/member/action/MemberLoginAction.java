@@ -22,15 +22,16 @@ public class MemberLoginAction implements Action{
 		
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
+		
 		MemberDAO mdao = new MemberDAO();
 		//DB mem_id를 체크해서 실행되면 성공하면 넘기고 아니면 로그인 폼으로 
 		//성공 1 실패 0
 		int num = mdao.loginMember(id,pass);
 		System.out.println("로그인 여부 num: "+num);
 		
-		if(num==1){//로그인 성공
+		if(num != 0){//로그인 성공
 			HttpSession session = request.getSession();
-			session.setAttribute("mem_id", id);
+			session.setAttribute("mem_num", num);
 			forward.setRedirect(true);
 			forward.setPath("./home.today");
 		}else if(num==0){
