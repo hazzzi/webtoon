@@ -33,8 +33,8 @@ public class BoardWriteAction implements Action {
 		
 		HttpSession session = request.getSession();
 		int mem_num = (int)session.getAttribute("mem_num");
-			
-		String fb_mem_nik = "스파";
+		
+		String fb_mem_nik = "스파"; //추후에 닉도 가지고 오는 것으로 수정할 예정! 스파는 임시입니당
 		String fb_category = multi.getParameter("fb_category");
 		String fb_subject = multi.getParameter("fb_subject");
 		String fb_content = multi.getParameter("fb_content");
