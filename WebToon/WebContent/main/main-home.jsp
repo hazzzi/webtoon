@@ -117,7 +117,7 @@
 						%>						
 						<div class="webtoon-img">
 							<!-- 웹툰 이미지 클릭시, 웹툰 num get방식으로 값 넘어감 -->
-							<a href="./detail.wbt?id=<%=wb.getWeb_num()%>"> 
+							<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
 							    <!-- 웹툰의 썸네일 링크, src="" -->
 								<img class="a1"
 									src="<%=wb.getWeb_thumb_link()%>">

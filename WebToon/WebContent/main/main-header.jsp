@@ -7,14 +7,14 @@
 			<div id="header-logo">
 			<h1>
 				<i class="fa fa-search" style="color:#fff"></i>
-				<a href="../main/main-home.jsp">오늘 뭐 볼까?</a>
+				<a href="./home.today">오늘 뭐 볼까?</a>
 			</h1>
 			</div>
 			<nav id="header-menu" style="width: 70%">
 				<ul>
 					<li>
 						<!-- 검색 영역 form tag 통해서 값이 넘어감 -->
-						<form action="../main/search.jsp" method="get" style="display: unset;" class="example">
+						<form action="./search.wbt" method="get" style="display: unset;" class="example">
 							<div id="header-srch">
 								<input type="text" name="query" placeholder="웹툰 검색">
 								<button type="submit"><i class="fa fa-search"></i></button>
@@ -35,7 +35,7 @@
 							<!-- dropdown 영역, 비로그인시 로그인영역만 보이게 -->
 							<div class="dropdown-content">
 							<!-- if(사용자의 세션값이 존재하면) -->
-						      <a href="../member/myProfile.jsp">회원정보</a>
+						      <a href="#">회원정보</a>
 						      <a href="#">내 평가</a>
 						      <a href="#">로그아웃</a>
 						     <!-- else(사용자의 세션값이 존재하지않으면, ) -->

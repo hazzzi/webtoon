@@ -9,6 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.webtoon.db.WebtoonBean;
+
 public class MemberDAO {
 
 	Connection con = null;
@@ -146,4 +148,31 @@ public class MemberDAO {
 		return num;
 	}
 	
+	public MemberBean getMemberImg(int mem_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberBean mb = new MemberBean();
+		try {
+			con = getConnection();
+			String sql = "select mem_profileimg from member where mem_num=?";
+			// 4 저장 <= 결과 실행
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				mb.setProgileimg(rs.getString("mem_profileimg"));
+			}								
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		return mb;
+	}
 }
