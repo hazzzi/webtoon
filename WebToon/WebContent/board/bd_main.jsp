@@ -21,7 +21,7 @@
 	int count = ((Integer)request.getAttribute("count")).intValue();
 	String pageNum = (String)request.getAttribute("pageNum");
 	
-	if(pageNum==null){
+	if(page==null){
 		pageNum ="1";
 	}
 
@@ -80,7 +80,6 @@
 						<%
 							if(count ==0) {
 						%>
-						<tr>
 							<td>게시판 글 없음</td>
 						</tr>
 						<%
@@ -88,14 +87,14 @@
 								for(BoardBean bb:boardList){
 						%>
 						<tr
-							onclick="location.href='./BoardContent.bo?num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
+							onclick="location.href='./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
 							<td><%=bb.getFb_num() %></td>
 							<td>[<%=bb.getFb_category() %>]
 							</td>
 							<td class="table_img">
 								<img src="./images/bd_img.png" width="30px" height="30px">
 							</td>
-							<td><a href="./BoardContent.bo?num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject() %></a></td>
+							<td><a href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject() %></a></td>
 							<td>5</td>
 							<td><%=bb.getFb_mem_nik() %></td>
 							<td><%=bb.getFb_readcount() %></td>

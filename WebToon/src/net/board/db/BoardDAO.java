@@ -111,7 +111,7 @@ public class BoardDAO {
 
 			String sql = "update free_board set fb_subject=?,fb_content=? where mem_pass=?";
 			pstmt = con.prepareStatement(sql);
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

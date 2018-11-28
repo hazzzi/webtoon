@@ -1,3 +1,5 @@
+<%@page import="net.board.db.BoardBean"%>
+<%@page import="net.board.db.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,6 +41,13 @@ function modifyCommentToggle(articleNo) {
 </head>
 
 <body>
+<%
+int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+String pageNum = (String)request.getAttribute("pageNum");
+
+BoardDAO bdao = new BoardDAO();
+BoardBean bd = bdao.getBoard(fb_num);
+%>
 <!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -58,19 +67,19 @@ function modifyCommentToggle(articleNo) {
 <table class="main">
 <tr>
     <th style="text-align: left;vertical-align: center center; font-size: 30px; display:inline;">TITLE&nbsp;&nbsp;</th>
-    <th style="text-align: left;font-size: 30px;">제목입니다 제목입니다</th>
+    <th style="text-align: left;font-size: 30px;"><%=bd.getFb_subject() %></th>
 </tr>
 <hr>
 </table>
 		<div id="content">
 		<hr>
 		<div id="date-writer-hit">
-		<span>2018.11.19 | </span>
-		<span>김야옹 | </span>
-		<span>조회수가 들어갈 거햐 | </span>
+		<span><%=bd.getFb_date() %> | </span>
+		<span><%=bd.getFb_mem_nik() %> | </span>
+		<span><%=bd.getFb_readcount() %> | </span>
 		</div>  
 		<div id="article-content">
-		내용입니다 내용입니다 내용입니다
+		<%=bd.getFb_content() %>
 		</div>
 </div>
 <!-- LikeBtn.com BEGIN -->
@@ -94,8 +103,8 @@ function modifyCommentToggle(articleNo) {
 <div class="view-menu" style="margin-bottom: 47px;">
     <div class="fl">
     <br>
-        <input type="button" class="bt" value="수정"  />
-        <input type="button" class="bt" value="삭제" onclick="location.href='./BoardDeleteAction.bo'" />
+        <input type="button" class="bt" value="수정" onclick="location.href='./BoardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        <input type="button" class="bt" value="삭제" onclick="location.href='./BoardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
     </div>
     <div class="fr">
     <br>

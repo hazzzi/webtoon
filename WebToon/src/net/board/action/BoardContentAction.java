@@ -26,7 +26,7 @@ public class BoardContentAction implements Action{
 		BoardBean bd = bdao.getBoard(fb_num);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./board/db_detailPage.jsp");
+		forward.setPath("./board/bd_detailPage.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
