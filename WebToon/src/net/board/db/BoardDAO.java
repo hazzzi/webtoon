@@ -237,7 +237,7 @@ public class BoardDAO {
 				bb.setFb_sumlike(rs.getInt("fb_sumlike"));
 				bb.setFb_readcount(rs.getInt("fb_readcount"));
 				bb.setFb_date(rs.getDate("fb_date"));
-					boardList.add(bb);
+				boardList.add(bb);
 			}
 
 		} catch (Exception e) {
