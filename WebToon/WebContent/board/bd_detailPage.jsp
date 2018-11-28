@@ -66,7 +66,7 @@ BoardBean bd = bdao.getBoard(fb_num);
 <div class="detail_content">
 <table class="main">
 <tr>
-    <th style="text-align: left;vertical-align: center center; font-size: 30px; display:inline;">TITLE&nbsp;&nbsp;</th>
+    <th style="text-align: left;vertical-align: center center; font-size: 30px; display:inline;">&nbsp;&nbsp;</th>
     <th style="text-align: left;font-size: 30px;"><%=bd.getFb_subject() %></th>
 </tr>
 <hr>
