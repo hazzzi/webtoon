@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.board.action.BoardWriteAction;
+
 public class BoardFrontController extends HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -29,6 +31,14 @@ public class BoardFrontController extends HttpServlet{
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./board/bd_writingPage.jsp");
+		}else if(command.equals("/BoardWriteAction.bo")){
+			action = new BoardWriteAction();
+			
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
