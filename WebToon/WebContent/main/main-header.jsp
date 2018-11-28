@@ -16,7 +16,7 @@
 						<!-- 검색 영역 form tag 통해서 값이 넘어감 -->
 						<form action="./search.wbt" method="get" style="display: unset;" class="example">
 							<div id="header-srch">
-								<input type="text" name="query" placeholder="웹툰 검색">
+								<input type="text" name="query" placeholder="웹툰 검색" id="srch-q">
 								<button type="submit"><i class="fa fa-search"></i></button>
 							</div>
 						</form>
@@ -39,7 +39,7 @@
 						      <a href="#">내 평가</a>
 						      <a href="#">로그아웃</a>
 						     <!-- else(사용자의 세션값이 존재하지않으면, ) -->
-						     <!-- <a href="#">로그인</a> -->
+						     <!-- <a href="#">로그인/회원가입</a> -->
 						    </div>
 						</div>
 					</li>
