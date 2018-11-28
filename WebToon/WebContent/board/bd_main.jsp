@@ -84,7 +84,7 @@
 							<td>게시판 글 없음</td>
 						</tr>
 						<%
-							}else {
+							} else {
 								for(BoardBean bb:boardList){
 						%>
 						<tr
@@ -103,7 +103,8 @@
 						</tr>
 						<%
 								}
- 							}
+							}
+						
 						
 						%>
 					</table>
@@ -135,7 +136,8 @@
 				<!-- 검색창 영역 시작 -->
 				<jsp:include page="search_engine.jsp"></jsp:include>
 
-				<jsp:include page="write.jsp"></jsp:include>
+				<input type="button" value="글 쓰기" class="write"
+					onclick="location.href='./bd_writingPage.bo'">
 
 
 			</div>

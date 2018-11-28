@@ -34,6 +34,14 @@ public class BoardWriteAction implements Action {
 		HttpSession session = request.getSession();
 		int mem_num = (int)session.getAttribute("mem_num");
 		
+		//추후 수정 예정
+		if (mem_num == 0) {
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./login.me");
+			return forward;
+		} else {
+		
 		String fb_category = multi.getParameter("fb_category");
 		String fb_subject = multi.getParameter("fb_subject");
 		String fb_content = multi.getParameter("fb_content");
@@ -54,6 +62,7 @@ public class BoardWriteAction implements Action {
 		forward.setRedirect(true);
 		
 		return forward;
+	}
 	}
 
 }

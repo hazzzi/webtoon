@@ -94,8 +94,8 @@ function modifyCommentToggle(articleNo) {
 <div class="view-menu" style="margin-bottom: 47px;">
     <div class="fl">
     <br>
-        <input type="button" class="bt" value="수정" />
-        <input type="button" class="bt" value="삭제" />
+        <input type="button" class="bt" value="수정"  />
+        <input type="button" class="bt" value="삭제" onclick="location.href='./BoardDeleteAction.bo'" />
     </div>
     <div class="fr">
     <br>
