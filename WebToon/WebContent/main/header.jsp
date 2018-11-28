@@ -17,7 +17,7 @@
 						<!-- 검색 영역 form tag 통해서 값이 넘어감 -->
 						<form action="./search.wbt" method="get" style="display: unset;" class="example">
 							<div id="header-srch">
-								<input type="text" name="query" placeholder="웹툰 검색">
+								<input type="text" name="query" placeholder="웹툰 검색" id="srch-q">
 								<button type="submit"><i class="fa fa-search"></i></button>
 							</div>
 						</form>
