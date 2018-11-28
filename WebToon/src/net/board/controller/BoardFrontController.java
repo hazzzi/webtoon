@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.board.action.BoardContentAction;
 import net.board.action.BoardList;
 import net.board.action.BoardWriteAction;
 
@@ -34,7 +35,12 @@ public class BoardFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/BoardContent.bo")) {
-			
+			action = new BoardContentAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 			
 		} else if (command.equals("/BoardWriteAction.bo")) {

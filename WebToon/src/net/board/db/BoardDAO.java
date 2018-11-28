@@ -273,11 +273,104 @@ public class BoardDAO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
 		}
 		
 		return;
 	}
 	
+	public void updateReadCount(int fb_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			con = getConnection();
+			String sql = "update free_board set fb_readcount=fb_readcount+1 where fb_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb_num);
+			pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return;
+	}
+	public BoardBean getBoard(int bd1){
+		BoardBean bd = new BoardBean();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = getConnection();
+			String sql = "select * from free_board where fb_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bd1);
+			
+			if(rs.next()){
+				bd.setFb_mem_num(rs.getInt("fb_mem_num"));
+				bd.setFb_mem_nik(rs.getString("fb_mem_nik"));
+				bd.setFb_category(rs.getString("fb_category"));
+				bd.setFb_subject(rs.getString("fb_subject"));
+				bd.setFb_content(rs.getString("fb_content"));
+				bd.setFb_img(rs.getString("fb_img"));
+				bd.setFb_sumlike(rs.getShort("fb_sumlike"));
+				bd.setFb_readcount(rs.getShort("fb_readcount"));
+				bd.setFb_date(rs.getDate("fb_date"));
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return bd;
+	}
 	
 
 }

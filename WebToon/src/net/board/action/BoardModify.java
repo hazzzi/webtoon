@@ -23,9 +23,9 @@ public class BoardModify implements Action{
 		System.out.println(mem_num);
 		
 		BoardDAO bdao = new BoardDAO();
-		BoardBean boardbean = bdao.getBoard(mem_num);
+//		BoardBean boardbean = bdao.getBoard(mem_num);
 		
-		request.setAttribute("boardbean", boardbean);
+//		request.setAttribute("boardbean", boardbean);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/bd_modifyPage.jsp");
