@@ -111,7 +111,7 @@ function modifyCommentToggle(articleNo) {
 			<div class="clear"></div>
 				<form id="addCommentForm" style="margin: 10px 0;" action="addComment.jsp" method="post" >
     				<div id="addComment">
-<!--        				 <textarea id="addComment-ta" name="memo" rows="5" cols="50" ></textarea> -->
+
        				 <textarea id="dtl_tex" rows="7" cols="202"></textarea>
    					 </div>
    			

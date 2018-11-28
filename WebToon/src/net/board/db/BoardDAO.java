@@ -218,7 +218,7 @@ public class BoardDAO {
 
 			con = getConnection();
 
-			String sql = "select * from free_board order by fb_num asc" + " limit ?,?";
+			String sql = "select * from free_board order by fb_num desc" + " limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow - 1);
 			pstmt.setInt(2, pageSize);
