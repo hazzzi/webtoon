@@ -34,6 +34,12 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+
+		} else if (command.equals("/bd_writingPage.bo")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/bd_writingPage.jsp");
+
 		} else if (command.equals("/BoardContent.bo")) {
 			action = new BoardContentAction();
 			try {
@@ -41,7 +47,6 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			
 		} else if (command.equals("/BoardWriteAction.bo")) {
 			action = new BoardWriteAction();
