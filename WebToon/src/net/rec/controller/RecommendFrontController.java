@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.rec.action.InsertRecommendAction;
 import net.rec.action.MainRecommendAction;
+import net.rec.action.ShowRecommendAction;
 
 public class RecommendFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +36,14 @@ public class RecommendFrontController extends HttpServlet {
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {	e.printStackTrace();	}
+		// 웹툰 추천 페이지
+		}else if(command.equals("/recommend_show.rec")){
+			action = new ShowRecommendAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {	e.printStackTrace();	}
 		}
+		
 
 		
 		
