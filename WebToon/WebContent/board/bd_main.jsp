@@ -22,7 +22,7 @@
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
-		if (pageNum == null) {
+		if (page == null) {
 			pageNum = "1";
 		}
 
@@ -81,8 +81,7 @@
 						<%
 							if (count == 0) {
 						%>
-						<tr>
-							<td>게시판 글 없음</td>
+						<td>게시판 글 없음</td>
 						</tr>
 						<%
 							} else {
@@ -99,19 +98,15 @@
 								href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
 								<%
 									SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-									
-									String inputDate = sf.format(bb.getFb_date());
-									
-									String now = sf.format(new Date());
-									
-									if(inputDate.equals(now)){
-									
-								%>	
-								<img src="./images/63_0000.gif" alt="new">	
-									
-								<%	
-									}
-								%></td>
+
+											String inputDate = sf.format(bb.getFb_date());
+
+											String now = sf.format(new Date());
+
+											if (inputDate.equals(now)) {
+								%> <img src="./images/63_0000.gif" alt="new"> <%
+ 	}
+ %></td>
 							<td>5</td>
 							<td><%=bb.getFb_mem_nik()%></td>
 							<td><%=bb.getFb_readcount()%></td>

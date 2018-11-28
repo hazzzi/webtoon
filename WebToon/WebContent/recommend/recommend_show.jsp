@@ -1,3 +1,6 @@
+<%@page import="net.webtoon.db.WebtoonBean"%>
+<%@page import="org.apache.mahout.cf.taste.recommender.RecommendedItem"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,15 +10,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>추천받기</title>
-<link href="../main/css/header.css" rel="stylesheet">
-<link href="../main/css/test.css" rel="stylesheet">
-<link href="../main/css/wbt-review.css" rel="stylesheet">
+<link href="./main/css/header.css" rel="stylesheet">
+<link href="./main/css/test.css" rel="stylesheet">
+<link href="./main/css/wbt-review.css" rel="stylesheet">
 <link rel="stylesheet"
  	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../main/css/footer-main.css">  
+<link rel="stylesheet" href="./main/css/footer-main.css">  
  	
 <!--recommend폴더안 -->
-<link href="css/recommend_show.css" rel="stylesheet">
+<link href="./recommend/css/recommend_show.css" rel="stylesheet">
 <link rel="stylesheet" href="css/fontawesome-stars.css">
 <script src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery.barrating.min.js"></script>
@@ -49,26 +52,26 @@
 		});
 	</script>
 <%
-	
+	List<WebtoonBean> rec_list = (List<WebtoonBean>)request.getAttribute("rec_list"); //추천 리스트
 %>
 	<div class="rec_show_top_background">
 		<a href="javascript:history.back()"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
 	</div>
 
 	<article class="rec_show_main">
-	<%for(int a=0; a<=4; a++){%>
+	<%for(WebtoonBean wb : rec_list){%>
 		<div class="rec_show_wrap_div">
 			<div class="rec_show_img_div">
-				<a href="../main/search-result.jsp"><img
-					src="https://shared-comic.pstatic.net/thumb/webtoon/641253/thumbnail/title_thumbnail_20141120112141_t83x90.jpg"></a>
+				<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"><img
+					src="<%=wb.getWeb_thumb_link()%>"></a>
 			</div>
 			<div class="rec_show_webtoon_div">
-				<a href="../main/search-result.jsp">외모지상주의 웹툰제목길이 체크</a>
-				<p>박태준</p> 
-				<p>스토리 · 네이버</p>
+				<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"><%=wb.getWeb_subject() %></a>
+				<p><%=wb.getWeb_author() %></p> 
+				<p><%=wb.getWeb_genre() %> · <%=wb.getWeb_portal() %></p>
 			</div>
 			<div class="rec_show_btn_div">
-				<button class="rec_show_webtoon_btn">웹툰보기</button>
+				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰보기</button></a>
 			</div>
 		</div>
 		<%} %>

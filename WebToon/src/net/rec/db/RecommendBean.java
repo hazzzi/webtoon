@@ -4,6 +4,7 @@ public class RecommendBean {
 	private int rec_mem_num;  
 	private int rec_web_num;
 	private int rec_web_grade;
+	
 	public int getRec_mem_num() {
 		return rec_mem_num;
 	}
