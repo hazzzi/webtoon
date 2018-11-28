@@ -48,7 +48,9 @@
 			
 		});
 	</script>
-
+<%
+	
+%>
 	<div class="rec_show_top_background">
 		<a href="javascript:history.back()"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
 	</div>

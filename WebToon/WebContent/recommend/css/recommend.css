@@ -30,27 +30,24 @@ body {
 }
 
 .rec_top_background {
-	position: inherit;
-	height: 65px;
-	width: 100%;
-	background-color: #d5cde4;
-	color: black;
+	position: sticky;
+    height: auto;
+    width: 100%;
+    background-color: #d5cde4;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 3px;
+    top: 100px;
+    z-index: 2
 }
-
-.rec_top_background>p:NTH-OF-TYPE(1) {
-	text-align: center;
-	font-size: 35px;
-	padding-top: 10px;
-}
-
 #rec_star_menu {
 	width: 100%;
-	text-align: center;
-	background-color: #d5cde4;
-
-	position: sticky;
-	top: 100px;
-	z-index: 2;
+    text-align: center;
+    background-color: #d5cde4;
+    position: sticky;
+    top: 165px;
+    z-index: 3;
 }
 
 #rec_star_menu>a {
