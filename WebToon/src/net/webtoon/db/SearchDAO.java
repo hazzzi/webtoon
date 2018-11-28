@@ -34,12 +34,14 @@ public class SearchDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		query = "%"+query+"%";
 		try {
 			con = getConnection();
+			query.replaceAll("\\p{Z}", "");
+			query = "%"+query.replaceAll("\\p{Z}", "")+"%";
+			System.out.println(query);
 			// 게시판 글 번호 구하기
 			// num 구하기, 게시판 글 중에 가장 큰 번호
-			String sql = "select * from webtoon where web_subject like ?";
+			String sql = "select * from webtoon where replace(web_subject,' ','') like ?";
 			// 4 저장 <= 결과 실행
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, query);
@@ -64,7 +66,7 @@ public class SearchDAO {
 			pstmt.close();
 			rs.close();
 			
-			sql ="select * from webtoon where web_author like ?";
+			sql ="select * from webtoon where replace(web_author,' ','') like ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, query);
 
@@ -88,7 +90,7 @@ public class SearchDAO {
 			pstmt.close();
 			rs.close();
 			
-			sql ="select * from webtoon where web_portal like ?";
+			sql ="select * from webtoon where replace(web_portal,' ','') like ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, query);
 			
