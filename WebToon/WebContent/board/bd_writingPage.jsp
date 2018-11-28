@@ -18,7 +18,8 @@
 </head>
 <body>
 	<%
-		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
+	int mem_num = (int)session.getAttribute("mem_num");
+	System.out.print(mem_num);
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
@@ -34,22 +35,22 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./BoardWriteAction.bo" method="post">
+		<form action="./BoardWriteAction.bo" method="post" enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex"
 					name="fb_subject"> <select class="bd_sel"
 					name="fb_category">
-					<option>자유게시판</option>
-					<option>중고장터</option>
-					<option>자유갤러리</option>
-					<option>홍보게시판</option>
+					<option value="자유게시판">자유게시판</option>
+					<option value="중고장터">중고장터</option>
+					<option value="자유갤러리">자유갤러리</option>
+					<option value="홍보게시판">홍보게시판</option>
 				</select>
 				<div id="bw_img">
 
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
 						style="font-size: 48px; color: gray; margin-left: -30px;"><input
-						type="file" id="bw_pho_file" class="bw_pho_icon"></i>
+						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img"></i>
 
 					<button type="submit" class="bw_pho_icon2">
 						<i class="fa fa-check" id="bw_pho_icon2"

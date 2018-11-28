@@ -31,7 +31,7 @@ public class MemberLoginAction implements Action{
 		
 		if(num != 0){//로그인 성공
 			HttpSession session = request.getSession();
-			session.setAttribute("mem_num", num);
+			session.setAttribute("mem_num", num);			
 			forward.setRedirect(true);
 			forward.setPath("./home.today");
 		}else if(num==0){
