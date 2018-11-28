@@ -58,6 +58,7 @@ div#sr-content-img p,div#sr-content-img img{
 div#sr-content-img>img{
     border: 4px solid #fff;
     width: 230px;
+    height: 186px;
     top: 85px;
     left: 50px;
 }
