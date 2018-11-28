@@ -506,8 +506,9 @@ td>a:HOVER {
 /*본문내용*/
 #article-content {
 	font-size: 25px;
-	color: #333;
-	min-height: 300px;
+    color: #333;
+    min-height: 300px;
+    margin-left: 20px;
 }
 
 #date-writer-hit {
