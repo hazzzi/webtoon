@@ -71,7 +71,7 @@
 	<div class="rec_top_background">
 		평가한 웹툰 수 : <span><%=num%></span>
 		<div id="rec_star_menu">
-			<a href="recommend_show.jsp">★추천 받기★</a>
+			<a href="./recommend_show.rec">★추천 받기★</a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div>
 	</div>
