@@ -92,8 +92,19 @@
 							<td><%=bb.getFb_num()%></td>
 							<td>[<%=bb.getFb_category()%>]
 							</td>
-							<td class="table_img"><img src="./images/bd_img.png"
-								width="30px" height="30px"></td>
+							<td class="table_img">
+								<%
+									System.out.print(bb.getFb_img());
+									if(bb.getFb_img() != null) {
+								%> <img src="./images/bd_img.png" width="30px" height="30px">
+								
+								<%
+									} else {
+								%> <img src="./images/bd_none_img.png" width="30px" height="30px">
+								<%
+									}
+								%>
+							</td>
 							<td><a
 								href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
 								<%
