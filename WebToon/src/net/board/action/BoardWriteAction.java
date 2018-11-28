@@ -38,8 +38,8 @@ public class BoardWriteAction implements Action {
 		String fb_category = multi.getParameter("fb_category");
 		String fb_subject = multi.getParameter("fb_subject");
 		String fb_content = multi.getParameter("fb_content");
-		String fb_img = multi.getParameter("fb_img");
-		
+		String fb_img = multi.getFilesystemName("fb_img");
+				
 		bd.setFb_mem_num(mem_num);
 		bd.setFb_mem_nik(fb_mem_nik);
 		bd.setFb_category(fb_category);
