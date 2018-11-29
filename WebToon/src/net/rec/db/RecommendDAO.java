@@ -11,13 +11,22 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.apache.mahout.cf.taste.impl.common.LongPrimitiveIterator;
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
+import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
 import org.apache.mahout.cf.taste.impl.similarity.EuclideanDistanceSimilarity;
+import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.model.JDBCDataModel;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
+import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
@@ -87,15 +96,16 @@ public class RecommendDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 		}
 	}
-	public int getRecommend(){
+	public int getRecommend(int mem_num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int sum = 0;
 		try {
 			con = getConnection();
-			String sql = "select count(*) from recommend";
+			String sql = "select count(*) from recommend where rec_mem_num=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
 			rs = pstmt.executeQuery();
 			rs.next();
 			sum = rs.getInt(1);
@@ -107,25 +117,33 @@ public class RecommendDAO {
 		}
 		return sum;
 	}
-	public List<RecommendedItem> ItemRecommend_list(){
-		DataModel model;
-		List<RecommendedItem> recommendations = null;
-		MysqlDataSource data = new MysqlDataSource();
-		try {
-			data.setServerName("192.168.2.9");
-			data.setUser("jspid");
-			data.setPassword("jsppass");
-			data.setDatabaseName("mydb");
-			model = new MySQLJDBCDataModel(data, "recommend", "rec_mem_num", "rec_web_num", "rec_web_grade", null);
-			ItemSimilarity similarity = new EuclideanDistanceSimilarity(model);
-			//ItemSimilarity similarity = new PearsonCorrelationSimilarity(model);
-			GenericItemBasedRecommender recommender = new GenericItemBasedRecommender(model, similarity);
-			recommendations = recommender.mostSimilarItems(8, 6);
-			for(RecommendedItem recommendation : recommendations){
-				System.out.println(recommendation);
-			}
-		} catch (Exception e) {	e.printStackTrace();	}
-		return recommendations;
+	
+	public List<RecommendedItem> UserRecommend_list(int session){
+		List<RecommendedItem> recommendations=null;
+	      
+	      try{
+	         MysqlDataSource dataSource = new MysqlDataSource();
+	         dataSource.setServerName("localhost");
+	         dataSource.setUser("jspid");
+	         dataSource.setPassword("jsppass");
+	         dataSource.setDatabaseName("mydb");
+
+			JDBCDataModel dataModel = new MySQLJDBCDataModel(dataSource, "recommend", "rec_mem_num", "rec_web_num",
+					"rec_web_grade", null);
+	         
+	         //UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);
+	         UserSimilarity similarity = new LogLikelihoodSimilarity(dataModel);
+	         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
+	         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
+	         recommendations = recommender.recommend(session, 6);
+	         for(RecommendedItem recommendation : recommendations){
+	            System.out.println(recommendation);
+	         }
+	         
+	      }catch (Exception e) {
+	         // TODO: handle exception
+	      }
+	      return recommendations;
 	}
 	public List<WebtoonBean> showRecommend_list(List<RecommendedItem> recommendations){
 		Connection con = null;

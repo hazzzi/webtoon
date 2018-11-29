@@ -54,8 +54,10 @@
 		%>
 
 		<div class="sach-background">
-			<h2>검색 결과</h2>
-			<h3><%=subject.size()+author.size()+portal.size() %>건이 검색되었습니다.</h3>
+			<h2>'<%=(String)request.getAttribute("qurey") %>' 검색 결과</h2>
+			<%if(subject.size()+author.size()+portal.size()!=0){ %>
+				<h3> <%=subject.size()+author.size()+portal.size() %>건이 검색되었습니다.</h3>
+			<%} %>
 		</div>
 		<div class="sach-main">
 		<!-- 넘어온 파라미터기준으로 디비에서 검색 select where절 이용해서 -->
@@ -77,11 +79,9 @@
 					</a>
 				</div>
 			<%}%>
-				<hr>
-			<%}else{%>
-				<h2>제목 검색 결과가 존재하지 않습니다.</h2>
+			<%}%>
 			<%
-			}if(author.size()!=0){%>
+			if(author.size()!=0){%>
 				<h2>작가</h2>
 				<%for(WebtoonBean wb:author){ %>
 				<div class="sach-rt">
@@ -96,10 +96,8 @@
 					</a>
 				</div>
 			<%}%>
-				<hr>
-			<%}else{%>
-				<h2>작가 검색 결과가 존재하지 않습니다.</h2>
-			<%}if(portal.size()!=0){%>
+			<%}%>
+			<%if(portal.size()!=0){%>
 				<h2>연재포털</h2>
 				<%for(WebtoonBean wb:portal){ %>
 				<div class="sach-rt">
@@ -114,12 +112,10 @@
 					</a>
 				</div>
 			<%} 
-			}else{%>
-				<hr>
-				<h2>연재 포털 검색 결과가 존재하지 않습니다.</h2>
-			<%}
+			}%>
+			<%
 			 if(portal.size()==0 && author.size()==0 && subject.size()==0){%>
-				 <h2>검색 결과가 존재하지 않습니다.</h2>
+				 <h2 style="text-align: center;line-height: 15;"><i class="fa fa-search"></i>검색 결과가 존재하지 않습니다.</h2>
 			<% }
 			%>
 			<!-- 반복문 끝 -->

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.main.db.MainDAO;
 import net.rec.controller.Action;
@@ -16,7 +17,8 @@ public class MainRecommendAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RecommendDAO rdao = new RecommendDAO();
-		int count_Recommend = rdao.getRecommend();
+		HttpSession session = request.getSession();
+		int count_Recommend = rdao.getRecommend((int)session.getAttribute("mem_num"));
 		request.setAttribute("count_Recommend", count_Recommend); // 평가한 웹툰 수 저장
 		
 		MainDAO mdao = new MainDAO();
