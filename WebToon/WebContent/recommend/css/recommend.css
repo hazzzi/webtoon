@@ -102,7 +102,7 @@ body {
 }
 
 .rec_webtoon_div>a {
-	width: 200px;
+	/* width: 200px; */
 	font-size: 30px;
 	color: #210042;
 	cursor: pointer;

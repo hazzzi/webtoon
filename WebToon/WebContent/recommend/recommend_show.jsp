@@ -1,3 +1,5 @@
+<%@page import="net.rec.db.RecommendBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="net.webtoon.db.WebtoonBean"%>
 <%@page import="org.apache.mahout.cf.taste.recommender.RecommendedItem"%>
 <%@page import="java.util.List"%>
@@ -55,7 +57,7 @@
 	List<WebtoonBean> rec_list = (List<WebtoonBean>)request.getAttribute("rec_list"); //추천 리스트
 %>
 	<div class="rec_show_top_background">
-		<a href="javascript:history.back()"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
+		<a href="./main_recommend.rec"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
 	</div>
 
 	<article class="rec_show_main">
@@ -74,7 +76,7 @@
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰보기</button></a>
 			</div>
 		</div>
-		<%} %>
+		<%}%>
 <!-- 		<div id="rec_show_next_div">
 			<button>더보기</button>
 		</div> -->
