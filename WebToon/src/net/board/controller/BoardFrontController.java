@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.board.action.BoardContentAction;
 import net.board.action.BoardList;
+import net.board.action.BoardModifyAction;
 import net.board.action.BoardWriteAction;
 
 public class BoardFrontController extends HttpServlet {
@@ -50,14 +51,22 @@ public class BoardFrontController extends HttpServlet {
 			
 		} else if (command.equals("/BoardWriteAction.bo")) {
 			action = new BoardWriteAction();
-
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("")) {
-
+		} else if (command.equals("/BoardModify.bo")) {
+				forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("./board/bd_modifyPage.jsp");
+		}else if(command.equals("/BoardModifyAction.bo")){
+			action = new BoardModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		// 이동 시작
@@ -73,6 +82,8 @@ public class BoardFrontController extends HttpServlet {
 		}
 		// 이동 끝
 	}
+
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

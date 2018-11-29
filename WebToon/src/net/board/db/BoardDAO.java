@@ -105,16 +105,40 @@ public class BoardDAO {
 	public void updateBoard(BoardBean bd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-
+		ResultSet rs = null;
+		
 		try {
 			con = getConnection();
-
-			String sql = "update free_board set fb_subject=?,fb_content=? where mem_pass=?";
+			String sql = "update free_board set fb_subject=?, fb_content=?, fb_img=?, fb_category=? where fb_num=?";
 			pstmt = con.prepareStatement(sql);
-			
+			pstmt.setString(1, bd.getFb_subject());
+			pstmt.setString(2, bd.getFb_content());
+			pstmt.setString(3, bd.getFb_img());
+			pstmt.setString(4, bd.getFb_category());
+			pstmt.setInt(5, bd.getFb_num());
+			pstmt.executeUpdate();			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			// 예외 발생여부와 상관없이 마지막에 반드시 실행됌(생략 가능)
+			// 객체생성 기억공간 없애줌
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
 		}
+		return;
 	}
 
 	// 게시판 글 개수 구하기
