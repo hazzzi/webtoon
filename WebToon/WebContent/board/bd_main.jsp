@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -18,20 +19,20 @@
 </head>
 <body>
 	<%
-	int count = ((Integer)request.getAttribute("count")).intValue();
-	String pageNum = (String)request.getAttribute("pageNum");
-	
-	if(pageNum==null){
-		pageNum ="1";
-	}
+		int count = ((Integer) request.getAttribute("count")).intValue();
+		String pageNum = (String) request.getAttribute("pageNum");
 
-	int pageCount = ((Integer)request.getAttribute("pageCount")).intValue();
-	int pageBlock = ((Integer)request.getAttribute("pageBlock")).intValue();
-	int startPage = ((Integer)request.getAttribute("startPage")).intValue();
-	int endPage = ((Integer)request.getAttribute("endPage")).intValue();
-	
-	List<BoardBean> boardList = (List<BoardBean>)request.getAttribute("boardList");
-%>
+		if (page == null) {
+			pageNum = "1";
+		}
+
+		int pageCount = ((Integer) request.getAttribute("pageCount")).intValue();
+		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
+		int startPage = ((Integer) request.getAttribute("startPage")).intValue();
+		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
+
+		List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
+	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -78,58 +79,77 @@
 							<th>작성 날짜</th>
 						</tr>
 						<%
-							if(count ==0) {
+							if (count == 0) {
 						%>
-						<tr>
-							<td>게시판 글 없음</td>
+						<td>게시판 글 없음</td>
 						</tr>
 						<%
 							} else {
-								for(BoardBean bb:boardList){
+								for (BoardBean bb : boardList) {
 						%>
 						<tr
 							onclick="location.href='./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
-							<td><%=bb.getFb_num() %></td>
-							<td>[<%=bb.getFb_category() %>]
+							<td><%=bb.getFb_num()%></td>
+							<td>[<%=bb.getFb_category()%>]
 							</td>
 							<td class="table_img">
-								<img src="./images/bd_img.png" width="30px" height="30px">
+								<%
+									System.out.print(bb.getFb_img());
+									if(bb.getFb_img() != null) {
+								%> <img src="./images/bd_img.png" width="30px" height="30px">
+								
+								<%
+									} else {
+								%> <img src="./images/bd_none_img.png" width="30px" height="30px">
+								<%
+									}
+								%>
 							</td>
-							<td><a href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject() %></a></td>
+							<td><a
+								href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
+								<%
+									SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+
+											String inputDate = sf.format(bb.getFb_date());
+
+											String now = sf.format(new Date());
+
+											if (inputDate.equals(now)) {
+								%> <img src="./images/63_0000.gif" alt="new"> <%
+ 	}
+ %></td>
 							<td>5</td>
-							<td><%=bb.getFb_mem_nik() %></td>
-							<td><%=bb.getFb_readcount() %></td>
-							<td><%=bb.getFb_date() %></td>
+							<td><%=bb.getFb_mem_nik()%></td>
+							<td><%=bb.getFb_readcount()%></td>
+							<td><%=bb.getFb_date()%></td>
 						</tr>
 						<%
-								}
 							}
-						
-						
+							}
 						%>
 					</table>
 					<div class="board_paging">
 						<%
-					if(endPage>pageCount){
-						endPage = pageCount;
-					}
-					
-					if(startPage>pageBlock){
-						%><a href="./BoardList.bo?pageNum=<%=startPage-pageBlock%>">&lt;</a>
+							if (endPage > pageCount) {
+								endPage = pageCount;
+							}
+
+							if (startPage > pageBlock) {
+						%><a href="./BoardList.bo?pageNum=<%=startPage - pageBlock%>">&lt;</a>
 						<%
-					}
-					
-					for(int i=startPage; i<=endPage; i++){
-						%><a href="./BoardList.bo?pageNum=<%=i%>">[<%=i %>]
+							}
+
+							for (int i = startPage; i <= endPage; i++) {
+						%><a href="./BoardList.bo?pageNum=<%=i%>">[<%=i%>]
 						</a>
 						<%
-					}
-					
-					if(endPage<pageCount){
-						%><a href="./BoardList.bo?pageNum=<%=startPage+pageBlock%>">&gt;</a>
+							}
+
+							if (endPage < pageCount) {
+						%><a href="./BoardList.bo?pageNum=<%=startPage + pageBlock%>">&gt;</a>
 						<%
-					}
-					%>
+							}
+						%>
 					</div>
 				</div>
 

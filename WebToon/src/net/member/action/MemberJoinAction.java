@@ -40,7 +40,7 @@ public class MemberJoinAction implements Action{
 		mb.setId(id);
 		mb.setPass(pass);
 		mb.setEmail(email);
-		mb.setHint(hintans);
+		mb.setHint(hint);
 		mb.setHintans(hintans);
 		mb.setNik(nik);
 		mb.setAges(ages);

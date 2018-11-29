@@ -111,7 +111,7 @@ public class BoardDAO {
 
 			String sql = "update free_board set fb_subject=?,fb_content=? where mem_pass=?";
 			pstmt = con.prepareStatement(sql);
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -234,6 +234,7 @@ public class BoardDAO {
 				bb.setFb_category(rs.getString("fb_category"));
 				bb.setFb_subject(rs.getString("fb_subject"));
 				bb.setFb_content(rs.getString("fb_content"));
+				bb.setFb_img(rs.getString("fb_img"));
 				bb.setFb_sumlike(rs.getInt("fb_sumlike"));
 				bb.setFb_readcount(rs.getInt("fb_readcount"));
 				bb.setFb_date(rs.getDate("fb_date"));
@@ -326,6 +327,7 @@ public class BoardDAO {
 		
 		return;
 	}
+	
 	public BoardBean getBoard(int bd1){
 		BoardBean bd = new BoardBean();
 		
@@ -338,6 +340,7 @@ public class BoardDAO {
 			String sql = "select * from free_board where fb_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bd1);
+			rs= pstmt.executeQuery();
 			
 			if(rs.next()){
 				bd.setFb_mem_num(rs.getInt("fb_mem_num"));

@@ -7,11 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- 
 <%
-	String id=request.getParameter("age_range");
+session.invalidate();
+	%> --%>
+	
+	<script type="text/javascript">
+		alert("로그아웃");	
+		location.href="login.me";
+	</script><% 
 
 %>
 
-<%=id %>
+
 </body>
 </html>

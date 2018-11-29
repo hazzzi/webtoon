@@ -175,4 +175,42 @@ public class MemberDAO {
 		}
 		return mb;
 	}
+	
+	public MemberBean getMember(int mem_num){
+		
+		MemberBean mb = new MemberBean();
+		try {
+		con = getConnection();
+		String sql = "select * from member where mem_num=?";
+		// 4 저장 <= 결과 실행
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, mem_num);
+
+		rs = pstmt.executeQuery();
+		// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+		while (rs.next()) {
+			mb.setNum(rs.getInt("mem_num"));
+			mb.setId(rs.getString("mem_id"));
+			//mb.setPass(rs.getString("mem_pass"));
+			mb.setEmail(rs.getString("mem_email"));
+			mb.setNik(rs.getString("mem_nik"));
+			mb.setAges(rs.getString("mem_ages"));
+			mb.setGender(rs.getString("mem_gender"));
+			mb.setDate(rs.getTimestamp("mem_date"));
+			mb.setHint(rs.getString("mem_hint"));
+			mb.setHintans(rs.getString("mem_hintans"));
+			mb.setProgileimg(rs.getString("mem_profileimg"));
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+	
+		} 
+		return mb;
+	}
+		
 }
