@@ -14,7 +14,7 @@
 			<div class="container review_block">
 				<!-- <p>리뷰 남기기</p> -->
 				<hr style="border-color: white;">
-				<textarea placeholder="작품에 대한 리뷰를 작성해주세요."></textarea>
+				<textarea placeholder="작품에 대한 리뷰를 작성해주세요." name="wbb_comment"></textarea>
 				<input type="submit" value="작성">
 			</div>
 		</form>

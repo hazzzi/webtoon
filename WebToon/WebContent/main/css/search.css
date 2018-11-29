@@ -3,6 +3,9 @@
 	font-family: 'NanumBarunpenR';
 	src: url("../font/NanumBarunpenR.ttf") format('truetype');
 }
+hr{
+	margin: 30px 0;
+}
 header#header-head{   
     /* 상단바 고정 */
     position: sticky;
@@ -10,35 +13,54 @@ header#header-head{
     z-index: 3;
 }
 div.sach-main{
-	min-height: -webkit-fill-available;
+	min-height: 600px;
     height: 100%;
     width: 70%;
-    max-width: 1080px;
+/*     max-width: 1080px; */
+    min-width: 1060px;
     line-height: 2;
     margin: 0 auto;
-    padding: 30px 50px;
+    padding: 0 0 60px 0;
     box-sizing: border-box;
+}
+div.sach-main>h2{
+    margin: 20px auto;
+/*     width: 70%; */
+/*     max-width: 1080px; */
+/*     height: 80px; */
+    font-size: 30px;
+    padding-left: 50px;
 }
 div.sach-background>h2{
     margin: 0 auto;
     width: 70%;
-    max-width: 1080px;
-    height: 100%;
+/*     max-width: 1080px; */
+    height: 80px;
     font-size: 35px;
     line-height: 2.8;
     padding-left: 50px;
 }
+div.sach-background>h3{
+    margin: 0 auto;
+    width: 70%;
+/*     max-width: 1080px; */
+	padding-bottom: 10px;
+    font-size: 20px;
+    padding-left: 50px;
+}
 div.sach-background{
 	position: inherit;
-	height: 100px;
+	min-height: 100px;
+	max-height: 130px;
 	width: 100%;
 	background-color: #d5cde4;
 	z-index: 1;
 }
 
 div.sach-rt{
-	height: 150px;
-    margin-bottom: 30px;
+	height: 185px;
+    margin: 0 50px 140px 50px;
+	display: inline-block;
 }
 div.sach-rt>a{
 	color: #1b1526;
@@ -49,22 +71,23 @@ div.sach-rt>a{
 }
 div.sach-rt>a>img{
 	height: 100%;
+	width: 250px;
 }
 div.sach-rt>a>span{
     display: inline-block;
     position: absolute;
-    width: 50%;
+    width: 100%;
     font-size: 25px;
-    padding-left: 20px;
+    text-align: center;
 }
 div.sach-rt>a>span:NTH-OF-TYPE(1) {
     font-size: 30px;
 }
 div.sach-rt>a>span:NTH-OF-TYPE(2) {
     color: #9d8dc2;
-	top: 45px;
+	top: 240px;
 }
-div.sach-rt>a>span:NTH-OF-TYPE(3) {
+/* div.sach-rt>a>span:NTH-OF-TYPE(3) {
     color: #9d8dc2;
 	top: 90px;
-}
+} */

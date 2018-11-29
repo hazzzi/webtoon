@@ -1,3 +1,4 @@
+<%@page import="net.board.db.BoardDAO"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -20,6 +21,9 @@
 	<%
 	int mem_num = (int)session.getAttribute("mem_num");
 	System.out.print(mem_num);
+	
+	BoardDAO bdao = new BoardDAO();
+	BoardBean boardbean = bdao.getBoard(mem_num);
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
@@ -39,7 +43,7 @@
 			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex"
-					name="fb_subject"> <select class="bd_sel"
+					name="fb_subject" value="<%=bb.getSubject()%>"> <select class="bd_sel"
 					name="fb_category">
 					<option value="자유게시판">자유게시판</option>
 					<option value="중고장터">중고장터</option>
@@ -50,7 +54,7 @@
 
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
 						style="font-size: 48px; color: gray; margin-left: -30px;"><input
-						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img"></i>
+						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img" value="<%=bb.getFile%>"></i>
 
 					<button type="submit" class="bw_pho_icon2">
 						<i class="fa fa-check" id="bw_pho_icon2"
@@ -63,7 +67,7 @@
 			<hr>
 			<div class="bw_content">
 				<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"
-					name="fb_content"></textarea>
+					name="fb_content" value=<%=bb.getContent %>></textarea>
 				<hr>
 			</div>
 		</form>

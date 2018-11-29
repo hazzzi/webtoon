@@ -35,7 +35,8 @@ public class MainDAO {
 			con = getConnection();
 			// 게시판 글 번호 구하기
 			// num 구하기, 게시판 글 중에 가장 큰 번호
-			String sql = "select * from webtoon";
+			String sql = "select * from webtoon"; //전체 웹툰 (test용)
+			//String sql = "select * from webtoon where web_num not in (select rec_web_num from recommend)"; //이미 추천한 웹툰은 제외
 			// 4 저장 <= 결과 실행
 			pstmt = con.prepareStatement(sql);
 

@@ -84,7 +84,7 @@
 					<nav id="main-banner-nav">
 						<ul>
 							<!-- 추천 서비스로 이동 -->
-							<li><a href="../recommend/recommend.jsp">추천</a></li>
+							<li><a href="./main_recommend.rec">추천</a></li>
 							<!-- 자유 게시판으로 이동 -->
 							<li><a href="./bd_main.bo">게시판</a></li>
 						</ul>
@@ -117,7 +117,7 @@
 						%>						
 						<div class="webtoon-img">
 							<!-- 웹툰 이미지 클릭시, 웹툰 num get방식으로 값 넘어감 -->
-							<a href="./detail.wbt?id=<%=wb.getWeb_num()%>"> 
+							<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
 							    <!-- 웹툰의 썸네일 링크, src="" -->
 								<img class="a1"
 									src="<%=wb.getWeb_thumb_link()%>">

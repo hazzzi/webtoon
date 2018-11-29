@@ -58,6 +58,7 @@ div#sr-content-img p,div#sr-content-img img{
 div#sr-content-img>img{
     border: 4px solid #fff;
     width: 230px;
+    height: 186px;
     top: 85px;
     left: 50px;
 }
@@ -108,6 +109,7 @@ div#sr-content-img>p:NTH-OF-TYPE(5){
 }
 
 div.sr-content-fill{
+    min-width: 950px;
 	max-width: 1000px;
 	min-height: 800px;
 	margin : 20px auto 50px auto;

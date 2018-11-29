@@ -1,3 +1,5 @@
+<%@page import="net.member.db.MemberBean"%>
+<%@page import="net.webtoon.db.WebtoonBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,15 +8,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>상세 정보</title>
-<script src="js/jquery-3.3.1.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="css/test.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/footer-main.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/search-result.css">
-<link rel="stylesheet" href="css/wbt-review.css">
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="./main/css/test.css">
+<link rel="stylesheet" href="./main/css/header.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
+<link rel="stylesheet" href="./main/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./main/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./main/css/search-result.css">
+<link rel="stylesheet" href="./main/css/wbt-review.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script type="text/javascript">
@@ -30,14 +32,14 @@
 
 </head>
 <body>
+<%
+	WebtoonBean wb = (WebtoonBean)request.getAttribute("wb");
+	MemberBean mb = (MemberBean)request.getAttribute("mb");
+%>
 <div id="main-wrap">
-
-
-
 	<jsp:include page="header.jsp" />
 	<script>
 		$(document).ready(function(){
-			/* $("#header-srch").hide(); */
 			
 			/* 헤더 부분 상단바 검색 토글 기능 */
 			$("#a_srch").click(function(){
@@ -69,18 +71,18 @@
 			 	<!-- select * from webtoon where id=?? -->
 					<div id="sr-content-img">
 						<!-- webtoon 썸네일 -->
-						<img src="https://shared-comic.pstatic.net/thumb/webtoon/708452/thumbnail/thumbnail_IMAG06_917b189b-7c3c-44c4-a732-9d53da41240c.jpg">
+						<img src="<%=wb.getWeb_thumb_link()%>">
 						<!-- 제목 -->
-						<p>냐한남자</p>
+						<p><%=wb.getWeb_subject() %></p>
 						<!-- db 쿼리문 이용-->
 						<!-- select mean(grade) from recommend where id=?? -->
 						<p>평점 <i class="fa fa-star"></i>4.5</p>
 						<!-- 작가 -->
-						<p>올소</p>
+						<p><%=wb.getWeb_author() %></p>
 						<!-- 장르 -->
-						<p>스토리  · 드라마</p>
+						<p><%=wb.getWeb_genre() %></p>
 						<!-- a태그 링크 : 웹툰 바로이동 링크 -->
-						<p><a href="#">웹툰 보러가기</a></p>
+						<p><a href="<%=wb.getWeb_link()%>">웹툰 보러가기</a></p>
 					</div>
 			 	</div>
 			 </div>
@@ -92,15 +94,15 @@
 		 		<div class="sr-content-default">
 			 		<h2>기본정보</h2>
 			 		<!-- 제목 -->
-			 		<p>냐한남자</p>
+			 		<p><%=wb.getWeb_subject() %></p>
 			 		<!-- 작가 -->
-			 		<p><i class="fa fa-pencil"></i>올소</p>
+			 		<p><i class="fa fa-pencil"></i><%=wb.getWeb_author() %></p>
 			 		<!-- 연재시작일(start), 장르 -->
-			 		<p>2018 · 스토리  · 드라마</p>
+			 		<p><%=wb.getWeb_start() %> · <%=wb.getWeb_genre() %></p>
 			 		<!-- 연재사이트(potal), 연재여부(ing) -->
-			 		<p>네이버 · 연재중</p>
+			 		<p><%=wb.getWeb_portal() %> · <%=wb.getWeb_ing() %></p>
 			 		<!-- 웹툰 정보 (info) -->
-			 		<p>냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)냥줍을 잘못하면...남자친구가 생깁니다(?)</p>
+			 		<p><%=wb.getWeb_info() %></p>
 		 		</div>
 		 		<hr>
 		 		<div class="sr-content-star">
@@ -137,7 +139,11 @@
 		 			<br>
 		 			<!-- 추천수 상위 2개 리뷰 -->
 		 			<div>
-		 				<img src="img/member.png" width="100px">
+		 				<% if(mb.getProgileimg()==null){%>
+		 				<img src="./main/img/member.png">
+		 				<%}else{%>
+		 				<img src="<%=mb.getProgileimg()%>">
+		 				<%}%>
 		 				<!-- webtoon_borad -->
 		 				<!-- join 이용해서 member_nik -->
 		 				<p>사용자별명</p>
@@ -149,7 +155,11 @@
 		 				<i class="fa fa-thumbs-o-up"></i><p>35</p>
 		 			</div>
 		 			<div>
-		 				<img src="img/member.png" width="100px">
+		 				<% if(mb.getProgileimg()==null){%>
+		 				<img src="./main/img/member.png">
+		 				<%}else{%>
+		 				<img src="<%=mb.getProgileimg()%>">
+		 				<%}%>
 		 				<p>사용자별명</p>
 		 				<hr>
 		 				<p>로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기</p>
@@ -225,14 +235,45 @@
 	</div>
 	
 	<!-- 웹툰 리뷰 작성 영역 -->
-	<jsp:include page="wbt-review.jsp"></jsp:include>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		/* 웹툰 리뷰 남기기 영역 보여주기 */
-		$('.review-action').click(function(index){
-			$('#webtoon-content').show();
+	<div id="webtoon-content" class="modal">
+	<div class="modal-content animate">
+			<div class="imgcontainer">
+				<span class="close">&times;</span>
+				<!-- 웹툰 제목 부분 -->
+				<p><%=wb.getWeb_subject() %></p>
+			</div>
+			
+			<!-- db insert 작업 필요, action은 임시링크 -->
+			<form action="../recommend/rec_comments.jsp" method="post">
+				<input type="hidden" name="wbb_web_num" value="<%=wb.getWeb_num()%>">
+				<div class="container review_block">
+					<!-- <p>리뷰 남기기</p> -->
+					<hr style="border-color: white;">
+					<textarea placeholder="작품에 대한 리뷰를 작성해주세요." name="wbb_comment"></textarea>
+					<input type="submit" value="작성">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		var modal = document.getElementById('webtoon-content');
+	
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+		$(document).ready(function(){
+			$('.review-action').click(function(index){
+				$('#webtoon-content').show();
+			});
+			
+			$('.close').click(function(){
+				$('#webtoon-content').hide();
+			});
+			
 		});
-	});
 	</script>
 	<jsp:include page="top.jsp"></jsp:include>
 	<jsp:include page="footer.jsp"></jsp:include>
