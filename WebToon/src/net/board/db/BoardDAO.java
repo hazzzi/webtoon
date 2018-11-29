@@ -284,7 +284,7 @@ public class BoardDAO {
 		return boardList;
 	}
 	
-	public void deleteBoard(BoardBean bb){
+	public void deleteBoard(BoardBean bd){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -293,7 +293,7 @@ public class BoardDAO {
 			con = getConnection();
 			String sql = "delete from free_board where fb_num=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, bb.getFb_num());
+			pstmt.setInt(1, bd.getFb_num());
 			pstmt.executeUpdate();
 			
 		}catch(Exception e){
