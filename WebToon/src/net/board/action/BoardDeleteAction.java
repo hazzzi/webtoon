@@ -19,27 +19,19 @@ public class BoardDeleteAction implements Action{
 		System.out.println("BoardDeleteAction execute()");
 		request.setCharacterEncoding("utf-8");
 		
-		HttpSession session = request.getSession();
-		int mem_num = (int)session.getAttribute("mem_num");
+		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		
-		BoardBean bb = new BoardBean();
+		BoardBean bd = new BoardBean();
 		BoardDAO bdao = new BoardDAO();
 		
-		System.out.println("mem_num");
+		bd.setFb_num(fb_num);
 		
-		bdao.deleteBoard(bb);
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("alert('삭제 완료');");
-		out.println("location.href='./BoardList.bo'");
-		out.println("</script>");
-		out.close();
+		bdao.deleteBoard(bd);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./BoardList.bo");
 		forward.setRedirect(true);
-
+		
 		return forward;
 	}
 }

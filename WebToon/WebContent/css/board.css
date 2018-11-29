@@ -873,3 +873,8 @@ transform
 ;
 }
 }
+
+.note-editor.note-frame .note-editing-area .note-editable {
+	min-height: 800px;
+	max-height: 800px;
+}

@@ -15,11 +15,19 @@
 <script src="./main/js/jquery-3.3.1.js"></script>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+
+<!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 </head>
 <body>
 	<%
-	int mem_num = (int)session.getAttribute("mem_num");
-	System.out.print(mem_num);
+		int mem_num = (int) session.getAttribute("mem_num");
+		System.out.print(mem_num);
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
@@ -30,12 +38,26 @@
 				$(".tmp").toggle();
 				$("#header-srch").toggle(500);
 			});
-		});
+
+			
+			/* $('#summernote').summernote();
+			
+			$('#summernote').summernote({
+	             height: 300,                 // set editor height
+	             minHeight: null,             // set minimum height of editor
+	             maxHeight: null,             // set maximum height of editor
+	             focus: true                  // set focus to editable area after initializing summernote
+	     }); */
+			
+				});
+			
+		
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./BoardWriteAction.bo" method="post" enctype="multipart/form-data">
+		<form action="./BoardWriteAction.bo" method="post"
+			enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex"
@@ -62,8 +84,14 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
-				<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"
-					name="fb_content"></textarea>
+			
+				<!-- 				  <img id="blah" src="#" alt="your image" /> -->
+				 <!-- <textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"
+					name="fb_content"></textarea>  -->
+					<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content" id="summernote" value="">
+					</textarea>
+					
+				
 				<hr>
 			</div>
 		</form>
