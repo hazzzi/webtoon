@@ -21,6 +21,7 @@ import org.apache.mahout.cf.taste.impl.similarity.EuclideanDistanceSimilarity;
 import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.model.JDBCDataModel;
 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
@@ -117,32 +118,32 @@ public class RecommendDAO {
 		return sum;
 	}
 	
-	public List<RecommendedItem> UserRecommend_list(){
-		DataModel model;
-		List<RecommendedItem> recommendations = null;
-		MysqlDataSource data = new MysqlDataSource();
-		try {
-			data.setServerName("192.168.2.9");
-			data.setUser("jspid");
-			data.setPassword("jsppass");
-			data.setDatabaseName("mydb");
-			model = new MySQLJDBCDataModel(data, "recommend", "rec_mem_num", "rec_web_num", "rec_web_grade", null); //유사도 적용될 모델(데이터)
-			//유사도 모델 생성
-			//UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
-			UserSimilarity similarity = new EuclideanDistanceSimilarity(model);
-		
-			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
-			//사용자 추천기 생성
-			UserBasedRecommender recommender = new GenericUserBasedRecommender((DataModel)model, neighborhood, similarity);
-			
-			recommendations = recommender.recommend(4, 5);
-			
-			System.out.println(recommendations.size());
-			for (RecommendedItem recommendation : recommendations) {
-				System.out.println(recommendation);
-			}
-		} catch (Exception e) {	e.printStackTrace();	}
-		return recommendations;
+	public List<RecommendedItem> UserRecommend_list(int session){
+		List<RecommendedItem> recommendations=null;
+	      
+	      try{
+	         MysqlDataSource dataSource = new MysqlDataSource();
+	         dataSource.setServerName("localhost");
+	         dataSource.setUser("jspid");
+	         dataSource.setPassword("jsppass");
+	         dataSource.setDatabaseName("mydb");
+
+			JDBCDataModel dataModel = new MySQLJDBCDataModel(dataSource, "recommend", "rec_mem_num", "rec_web_num",
+					"rec_web_grade", null);
+	         
+	         //UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);
+	         UserSimilarity similarity = new LogLikelihoodSimilarity(dataModel);
+	         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
+	         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
+	         recommendations = recommender.recommend(session, 6);
+	         for(RecommendedItem recommendation : recommendations){
+	            System.out.println(recommendation);
+	         }
+	         
+	      }catch (Exception e) {
+	         // TODO: handle exception
+	      }
+	      return recommendations;
 	}
 	public List<WebtoonBean> showRecommend_list(List<RecommendedItem> recommendations){
 		Connection con = null;
