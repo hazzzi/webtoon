@@ -26,7 +26,26 @@ public class MainDAO {
 		// getConnection 함수를 통해서 connection 형태로 변환가능 
 		return con;
 	}
-	
+	public int CountRecommend(){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int sum = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(*) from recommend";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			sum = rs.getInt(1);
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
+		}
+		return sum;
+	}
 	public List<WebtoonBean> mainWebtoon(){
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
