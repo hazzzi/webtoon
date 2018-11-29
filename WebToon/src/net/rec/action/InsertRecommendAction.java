@@ -23,7 +23,7 @@ public class InsertRecommendAction implements Action{
 		RecommendDAO rdao = new RecommendDAO();
 		rdao.insertRecommend(recbean);
 		
-		int sum = rdao.getRecommend();
+		int sum = rdao.getRecommend((int)session.getAttribute("mem_num"));
 		PrintWriter out = response.getWriter();
 		out.println(sum);
 		return null;

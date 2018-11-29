@@ -11,13 +11,21 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.apache.mahout.cf.taste.impl.common.LongPrimitiveIterator;
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
+import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
 import org.apache.mahout.cf.taste.impl.similarity.EuclideanDistanceSimilarity;
+import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
+import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
@@ -87,15 +95,16 @@ public class RecommendDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 		}
 	}
-	public int getRecommend(){
+	public int getRecommend(int mem_num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int sum = 0;
 		try {
 			con = getConnection();
-			String sql = "select count(*) from recommend";
+			String sql = "select count(*) from recommend where rec_mem_num=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
 			rs = pstmt.executeQuery();
 			rs.next();
 			sum = rs.getInt(1);
@@ -107,7 +116,8 @@ public class RecommendDAO {
 		}
 		return sum;
 	}
-	public List<RecommendedItem> ItemRecommend_list(){
+	
+	public List<RecommendedItem> UserRecommend_list(){
 		DataModel model;
 		List<RecommendedItem> recommendations = null;
 		MysqlDataSource data = new MysqlDataSource();
@@ -116,12 +126,19 @@ public class RecommendDAO {
 			data.setUser("jspid");
 			data.setPassword("jsppass");
 			data.setDatabaseName("mydb");
-			model = new MySQLJDBCDataModel(data, "recommend", "rec_mem_num", "rec_web_num", "rec_web_grade", null);
-			ItemSimilarity similarity = new EuclideanDistanceSimilarity(model);
-			//ItemSimilarity similarity = new PearsonCorrelationSimilarity(model);
-			GenericItemBasedRecommender recommender = new GenericItemBasedRecommender(model, similarity);
-			recommendations = recommender.mostSimilarItems(8, 6);
-			for(RecommendedItem recommendation : recommendations){
+			model = new MySQLJDBCDataModel(data, "recommend", "rec_mem_num", "rec_web_num", "rec_web_grade", null); //유사도 적용될 모델(데이터)
+			//유사도 모델 생성
+			//UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
+			UserSimilarity similarity = new EuclideanDistanceSimilarity(model);
+		
+			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
+			//사용자 추천기 생성
+			UserBasedRecommender recommender = new GenericUserBasedRecommender((DataModel)model, neighborhood, similarity);
+			
+			recommendations = recommender.recommend(4, 5);
+			
+			System.out.println(recommendations.size());
+			for (RecommendedItem recommendation : recommendations) {
 				System.out.println(recommendation);
 			}
 		} catch (Exception e) {	e.printStackTrace();	}
