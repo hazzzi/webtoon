@@ -130,6 +130,7 @@ public class RecommendDAO {
 			//유사도 모델 생성
 			//UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
 			UserSimilarity similarity = new EuclideanDistanceSimilarity(model);
+			//UserSimilarity similarity = new LogLikelihoodSimilarity(data);
 		
 			UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 			//사용자 추천기 생성
