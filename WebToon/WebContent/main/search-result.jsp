@@ -35,6 +35,17 @@
 <%
 	WebtoonBean wb = (WebtoonBean)request.getAttribute("wb");
 	MemberBean mb = (MemberBean)request.getAttribute("mb");
+	double score = (double)request.getAttribute("score");
+	int count = (int)request.getAttribute("count");
+	
+	int tmp0 = (int)(score*10);
+	int tmp1 = tmp0%10;
+	int tmp2 = 0;
+	if(tmp1>=5){
+		tmp2 = tmp1;
+	}
+	
+	System.out.println(tmp0+" "+tmp2);
 %>
 <div id="main-wrap">
 	<jsp:include page="header.jsp" />
@@ -76,7 +87,7 @@
 						<p><%=wb.getWeb_subject() %></p>
 						<!-- db 쿼리문 이용-->
 						<!-- select mean(grade) from recommend where id=?? -->
-						<p>평점 <i class="fa fa-star"></i>4.5</p>
+						<p>평점 <i class="fa fa-star"></i><%=score %></p>
 						<!-- 작가 -->
 						<p><%=wb.getWeb_author() %></p>
 						<!-- 장르 -->
@@ -108,21 +119,21 @@
 		 		<div class="sr-content-star">
 		 			<h2>평점</h2>
 					<!-- db 쿼리문 이용-->
-					<!-- select mean(grade) from recommend where web_num=?? -->
+					<!-- select avg(grade) from recommend where web_num=?? -->
 					<!-- ex) 평균 3.37  조정값 : 3.5 , 평균평점에는 3.4값이 보여짐-->
 					<!-- ex) 평균 4.12  조정값 : 4, 평균평점에는 4.1값이 보여짐 -->
 					<!-- 소숫점 존재할 시 fa-star-half-full 클래스 추가  -->
 					<!-- 존재하지 않을시 소숫점 앞자리 수대로  fa-star 추가-->
-		 			<i class="fa fa-star"></i>
-		 			<i class="fa fa-star"></i>
-		 			<i class="fa fa-star"></i>
-		 			<i class="fa fa-star"></i>
-		 			<i class="fa fa-star-half-full"></i>
+		 			<i class="fa fa-star-o star"></i>
+		 			<i class="fa fa-star-o star"></i>
+		 			<i class="fa fa-star-o star"></i>
+		 			<i class="fa fa-star-o star"></i>
+		 			<i class="fa fa-star-o star"></i>
 		 			<!-- 평균평점 -->
-		 			<p>4.5</p>
+		 			<p><%=score %></p>
 		 			<!-- 평가자 수 -->
 		 			<!-- select count(mem_num) from recommend where web_num=??-->
-		 			<p>100명의 평가</p>
+		 			<p><%=count %>명의 평가</p>
 		 		</div>
 		 		<hr>
 		 		<div class="sr-content-comment">
@@ -271,6 +282,18 @@
 			
 			$('.close').click(function(){
 				$('#webtoon-content').hide();
+			});
+			
+			$('.star').html(function(index){
+				if(index<<%=tmp0/10%>){
+					alert(index);
+					$(this).removeClass('fa-star-o');
+					$(this).addClass('fa-star');
+				}
+				if(index==<%=tmp0/10%>&&<%=tmp2%>!=0){
+					$(this).removeClass('fa-star-o');
+					$(this).addClass('fa-star-half-full');
+				}
 			});
 			
 		});

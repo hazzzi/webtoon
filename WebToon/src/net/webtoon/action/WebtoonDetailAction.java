@@ -25,12 +25,17 @@ public class WebtoonDetailAction implements Action{
 			
 			WebtoonDAO wdao = new WebtoonDAO();
 			WebtoonBean wb = wdao.getWebtoon(web_num);
+			double score = wdao.getMeanScore(web_num);
+			int count = wdao.getCountRec(web_num);
 			
 			MemberDAO mdao = new MemberDAO();
 			// 수정 필요. 
 			MemberBean mb = mdao.getMemberImg(1);
+
 			
 			request.setAttribute("wb", wb);
+			request.setAttribute("score", score);
+			request.setAttribute("count", count);
 			request.setAttribute("mb", mb);
 			
 			ActionForward forward = new ActionForward();
