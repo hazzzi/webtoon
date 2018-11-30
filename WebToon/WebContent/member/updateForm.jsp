@@ -26,40 +26,39 @@
 <%request.setCharacterEncoding("utf-8");
 int mem_num=(int)session.getAttribute("mem_num");
  MemberBean mb=(MemberBean)request.getAttribute("mb"); 
-System.out.print(mem_num);
 %>
 <form action="#" method="post">
 <div id="rif"><!--reinfo  -->
 	<div id="rif_photo">
-		<div id="profileImg"><img src="http://placehold.it/150x150" /></div>
-		<div class="profileImg_Btn"><input type="button" value="사진 등록"></div>
+		<div id="profileImg"><%if(mb.getProgileimg()!=null){%><img src="<%=mb.getProgileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
+		<div class="profileImg_Btn"><input type="submit" value="사진 등록"></div>
 	</div>
 	
 	<div id="rif_text">
 	<table border="0">
-	<tr><th>아이디</th><td><input type="text" name="id" value=""readonly></td></tr>
-	<tr><th>닉네임</th><td><input type="text" name="nikname" value=""required></td></tr>
-	<tr><th>이메일</th><td><input type="email" name="email" value=""required></td></tr>
+	<tr><th>아이디</th><td><input type="text" name="id" value="<%=mb.getId()%>"readonly></td></tr>
+	<tr><th>닉네임</th><td><input type="text" name="nikname" value="<%=mb.getNik()%>"required></td></tr>
+	<tr><th>이메일</th><td><input type="email" name="email" value="<%=mb.getEmail()%>"required></td></tr>
 	<tr><th>비밀번호 힌트</th><td>
 	
 	<select name="sel_hint" required>	
 		<option value="">비밀번호 힌트를 선택하세요</option>
-		<option value="1">나의 좌우명은?</option>
-		<option value="2">나의 보물 제1호는?</option>
-		<option value="3">제일 좋아하는 스포츠팀의 이름은?</option>
-		<option value="4">나의 출생지역은?</option>
-		<option value="5">제일 좋아하는 음식은?</option>
+		<option <% if(mb.getHint().equals("1")){%>selected="seleted"<%} %>value="1">나의 좌우명은?</option>
+		<option <% if(mb.getHint().equals("2")){%>selected="seleted"<%} %>value="2">나의 보물 제1호는?</option>
+		<option <% if(mb.getHint().equals("3")){%>selected="seleted"<%} %>value="3">제일 좋아하는 스포츠팀의 이름은?</option>
+		<option <% if(mb.getHint().equals("4")){%>selected="seleted"<%} %>value="4">나의 출생지역은?</option>
+		<option <% if(mb.getHint().equals("5")){%>selected="seleted"<%} %>value="5">제일 좋아하는 음식은?</option>
 	</select></td></tr>
    
-	<tr><th>힌트 대답</th><td><input type="text" name="hint_ans" value=""required></td></tr>
+	<tr><th>힌트 대답</th><td><input type="text" name="hint_ans" value="<%=mb.getHintans()%>"required></td></tr>
 	<tr><th>연령대</th><td>
 	<select name="sel_age" required>
 		<option value="">연령</option>
-		<option value="1">10대</option>
-		<option value="2">20대</option>
-		<option value="3">30대</option>
-		<option value="4">40대</option>
-		<option value="5">50대 이상</option>
+		<option <% if(mb.getAges().equals("1")){%>selected="seleted"<%} %>value="1">10대</option>
+		<option <% if(mb.getAges().equals("2")){%>selected="seleted"<%} %>value="2">20대</option>
+		<option <% if(mb.getAges().equals("3")){%>selected="seleted"<%} %>value="3">30대</option>
+		<option <% if(mb.getAges().equals("4")){%>selected="seleted"<%} %>value="4">40대</option>
+		<option <% if(mb.getAges().equals("5")){%>selected="seleted"<%} %>value="5">50대 이상</option>
 		</select></td></tr>		    
 	</table>
  	</div> <!--id="rif_text" -->

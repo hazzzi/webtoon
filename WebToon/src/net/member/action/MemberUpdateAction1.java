@@ -16,12 +16,12 @@ public class MemberUpdateAction1 implements Action {
 		System.out.println("MemberUpdateAction1 execute ");
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		String num=(String)session.getAttribute("mem_num");
-		int mem_num=Integer.parseInt(num);
-		
+		int num=(int)session.getAttribute("mem_num");
+		//int mem_num=Integer.parseInt(num);
+		System.out.println("MemberUpdateAction1  "+num +"  " );
 		MemberDAO mdao= new MemberDAO();
 		
-		MemberBean mb=mdao.getMember(mem_num);
+		MemberBean mb=mdao.getMember(num);
 		request.setAttribute("mb", mb);
 		System.out.println("업데이트  체크"+mb.getId());
 		ActionForward forward = new ActionForward();
