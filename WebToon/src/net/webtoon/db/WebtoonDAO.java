@@ -141,4 +141,56 @@ public class WebtoonDAO {
 			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
 			}
 		}
+
+	public double getMeanScore(int web_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		double result = 0;
+		try {
+			con = getConnection();
+			String sql = "select round(avg(rec_web_grade),1) from recommend where rec_web_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, web_num);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				result = rs.getDouble("round(avg(rec_web_grade),1)");
+			}								
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		return result;
+	}
+	
+	public int getCountRec(int web_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(rec_mem_num) from recommend where rec_web_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, web_num);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				result = rs.getInt("count(rec_mem_num)");
+			}								
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		return result;
+	}
 }
