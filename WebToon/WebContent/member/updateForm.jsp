@@ -6,11 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 정보 수정</title>
+<script src="./js/jquery-3.3.1.js"></script>
 <link rel="stylesheet" href="./main/css/test.css">
 <link rel="stylesheet" href="./main/css/header.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet" href="member/css/updateForm.css">
+<script type="text/javascript">
+
+	var changeImgbtn = function(){
+		
+		
+	} 
+
+</script>
 </head>
 <body>
 <jsp:include page="../main/header.jsp"></jsp:include>
@@ -27,13 +36,16 @@
 int mem_num=(int)session.getAttribute("mem_num");
  MemberBean mb=(MemberBean)request.getAttribute("mb"); 
 %>
-<form action="#" method="post">
+<!--사진을 업로드 등록하면 페이지를 새로 실행 시킨다.  -->
+<form action="#" method="post" enctype="multipart/form-data">
 <div id="rif"><!--reinfo  -->
 	<div id="rif_photo">
 		<div id="profileImg"><%if(mb.getProgileimg()!=null){%><img src="<%=mb.getProgileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
-		<div class="profileImg_Btn"><input type="submit" value="사진 등록"></div>
+		<div class="profileImg_Btn"><input type="file" name="file"><input type="button" id="foo" value="사진 등록" onclick="changeImgbtn()"></div>
 	</div>
-	
+</form>
+
+<form action="#" method="post" >
 	<div id="rif_text">
 	<table border="0">
 	<tr><th>아이디</th><td><input type="text" name="id" value="<%=mb.getId()%>"readonly></td></tr>
