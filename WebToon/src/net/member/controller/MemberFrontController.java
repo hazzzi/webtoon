@@ -13,6 +13,7 @@ import net.member.action.MemberJoinAction;
 import net.member.action.MemberLoginAction;
 import net.member.action.MemberLogoutAction;
 import net.member.action.MemberUpdateAction1;
+import net.member.action.MemberUpdateAction2;
 
 public class MemberFrontController extends HttpServlet{
 
@@ -81,6 +82,15 @@ public class MemberFrontController extends HttpServlet{
 
 		}else if(command.equals("/MemberUpdateAction1.me")){
 			action =new MemberUpdateAction1();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/MemberUpdateAction2.me")){
+			action =new MemberUpdateAction2();
 			
 			try{
 				forward=action.execute(request, response);

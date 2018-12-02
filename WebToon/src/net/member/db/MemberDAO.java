@@ -213,4 +213,30 @@ public class MemberDAO {
 		return mb;
 	}
 		
+	public void updateMember(MemberBean mb){
+		try{
+			con=getConnection();
+			
+			String sql="update member set mem_id=?,mem_email=?,mem_nik=?,mem_ages=?,mem_profileimg=?,mem_hint=?,mem_hintans=?";
+			PreparedStatement pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, mb.getId());
+			pstmt.setString(2, mb.getEmail());
+			pstmt.setString(3, mb.getNik());
+			pstmt.setString(4, mb.getAges());
+			pstmt.setString(5, mb.getProgileimg());
+			pstmt.setString(6, mb.getHint());
+			pstmt.setString(7, mb.getHintans());
+			pstmt.executeUpdate();
+			System.out.println("DAO updateMember");
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+	}
+	
+	
 }
