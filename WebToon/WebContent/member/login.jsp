@@ -19,10 +19,10 @@
 <form action="MemberLoginAction.me" method="post" name="f"  >
 <div class="div">
  <div class="login">
-<a href="login.jsp"><strong>로그인</strong></a>
+<a href="login.me"><strong>로그인</strong></a>
 </div>
  <div class="join">
-<a href="join.jsp"><strong>회원가입</strong></a>
+<a href="join.me"><strong>회원가입</strong></a>
 </div>
  <div class="id_input">
 <input type="text" name="id" placeholder="아이디" required>
@@ -34,7 +34,7 @@
 <input type="submit" value="로그인">
 </div>
  <div class="search_input">
-<a href="forgetid.jsp"><input type="button" value="아이디/비밀번호 찾기"></a>
+<a href="forgetid.me"><input type="button" value="아이디/비밀번호 찾기"></a>
 </div>
 
 

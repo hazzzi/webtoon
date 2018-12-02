@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import net.member.action.MemberJoinAction;
 import net.member.action.MemberLoginAction;
 import net.member.action.MemberLogoutAction;
+import net.member.action.MemberModpassAction;
 import net.member.action.MemberUpdateAction1;
 import net.member.action.MemberUpdateAction2;
+import net.member.action.MemberWithdrawAction;
 
 public class MemberFrontController extends HttpServlet{
 
@@ -102,7 +104,16 @@ public class MemberFrontController extends HttpServlet{
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/modPass.jsp");
-
+			
+		}else if(command.equals("/MemberModpassAction.me")){
+			action =new MemberModpassAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}else if(command.equals("/myArticle.me")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
@@ -112,6 +123,25 @@ public class MemberFrontController extends HttpServlet{
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/withdrawMember.jsp");
+
+		}else if(command.equals("/MemberWithdrawAction.me")){
+			action =new MemberWithdrawAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/forgetid.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/forgetid.jsp");
+
+		}else if(command.equals("/forgetpw.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/forgetpw.jsp");
 
 		}
 		

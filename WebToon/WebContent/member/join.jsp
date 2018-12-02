@@ -29,10 +29,10 @@
 <form action="MemberJoinAction.me" method="post"  name="f" onsubmit="return checking();">
 <div class="div">
  <div class="login">
-<a href="login.jsp"><strong>로그인</strong></a>
+<a href="login.me"><strong>로그인</strong></a>
 </div>
  <div class="join">
-<a href="join.jsp"><strong>회원가입</strong></a>
+<a href="join.me"><strong>회원가입</strong></a>
 </div>
  <div class="id_input">
 <input type="text" name="id" placeholder="아이디" required>

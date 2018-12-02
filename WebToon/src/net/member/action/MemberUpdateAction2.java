@@ -2,6 +2,7 @@ package net.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -24,8 +25,10 @@ public class MemberUpdateAction2 implements Action{
 		// MultipartRequest multi 객체생성
 		MultipartRequest multi=
 				new MultipartRequest(request, filePath, maxSize,"utf-8",new DefaultFileRenamePolicy());
-		
+		HttpSession session =request.getSession();
+		int mem_num=(int)session.getAttribute("mem_num");
 		MemberBean mb = new MemberBean();
+		mb.setNum(mem_num);
 		mb.setProgileimg(multi.getFilesystemName("file"));
 		mb.setId(multi.getParameter("id"));
 		mb.setNik(multi.getParameter("nikname"));

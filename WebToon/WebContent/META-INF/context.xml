@@ -1,17 +1,17 @@
 <Context>
-<!-- <Resource name="jdbc/MysqlDB" 
+  <Resource name="jdbc/MysqlDB" 
 			  auth="Container"
 			  type="javax.sql.DataSource"
 			  driverClassName="com.mysql.jdbc.Driver"
 			  url="jdbc:mysql://192.168.2.9:3306/mydb"
 			  username="jspid"
-			  password="jsppass"/>  -->
-			  
-	 <Resource name="jdbc/MysqlDB"
+			  password="jsppass"/> 
+	 		  
+	 <!-- <Resource name="jdbc/MysqlDB"
 			  auth="Container"
 			  type="javax.sql.DataSource"
 			  driverClassName="com.mysql.jdbc.Driver"
 			  url="jdbc:mysql://localhost:3306/mydb"
 			  username="root"
-			  password="1234"/> 
+			  password="1234"/>   -->
 </Context>

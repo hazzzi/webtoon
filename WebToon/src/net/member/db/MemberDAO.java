@@ -16,6 +16,7 @@ public class MemberDAO {
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
+	
 
 	private Connection getConnection() throws Exception {
 		Context init = new InitialContext();
@@ -217,7 +218,7 @@ public class MemberDAO {
 		try{
 			con=getConnection();
 			
-			String sql="update member set mem_id=?,mem_email=?,mem_nik=?,mem_ages=?,mem_profileimg=?,mem_hint=?,mem_hintans=?";
+			String sql="update member set mem_id=?,mem_email=?,mem_nik=?,mem_ages=?,mem_profileimg=?,mem_hint=?,mem_hintans=? where mem_num=?";
 			PreparedStatement pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, mb.getId());
 			pstmt.setString(2, mb.getEmail());
@@ -226,8 +227,52 @@ public class MemberDAO {
 			pstmt.setString(5, mb.getProgileimg());
 			pstmt.setString(6, mb.getHint());
 			pstmt.setString(7, mb.getHintans());
+			pstmt.setInt(8, mb.getNum());
 			pstmt.executeUpdate();
 			System.out.println("DAO updateMember");
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+	}
+	
+	public String checkMemberPass(int mem_num){
+		String mem_pass=null;
+		try{
+			con = getConnection();
+		
+			String sql="select mem_pass from member where mem_num=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				 mem_pass=rs.getString("mem_pass");
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		
+		return mem_pass;
+	}
+	
+	public void updateMem_pass(String DBPass, String newpass){
+		try{
+			con=getConnection();
+			String sql="update member set mem_pass=? where mem_num=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, newpass);
+			pstmt.setString(2, DBPass);
+			pstmt.executeUpdate();
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -238,5 +283,21 @@ public class MemberDAO {
 		}
 	}
 	
+	public void deleteMember(int mem_num){
+		try{
+			con=getConnection();
+			String sql = "delete from member where mem_num=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,mem_num);
+			pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+	}
 	
 }

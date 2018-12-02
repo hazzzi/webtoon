@@ -13,11 +13,11 @@
 <form action="#" method="post">
 <div class="div">
 <div class="forgetid">
-<a href="forgetid.jsp"><strong>아이디 찾기</strong></a>
+<a href="forgetid.me"><strong>아이디 찾기</strong></a>
 </div>
 
 <div class="forgetpw">
-<a href="forgetpw.jsp"><strong>비밀번호 찾기</strong></a>
+<a href="forgetpw.me"><strong>비밀번호 찾기</strong></a>
 </div>
 
 <div class="ex">등록된 아이디와 비밀번호 힌트를 입력하세요</div>
@@ -44,7 +44,7 @@
 <div class="getpw">
 <input type="submit" value="비밀번호 찾기">
 </div>
-<div class="loginpage"><a href="login.jsp">로그인 하기</a></div>
+<div class="loginpage"><a href="login.me">로그인 하기</a></div>
 
 <div class="hpname">
 <i class="fa fa-search co"></i>
