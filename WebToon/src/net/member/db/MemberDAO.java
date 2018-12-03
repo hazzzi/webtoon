@@ -94,8 +94,9 @@ public class MemberDAO {
 	
 	
 	
-	public int loginMember(String mem_id,String mem_pass){
-		int num=0;
+	public MemberBean loginMember(String mem_id,String mem_pass){
+		
+		MemberBean mb= new MemberBean();
 		try{
 			con=getConnection();
 			
@@ -108,15 +109,17 @@ public class MemberDAO {
 			if(rs.next()){
 				if(rs.getString("mem_pass").equals(mem_pass)){
 					//로그인 가능하도록 num에 1을 줌
-					num=rs.getInt("mem_num"); 
+					mb.setNum(rs.getInt("mem_pass"));
+					mb.setNik(rs.getString("mem_nik"));
+					
 				}else{
 					//비번틀림
-					num=0;
+					
 				}
 			} else {
 				
 				//아이디 틀림
-				num=0;
+			
 				
 			}
 			
@@ -146,7 +149,7 @@ public class MemberDAO {
 		
 		
 		
-		return num;
+		return mb;
 	}
 	
 	public MemberBean getMemberImg(int mem_num){
