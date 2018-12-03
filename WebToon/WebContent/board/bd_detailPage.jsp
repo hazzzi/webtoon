@@ -42,14 +42,14 @@ function modifyCommentToggle(articleNo) {
 
 <body>
 <%
-int mem_num = (int)session.getAttribute("mem_num");
-System.out.print("mem_num은??"+mem_num);
+String fb_mem_nik = (String)session.getAttribute("fb_mem_nik");
 int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 String pageNum = (String)request.getAttribute("pageNum");
 
 BoardDAO bdao = new BoardDAO();
 BoardBean bd = bdao.getBoard(fb_num);
 %>
+
 <!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -107,15 +107,20 @@ BoardBean bd = bdao.getBoard(fb_num);
     <div class="fl">
     <br>
     <%	
-    /////////////////////
- %>
+  	if(bd.getFb_mem_nik().equals(fb_mem_nik)){
+	%>
         <input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
         <input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        <%}%>
     </div>
     <div class="fr">
     <br>
-        <input type="button" class="bt" onclick="location.href='bd_main.jsp'" value="목록" />
-        <input type="button" class="bt" onclick="location.href='bd_writingPage.jsp'" value="새 글쓰기" />
+    <%
+if(fb_mem_nik!=null){
+    %>
+   	 <input type="button" class="bt" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+   <%	 }    %>
+        <input type="button" class="bt" onclick="location.href='./boardList.bo'" value="목록" />
     </div>
 	</div>
 
