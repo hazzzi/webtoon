@@ -150,10 +150,10 @@
 		 			<br>
 		 			<!-- 추천수 상위 2개 리뷰 -->
 		 			<div>
-		 				<% if(mb.getProgileimg()==null){%>
+		 				<% if(mb.getProfileimg()==null){%>
 		 				<img src="./main/img/member.png">
 		 				<%}else{%>
-		 				<img src="<%=mb.getProgileimg()%>">
+		 				<img src="<%=mb.getProfileimg()%>">
 		 				<%}%>
 		 				<!-- webtoon_borad -->
 		 				<!-- join 이용해서 member_nik -->
@@ -166,10 +166,10 @@
 		 				<i class="fa fa-thumbs-o-up"></i><p>35</p>
 		 			</div>
 		 			<div>
-		 				<% if(mb.getProgileimg()==null){%>
+		 				<% if(mb.getProfileimg()==null){%>
 		 				<img src="./main/img/member.png">
 		 				<%}else{%>
-		 				<img src="<%=mb.getProgileimg()%>">
+		 				<img src="<%=mb.getProfileimg()%>">
 		 				<%}%>
 		 				<p>사용자별명</p>
 		 				<hr>

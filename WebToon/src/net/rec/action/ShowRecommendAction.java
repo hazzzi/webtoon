@@ -21,7 +21,6 @@ public class ShowRecommendAction implements Action{
 		System.out.println("execute");
 		HttpSession session = request.getSession();
 		List<RecommendedItem> recommendations = rdao.UserRecommend_list((int)session.getAttribute("mem_num")); // 추천받은 리스트
-		request.setAttribute("rec_score", recommendations);
 		List<WebtoonBean> rec_list = (List<WebtoonBean>)rdao.showRecommend_list(recommendations);
 		request.setAttribute("rec_list", rec_list);
 		ActionForward forward = new ActionForward();

@@ -30,22 +30,22 @@
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
 <div id="rif_title"><h1>회원 정보 수정</h1></div>
-
+			
 
 <%request.setCharacterEncoding("utf-8");
 int mem_num=(int)session.getAttribute("mem_num");
  MemberBean mb=(MemberBean)request.getAttribute("mb"); 
 %>
 <!--사진을 업로드 등록하면 페이지를 새로 실행 시킨다.  -->
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="MemberUpdateAction2.me" method="post" enctype="multipart/form-data">
 <div id="rif"><!--reinfo  -->
 	<div id="rif_photo">
-		<div id="profileImg"><%if(mb.getProgileimg()!=null){%><img src="<%=mb.getProgileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
-		<div class="profileImg_Btn"><input type="file" name="file"><input type="button" id="foo" value="사진 등록" onclick="changeImgbtn()"></div>
+		<div id="profileImg"><%if(mb.getProfileimg()!=null){%><img src="./upload/<%=mb.getProfileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
+		<div class="profileImg_Btn"><input type="file" name="file"><!-- <input type="button" id="foo" value="사진 등록" > --></div>
 	</div>
-</form>
 
-<form action="#" method="post" >
+
+
 	<div id="rif_text">
 	<table border="0">
 	<tr><th>아이디</th><td><input type="text" name="id" value="<%=mb.getId()%>"readonly></td></tr>
@@ -76,17 +76,18 @@ int mem_num=(int)session.getAttribute("mem_num");
  	</div> <!--id="rif_text" -->
  	
 	<div id="uf_sub">
-	<input type="button" value="뒤로가기" onclick="location.href='myProfile.jsp'">
+	<input type="button" value="뒤로가기" onclick="location.href='myProfile.me'">
 	<input type="submit" value="수정">
 	</div>
 </div>
+</form>
 <!--회원 정보 수정 부분   -->
 
 
 <!-- footer 영역 (시작)-->
 	<!-- footer 영역 (끝)-->
 
-</form>
+
 </div>
 </body>
 		<jsp:include page="../main/footer.jsp"></jsp:include>

@@ -10,17 +10,24 @@
 </head>
 
 <body>
-<form action="#" method="post">
+<% 
+request.setCharacterEncoding("utf-8");
+String flag="1";
+flag=(String)request.getAttribute("flag");
+String DBPw =(String)request.getAttribute("DBPw");
+	System.out.println(DBPw);
+%>
+<form action="MemberForgetpwAction.me" method="post">
 <div class="div">
 <div class="forgetid">
-<a href="forgetid.jsp"><strong>아이디 찾기</strong></a>
+<a href="forgetid.me"><strong>아이디 찾기</strong></a>
 </div>
 
 <div class="forgetpw">
-<a href="forgetpw.jsp"><strong>비밀번호 찾기</strong></a>
+<a href="forgetpw.me"><strong>비밀번호 찾기</strong></a>
 </div>
 
-<div class="ex">등록된 아이디와 비밀번호 힌트를 입력하세요</div>
+<div class="ex"><% if(DBPw!=null){%>회원님의 비밀번호는 [<%=DBPw%>] 입니다!<%}else{%>등록된 아이디와 비밀번호 힌트를 입력하세요<%}%></div>
 
 <div class="id"><input type="text"name="id" placeholder="아이디" ></div>
 
@@ -39,12 +46,12 @@
  <div class="pwd_hint">
 <p>디비에 입력된 질문</p>
 </div> -->
-<div class="answer_input"><input type="text" name="name" placeholder="답변" required></div>
+<div class="answer_input"><input type="text" name="ans" placeholder="답변" required></div>
 
 <div class="getpw">
 <input type="submit" value="비밀번호 찾기">
 </div>
-<div class="loginpage"><a href="login.jsp">로그인 하기</a></div>
+<div class="loginpage"><a href="login.me">로그인 하기</a></div>
 
 <div class="hpname">
 <i class="fa fa-search co"></i>
@@ -53,6 +60,16 @@
 
 </div>
 </form>
-
+<script type="text/javascript">
+var ckflag=<%=flag%>
+	function findfail(){
+		if(ckflag=="0"){
+			alert('아이디,힌트 질문 혹은 힌트를 확인하세요.');
+			
+		}	
+	}
+	
+	findfail();
+</script>
 </body>
 </html>
