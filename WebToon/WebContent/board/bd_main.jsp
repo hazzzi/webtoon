@@ -95,15 +95,15 @@
 							<td class="table_img">
 								<%
 									System.out.print(bb.getFb_img());
-									if(bb.getFb_img() != null) {
+											if (bb.getFb_img() != null) {
 								%> <img src="./images/bd_img.png" width="30px" height="30px">
-								
+
 								<%
 									} else {
-								%> <img src="./images/bd_none_img.png" width="30px" height="30px">
-								<%
-									}
-								%>
+								%> <img src="./images/bd_none_img.png" width="30px"
+								height="30px"> <%
+ 	}
+ %>
 							</td>
 							<td><a
 								href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
@@ -155,10 +155,12 @@
 
 				<!-- 검색창 영역 시작 -->
 
-				<div id="bd_srch">
-						<input type="text" name="bd_search"> <a href="./BoardSearch.bo"></a>
-				</div>
-
+				<jsp:include page="search_engine.jsp"></jsp:include>
+				
+				<form action="./boardSearch.bo" method="post">
+					<input type="button" value="글 쓰기" class="write"
+						onclick="location.href='./bd_writingPage.bo'">
+				</form>
 
 			</div>
 			<!-- 카테고리 영역 끝-->

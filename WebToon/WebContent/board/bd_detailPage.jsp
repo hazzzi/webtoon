@@ -42,6 +42,8 @@ function modifyCommentToggle(articleNo) {
 
 <body>
 <%
+int mem_num = (int)session.getAttribute("mem_num");
+System.out.print("mem_num은??"+mem_num);
 int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 String pageNum = (String)request.getAttribute("pageNum");
 
@@ -104,8 +106,11 @@ BoardBean bd = bdao.getBoard(fb_num);
 <div class="view-menu" style="margin-bottom: 47px;">
     <div class="fl">
     <br>
-        <input type="button" class="bt" value="수정" onclick="location.href='./BoardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-        <input type="button" class="bt" value="삭제" onclick="location.href='./BoardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+    <%	
+    /////////////////////
+ %>
+        <input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        <input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
     </div>
     <div class="fr">
     <br>
