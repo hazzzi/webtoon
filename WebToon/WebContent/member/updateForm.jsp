@@ -40,8 +40,8 @@ int mem_num=(int)session.getAttribute("mem_num");
 <form action="MemberUpdateAction2.me" method="post" enctype="multipart/form-data">
 <div id="rif"><!--reinfo  -->
 	<div id="rif_photo">
-		<div id="hint"><%if(mb.getProgileimg()!=null){%><img src="<%=mb.getProgileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
-		<div class="profileImg_Btn"><input type="file" name="file"><input type="button" id="foo" value="사진 등록" ></div>
+		<div id="profileImg"><%if(mb.getProfileimg()!=null){%><img src="./upload/<%=mb.getProfileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
+		<div class="profileImg_Btn"><input type="file" name="file"><!-- <input type="button" id="foo" value="사진 등록" > --></div>
 	</div>
 
 

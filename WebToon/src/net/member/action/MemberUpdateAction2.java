@@ -29,14 +29,14 @@ public class MemberUpdateAction2 implements Action{
 		int mem_num=(int)session.getAttribute("mem_num");
 		MemberBean mb = new MemberBean();
 		mb.setNum(mem_num);
-		mb.setProgileimg(multi.getFilesystemName("file"));
+		mb.setProfileimg(multi.getFilesystemName("file"));
 		mb.setId(multi.getParameter("id"));
 		mb.setNik(multi.getParameter("nikname"));
 		mb.setEmail(multi.getParameter("email"));
 		mb.setHint(multi.getParameter("sel_hint"));
 		mb.setHintans(multi.getParameter("hint_ans"));
 		mb.setAges(multi.getParameter("sel_age"));
-		System.out.println("파일 스트링 확인 "+multi.getFilesystemName("profileImg"));
+		System.out.println("파일 스트링 확인 "+filePath+multi.getFilesystemName("file"));
 		MemberDAO mdao = new MemberDAO();
 		mdao.updateMember(mb);
 		ActionForward forward = new ActionForward();

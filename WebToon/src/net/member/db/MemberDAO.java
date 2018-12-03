@@ -62,7 +62,7 @@ public class MemberDAO {
 			pstmt.setString(5, mb.getNik());
 			pstmt.setString(6, mb.getAges());
 			pstmt.setString(7, mb.getGender());
-			/*pstmt.setString(8, mb.getProgileimg());*/
+			/*pstmt.setString(8, mb.getProfileimg());*/
 			pstmt.setTimestamp(8, mb.getDate());
 			pstmt.setString(9, mb.getHintans());
 			pstmt.setString(10, mb.getHint());
@@ -164,7 +164,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
 			while (rs.next()) {
-				mb.setProgileimg(rs.getString("mem_profileimg"));
+				mb.setProfileimg(rs.getString("mem_profileimg"));
 			}								
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -200,7 +200,7 @@ public class MemberDAO {
 			mb.setDate(rs.getTimestamp("mem_date"));
 			mb.setHint(rs.getString("mem_hint"));
 			mb.setHintans(rs.getString("mem_hintans"));
-			mb.setProgileimg(rs.getString("mem_profileimg"));
+			mb.setProfileimg(rs.getString("mem_profileimg"));
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -224,7 +224,7 @@ public class MemberDAO {
 			pstmt.setString(2, mb.getEmail());
 			pstmt.setString(3, mb.getNik());
 			pstmt.setString(4, mb.getAges());
-			pstmt.setString(5, mb.getProgileimg());
+			pstmt.setString(5, mb.getProfileimg());
 			pstmt.setString(6, mb.getHint());
 			pstmt.setString(7, mb.getHintans());
 			pstmt.setInt(8, mb.getNum());
@@ -248,7 +248,7 @@ public class MemberDAO {
 			String sql="select mem_pass from member where mem_num=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, mem_num);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if(rs.next()){
 				 mem_pass=rs.getString("mem_pass");
 			}
@@ -300,4 +300,57 @@ public class MemberDAO {
 		}
 	}
 	
+	public String findId(String email,String nik){
+		String DBId=null;
+		
+		try{
+			con=getConnection();
+			String sql="select mem_id from member where mem_email=? and mem_nik=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, nik);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				DBId=rs.getString("mem_id");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		
+		
+		return DBId;
+	}
+	
+	public String findPw(String id, String sel_hint,String ans){
+		String DBPw=null;
+		
+		try{
+			con=getConnection();
+			String sql="select mem_pass from member where mem_id=? and mem_hint=? and mem_hintans=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, sel_hint);
+			pstmt.setString(3, ans);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				DBPw=rs.getString("mem_pass");
+				
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		
+		
+		return DBPw;
+	}
 }

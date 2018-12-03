@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.member.action.MemberForgetidAction;
+import net.member.action.MemberForgetpwAction;
 import net.member.action.MemberJoinAction;
 import net.member.action.MemberLoginAction;
 import net.member.action.MemberLogoutAction;
@@ -138,11 +140,29 @@ public class MemberFrontController extends HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath("./member/forgetid.jsp");
 
+		}else if(command.equals("/MemberForgetidAction.me")){
+			action =new MemberForgetidAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}else if(command.equals("/forgetpw.me")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/forgetpw.jsp");
 
+		}else if(command.equals("/MemberForgetpwAction.me")){
+			action =new MemberForgetpwAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}
 		
 		

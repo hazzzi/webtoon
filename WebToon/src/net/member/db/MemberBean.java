@@ -13,7 +13,7 @@ public class MemberBean {
 	private String ages;
 	private String gender;
 	private Timestamp date;
-	private String progileimg;
+	private String profileimg;
 	
 	
 	
@@ -79,11 +79,11 @@ public class MemberBean {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getProgileimg() {
-		return progileimg;
+	public String getProfileimg() {
+		return profileimg;
 	}
-	public void setProgileimg(String progileimg) {
-		this.progileimg = progileimg;
+	public void setProfileimg(String profileimg) {
+		this.profileimg = profileimg;
 	}
 
 }
