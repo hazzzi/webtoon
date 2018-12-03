@@ -87,7 +87,7 @@
 							<!-- 추천 서비스로 이동 -->
 							<li><a href="./main_recommend.rec">추천</a></li>
 							<!-- 자유 게시판으로 이동 -->
-							<li><a href="./BoardList.bo">게시판</a></li>
+							<li><a href="./boardList.bo">게시판</a></li>
 						</ul>
 					</nav>
 					<!-- ★이후의 평가 갯수는 db에서 쿼리문 이용 -->

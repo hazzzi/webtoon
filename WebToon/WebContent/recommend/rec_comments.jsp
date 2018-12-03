@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>코멘트 보기</title>
-<script src="../main/js/jquery-3.3.1.js"></script>
-<script src="../main/js/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="../main/css/test.css">
-<link rel="stylesheet" href="../main/css/header.css">
-<link rel="stylesheet" href="../main/css/footer-main.css">
-<link rel="stylesheet" href="css/rec_comments.css">
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="./main/css/test.css">
+<link rel="stylesheet" href="./main/css/header.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
+<link rel="stylesheet" href="./recommend/css/rec_comments.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
