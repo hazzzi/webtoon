@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+   	<%  int mem_num; 
+   		if(session.getAttribute("mem_num")==null){
+   			mem_num = 0;
+   		}else{
+   			mem_num = (int)session.getAttribute("mem_num");
+   		}
+   	%>
 	<header id="header-head">
 		<div id="header-top">
 			<div id="header-inner-top">
@@ -26,20 +32,26 @@
 						<div id="header-profile">
 							<a>
 								<!-- if(사용자의 세션값이 존재하면) -->
+								<% if(mem_num!=0){ %>
 								<!-- db에서 사용자의 닉네임을 가져옴 -->
-								<span>닉네임</span>
+									<span>닉네임</span>
+								<%}else{ %>
 								<!-- else(세션값이 존재하지않으면) -->
-								<!-- <span>시작하기</span> -->
+									 <span>시작하기</span> 
+								<%} %>
 								<i class="fa fa-caret-down"></i>
 							</a>
-							<!-- dropdown 영역, 비로그인시 로그인영역만 보이게 -->
 							<div class="dropdown-content">
 							<!-- if(사용자의 세션값이 존재하면) -->
+							  <% if(mem_num!=0){ %>
 						      <a href="./myProfile.me">회원정보</a>
 						      <a href="#">내 평가</a>
 						      <a href="./MemberLogoutAction.me">로그아웃</a>
+						      <%}else{ %>
 						     <!-- else(사용자의 세션값이 존재하지않으면, ) -->
-						     <!-- <a href="#">로그인</a> -->
+						      <a href="./login.me">로그인</a>
+						      <a href="./join.me">회원가입</a>
+						     <%} %>
 						    </div>
 						</div>
 					</li>

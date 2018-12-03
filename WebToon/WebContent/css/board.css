@@ -140,7 +140,7 @@ header {
 	left: 455px;
 }
 
-#bd_srch>input {
+#bd_srch>.sr_tx {
 	box-sizing: border-box;
 	width: 530px;
 	height: 43px;
@@ -156,7 +156,7 @@ header {
 	border-radius: 30px;
 }
 
-#bd_srch>a {
+#bd_srch .sr_sub {
 	box-sizing: border-box;
 	width: 40px;
 	height: 41px;
@@ -166,6 +166,8 @@ header {
 	float: right;
 	position: relative;
 	bottom: 42px;
+	border-style: none;
+	color:transparent;
 }
 
 /* 공지사항 */
@@ -301,6 +303,7 @@ td>a:HOVER {
 	background-color: white;
 	position: absolute;
 	right: 0px;
+	bottom: 20px;
 	border: 2px solid #74668c;
 	border-radius: 30px;
 	font-family: 'NanumBarunpenR', sans-serif;
@@ -433,48 +436,48 @@ td>a:HOVER {
 
 .bw_pho_icon {
 	border: none;
-	outline:none;
+	outline: none;
 	background-color: #fff;
 	width: 30px;
-/* 	margin-right: 20px; */
-/* 	align-items: none; */
-/*     text-align: none; */
-    /* opacity: 0;  */
+	/* 	margin-right: 20px; */
+	/* 	align-items: none; */
+	/*     text-align: none; */
+	/* opacity: 0;  */
 }
 
-#bw_pho_file{
+#bw_pho_file {
 	margin-right: 20px;
-    position: relative;
-    right: 35px;
-    height: 38px;
-    bottom: 17px;
-    display: inline-block;
-    opacity: 0;
+	position: relative;
+	right: 35px;
+	height: 38px;
+	bottom: 17px;
+	display: inline-block;
+	opacity: 0;
 }
 
 .bw_pho_icon2 {
 	border: none;
-	outline:none;
+	outline: none;
 	background-color: #fff;
-	width: 30px;	
+	width: 30px;
 }
 
 #bw_pho_icon:HOVER {
-	color: #0f001e!important;
+	color: #0f001e !important;
 	border: none;
 	background-color: #fff;
 }
 
 .bw_pho_icon:HOVER {
-	color: #0f001e !important;	
+	color: #0f001e !important;
 }
 
 #bw_pho_icon2:HOVER {
-	color: #0f001e !important;		
+	color: #0f001e !important;
 }
 
 .bw_pho_icon2:HOVER {
-	color: #0f001e !important;		
+	color: #0f001e !important;
 }
 
 /* 글 내용 전체 content 영역 */
@@ -506,9 +509,9 @@ td>a:HOVER {
 /*본문내용*/
 #article-content {
 	font-size: 25px;
-    color: #333;
-    min-height: 300px;
-    margin-left: 20px;
+	color: #333;
+	min-height: 300px;
+	margin-left: 20px;
 }
 
 #date-writer-hit {
@@ -727,121 +730,223 @@ keyframes animateCircle { 40%{
 
 55%{
 transform
+
+
 :scale(11)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :
+
+
 #D46ABF
+
+
 ;
 }
 65%{
 transform
+
+
 :scale(12)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :
+
+
 #CC8EF5
+
+
 ;
 }
 75%{
 transform
+
+
 :scale(13)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 .5
+
+
 ;
 }
 85%{
 transform
+
+
 :scale(17)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 .2
+
+
 ;
 }
 95%{
 transform
+
+
 :scale(18)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 .1
+
+
 ;
 }
 100%{
 transform
+
+
 :scale(19)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 0;
 }
 }
@@ -852,14 +957,24 @@ keyframes animateHeart { 0%{
 
 40%{
 transform
+
+
 :scale
+
+
 (1
 .2
+
+
 );
 }
 100%{
 transform
+
+
 :scale(1)
+
+
 ;
 }
 }
@@ -867,13 +982,17 @@ transform
 keyframes animateHeartOut { 0%{
 	transform: scale(1.4);
 }
+
 100%{
 transform
+
+
 :scale(1)
+
+
 ;
 }
 }
-
 .note-editor.note-frame .note-editing-area .note-editable {
 	min-height: 800px;
 	max-height: 800px;
