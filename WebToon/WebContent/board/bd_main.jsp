@@ -162,12 +162,6 @@
 						onclick="location.href='./bd_writingPage.bo'">
 				</form>
 
-
-<!-- 				<div id="bd_srch">
-						<input type="text" name="bd_search"> <a href="./BoardSearch.bo"></a>
-				</div> -->
-
-
 			</div>
 			<!-- 카테고리 영역 끝-->
 

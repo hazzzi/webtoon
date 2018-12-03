@@ -42,7 +42,7 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./BoardModifyAction.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>" method="post" enctype="multipart/form-data">
+		<form action="./boardModifyAction.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>" method="post" enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex"
