@@ -68,6 +68,7 @@
 	List<WebtoonBean> webtoonList = (List<WebtoonBean>)request.getAttribute("webtoonList"); //웹툰 리스트
 	int num = (int)request.getAttribute("count_Recommend");
 %>
+test session값 : <%=session.getAttribute("mem_num") %>
 	<div class="rec_top_background">
 		평가한 웹툰 수 : <span><%=num%></span>
 		<div id="rec_star_menu">

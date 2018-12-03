@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -10,23 +10,31 @@
 </head>
 <body>
 <body>
-<form action="#" method="post">
+<form action="MemberForgetidAction.me" method="post">
 <div class="div">
 <div class="forgetid">
-<a href="forgetid.jsp"><strong>아이디 찾기</strong></a>
+<a href="forgetid.me"><strong>아이디 찾기</strong></a>
 </div>
 
 <div class="forgetpw">
-<a href="forgetpw.jsp"><strong>비밀번호 찾기</strong></a>
+<a href="forgetpw.me"><strong>비밀번호 찾기</strong></a>
 </div>
+<% request.setCharacterEncoding("utf-8");
+String flag="1";
+flag=(String)request.getAttribute("flag");
+String DBId =(String)request.getAttribute("DBId");
+	System.out.println(DBId);
+	System.out.println(flag);
+%>
 
-<div class="ex">등록된 이메일을 입력하세요</div>
+<div class="ex"><% if(DBId!=null){%>회원님의 아이디는 [<%=DBId%>] 입니다!<%}else{%>등록된 이메일을 입력하세요<%}%></div>
 
 <div class="email"><input type="email" name="email" placeholder="이메일" required></div>
+<div class="email"><input type="text" name="nik" placeholder="닉네임" required></div>
 <div class="getid">
 <input type="submit" value="아이디 찾기">
 </div>
-<div class="loginpage"><a href="login.jsp">로그인 하기</a></div>
+<div class="loginpage"><a href="login.me">로그인 하기</a></div>
 
 <div class="hpname">
 <i class="fa fa-search co"></i>
@@ -35,6 +43,16 @@
 
 </div>
 </form>
-
+<script type="text/javascript">
+var ckflag=<%=flag%>
+	function findfail(){
+		if(ckflag=="0"){
+			alert('이메일 혹은 닉네이을 확인하세요.');
+			
+		}	
+	}
+	
+	findfail();
+</script>
 </body>
 </html>

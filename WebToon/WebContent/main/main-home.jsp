@@ -30,6 +30,7 @@
 <%
 	List<WebtoonBean> webtoonList = (List<WebtoonBean>)request.getAttribute("webtoonList");
 	List<String> genre = (List<String>)request.getAttribute("genre");
+	int count_Recommend = (int)request.getAttribute("count_Recommend"); //총 평가한 갯수
 	System.out.println(webtoonList.size());
 	System.out.println(genre.size());
 %>
@@ -86,12 +87,12 @@
 							<!-- 추천 서비스로 이동 -->
 							<li><a href="./main_recommend.rec">추천</a></li>
 							<!-- 자유 게시판으로 이동 -->
-							<li><a href="./bd_main.bo">게시판</a></li>
+							<li><a href="./BoardList.bo">게시판</a></li>
 						</ul>
 					</nav>
 					<!-- ★이후의 평가 갯수는 db에서 쿼리문 이용 -->
 					<!-- select count(*) from recommend (쿼리는 수정될 수 있음) -->
-					<span>지금까지 ★ 437,108,374 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을
+					<span>지금까지 ★ <%=count_Recommend%> 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을
 						받아보세요.</span>
 				</div>
 			</div>

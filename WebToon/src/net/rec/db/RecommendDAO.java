@@ -12,12 +12,14 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
-import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
-import org.apache.mahout.cf.taste.impl.similarity.EuclideanDistanceSimilarity;
-import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
-import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
+import org.apache.mahout.cf.taste.model.JDBCDataModel;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
-import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
+import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
@@ -31,6 +33,46 @@ public class RecommendDAO {
 		con = ds.getConnection(); // getConnection 함수를 통해서 connection 형태로 변환가능
 		return con;
 	}
+	
+	public List<WebtoonBean> getWebtoon(int mem_num){
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon where web_num not in (select rec_web_num from recommend where rec_mem_num=?) order by rand()"; //이미 추천한 웹툰은 제외
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num );
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+			
+				list.add(wb);
+			}								
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		return list;
+	}
+	
 
 	public void insertRecommend(RecommendBean rebean) {
 		Connection con = null;
@@ -70,7 +112,7 @@ public class RecommendDAO {
 					pstmt.setInt(3, rebean.getRec_web_num());
 					pstmt.executeUpdate();
 				}
-			}else{
+			}else{ //없으면 insert
 				pstmt.close();
 				sql = "insert into recommend value(?,?,?)";
 				pstmt = con.prepareStatement(sql);
@@ -87,15 +129,16 @@ public class RecommendDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 		}
 	}
-	public int getRecommend(){
+	public int getRecommend(int mem_num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int sum = 0;
 		try {
 			con = getConnection();
-			String sql = "select count(*) from recommend";
+			String sql = "select count(*) from recommend where rec_mem_num=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
 			rs = pstmt.executeQuery();
 			rs.next();
 			sum = rs.getInt(1);
@@ -107,39 +150,45 @@ public class RecommendDAO {
 		}
 		return sum;
 	}
-	public List<RecommendedItem> ItemRecommend_list(){
-		DataModel model;
-		List<RecommendedItem> recommendations = null;
-		MysqlDataSource data = new MysqlDataSource();
-		try {
-			data.setServerName("192.168.2.9");
-			data.setUser("jspid");
-			data.setPassword("jsppass");
-			data.setDatabaseName("mydb");
-			model = new MySQLJDBCDataModel(data, "recommend", "rec_mem_num", "rec_web_num", "rec_web_grade", null);
-			ItemSimilarity similarity = new EuclideanDistanceSimilarity(model);
-			//ItemSimilarity similarity = new PearsonCorrelationSimilarity(model);
-			GenericItemBasedRecommender recommender = new GenericItemBasedRecommender(model, similarity);
-			recommendations = recommender.mostSimilarItems(8, 6);
-			for(RecommendedItem recommendation : recommendations){
-				System.out.println(recommendation);
-			}
-		} catch (Exception e) {	e.printStackTrace();	}
-		return recommendations;
+	
+	public List<RecommendedItem> UserRecommend_list(int session){
+		List<RecommendedItem> recommendations=null;
+	      
+	      try{
+	         MysqlDataSource dataSource = new MysqlDataSource();
+	         dataSource.setServerName("192.168.2.9");
+	         dataSource.setUser("jspid");
+	         dataSource.setPassword("jsppass");
+	         dataSource.setDatabaseName("mydb");
+
+			JDBCDataModel dataModel = new MySQLJDBCDataModel(dataSource, "recommend", "rec_mem_num", "rec_web_num",
+					"rec_web_grade", null);
+	         
+	         //UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);
+	         UserSimilarity similarity = new LogLikelihoodSimilarity(dataModel);
+	         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
+	         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
+	         recommendations = recommender.recommend(session, 6);
+	         for(RecommendedItem recommendation : recommendations){
+	            System.out.println(recommendation);
+	         }
+	      }catch (Exception e) { e.printStackTrace();  }
+	      return recommendations;
 	}
 	public List<WebtoonBean> showRecommend_list(List<RecommendedItem> recommendations){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		String sql = "";
 		try {
 			con = getConnection();
-			String sql  = "select * from webtoon";
-			pstmt= con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()){
 				for(RecommendedItem recommendation : recommendations ){
-					if (rs.getInt("web_num") == recommendation.getItemID()) {
+					sql = "select * from webtoon where web_num=?";
+					pstmt= con.prepareStatement(sql);
+					pstmt.setInt(1, (int)recommendation.getItemID());
+					rs = pstmt.executeQuery();
+					if(rs.next()){
 						WebtoonBean wb = new WebtoonBean();
 						wb.setWeb_num(rs.getInt("web_num"));
 						wb.setWeb_subject(rs.getString("web_subject"));
@@ -152,7 +201,6 @@ public class RecommendDAO {
 						wb.setWeb_link(rs.getString("web_link"));
 						wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
 						list.add(wb);
-					}
 				}
 			}
 		} catch (Exception e) { e.printStackTrace();	}

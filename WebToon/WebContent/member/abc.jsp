@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 	<title>네이버아이디 </title>
@@ -12,6 +12,8 @@
 
 	<!-- (2) LoginWithNaverId Javscript 설정 정보 및 초기화 -->
 	<script>
+// 	var id;
+	var gender;
 	var email;
 	var name;
 	var profileImage;
@@ -33,18 +35,21 @@
 
 		naverLogin.getLoginStatus(function (status) {
 			if (status) {
+// 				var id = naverLogin.user.getId();
+				var gender = naverLogin.user.getGender(); // 남자는M, 여자는F 로 들어와서 M->남 으로 변경?
+				var id_email = naverLogin.user.getEmail(); // @뒤에 삭제후 아이디로 사용
 				var email = naverLogin.user.getEmail();
 				var name = naverLogin.user.getNickName();
 				var profileImage = naverLogin.user.getProfileImage();
-				var birthday = naverLogin.user.getBirthday();			
-				var uniqId = naverLogin.user.getId();
+// 				var birthday = naverLogin.user.getBirthday();			
+				var uniqId = naverLogin.user.getId(); // 넘버
 				var age = naverLogin.user.getAge();
 				e=email
 				a();
 			} else {
 				console.log("AccessToken이 올바르지 않습니다.");
 			}
-			alert(email+" "+name+" "+ profileImage+" "+birthday+" "+ uniqId+" "+age);
+			alert(gender+" "+id_email+" "+email+" "+name+" "+ profileImage+" "+ uniqId+" "+age);
 		});
 		function a(){
 		alert(e);

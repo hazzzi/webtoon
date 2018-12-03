@@ -18,13 +18,13 @@
 <!--회원 정보 수정 부분  -->	
 <div id="mdps_title"><h1>비밀 번호 변경</h1></div>
 
-<form action="#" method="post">
+<form action="MemberModpassAction.me" method="post">
 <div id="mdps"><!--reinfo  -->
 	
 	
 	<div id="mdps_text">
 	<table border="0">
-	<tr><th>현재 비밀번호</th><td><input type="password" name="pass" required></td></tr>
+	<tr><th>현재 비밀번호</th><td><input type="password" name="nowpass" required></td></tr>
 	<tr><th>새 비밀번호</th><td><input type="password" name="newpass" required></td></tr>
 	<tr><th>새 비밀번호 확인</th><td><input type="password" name="renewpass" required></td></tr>     
 	</table>

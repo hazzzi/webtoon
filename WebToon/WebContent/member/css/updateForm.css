@@ -53,9 +53,12 @@ body {
 	display:inline-block;
 	margin-top: 20px;
 	margin-bottom:10px;
+	
 	}
 	
 #profileImg>img{
+	width:150px;
+	height:150px;
 	border-radius: 70px;
 	}
 

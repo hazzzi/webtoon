@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.main.db.MainDAO;
 import net.rec.controller.Action;
@@ -16,13 +17,15 @@ public class MainRecommendAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RecommendDAO rdao = new RecommendDAO();
-		int count_Recommend = rdao.getRecommend();
+		HttpSession session = request.getSession();
+		int mem_num = (int) session.getAttribute("mem_num");
+		
+		int count_Recommend = rdao.getRecommend(mem_num);
 		request.setAttribute("count_Recommend", count_Recommend); // 평가한 웹툰 수 저장
-		
-		MainDAO mdao = new MainDAO();
-		List<WebtoonBean> webtoonList = mdao.mainWebtoon();
+
+		List<WebtoonBean> webtoonList = rdao.getWebtoon(mem_num);
 		request.setAttribute("webtoonList", webtoonList); // 웹툰LIST 저장
-		
+
 		ActionForward forward = new ActionForward(); // 이동
 		forward.setRedirect(false);
 		forward.setPath("./recommend/recommend.jsp");

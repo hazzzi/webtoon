@@ -16,6 +16,7 @@ public class MemberDAO {
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
+	
 
 	private Connection getConnection() throws Exception {
 		Context init = new InitialContext();
@@ -61,7 +62,7 @@ public class MemberDAO {
 			pstmt.setString(5, mb.getNik());
 			pstmt.setString(6, mb.getAges());
 			pstmt.setString(7, mb.getGender());
-			/*pstmt.setString(8, mb.getProgileimg());*/
+			/*pstmt.setString(8, mb.getProfileimg());*/
 			pstmt.setTimestamp(8, mb.getDate());
 			pstmt.setString(9, mb.getHintans());
 			pstmt.setString(10, mb.getHint());
@@ -163,7 +164,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
 			while (rs.next()) {
-				mb.setProgileimg(rs.getString("mem_profileimg"));
+				mb.setProfileimg(rs.getString("mem_profileimg"));
 			}								
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -174,5 +175,182 @@ public class MemberDAO {
 			}
 		}
 		return mb;
+	}
+	
+	public MemberBean getMember(int mem_num){
+		
+		MemberBean mb = new MemberBean();
+		try {
+		con = getConnection();
+		String sql = "select * from member where mem_num=?";
+		// 4 저장 <= 결과 실행
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, mem_num);
+
+		rs = pstmt.executeQuery();
+		// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+		while (rs.next()) {
+			mb.setNum(rs.getInt("mem_num"));
+			mb.setId(rs.getString("mem_id"));
+			//mb.setPass(rs.getString("mem_pass"));
+			mb.setEmail(rs.getString("mem_email"));
+			mb.setNik(rs.getString("mem_nik"));
+			mb.setAges(rs.getString("mem_ages"));
+			mb.setGender(rs.getString("mem_gender"));
+			mb.setDate(rs.getTimestamp("mem_date"));
+			mb.setHint(rs.getString("mem_hint"));
+			mb.setHintans(rs.getString("mem_hintans"));
+			mb.setProfileimg(rs.getString("mem_profileimg"));
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+	
+		} 
+		return mb;
+	}
+		
+	public void updateMember(MemberBean mb){
+		try{
+			con=getConnection();
+			
+			String sql="update member set mem_id=?,mem_email=?,mem_nik=?,mem_ages=?,mem_profileimg=?,mem_hint=?,mem_hintans=? where mem_num=?";
+			PreparedStatement pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, mb.getId());
+			pstmt.setString(2, mb.getEmail());
+			pstmt.setString(3, mb.getNik());
+			pstmt.setString(4, mb.getAges());
+			pstmt.setString(5, mb.getProfileimg());
+			pstmt.setString(6, mb.getHint());
+			pstmt.setString(7, mb.getHintans());
+			pstmt.setInt(8, mb.getNum());
+			pstmt.executeUpdate();
+			System.out.println("DAO updateMember");
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+	}
+	
+	public String checkMemberPass(int mem_num){
+		String mem_pass=null;
+		try{
+			con = getConnection();
+		
+			String sql="select mem_pass from member where mem_num=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				 mem_pass=rs.getString("mem_pass");
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		
+		return mem_pass;
+	}
+	
+	public void updateMem_pass(String DBPass, String newpass){
+		try{
+			con=getConnection();
+			String sql="update member set mem_pass=? where mem_num=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, newpass);
+			pstmt.setString(2, DBPass);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+	}
+	
+	public void deleteMember(int mem_num){
+		try{
+			con=getConnection();
+			String sql = "delete from member where mem_num=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,mem_num);
+			pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+	}
+	
+	public String findId(String email,String nik){
+		String DBId=null;
+		
+		try{
+			con=getConnection();
+			String sql="select mem_id from member where mem_email=? and mem_nik=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, nik);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				DBId=rs.getString("mem_id");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		
+		
+		return DBId;
+	}
+	
+	public String findPw(String id, String sel_hint,String ans){
+		String DBPw=null;
+		
+		try{
+			con=getConnection();
+			String sql="select mem_pass from member where mem_id=? and mem_hint=? and mem_hintans=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, sel_hint);
+			pstmt.setString(3, ans);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				DBPw=rs.getString("mem_pass");
+				
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		
+		
+		return DBPw;
 	}
 }

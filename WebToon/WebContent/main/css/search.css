@@ -13,7 +13,7 @@ header#header-head{
     z-index: 3;
 }
 div.sach-main{
-	min-height: -webkit-fill-available;
+	min-height: 600px;
     height: 100%;
     width: 70%;
 /*     max-width: 1080px; */
@@ -44,12 +44,14 @@ div.sach-background>h3{
     margin: 0 auto;
     width: 70%;
 /*     max-width: 1080px; */
+	padding-bottom: 10px;
     font-size: 20px;
     padding-left: 50px;
 }
 div.sach-background{
 	position: inherit;
-	height: 130px;
+	min-height: 100px;
+	max-height: 130px;
 	width: 100%;
 	background-color: #d5cde4;
 	z-index: 1;

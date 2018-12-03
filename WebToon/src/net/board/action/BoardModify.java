@@ -17,6 +17,11 @@ public class BoardModify implements Action{
 		System.out.println("BoardModify execute()");
 		request.setCharacterEncoding("utf-8");
 		
+		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+		String pageNum = request.getParameter("pageNum");
+		
+		System.out.println("fb_num");
+		
 		HttpSession session = request.getSession();
 		int mem_num = (int)session.getAttribute("mem_num");
 		

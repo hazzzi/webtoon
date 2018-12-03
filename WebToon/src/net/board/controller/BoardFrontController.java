@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.action.BoardContentAction;
+import net.board.action.BoardDeleteAction;
 import net.board.action.BoardList;
+import net.board.action.BoardModifyAction;
 import net.board.action.BoardWriteAction;
 
 public class BoardFrontController extends HttpServlet {
@@ -40,7 +42,8 @@ public class BoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./board/bd_writingPage.jsp");
 
-		} else if (command.equals("/boardContent.bo")) {
+		} else if (command.equals("/BoardContent.bo")) {
+
 			action = new BoardContentAction();
 			try {
 				forward = action.execute(request, response);
@@ -50,14 +53,29 @@ public class BoardFrontController extends HttpServlet {
 			
 		} else if (command.equals("/boardWriteAction.bo")) {
 			action = new BoardWriteAction();
-
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("")) {
-
+		} else if (command.equals("/BoardModify.bo")) {
+				forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("./board/bd_modifyPage.jsp");
+		}else if(command.equals("/BoardModifyAction.bo")){
+			action = new BoardModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/BoardDelete.bo")){
+			action = new BoardDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		// 이동 시작
@@ -73,6 +91,8 @@ public class BoardFrontController extends HttpServlet {
 		}
 		// 이동 끝
 	}
+
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

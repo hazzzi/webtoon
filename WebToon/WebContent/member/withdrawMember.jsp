@@ -19,7 +19,7 @@
 <!--회원 정보 수정 부분  -->	
 <div id="wdm_title"><h1>회원 탈퇴</h1></div>
 
-<form action="#" method="post">
+<form action="MemberWithdrawAction.me" method="post">
 <div id="wdm"><!--reinfo  -->
 	<div id="wdm_exp"><p>회원 탈퇴 시 모든 정보가 삭제됩니다.</p></div>
 	

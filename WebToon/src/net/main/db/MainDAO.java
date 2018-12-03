@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.member.db.MemberBean;
+import net.rec.db.RecommendBean;
 import net.webtoon.db.WebtoonBean;
 
 public class MainDAO {
@@ -24,7 +26,26 @@ public class MainDAO {
 		// getConnection 함수를 통해서 connection 형태로 변환가능 
 		return con;
 	}
-	
+	public int CountRecommend(){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int sum = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(*) from recommend";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			sum = rs.getInt(1);
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
+		}
+		return sum;
+	}
 	public List<WebtoonBean> mainWebtoon(){
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
@@ -100,5 +121,129 @@ public class MainDAO {
 		}
 		
 		return list;
+	}
+	
+	public void insertWebtoonCount(RecommendBean recbean){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt1 = null;
+		ResultSet rs = null;
+		ResultSet rs1 = null;
+		MemberBean mb = new MemberBean();
+		int check=0;
+		try {
+			con = getConnection();
+			// member 테이블에서 나이랑 성별을 들고옴
+			String sql = "select mem_ages,mem_gender from member where mem_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, recbean.getRec_mem_num());
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				mb.setAges(rs.getString("mem_ages"));
+				mb.setGender(rs.getString("mem_gender"));
+			}
+			pstmt.close();
+			rs.close();
+			
+			// 나이 추천 테이블에서 웹툰이랑 연령대를 찾아서 값이 존재하면 update 없으면 insert
+			sql = "select * from webtoon_rec_ages where webtoon_web_num=? and webtoon_ages=?";
+			System.out.println("select() 실행");
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, recbean.getRec_web_num());
+			pstmt.setString(2, mb.getAges());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, recbean.getRec_mem_num());
+				pstmt.setInt(2, recbean.getRec_web_num());
+				rs1 = pstmt.executeQuery();
+				System.out.println("select() rec 실행");
+				System.out.println(recbean.getRec_web_grade());
+				if(rs1.next()){
+					if(recbean.getRec_web_grade()==0){
+						pstmt.close();
+						sql = "update webtoon_rec_ages set webtoon_count=webtoon_count-1 where webtoon_web_num=? and webtoon_ages=?";
+						System.out.println("update()-1 실행");
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, recbean.getRec_web_num());
+						pstmt.setString(2, mb.getAges());
+						pstmt.executeUpdate();
+					}
+				}else{
+					pstmt.close();
+					sql = "update webtoon_rec_ages set webtoon_count=webtoon_count+1 where webtoon_web_num=? and webtoon_ages=?";
+					System.out.println("update()+1 실행");
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, recbean.getRec_web_num());
+					pstmt.setString(2, mb.getAges());
+					pstmt.executeUpdate();
+				}
+			}else{
+				pstmt.close();
+				sql = "insert into webtoon_rec_ages(webtoon_web_num,webtoon_ages,webtoon_count) value(?,?,?)";
+				System.out.println("insert() 실행");
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, recbean.getRec_web_num());
+				pstmt.setString(2, mb.getAges());
+				pstmt.setInt(3, 1);
+				pstmt.executeUpdate();
+			}
+			rs.close();
+			
+			sql = "select * from webtoon_rec_gender where webtoon_web_num=? and webtoon_gender=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, recbean.getRec_web_num());
+			pstmt.setString(2, mb.getGender());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				pstmt.close();
+				rs1.close();
+				sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, recbean.getRec_mem_num());
+				pstmt.setInt(2, recbean.getRec_web_num());
+				rs1 = pstmt.executeQuery();
+				if(rs1.next()){
+					if(recbean.getRec_web_grade()==0){
+						pstmt.close();
+						sql = "update webtoon_rec_gender set webtoon_count=webtoon_count-1 where webtoon_web_num=? and webtoon_gender=?";
+						System.out.println("update()-1 실행");
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, recbean.getRec_web_num());
+						pstmt.setString(2, mb.getGender());
+						pstmt.executeUpdate();
+					}
+				}else{
+					pstmt.close();
+					sql = "update webtoon_rec_gender set webtoon_count=webtoon_count+1 where webtoon_web_num=? and webtoon_gender=?";
+					System.out.println("update()+1 실행");
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, recbean.getRec_web_num());
+					pstmt.setString(2, mb.getGender());
+					pstmt.executeUpdate();
+				}
+			}else{
+				pstmt.close();
+				sql = "insert into webtoon_rec_gender(webtoon_web_num,webtoon_gender,webtoon_count) value(?,?,?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, recbean.getRec_web_num());
+				pstmt.setString(2, mb.getGender());
+				pstmt.setInt(3, 1);
+				pstmt.executeUpdate();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
 	}
 }

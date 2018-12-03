@@ -79,6 +79,7 @@ BoardBean bd = bdao.getBoard(fb_num);
 		<span><%=bd.getFb_readcount() %> | </span>
 		</div>  
 		<div id="article-content">
+		<a href="../upload/<%=bd.getFb_img()%>"></a>
 		<%=bd.getFb_content() %>
 		</div>
 </div>

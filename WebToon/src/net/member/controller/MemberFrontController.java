@@ -9,8 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.member.action.MemberForgetidAction;
+import net.member.action.MemberForgetpwAction;
 import net.member.action.MemberJoinAction;
 import net.member.action.MemberLoginAction;
+import net.member.action.MemberLogoutAction;
+import net.member.action.MemberModpassAction;
+import net.member.action.MemberUpdateAction1;
+import net.member.action.MemberUpdateAction2;
+import net.member.action.MemberWithdrawAction;
 
 public class MemberFrontController extends HttpServlet{
 
@@ -53,9 +60,111 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 				
 			}
+		}else if(command.equals("/MemberLogoutAction.me")){
+			action = new MemberLogoutAction();
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				
+			}
+		}else if(command.equals("/withdrawMember.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/withdrawMember.jsp");
 
+		}else if(command.equals("/myProfile.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/myProfile.jsp");
 
+		}else if(command.equals("/updateForm.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/updateForm.jsp");
+
+		}else if(command.equals("/MemberUpdateAction1.me")){
+			action =new MemberUpdateAction1();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/MemberUpdateAction2.me")){
+			action =new MemberUpdateAction2();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/modPass.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/modPass.jsp");
+			
+		}else if(command.equals("/MemberModpassAction.me")){
+			action =new MemberModpassAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/myArticle.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/myArticle.jsp");
+
+		}else if(command.equals("/withdrawMember.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/withdrawMember.jsp");
+
+		}else if(command.equals("/MemberWithdrawAction.me")){
+			action =new MemberWithdrawAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/forgetid.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/forgetid.jsp");
+
+		}else if(command.equals("/MemberForgetidAction.me")){
+			action =new MemberForgetidAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/forgetpw.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/forgetpw.jsp");
+
+		}else if(command.equals("/MemberForgetpwAction.me")){
+			action =new MemberForgetpwAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		//이동 시작

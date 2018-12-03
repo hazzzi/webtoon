@@ -3,7 +3,7 @@ package net.member.db;
 import java.sql.Timestamp;
 
 public class MemberBean {
-
+	private int num;
 	private String id;
 	private String pass;
 	private String email;
@@ -13,14 +13,12 @@ public class MemberBean {
 	private String ages;
 	private String gender;
 	private Timestamp date;
-	private String progileimg;
+	private String profileimg;
 	
-	public String getProgileimg() {
-		return progileimg;
-	}
-	public void setProgileimg(String progileimg) {
-		this.progileimg = progileimg;
-	}
+	
+	
+	
+	
 	public Timestamp getDate() {
 		return date;
 	}
@@ -74,6 +72,18 @@ public class MemberBean {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public String getProfileimg() {
+		return profileimg;
+	}
+	public void setProfileimg(String profileimg) {
+		this.profileimg = profileimg;
 	}
 
 }
