@@ -1,3 +1,4 @@
+<%@page import="net.board.db.BoardDAO"%>
 <%@page import="java.util.Date"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@page import="java.util.List"%>
@@ -19,7 +20,6 @@
 </head>
 <body>
 	<%
-		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
 		if (page == null) {
@@ -32,6 +32,10 @@
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 
 		List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
+
+		String search = request.getParameter("search");
+		BoardDAO bdao = new BoardDAO();
+		int count = bdao.getBoardCount(search);
 	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
@@ -88,7 +92,7 @@
 								for (BoardBean bb : boardList) {
 						%>
 						<tr
-							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
+							onclick="location.href='./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
 							<td><%=bb.getFb_num()%></td>
 							<td>[<%=bb.getFb_category()%>]
 							</td>
@@ -106,7 +110,7 @@
  %>
 							</td>
 							<td><a
-								href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
+								href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
 								<%
 									SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -135,18 +139,18 @@
 							}
 
 							if (startPage > pageBlock) {
-						%><a href="./boardList.bo?pageNum=<%=startPage - pageBlock%>">&lt;</a>
+						%><a href="./BoardList.bo?pageNum=<%=startPage - pageBlock%>">&lt;</a>
 						<%
 							}
 
 							for (int i = startPage; i <= endPage; i++) {
-						%><a href="./boardList.bo?pageNum=<%=i%>">[<%=i%>]
+						%><a href="./BoardList.bo?pageNum=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							}
 
 							if (endPage < pageCount) {
-						%><a href="./boardList.bo?pageNum=<%=startPage + pageBlock%>">&gt;</a>
+						%><a href="./BoardList.bo?pageNum=<%=startPage + pageBlock%>">&gt;</a>
 						<%
 							}
 						%>
@@ -154,19 +158,15 @@
 				</div>
 
 				<!-- 검색창 영역 시작 -->
-
 				<jsp:include page="search_engine.jsp"></jsp:include>
-				
-				<form action="./boardSearch.bo" method="post">
-					<input type="button" value="글 쓰기" class="write"
-						onclick="location.href='./bd_writingPage.bo'">
-				</form>
 
+				<input type="button" value="글 쓰기" class="write"
+					onclick="location.href='./bd_writingPage.bo'">
 
-<!-- 				<div id="bd_srch">
-						<input type="text" name="bd_search"> <a href="./BoardSearch.bo"></a>
-				</div> -->
-
+				<div id="bd_srch">
+					<input type="text" name="bd_search"> <a
+						href="./BoardSearch.bo"></a>
+				</div>
 
 			</div>
 			<!-- 카테고리 영역 끝-->

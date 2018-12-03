@@ -76,7 +76,14 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}/*else if(command.equals("/BoardSearch.bo")){
+			action = new BoardSearchAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}*/
 
 		// 이동 시작
 		if (forward != null) {
