@@ -18,7 +18,7 @@ public class BoardWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardWriteAction execute()");
+		System.out.println("boardWriteAction execute()");
 
 		request.setCharacterEncoding("utf-8");
 
@@ -58,7 +58,7 @@ public class BoardWriteAction implements Action {
 		bdao.insertBoard(bd);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./BoardList.bo");
+		forward.setPath("./boardList.bo");
 		forward.setRedirect(true);
 		
 		return forward;

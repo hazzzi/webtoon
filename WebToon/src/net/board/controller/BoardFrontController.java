@@ -27,7 +27,7 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/BoardList.bo")) {
+		if (command.equals("/boardList.bo")) {
 			action = new BoardList();
 
 			try {
@@ -43,6 +43,7 @@ public class BoardFrontController extends HttpServlet {
 			forward.setPath("./board/bd_writingPage.jsp");
 
 		} else if (command.equals("/BoardContent.bo")) {
+
 			action = new BoardContentAction();
 			try {
 				forward = action.execute(request, response);
@@ -50,7 +51,7 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		} else if (command.equals("/BoardWriteAction.bo")) {
+		} else if (command.equals("/boardWriteAction.bo")) {
 			action = new BoardWriteAction();
 			try {
 				forward = action.execute(request, response);
