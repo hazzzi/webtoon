@@ -156,7 +156,7 @@
 				<!-- 검색창 영역 시작 -->
 
 				<div id="bd_srch">
-						<input type="text" name="bd_search"> <a href="./BoardSearch.bo"></a>
+						<input type="text" name="bd_search"> <a href="./boardSearch.bo"></a>
 				</div>
 
 

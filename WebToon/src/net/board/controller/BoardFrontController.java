@@ -35,14 +35,13 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
-
+			
 		} else if (command.equals("/bd_writingPage.bo")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./board/bd_writingPage.jsp");
 
-		} else if (command.equals("/BoardContent.bo")) {
+		} else if (command.equals("/boardContent.bo")) {
 
 			action = new BoardContentAction();
 			try {
@@ -58,18 +57,18 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/BoardModify.bo")) {
+		} else if (command.equals("/boardModify.bo")) {
 				forward = new ActionForward();
 				forward.setRedirect(false);
 				forward.setPath("./board/bd_modifyPage.jsp");
-		}else if(command.equals("/BoardModifyAction.bo")){
+		}else if(command.equals("/boardModifyAction.bo")){
 			action = new BoardModifyAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/BoardDelete.bo")){
+		}else if(command.equals("/boardDelete.bo")){
 			action = new BoardDeleteAction();
 			try {
 				forward = action.execute(request, response);
