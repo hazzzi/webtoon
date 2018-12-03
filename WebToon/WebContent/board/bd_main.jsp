@@ -88,7 +88,7 @@
 								for (BoardBean bb : boardList) {
 						%>
 						<tr
-							onclick="location.href='./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
+							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
 							<td><%=bb.getFb_num()%></td>
 							<td>[<%=bb.getFb_category()%>]
 							</td>
@@ -106,7 +106,7 @@
 								%>
 							</td>
 							<td><a
-								href="./BoardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
+								href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
 								<%
 									SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -135,18 +135,18 @@
 							}
 
 							if (startPage > pageBlock) {
-						%><a href="./BoardList.bo?pageNum=<%=startPage - pageBlock%>">&lt;</a>
+						%><a href="./boardList.bo?pageNum=<%=startPage - pageBlock%>">&lt;</a>
 						<%
 							}
 
 							for (int i = startPage; i <= endPage; i++) {
-						%><a href="./BoardList.bo?pageNum=<%=i%>">[<%=i%>]
+						%><a href="./boardList.bo?pageNum=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							}
 
 							if (endPage < pageCount) {
-						%><a href="./BoardList.bo?pageNum=<%=startPage + pageBlock%>">&gt;</a>
+						%><a href="./boardList.bo?pageNum=<%=startPage + pageBlock%>">&gt;</a>
 						<%
 							}
 						%>

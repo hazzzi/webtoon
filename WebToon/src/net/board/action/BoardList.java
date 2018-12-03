@@ -15,7 +15,7 @@ public class BoardList implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		System.out.println("BoardList execute()");
+		System.out.println("boardList execute()");
 		
 		BoardDAO bdao = new BoardDAO();
 		

@@ -35,7 +35,7 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./BoardWriteAction.bo" method="post" enctype="multipart/form-data">
+		<form action="./boardWriteAction.bo" method="post" enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex"
