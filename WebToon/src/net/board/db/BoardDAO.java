@@ -301,6 +301,7 @@ public class BoardDAO {
 			con = getConnection();
 
 			String sql = "select * from free_board where fb_subject like ?" + " limit ?,?";
+			
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, "%" + search + "%");
