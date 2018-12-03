@@ -44,8 +44,6 @@
 	if(tmp1>=5){
 		tmp2 = tmp1;
 	}
-	
-	System.out.println(tmp0+" "+tmp2);
 %>
 <div id="main-wrap">
 	<jsp:include page="header.jsp" />
@@ -153,7 +151,7 @@
 		 				<% if(mb.getProfileimg()==null){%>
 		 				<img src="./main/img/member.png">
 		 				<%}else{%>
-		 				<img src="<%=mb.getProfileimg()%>">
+		 				<img src="./upload/<%=mb.getProfileimg()%>">
 		 				<%}%>
 		 				<!-- webtoon_borad -->
 		 				<!-- join 이용해서 member_nik -->
@@ -169,7 +167,7 @@
 		 				<% if(mb.getProfileimg()==null){%>
 		 				<img src="./main/img/member.png">
 		 				<%}else{%>
-		 				<img src="<%=mb.getProfileimg()%>">
+		 				<img src="./upload/<%=mb.getProfileimg()%>">
 		 				<%}%>
 		 				<p>사용자별명</p>
 		 				<hr>
@@ -238,7 +236,7 @@
 		 			<p>4.5</p> -->
 		 			<!-- 웹툰 추천 영역으로 이동 -->
 		 			<p class="mg">더 많은 웹툰을 평가해주세요!</p>
-		 			<a href="../recommend/recommend.jsp">평가하기</a>
+		 			<a href="./main_recommend.rec">평가하기</a>
 		 		</div>
 		 	</div>
 		 	</div>
@@ -255,7 +253,7 @@
 			</div>
 			
 			<!-- db insert 작업 필요, action은 임시링크 -->
-			<form action="../recommend/rec_comments.jsp" method="post">
+			<form action="./writeReview.wbt" method="post">
 				<input type="hidden" name="wbb_web_num" value="<%=wb.getWeb_num()%>">
 				<div class="container review_block">
 					<!-- <p>리뷰 남기기</p> -->
@@ -286,7 +284,6 @@
 			
 			$('.star').html(function(index){
 				if(index<<%=tmp0/10%>){
-					alert(index);
 					$(this).removeClass('fa-star-o');
 					$(this).addClass('fa-star');
 				}

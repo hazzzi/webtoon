@@ -15,7 +15,7 @@
 <title>로그인</title>
  </head>
 <body>
-<a href="../main/index.jsp"><p class="back">◀ 돌아가기</p></a>
+<a href="./home.today"><p class="back">◀ 돌아가기</p></a>
 <form action="MemberLoginAction.me" method="post" name="f"  >
 <div class="div">
  <div class="login">
