@@ -29,7 +29,7 @@ public class BoardDeleteAction implements Action{
 		bdao.deleteBoard(bd);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./BoardList.bo");
+		forward.setPath("./boardList.bo");
 		forward.setRedirect(true);
 		
 		return forward;
