@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.webtoon.action.WebtoonDetailAction;
-import net.webtoon.action.WebtoonReviewAction;
+import net.webtoon.action.WebtoonWriteReview;
 import net.webtoon.action.WebtoonSearchAction;
 
 public class WebtoonFrontController extends HttpServlet{	
@@ -41,13 +41,15 @@ public class WebtoonFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/writeReview.wbt")){
-			action = new WebtoonReviewAction();
+			action = new WebtoonWriteReview();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}else if(command.equals("/getReview.wbt")){
+			//action = 
 		}
 		
 		if(forward != null){

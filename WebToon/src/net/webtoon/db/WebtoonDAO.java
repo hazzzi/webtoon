@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
@@ -235,5 +236,34 @@ public class WebtoonDAO {
 			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 		}
+	}
+	public List<WebtoonBoardBean> getReview(){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<WebtoonBoardBean> list = new ArrayList<WebtoonBoardBean>();
+		try {
+			con = getConnection();
+			String sql  = "select * from webtoon_board";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				WebtoonBoardBean wbb = new WebtoonBoardBean();
+				wbb.setWbb_web_num(rs.getInt("wbb_web_num"));
+				wbb.setWbb_bdnum(rs.getInt("wbb_bdnum"));
+				wbb.setWbb_mem_num(rs.getInt("wbb_mem_num"));
+				wbb.setWbb_mem_nik(rs.getString("wbb_mem_nik"));
+				wbb.setWbb_comment(rs.getString("wbb_comment"));
+				wbb.setWbb_sumlike(rs.getInt("wbb_sumlike"));
+				wbb.setWbb_date(rs.getDate("wbb_date"));
+				list.add(wbb);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return list;
 	}
 }
