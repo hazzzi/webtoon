@@ -20,7 +20,6 @@ public class BoardContentAction implements Action{
 		HttpSession session = request.getSession();
 		String mem_nik = (String)session.getAttribute("mem_nik");		
 
-
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		
 		String pageNum = request.getParameter("pageNum");

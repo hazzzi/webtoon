@@ -62,6 +62,8 @@ BoardBean bd = bdao.getBoard(fb_num);
 <input type="button" class="bt" value="이전 글" /><br><br>
 </div>
 
+<input type="button" class="bt-1" onclick="location.href='./boardList.bo'" value="목록" />
+
 <div class="clear"></div>
 
 <article>
@@ -80,9 +82,12 @@ BoardBean bd = bdao.getBoard(fb_num);
 		<span><%=bd.getFb_mem_nik() %> | </span>
 		<span><%=bd.getFb_readcount() %> | </span>
 		</div>  
+		
+		<!-- 내용 영역 -->
 		<div id="article-content">
-		<a href="../upload/<%=bd.getFb_img()%>"></a>
-		<%=bd.getFb_content() %>
+<%-- 			<a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
+			<img src="./upload/<%=bd.getFb_img()%>"><br><br>
+			<%=bd.getFb_content() %><br><br>
 		</div>
 </div>
 <!-- LikeBtn.com BEGIN -->
@@ -104,23 +109,14 @@ BoardBean bd = bdao.getBoard(fb_num);
 			
 	<!-- 수정삭제 다음글 이전글 -->
 <div class="view-menu" style="margin-bottom: 47px;">
-    <div class="fl">
+    <div class="fi">
     <br>
-    <%	
-  	if(bd.getFb_mem_nik().equals(fb_mem_nik)){
-	%>
+   
         <input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
         <input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-        <%}%>
-    </div>
-    <div class="fr">
-    <br>
-    <%
-if(fb_mem_nik!=null){
-    %>
-   	 <input type="button" class="bt" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
-   <%	 }    %>
-        <input type="button" class="bt" onclick="location.href='./boardList.bo'" value="목록" />
+	  	<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+  
+        
     </div>
 	</div>
 
@@ -132,7 +128,7 @@ if(fb_mem_nik!=null){
 				<form id="addCommentForm" style="margin: 10px 0;" action="addComment.jsp" method="post" >
     				<div id="addComment">
 
-       				 <textarea id="dtl_tex" rows="7" cols="202"></textarea>
+       				 <textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요."></textarea>
    					 </div>
    			
       				  <input type="button" class="bt_c_write" value="댓글 남기기" />
@@ -177,14 +173,11 @@ if(fb_mem_nik!=null){
 	</div>
 
 </div>
-</body>
-
 	
-
 <div class="clear"></div>
 <!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
-	<jsp:include page="../main/footer.jsp"></jsp:include>
+	<jsp:include page="../main/footer.jsp"/>
 	<!-- footer 영역 끝  -->
 </body>
 </html>

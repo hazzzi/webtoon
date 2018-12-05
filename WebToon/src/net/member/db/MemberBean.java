@@ -3,7 +3,7 @@ package net.member.db;
 import java.sql.Timestamp;
 
 public class MemberBean {
-	private int num;
+	private String num;
 	private String id;
 	private String pass;
 	private String email;
