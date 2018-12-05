@@ -1,3 +1,5 @@
+<%@page import="net.webtoon.db.WebtoonBoardBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -44,6 +46,9 @@
 			});
 		</script>
 
+<%
+	List<WebtoonBoardBean> webtoonBoardList = (List<WebtoonBoardBean>)request.getAttribute("webtoonBoardList");
+%>
 		<div id="rec_c">
 			<div id="rec_c_top">
 				<a href="javascript:history.back()"><i
@@ -51,30 +56,26 @@
 			</div>
 			<div id="line"></div>
 			<div class="rec_comments_main_wrap">
-				<%for(int a=0; a<=10; a++){%>
+			<%if(webtoonBoardList !=null){ %>
+				<%for(WebtoonBoardBean wbb : webtoonBoardList){%>
 				<div class="rec_box1">
 					<div class="rec_user_name">
 						<img src="../main/img/member.png">
-						<p>사용자 이름</p>
+						<p><%=wbb.getWbb_mem_nik() %></p>
 					</div>
 					<hr>
 					<div class="rec_comment">
-						<p>코멘트 내용 소금이라 되려니와, 소담스러운 있으랴? 역사를 풀이 옷을 사랑의 보내는 것이다. 목숨이 영원히
-							위하여, 것은 맺어, 같이, 무엇을 실현에 쓸쓸하랴? 착목한는 날카로우나 바로 그들은 찬미를 하는 그들의 끝에
-							위하여서. 보이는 같이, 피는 청춘 인간이 귀는 속에 황금시대다. 자신과 가치를 위하여 튼튼하며, 이상은 대한 석가는
-							있는 품에 봄바람이다. 어디 간에 쓸쓸한 보는 청춘의 물방아 따뜻한 있으며, 칼이다. 얼마나 사랑의 고동을 이상이
-							위하여서. 유소년에게서 얼음과 청춘의 이것이다.</p>
+						<p><%=wbb.getWbb_comment() %></p>
 					</div>
-					<div class="rec_comment_date">2018.11.20 12:36:15</div>
+					<div class="rec_comment_date"><%=wbb.getWbb_date() %></div>
 					<hr>
 					<div class="rec_comment_like">
 						<i class="fa fa-thumbs-o-up"></i>
-						<p>11</p>
+						<p><%=wbb.getWbb_sumlike() %></p>
 					</div>
-				</div>
-				<%} %>
+				</div><%}%>
+				<%}else{%> <div>등록된 글이 없습니다</div><%} %> 
 			</div>
-
 		</div>
 		<jsp:include page="../main/top.jsp"></jsp:include>
 		<jsp:include page="../main/footer.jsp"></jsp:include>

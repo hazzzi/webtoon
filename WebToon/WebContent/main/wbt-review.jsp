@@ -10,7 +10,7 @@
 		</div>
 		
 		<!-- db insert 작업 필요, action은 임시링크 -->
-		<form action="../recommend/rec_comments.jsp" method="post">
+		<form action="./writeReview.wbt" method="post">
 			<div class="container review_block">
 				<!-- <p>리뷰 남기기</p> -->
 				<hr style="border-color: white;">

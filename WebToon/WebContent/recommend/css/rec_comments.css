@@ -92,7 +92,7 @@ header#header-head{
 	font-family: 'NanumBarunpenR', sans-serif;
 	text-align: left;
 	font-size: 18px;
-	padding: 2px 0 0px 6px;
+	padding: 10px 0 0px 6px;
 }
 
 .rec_user_name>img {
@@ -103,11 +103,11 @@ header#header-head{
 
 .rec_user_name>p {
 	width: 570px;
-	display: inline-block;
-	position: absolute;
-	top: 14px;
-	left: 60px;
-	font-size: 23px;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 29px;
+    font-size: 21px;
 }
 
 .rec_comment {

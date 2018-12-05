@@ -144,7 +144,7 @@
 		 			<!-- 제이쿼리 이용해서 div영역 보여줌 -->
 		 			<p><a class="review-action" style="cursor: pointer;">리뷰남기기</a>|
 		 			   <!-- 리뷰 더보기 이동 -->
-		 			   <a href="../recommend/rec_comments.jsp">더보기</a></p>
+		 			   <a href="./getReview.wbt?num=<%=wb.getWeb_num()%>">더보기</a></p>
 		 			<br>
 		 			<!-- 추천수 상위 2개 리뷰 -->
 		 			<div>
