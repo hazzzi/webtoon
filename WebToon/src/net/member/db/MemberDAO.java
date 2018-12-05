@@ -49,7 +49,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				System.out.println(rs.getString("mem_num"));
-				temp_num = rs.getString("mem_num") + 1;
+				/*temp_num = rs.getString("mem_num") + 1;*/
 				
 			}
 			
