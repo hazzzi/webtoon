@@ -215,7 +215,7 @@ public class WebtoonDAO {
 			}								
 			// sql insert num구한값 => re_ref
 			// re_lev 0, re_seq 0,
-			
+			pstmt.close();
 			sql = "insert into webtoon_board(wbb_web_num,wbb_bdnum,wbb_mem_num,wbb_mem_nik,wbb_comment,wbb_sumlike,wbb_date) "
 					+ "values(?,?,?,?,?,?,now())";		
 			

@@ -23,7 +23,6 @@ public class WebtoonBoardBean {
 	public void setWbb_bdnum(int wbb_bdnum) {
 		this.wbb_bdnum = wbb_bdnum;
 	}
-
 	public String getWbb_mem_num() {
 		return wbb_mem_num;
 	}
