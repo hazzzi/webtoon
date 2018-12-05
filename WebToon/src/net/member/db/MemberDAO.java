@@ -31,6 +31,7 @@ public class MemberDAO {
 
 		int temp_num = 0;// 회원 넘버를 만드는 sql문에서 2번쨰 sql문으로 값을 전달하기 위한
 						// 변수
+		String temp="0";//임시
 		System.out.println(mb.getId());
 		System.out.println(mb.getPass());
 		System.out.println(mb.getEmail());
@@ -56,7 +57,7 @@ public class MemberDAO {
 			// 회원 등록 하는 sql																	,profileimg
 			String sql2 = "insert into member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint) values(?,?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql2);
-			pstmt.setString(1, mem_num);
+			pstmt.setString(1, temp);//임시
 			pstmt.setString(2, mb.getId());
 			pstmt.setString(3, mb.getPass());
 			pstmt.setString(4, mb.getEmail());
