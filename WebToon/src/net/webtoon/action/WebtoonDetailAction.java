@@ -1,6 +1,8 @@
 package net.webtoon.action;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +12,7 @@ import net.member.db.MemberDAO;
 import net.webtoon.controller.Action;
 import net.webtoon.controller.ActionForward;
 import net.webtoon.db.WebtoonBean;
+import net.webtoon.db.WebtoonBoardBean;
 import net.webtoon.db.WebtoonDAO;
 
 public class WebtoonDetailAction implements Action{
@@ -27,17 +30,23 @@ public class WebtoonDetailAction implements Action{
 			WebtoonBean wb = wdao.getWebtoon(web_num);
 			double score = wdao.getMeanScore(web_num);
 			int count = wdao.getCountRec(web_num);
+			List<WebtoonBoardBean> wbb = wdao.getTop2Review(web_num);
+			
 			
 			MemberDAO mdao = new MemberDAO();
 			
 			// 수정 필요. 멤버 추천수 상위 2명만 들고와야함
-			MemberBean mb = mdao.getMemberImg(1);
-
+			List<MemberBean> wbbimg = new ArrayList<MemberBean>();
+			MemberBean mb1 = mdao.getMemberImg(wbb.get(0).getWbb_mem_num());
+			MemberBean mb2 = mdao.getMemberImg(wbb.get(1).getWbb_mem_num());
+			wbbimg.add(mb1);
+			wbbimg.add(mb2);
 			
 			request.setAttribute("wb", wb);
 			request.setAttribute("score", score);
 			request.setAttribute("count", count);
-			request.setAttribute("mb", mb);
+			request.setAttribute("wbb", wbb);
+			request.setAttribute("wbbimg", wbbimg);
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);
