@@ -73,10 +73,11 @@ public class MemberBean {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getNum() {
+
+	public String getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 	public String getProfileimg() {
