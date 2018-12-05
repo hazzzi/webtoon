@@ -48,6 +48,7 @@
 
 <%
 	List<WebtoonBoardBean> webtoonBoardList = (List<WebtoonBoardBean>)request.getAttribute("webtoonBoardList");
+	System.out.println(webtoonBoardList);
 %>
 		<div id="rec_c">
 			<div id="rec_c_top">
@@ -56,7 +57,7 @@
 			</div>
 			<div id="line"></div>
 			<div class="rec_comments_main_wrap">
-			<%if(webtoonBoardList !=null){ %>
+			<%if(webtoonBoardList.size() != 0){ %>
 				<%for(WebtoonBoardBean wbb : webtoonBoardList){%>
 				<div class="rec_box1">
 					<div class="rec_user_name">
@@ -74,8 +75,9 @@
 						<p><%=wbb.getWbb_sumlike() %></p>
 					</div>
 				</div><%}%>
-				<%}else{%> <div>등록된 글이 없습니다</div><%} %> 
-			</div>
+			</div><%} else{%><h2 style="text-align: center; line-height: 15; font-size: 38px; margin: 20px auto;">
+				<i class="fa fa-search"></i>작성 된 리뷰가 없습니다.
+			</h2><%}%>
 		</div>
 		<jsp:include page="../main/top.jsp"></jsp:include>
 		<jsp:include page="../main/footer.jsp"></jsp:include>

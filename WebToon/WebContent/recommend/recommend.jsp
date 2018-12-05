@@ -145,7 +145,6 @@ test session값 : <%=session.getAttribute("mem_num") %>
 				});
 			});
 		</script>
-		
 	</article>
 </body>
 	<jsp:include page="../main/footer.jsp"></jsp:include>

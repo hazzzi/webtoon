@@ -5,7 +5,7 @@ import java.sql.Date;
 public class WebtoonBoardBean {
 	private int wbb_web_num;
 	private int wbb_bdnum;
-	private int wbb_mem_num;
+	private String wbb_mem_num;
 	private String wbb_mem_nik;
 	private String wbb_comment;
 	private int wbb_sumlike;
@@ -23,10 +23,10 @@ public class WebtoonBoardBean {
 	public void setWbb_bdnum(int wbb_bdnum) {
 		this.wbb_bdnum = wbb_bdnum;
 	}
-	public int getWbb_mem_num() {
+	public String getWbb_mem_num() {
 		return wbb_mem_num;
 	}
-	public void setWbb_mem_num(int wbb_mem_num) {
+	public void setWbb_mem_num(String wbb_mem_num) {
 		this.wbb_mem_num = wbb_mem_num;
 	}
 	public String getWbb_mem_nik() {
