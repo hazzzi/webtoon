@@ -73,10 +73,7 @@ public class MemberBean {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 	public String getNum() {
 		return num;
 	}
