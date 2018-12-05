@@ -1,3 +1,5 @@
+<%@page import="net.webtoon.db.WebtoonBoardBean"%>
+<%@page import="java.util.List"%>
 <%@page import="net.member.db.MemberBean"%>
 <%@page import="net.webtoon.db.WebtoonBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -34,9 +36,10 @@
 <body>
 <%
 	WebtoonBean wb = (WebtoonBean)request.getAttribute("wb");
-	MemberBean mb = (MemberBean)request.getAttribute("mb");
 	double score = (double)request.getAttribute("score");
 	int count = (int)request.getAttribute("count");
+	List<WebtoonBoardBean> wbb = (List<WebtoonBoardBean>)request.getAttribute("wbb");
+	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
 	
 	int tmp0 = (int)(score*10);
 	int tmp1 = tmp0%10;
@@ -144,37 +147,41 @@
 		 			<!-- 제이쿼리 이용해서 div영역 보여줌 -->
 		 			<p><a class="review-action" style="cursor: pointer;">리뷰남기기</a>|
 		 			   <!-- 리뷰 더보기 이동 -->
-		 			   <a href="../recommend/rec_comments.jsp">더보기</a></p>
+		 			   <a href="./getReview.wbt?num=<%=wb.getWeb_num()%>">더보기</a></p>
 		 			<br>
 		 			<!-- 추천수 상위 2개 리뷰 -->
+		 			<%
+		 			int i=0;
+		 			for(WebtoonBoardBean bb:wbb){ %>
 		 			<div>
-		 				<% if(mb.getProfileimg()==null){%>
+		 				<% if(wbbimg.get(i).getProfileimg()==null){%>
 		 				<img src="./main/img/member.png">
 		 				<%}else{%>
-		 				<img src="./upload/<%=mb.getProfileimg()%>">
+		 				<img src="./upload/<%=wbbimg.get(i).getProfileimg()%>">
 		 				<%}%>
 		 				<!-- webtoon_borad -->
 		 				<!-- join 이용해서 member_nik -->
-		 				<p>사용자별명</p>
+		 				<p><%=bb.getWbb_mem_nik() %></p>
 		 				<hr>
 		 				<!-- wbb_content -->
-		 				<p>로망이 꽃피는 캠퍼스는 없다. 극사실주의에 기반한 너무나 현실적인 우리의 대학일기</p>
+		 				<p><%=bb.getWbb_comment() %></p>
 		 				<hr>
 		 				<!-- wbb_sumlike -->
-		 				<i class="fa fa-thumbs-o-up"></i><p>35</p>
+		 				<i class="fa fa-thumbs-o-up"></i><p><%=bb.getWbb_sumlike() %></p>
 		 			</div>
-		 			<div>
-		 				<% if(mb.getProfileimg()==null){%>
-		 				<img src="./main/img/member.png">
-		 				<%}else{%>
-		 				<img src="./upload/<%=mb.getProfileimg()%>">
-		 				<%}%>
-		 				<p>사용자별명</p>
-		 				<hr>
-		 				<p>로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기</p>
-		 				<hr>
-		 				<i class="fa fa-thumbs-o-up"></i><p>35</p>
-		 			</div>
+		 			<%i++;} %>
+<!-- 		 			<div> -->
+<%-- 		 				<%// if(wbbimg.get(1).getProfileimg()==null){%> --%>
+<!-- 		 				<img src="./main/img/member.png"> -->
+<%-- 		 				<%//}else{%> --%>
+<%-- 		 				<img src="./upload/<%//=wbbimg.get(1).getProfileimg()%>"> --%>
+<%-- 		 				<%//}%> --%>
+<!-- 		 				<p>사용자별명</p> -->
+<!-- 		 				<hr> -->
+<!-- 		 				<p>로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기로망이 꽃피는 캠퍼스는 없다. 현실적인 우리의 대학일기</p> -->
+<!-- 		 				<hr> -->
+<!-- 		 				<i class="fa fa-thumbs-o-up"></i><p>35</p> -->
+<!-- 		 			</div> -->
 		 		</div>
 		 		<div style="clear: both; margin: inherit; padding: 15px;"></div>
 		 		<hr>

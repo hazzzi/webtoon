@@ -26,15 +26,17 @@ public class MemberLoginAction implements Action{
 		MemberDAO mdao = new MemberDAO();
 		//DB mem_id를 체크해서 실행되면 성공하면 넘기고 아니면 로그인 폼으로 
 		//성공 1 실패 0
-		int num = mdao.loginMember(id,pass);
-		System.out.println("로그인 여부 num: "+num);
+		MemberBean mb = mdao.loginMember(id,pass);
+		System.out.println("로그인 여부 num: "+mb.getNum());
 		
-		if(num != 0){//로그인 성공
+		if(!mb.getNum().equals("0")){//로그인 성공
 			HttpSession session = request.getSession();
-			session.setAttribute("mem_num", num);
+
+			session.setAttribute("mem_num", mb.getNum());
+			session.setAttribute("mem_nik", mb.getNik());
 			forward.setRedirect(true);
 			forward.setPath("./home.today");
-		}else if(num==0){
+		}else if(mb.getNum().equals("0")){
 			forward.setRedirect(true);
 			forward.setPath("./login.me");
 			

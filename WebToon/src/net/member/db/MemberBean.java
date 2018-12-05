@@ -3,7 +3,7 @@ package net.member.db;
 import java.sql.Timestamp;
 
 public class MemberBean {
-	private int num;
+	private String num;
 	private String id;
 	private String pass;
 	private String email;
@@ -73,10 +73,11 @@ public class MemberBean {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getNum() {
+
+	public String getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 	public String getProfileimg() {

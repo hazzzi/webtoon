@@ -26,7 +26,7 @@ public class MemberUpdateAction2 implements Action{
 		MultipartRequest multi=
 				new MultipartRequest(request, filePath, maxSize,"utf-8",new DefaultFileRenamePolicy());
 		HttpSession session =request.getSession();
-		int mem_num=(int)session.getAttribute("mem_num");
+		String mem_num=(String)session.getAttribute("mem_num");
 		MemberBean mb = new MemberBean();
 		mb.setNum(mem_num);
 		mb.setProfileimg(multi.getFilesystemName("file"));

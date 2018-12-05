@@ -44,7 +44,6 @@ public class RecommendFrontController extends HttpServlet {
 			} catch (Exception e) {	e.printStackTrace();	}
 		}
 		
-		
 		// 주소 이동
 		if (forward != null) {
 			// 이동 방식

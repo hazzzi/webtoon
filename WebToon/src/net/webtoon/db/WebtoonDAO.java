@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
@@ -214,14 +215,14 @@ public class WebtoonDAO {
 			}								
 			// sql insert num구한값 => re_ref
 			// re_lev 0, re_seq 0,
-			
+			pstmt.close();
 			sql = "insert into webtoon_board(wbb_web_num,wbb_bdnum,wbb_mem_num,wbb_mem_nik,wbb_comment,wbb_sumlike,wbb_date) "
 					+ "values(?,?,?,?,?,?,now())";		
 			
 			pstmt = con.prepareStatement(sql);			
 			pstmt.setInt(1, wbb.getWbb_web_num());
 			pstmt.setInt(2, num);
-			pstmt.setInt(3, wbb.getWbb_mem_num());
+			pstmt.setString(3, wbb.getWbb_mem_num());
 			pstmt.setString(4, wbb.getWbb_mem_nik());
 			pstmt.setString(5, wbb.getWbb_comment());
 			pstmt.setInt(6, wbb.getWbb_sumlike());
@@ -235,5 +236,66 @@ public class WebtoonDAO {
 			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 		}
+	}
+	public List<WebtoonBoardBean> getReview(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<WebtoonBoardBean> list = new ArrayList<WebtoonBoardBean>();
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon_board where wbb_web_num=? order by wbb_date desc, wbb_sumlike desc";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				WebtoonBoardBean wbb = new WebtoonBoardBean();
+				wbb.setWbb_web_num(rs.getInt("wbb_web_num"));
+				wbb.setWbb_bdnum(rs.getInt("wbb_bdnum"));
+				wbb.setWbb_mem_num(rs.getString("wbb_mem_num"));
+				wbb.setWbb_mem_nik(rs.getString("wbb_mem_nik"));
+				wbb.setWbb_comment(rs.getString("wbb_comment"));
+				wbb.setWbb_sumlike(rs.getInt("wbb_sumlike"));
+				wbb.setWbb_date(rs.getDate("wbb_date"));
+				list.add(wbb);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return list;
+	}
+	
+	public List<WebtoonBoardBean> getTop2Review(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<WebtoonBoardBean> list = new ArrayList<WebtoonBoardBean>();
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon_board where wbb_web_num=? order by wbb_sumlike limit 0,2;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				WebtoonBoardBean wbb = new WebtoonBoardBean();
+				wbb.setWbb_web_num(rs.getInt("wbb_web_num"));
+				wbb.setWbb_bdnum(rs.getInt("wbb_bdnum"));
+				wbb.setWbb_mem_num(rs.getString("wbb_mem_num"));
+				wbb.setWbb_mem_nik(rs.getString("wbb_mem_nik"));
+				wbb.setWbb_comment(rs.getString("wbb_comment"));
+				wbb.setWbb_sumlike(rs.getInt("wbb_sumlike"));
+				wbb.setWbb_date(rs.getDate("wbb_date"));
+				list.add(wbb);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return list;
 	}
 }

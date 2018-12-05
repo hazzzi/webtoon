@@ -17,7 +17,7 @@ public class MemberWithdrawAction implements Action{
 		// TODO Auto-generated method stub
 			System.out.println("MemberWithdrawAction execute()");
 			HttpSession session = request.getSession();
-			int mem_num = (int)session.getAttribute("mem_num");
+			String mem_num = (String)session.getAttribute("mem_num");
 			
 			MemberDAO mdao = new MemberDAO();
 			String DBPass = mdao.checkMemberPass(mem_num);

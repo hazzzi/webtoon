@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class BoardBean {
 	private int fb_num;
-	private int fb_mem_num;
+	private String fb_mem_num;
 	private String fb_mem_nik;
 	private String fb_category;
 	private String fb_subject;
@@ -21,10 +21,11 @@ public class BoardBean {
 	public void setFb_num(int fb_num) {
 		this.fb_num =   fb_num;
 	}
-	public int getFb_mem_num() {
+
+	public String getFb_mem_num() {
 		return fb_mem_num;
 	}
-	public void setFb_mem_num(int fb_mem_num) {
+	public void setFb_mem_num(String fb_mem_num) {
 		this.fb_mem_num = fb_mem_num;
 	}
 	public String getFb_mem_nik() {

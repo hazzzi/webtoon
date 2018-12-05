@@ -12,7 +12,7 @@ import net.webtoon.controller.ActionForward;
 import net.webtoon.db.WebtoonBoardBean;
 import net.webtoon.db.WebtoonDAO;
 
-public class WebtoonReviewAction implements Action{
+public class WebtoonWriteReview implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -39,7 +39,7 @@ public class WebtoonReviewAction implements Action{
 		}
 		wbb.setWbb_web_num(wbb_web_num);
 		
-		int wbb_mem_num = (int)session.getAttribute("mem_num");
+		String wbb_mem_num = (String)session.getAttribute("mem_num");
 		wbb.setWbb_mem_num(wbb_mem_num);
 		wbb.setWbb_mem_nik(mdao.getMember(wbb_mem_num).getNik());
 		
@@ -51,8 +51,8 @@ public class WebtoonReviewAction implements Action{
 		
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./recommend/rec_comments.jsp");
+		forward.setRedirect(true);
+		forward.setPath("./getReview.wbt");
 		
 		return forward;
 	}
