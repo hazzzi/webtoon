@@ -215,14 +215,14 @@ public class WebtoonDAO {
 			}								
 			// sql insert num구한값 => re_ref
 			// re_lev 0, re_seq 0,
-			
+			pstmt.close();
 			sql = "insert into webtoon_board(wbb_web_num,wbb_bdnum,wbb_mem_num,wbb_mem_nik,wbb_comment,wbb_sumlike,wbb_date) "
 					+ "values(?,?,?,?,?,?,now())";		
 			
 			pstmt = con.prepareStatement(sql);			
 			pstmt.setInt(1, wbb.getWbb_web_num());
 			pstmt.setInt(2, num);
-			pstmt.setInt(3, wbb.getWbb_mem_num());
+			pstmt.setString(3, wbb.getWbb_mem_num());
 			pstmt.setString(4, wbb.getWbb_mem_nik());
 			pstmt.setString(5, wbb.getWbb_comment());
 			pstmt.setInt(6, wbb.getWbb_sumlike());
@@ -252,7 +252,7 @@ public class WebtoonDAO {
 				WebtoonBoardBean wbb = new WebtoonBoardBean();
 				wbb.setWbb_web_num(rs.getInt("wbb_web_num"));
 				wbb.setWbb_bdnum(rs.getInt("wbb_bdnum"));
-				wbb.setWbb_mem_num(rs.getInt("wbb_mem_num"));
+				wbb.setWbb_mem_num(rs.getString("wbb_mem_num"));
 				wbb.setWbb_mem_nik(rs.getString("wbb_mem_nik"));
 				wbb.setWbb_comment(rs.getString("wbb_comment"));
 				wbb.setWbb_sumlike(rs.getInt("wbb_sumlike"));

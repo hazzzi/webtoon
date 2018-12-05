@@ -50,7 +50,7 @@ public class BoardDAO {
 			sql = "select mem_nik from member where mem_num=?";
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, bd.getFb_mem_num());
+			pstmt.setString(1, bd.getFb_mem_num());
 
 			rs = pstmt.executeQuery();
 
@@ -63,7 +63,7 @@ public class BoardDAO {
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bd.getFb_num()); // num
-			pstmt.setInt(2, bd.getFb_mem_num());
+			pstmt.setString(2, bd.getFb_mem_num());
 			pstmt.setString(3, bd.getFb_mem_nik());
 			pstmt.setString(4, bd.getFb_category());
 			pstmt.setString(5, bd.getFb_subject());
@@ -255,7 +255,7 @@ public class BoardDAO {
 				BoardBean bb = new BoardBean();
 
 				bb.setFb_num(rs.getInt("fb_num"));
-				bb.setFb_mem_num(rs.getInt("fb_mem_num"));
+				bb.setFb_mem_num(rs.getString("fb_mem_num"));
 				bb.setFb_mem_nik(rs.getString("fb_mem_nik"));
 				bb.setFb_category(rs.getString("fb_category"));
 				bb.setFb_subject(rs.getString("fb_subject"));
@@ -318,7 +318,7 @@ public class BoardDAO {
 				BoardBean bb = new BoardBean();
 
 				bb.setFb_num(rs.getInt("fb_num"));
-				bb.setFb_mem_num(rs.getInt("fb_mem_num"));
+				bb.setFb_mem_num(rs.getString("fb_mem_num"));
 				bb.setFb_mem_nik(rs.getString("fb_mem_nik"));
 				bb.setFb_category(rs.getString("fb_category"));
 				bb.setFb_subject(rs.getString("fb_subject"));
@@ -435,7 +435,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				bd.setFb_mem_num(rs.getInt("fb_mem_num"));
+				bd.setFb_mem_num(rs.getString("fb_mem_num"));
 				bd.setFb_mem_nik(rs.getString("fb_mem_nik"));
 				bd.setFb_category(rs.getString("fb_category"));
 				bd.setFb_subject(rs.getString("fb_subject"));
@@ -466,6 +466,4 @@ public class BoardDAO {
 		}
 		return bd;
 	}
-
-
 }
