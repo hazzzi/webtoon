@@ -2,6 +2,7 @@ package net.board.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
@@ -16,6 +17,9 @@ public class BoardContentAction implements Action{
 		System.out.println("BoardContentAction execute()");
 		request.setCharacterEncoding("UTF-8");
 		
+		HttpSession session = request.getSession();
+		String mem_nik = (String)session.getAttribute("mem_nik");		
+
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		
 		String pageNum = request.getParameter("pageNum");

@@ -19,7 +19,7 @@ public class BoardBean {
 		return fb_num;
 	}
 	public void setFb_num(int fb_num) {
-		this.fb_num = fb_num;
+		this.fb_num =   fb_num;
 	}
 
 	public String getFb_mem_num() {

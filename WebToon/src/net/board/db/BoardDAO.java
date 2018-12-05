@@ -194,10 +194,12 @@ public class BoardDAO {
 		try {
 			con = getConnection();
 
-			String sql = "select count(*) from free_board where fb_subject like ?";
+			String sql = "select count(*) from free_board where fb_subject like ? or fb_category like ? or fb_mem_nik like ?";
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, "%" + search + "%");
+			pstmt.setString(2, "%" + search + "%");
+			pstmt.setString(3, "%" + search + "%");
 
 			rs = pstmt.executeQuery();
 
@@ -211,7 +213,7 @@ public class BoardDAO {
 			if (rs != null)
 				try {
 					rs.close();
-				} catch (SQLException e2) {
+				} catch (SQLException e) {
 				}
 			if (pstmt != null)
 				try {
@@ -300,12 +302,15 @@ public class BoardDAO {
 
 			con = getConnection();
 
-			String sql = "select * from free_board where fb_subject like ?" + " limit ?,?";
+			String sql = "select * from free_board where fb_subject like ? or fb_category like ? or fb_mem_nik like ?" + " limit ?,?";
+			
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, "%" + search + "%");
-			pstmt.setInt(2, startRow - 1);
-			pstmt.setInt(3, pageSize);
+			pstmt.setString(2, "%" + search + "%");
+			pstmt.setString(3, "%" + search + "%");			
+			pstmt.setInt(4, startRow - 1);
+			pstmt.setInt(5, pageSize);
 
 			ResultSet rs = pstmt.executeQuery();
 

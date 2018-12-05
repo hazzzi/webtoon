@@ -70,8 +70,10 @@
 				<div id="bw_img">
 
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
-						style="font-size: 48px; color: gray; margin-left: -30px;"><input
-						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img"></i>
+						style="font-size: 48px; color: gray; margin-left: -30px;">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+					</i>
+						
 
 					<button type="submit" class="bw_pho_icon2">
 						<i class="fa fa-check" id="bw_pho_icon2"
@@ -85,12 +87,10 @@
 			<div class="bw_content">
 			
 				<!-- 				  <img id="blah" src="#" alt="your image" /> -->
-				 <!-- <textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요"
-					name="fb_content"></textarea>  -->
-					<textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content" id="summernote" value="">
-					</textarea>
-					
-				
+				<!-- <textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content" id="summernote" value="">
+					</textarea> -->
+					<div ></div>
+				  <textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content"></textarea>  
 				<hr>
 			</div>
 		</form>

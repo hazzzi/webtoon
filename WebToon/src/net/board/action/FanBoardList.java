@@ -10,33 +10,31 @@ import net.board.controller.ActionForward;
 import net.board.db.BoardBean;
 import net.board.db.BoardDAO;
 
-public class BoardSearchAction implements Action {
+public class FanBoardList implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		request.setCharacterEncoding("utf-8");
 		
-		String search = request.getParameter("search");
-				
+		System.out.println("fanboardList execute()");
+		
 		BoardDAO bdao = new BoardDAO();
-		BoardBean bb = new BoardBean();
 		
-		int count = bdao.getBoardCount(search);
-		int pageSize = 15;
+		int count = bdao.getBoardCount();
+		int pageSize = 20;
+		
 		String pageNum = request.getParameter("pageNum");
 		
 		if(pageNum==null){
 			pageNum="1";
 		}
 		
-		int currentPage = Integer.parseInt(pageNum);
+		int currentPage = Integer.parseInt("pageNum");
 		int startRow = (currentPage-1)*pageSize+1;
-		int endRow = currentPage*pageSize;		
+		int endRow = currentPage*pageSize;
 		
-		List <BoardBean> boardList = null;
+		List <BoardBean> fanboardList = null;
 		if(count!=0){
-			boardList = bdao.getBoardList(startRow, pageSize, search);
+			fanboardList = bdao.getBoardList(startRow, pageSize);
 		}
 		
 		int pageCount = (count%pageSize==0)? count/pageSize:count/pageSize+1;
@@ -46,17 +44,16 @@ public class BoardSearchAction implements Action {
 		
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("boardList", boardList);
-		
+		request.setAttribute("fanboardList", fanboardList);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);		
+		request.setAttribute("endPage", endPage);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./board/bd_searchList.jsp");
-			
+		forward.setPath("./board/fanart.jsp");
+		
 		return forward;
 	}
 

@@ -28,7 +28,44 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/boardList.bo")) {
+		if (command.equals("/boardWriteAction.bo")) {
+			
+			action = new BoardWriteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else if (command.equals("/boardModify.bo")) {
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/bd_modifyPage.jsp");
+
+		} else if (command.equals("/boardModifyAction.bo")) {
+
+			action = new BoardModifyAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else if (command.equals("/boardDelete.bo")) {
+			
+			action = new BoardDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if (command.equals("/boardList.bo")) {
+			
 			action = new BoardList();
 
 			try {
@@ -37,54 +74,32 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		} else if (command.equals("/boardSearch.bo")) {
+			
+			action = new BoardSearchAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		} else if (command.equals("/bd_writingPage.bo")) {
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./board/bd_writingPage.jsp");
-
+			
 		} else if (command.equals("/boardContent.bo")) {
-
+			
 			action = new BoardContentAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		} else if (command.equals("/boardWriteAction.bo")) {
-			action = new BoardWriteAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/boardModify.bo")) {
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("./board/bd_modifyPage.jsp");
-		}else if(command.equals("/boardModifyAction.bo")){
-			action = new BoardModifyAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/boardDelete.bo")){
-			action = new BoardDeleteAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/boardSearch.bo")){
-			
-			action = new BoardSearchAction();
 			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 		}
 
 		// 이동 시작
@@ -100,8 +115,6 @@ public class BoardFrontController extends HttpServlet {
 		}
 		// 이동 끝
 	}
-
-	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

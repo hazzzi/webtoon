@@ -127,6 +127,7 @@ header {
 }
 
 /* search */
+
 #bd_srch {
 	height: 40px;
 	box-sizing: border-box;
@@ -140,7 +141,7 @@ header {
 	left: 455px;
 }
 
-#bd_srch>input {
+#bd_srch>.sr_tx {
 	box-sizing: border-box;
 	width: 530px;
 	height: 43px;
@@ -156,7 +157,7 @@ header {
 	border-radius: 30px;
 }
 
-#bd_srch>a {
+#bd_srch .sr_sub {
 	box-sizing: border-box;
 	width: 40px;
 	height: 41px;
@@ -166,6 +167,8 @@ header {
 	float: right;
 	position: relative;
 	bottom: 42px;
+	border-style: none;
+	color:transparent;
 }
 
 /* 공지사항 */
@@ -301,6 +304,7 @@ td>a:HOVER {
 	background-color: white;
 	position: absolute;
 	right: 0px;
+	bottom: 20px;
 	border: 2px solid #74668c;
 	border-radius: 30px;
 	font-family: 'NanumBarunpenR', sans-serif;
@@ -433,48 +437,48 @@ td>a:HOVER {
 
 .bw_pho_icon {
 	border: none;
-	outline:none;
+	outline: none;
 	background-color: #fff;
 	width: 30px;
-/* 	margin-right: 20px; */
-/* 	align-items: none; */
-/*     text-align: none; */
-    /* opacity: 0;  */
+	/* 	margin-right: 20px; */
+	/* 	align-items: none; */
+	/*     text-align: none; */
+	/* opacity: 0;  */
 }
 
-#bw_pho_file{
-	margin-right: 20px;
+#bw_pho_file {
+	    margin-right: 9px;
     position: relative;
-    right: 35px;
+    right: 47px;
     height: 38px;
-    bottom: 17px;
+    bottom: -17px;
     display: inline-block;
-    opacity: 0;
+     opacity: 0; 
 }
 
 .bw_pho_icon2 {
 	border: none;
-	outline:none;
+	outline: none;
 	background-color: #fff;
-	width: 30px;	
+	width: 30px;
 }
 
 #bw_pho_icon:HOVER {
-	color: #0f001e!important;
+	color: #0f001e !important;
 	border: none;
 	background-color: #fff;
 }
 
 .bw_pho_icon:HOVER {
-	color: #0f001e !important;	
+	color: #0f001e !important;
 }
 
 #bw_pho_icon2:HOVER {
-	color: #0f001e !important;		
+	color: #0f001e !important;
 }
 
 .bw_pho_icon2:HOVER {
-	color: #0f001e !important;		
+	color: #0f001e !important;
 }
 
 /* 글 내용 전체 content 영역 */
@@ -491,14 +495,14 @@ td>a:HOVER {
 /* bd_detailPage */
 .detail_content {
 	width: 100%;
-	display: block;
-	margin: 20px auto;
-	position: relative;
+    display: block;
+    margin: 0 auto;
+    position: relative;
 }
 
 .detail {
 	/*    border: 1px solid blue; */
-	width: 1400px;
+	width: 1145px;
 	display: block;
 	margin: 20px auto;
 	font-family: 'NanumBarunpenR'
@@ -507,8 +511,9 @@ td>a:HOVER {
 #article-content {
 	font-size: 25px;
     color: #333;
-    min-height: 300px;
+    min-height: 160px;
     margin-left: 20px;
+    margin-bottom: 100px;
 }
 
 #date-writer-hit {
@@ -527,6 +532,7 @@ td>a:HOVER {
 /* 댓글과 댓글을 테두리로 구분 */
 .comments {
 	border-top: 1px solid #ebebeb;
+	margin-left: 10px;
 }
 /* 댓글 작성자 ID */
 .comments>span.writer {
@@ -628,13 +634,9 @@ td>a:HOVER {
 	float: left;
 }
 
-.fr {
-	float: right;
-}
-
 .fi {
 	float: left;
-	margin: 20px 0;
+/* 	margin: 20px 0; */
 }
 
 hr {
@@ -661,18 +663,56 @@ hr {
 	color: #fff;
 }
 
+.bt-1{
+	width: 100px;
+    height: 41px;
+    background-color: white;
+    margin-left: 796px;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bt-1:HOVER {
+	background-color: #74668c;
+	color: #fff;
+}
+
+.bt-2{
+	width: 100px;
+    height: 41px;
+    background-color: white;
+    margin-left: 811px;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bt-2:HOVER {
+	background-color: #74668c;
+	color: #fff;
+}
+
 .bt_c_write {
 	width: 100px;
-	height: 106px;
-	background-color: white;
-	margin-left: 10px;
-	position: relative;
-	border: 2px solid #74668c;
-	border-radius: 30px;
-	font-family: 'NanumBarunpenR', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
+    height: 106px;
+    background-color: white;
+    margin-left: 17px;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .bt_c_write:HOVER {
@@ -681,11 +721,14 @@ hr {
 }
 
 #dtl_tex {
-	border-style: none;
-	font-family: 'NanumBarunpenR';
-	resize: none;
-	width: 1283px;
-	height: 136px;
+    border-style: none;
+    font-family: 'NanumBarunpenR';
+    resize: none;
+    width: 1014px;
+    height: 136px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 /*좋아요*/
@@ -727,121 +770,223 @@ keyframes animateCircle { 40%{
 
 55%{
 transform
+
+
 :scale(11)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :
+
+
 #D46ABF
+
+
 ;
 }
 65%{
 transform
+
+
 :scale(12)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :
+
+
 #CC8EF5
+
+
 ;
 }
 75%{
 transform
+
+
 :scale(13)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 .5
+
+
 ;
 }
 85%{
 transform
+
+
 :scale(17)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 .2
+
+
 ;
 }
 95%{
 transform
+
+
 :scale(18)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 .1
+
+
 ;
 }
 100%{
 transform
+
+
 :scale(19)
+
+
 ;
- 
 opacity
+
+
 :
+
+
 1;
- 
 fill
+
+
 :transparent
+
+
 ;
- 
 stroke
+
+
 :
+
+
 #CC8EF5
+
+
 ;
- 
 stroke-width
+
+
 :
+
+
 0;
 }
 }
@@ -852,14 +997,24 @@ keyframes animateHeart { 0%{
 
 40%{
 transform
+
+
 :scale
+
+
 (1
 .2
+
+
 );
 }
 100%{
 transform
+
+
 :scale(1)
+
+
 ;
 }
 }
@@ -867,13 +1022,17 @@ transform
 keyframes animateHeartOut { 0%{
 	transform: scale(1.4);
 }
+
 100%{
 transform
+
+
 :scale(1)
+
+
 ;
 }
 }
-
 .note-editor.note-frame .note-editing-area .note-editable {
 	min-height: 800px;
 	max-height: 800px;
