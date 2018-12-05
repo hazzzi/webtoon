@@ -4,8 +4,8 @@
 
 	<div class="content_top">
 	<div class="butt_div">
-           	 	<div class="board_butt"><a href="bd_main.jsp"><span id="bdFree">자유게시판</span></a></div>
-            	<div class="board_butt2"><a href="fanart.jsp"><span id="bd_fan">팬아트</span></a></div>
+           	 	<div class="board_butt"><a href="./boardList.bo"><span id="bdFree">자유게시판</span></a></div>
+            	<div class="board_butt2"><a href="./fanboardList.bo"><span id="bd_fan">팬아트</span></a></div>
             	</div>    
            <!-- 공지사항 영역 시작 -->
                <div id="news_notice">

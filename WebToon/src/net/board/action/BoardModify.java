@@ -25,6 +25,7 @@ public class BoardModify implements Action{
 		HttpSession session = request.getSession();
 		int mem_num = (int)session.getAttribute("mem_num");
 		
+		
 		System.out.println(mem_num);
 		
 		BoardDAO bdao = new BoardDAO();

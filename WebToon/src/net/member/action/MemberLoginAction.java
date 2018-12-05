@@ -31,6 +31,7 @@ public class MemberLoginAction implements Action{
 		
 		if(mb.getNum() != 0){//로그인 성공
 			HttpSession session = request.getSession();
+
 			session.setAttribute("mem_num", mb.getNum());
 			session.setAttribute("mem_nik", mb.getNik());
 			forward.setRedirect(true);

@@ -29,7 +29,8 @@ public class WebtoonDetailAction implements Action{
 			int count = wdao.getCountRec(web_num);
 			
 			MemberDAO mdao = new MemberDAO();
-			// 수정 필요. 
+			
+			// 수정 필요. 멤버 추천수 상위 2명만 들고와야함
 			MemberBean mb = mdao.getMemberImg(1);
 
 			

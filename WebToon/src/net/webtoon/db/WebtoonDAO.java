@@ -193,4 +193,47 @@ public class WebtoonDAO {
 		}
 		return result;
 	}
+	
+	public void writeReview(WebtoonBoardBean wbb){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int num = 0;
+		try {
+			con = getConnection();
+			// 게시판 글 번호 구하기
+			// num 구하기, 게시판 글 중에 가장 큰 번호
+			String sql = "select max(wbb_bdnum) from webtoon_board";
+			// 4 저장 <= 결과 실행
+			pstmt = con.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				num=rs.getInt("max(wbb_bdnum)")+1;
+			}								
+			// sql insert num구한값 => re_ref
+			// re_lev 0, re_seq 0,
+			
+			sql = "insert into webtoon_board(wbb_web_num,wbb_bdnum,wbb_mem_num,wbb_mem_nik,wbb_comment,wbb_sumlike,wbb_date) "
+					+ "values(?,?,?,?,?,?,now())";		
+			
+			pstmt = con.prepareStatement(sql);			
+			pstmt.setInt(1, wbb.getWbb_web_num());
+			pstmt.setInt(2, num);
+			pstmt.setInt(3, wbb.getWbb_mem_num());
+			pstmt.setString(4, wbb.getWbb_mem_nik());
+			pstmt.setString(5, wbb.getWbb_comment());
+			pstmt.setInt(6, wbb.getWbb_sumlike());
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+	}
 }

@@ -153,15 +153,14 @@
 					</div>
 				</div>
 
-				<!-- 검색창 영역 시작 -->
+				<!-- 검색창 영역 -->
 
 				<jsp:include page="search_engine.jsp"></jsp:include>
 				
-				<form action="./boardSearch.bo" method="post">
+				<!-- 검색창 영역 -->
+				
 					<input type="button" value="글 쓰기" class="write"
 						onclick="location.href='./bd_writingPage.bo'">
-				</form>
-
 			</div>
 			<!-- 카테고리 영역 끝-->
 
