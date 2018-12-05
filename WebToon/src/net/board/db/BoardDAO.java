@@ -466,6 +466,82 @@ public class BoardDAO {
 		}
 		return bd;
 	}
-
-
+	public int previousPost(int fb_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int preNum = 0;
+		
+		try {
+			con = getConnection();
+			String sql ="select fb_subject from free_board where fb_num(select max(fb_num) from free_board where fb_num<?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				preNum=rs.getInt("fb_num");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return preNum;
+	}
+	public int nextPost(int fb_num){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int nextNum = 0;
+		try {
+			con = getConnection();
+			String sql ="select fb_subject from free_board where fb_num=(select min(fb_num) from free_board where fb_num>?)";
+			pstmt.setInt(1, fb_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				nextNum =rs.getInt("fb_num");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return nextNum;
+	}
 }

@@ -58,8 +58,8 @@ BoardBean bd = bdao.getBoard(fb_num);
 
 <div class="detail">
 <div class="fi">
-<input type="button" class="bt" value="다음 글" />
-<input type="button" class="bt" value="이전 글" /><br><br>
+<input type="button" class="bt" value="다음 글" onclick="location.href='./boardContent.bo?fb_num=<%=fb_num+1 %>&pageNum=<%=pageNum%>'"/>
+<input type="button" class="bt" value="이전 글" onclick="location.href='./boardContent.bo?fb_num=<%=fb_num-1 %>&pageNum=<%=pageNum%>'" /><br><br>
 </div>
 
 <input type="button" class="bt-1" onclick="location.href='./boardList.bo'" value="목록" />
@@ -164,8 +164,10 @@ BoardBean bd = bdao.getBoard(fb_num);
 <!--  댓글 반복 끝 -->
 <br><br>
 <div id="next-prev">
-    <p>다음 글 : <a href="#">고양이세요?</a></p>
-    <p>이전 글 : <a href="#">고양이애오</a></p>
+ <% int preNum = bdao.previousPost(fb_num);%>
+    <p>다음 글 : <a href="./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>">고양이세요?</a></p>
+<%int nextNum = bdao.nextPost(fb_num); %>
+    <p>이전 글 : <a href="./boardContent.bo?fb_num=<%=nextNum %>&pageNum=<%=pageNum%>">고양이애오</a></p> 
 </div>
 
 </div>			
