@@ -237,15 +237,16 @@ public class WebtoonDAO {
 			}
 		}
 	}
-	public List<WebtoonBoardBean> getReview(){
+	public List<WebtoonBoardBean> getReview(int num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<WebtoonBoardBean> list = new ArrayList<WebtoonBoardBean>();
 		try {
 			con = getConnection();
-			String sql  = "select * from webtoon_board";
+			String sql = "select * from webtoon_board where wbb_web_num=? order by wbb_date desc, wbb_sumlike desc";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				WebtoonBoardBean wbb = new WebtoonBoardBean();

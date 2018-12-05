@@ -15,13 +15,14 @@ public class WebtoonListReview implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		WebtoonDAO wdao = new WebtoonDAO();
-		List<WebtoonBoardBean> webtoonBoardList = wdao.getReview();
+		//System.out.println("웹툰번호 : "+request.getParameter("num"));
+		List<WebtoonBoardBean> webtoonBoardList = wdao.getReview(Integer.parseInt(request.getParameter("num")));
 		request.setAttribute("webtoonBoardList", webtoonBoardList);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./recommend/rec_comments.jsp");
-		return null;
+		return forward;
 	}
 
 }

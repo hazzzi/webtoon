@@ -81,7 +81,7 @@ public class RecommendDAO {
 			con = getConnection();
 			String sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rebean.getRec_mem_num());
+			pstmt.setString(1, rebean.getRec_mem_num());
 			pstmt.setInt(2, rebean.getRec_web_num());
 			rs = pstmt.executeQuery();
 			/* 
@@ -96,7 +96,7 @@ public class RecommendDAO {
 					pstmt.close();
 					sql = "delete from recommend where rec_mem_num=? and rec_web_num=?";
 					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, rebean.getRec_mem_num());
+					pstmt.setString(1, rebean.getRec_mem_num());
 					pstmt.setInt(2, rebean.getRec_web_num());
 					pstmt.executeUpdate();
 				}
@@ -106,7 +106,7 @@ public class RecommendDAO {
 					pstmt = con.prepareStatement(sql);
 					System.out.println("update() 실행");
 					pstmt.setInt(1, rebean.getRec_web_grade());
-					pstmt.setInt(2, rebean.getRec_mem_num());
+					pstmt.setString(2, rebean.getRec_mem_num());
 					pstmt.setInt(3, rebean.getRec_web_num());
 					pstmt.executeUpdate();
 				}
@@ -114,7 +114,7 @@ public class RecommendDAO {
 				pstmt.close();
 				sql = "insert into recommend value(?,?,?)";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, rebean.getRec_mem_num());
+				pstmt.setString(1, rebean.getRec_mem_num());
 				pstmt.setInt(2, rebean.getRec_web_num());
 				pstmt.setInt(3, rebean.getRec_web_grade());
 				pstmt.executeUpdate();

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.webtoon.action.WebtoonDetailAction;
+import net.webtoon.action.WebtoonListReview;
 import net.webtoon.action.WebtoonWriteReview;
 import net.webtoon.action.WebtoonSearchAction;
 
@@ -45,13 +46,18 @@ public class WebtoonFrontController extends HttpServlet{
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else if(command.equals("/getReview.wbt")){
-			//action = 
+			action = new WebtoonListReview();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
+		// 이동
 		if(forward != null){
 			if(forward.isRedirect()==true){
 				response.sendRedirect(forward.getPath());
@@ -75,5 +81,4 @@ public class WebtoonFrontController extends HttpServlet{
 		System.out.println("MemberFrontController doPost()메서드");
 		doProcess(request, response);
 	}
-
 }

@@ -56,6 +56,7 @@
 			</div>
 			<div id="line"></div>
 			<div class="rec_comments_main_wrap">
+			<%if(webtoonBoardList !=null){ %>
 				<%for(WebtoonBoardBean wbb : webtoonBoardList){%>
 				<div class="rec_box1">
 					<div class="rec_user_name">
@@ -72,10 +73,9 @@
 						<i class="fa fa-thumbs-o-up"></i>
 						<p><%=wbb.getWbb_sumlike() %></p>
 					</div>
-				</div>
-				<%} %>
+				</div><%}%>
+				<%}else{%> <div>등록된 글이 없습니다</div><%} %> 
 			</div>
-
 		</div>
 		<jsp:include page="../main/top.jsp"></jsp:include>
 		<jsp:include page="../main/footer.jsp"></jsp:include>
