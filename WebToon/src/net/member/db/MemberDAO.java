@@ -29,7 +29,7 @@ public class MemberDAO {
 	public void joinMember(MemberBean mb) {
 
 
-		int mem_num = 0;// 회원 넘버를 만드는 sql문에서 2번쨰 sql문으로 값을 전달하기 위한
+		int temp_num = 0;// 회원 넘버를 만드는 sql문에서 2번쨰 sql문으로 값을 전달하기 위한
 						// 변수
 		System.out.println(mb.getId());
 		System.out.println(mb.getPass());
@@ -48,14 +48,15 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql1);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				System.out.println(rs.getInt("mem_num"));
-				mem_num = rs.getInt("mem_num") + 1;
+				System.out.println(rs.getString("mem_num"));
+				temp_num = rs.getString("mem_num") + 1;
+				
 			}
 			
 			// 회원 등록 하는 sql																	,profileimg
 			String sql2 = "insert into member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint) values(?,?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql2);
-			pstmt.setInt(1, mem_num);
+			pstmt.setString(1, mem_num);
 			pstmt.setString(2, mb.getId());
 			pstmt.setString(3, mb.getPass());
 			pstmt.setString(4, mb.getEmail());
@@ -109,7 +110,7 @@ public class MemberDAO {
 			if(rs.next()){
 				if(rs.getString("mem_pass").equals(mem_pass)){
 					//로그인 가능하도록 num에 1을 줌
-					mb.setNum(rs.getInt("mem_pass"));
+					mb.setNum(rs.getString("mem_num"));
 					mb.setNik(rs.getString("mem_nik"));
 					
 				}else{
@@ -152,7 +153,7 @@ public class MemberDAO {
 		return mb;
 	}
 	
-	public MemberBean getMemberImg(int mem_num){
+	public MemberBean getMemberImg(String mem_num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -162,7 +163,7 @@ public class MemberDAO {
 			String sql = "select mem_profileimg from member where mem_num=?";
 			// 4 저장 <= 결과 실행
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setString(1, mem_num);
 
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
@@ -180,7 +181,7 @@ public class MemberDAO {
 		return mb;
 	}
 	
-	public MemberBean getMember(int mem_num){
+	public MemberBean getMember(String mem_num){
 		
 		MemberBean mb = new MemberBean();
 		try {
@@ -188,12 +189,12 @@ public class MemberDAO {
 		String sql = "select * from member where mem_num=?";
 		// 4 저장 <= 결과 실행
 		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, mem_num);
+		pstmt.setString(1, mem_num);
 
 		rs = pstmt.executeQuery();
 		// 5 첫행에 데이터가 있으면 가장큰 번호+1;
 		while (rs.next()) {
-			mb.setNum(rs.getInt("mem_num"));
+			mb.setNum(rs.getString("mem_num"));
 			mb.setId(rs.getString("mem_id"));
 			//mb.setPass(rs.getString("mem_pass"));
 			mb.setEmail(rs.getString("mem_email"));
@@ -230,7 +231,7 @@ public class MemberDAO {
 			pstmt.setString(5, mb.getProfileimg());
 			pstmt.setString(6, mb.getHint());
 			pstmt.setString(7, mb.getHintans());
-			pstmt.setInt(8, mb.getNum());
+			pstmt.setString(8, mb.getNum());
 			pstmt.executeUpdate();
 			System.out.println("DAO updateMember");
 		}catch (Exception e) {
@@ -243,14 +244,14 @@ public class MemberDAO {
 		}
 	}
 	
-	public String checkMemberPass(int mem_num){
+	public String checkMemberPass(String mem_num){
 		String mem_pass=null;
 		try{
 			con = getConnection();
 		
 			String sql="select mem_pass from member where mem_num=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setString(1, mem_num);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
 				 mem_pass=rs.getString("mem_pass");
@@ -286,12 +287,12 @@ public class MemberDAO {
 		}
 	}
 	
-	public void deleteMember(int mem_num){
+	public void deleteMember(String mem_num){
 		try{
 			con=getConnection();
 			String sql = "delete from member where mem_num=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1,mem_num);
+			pstmt.setString(1,mem_num);
 			pstmt.executeUpdate();
 			
 		}catch (Exception e) {

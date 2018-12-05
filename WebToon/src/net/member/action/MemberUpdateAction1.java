@@ -16,7 +16,7 @@ public class MemberUpdateAction1 implements Action {
 		System.out.println("MemberUpdateAction1 execute ");
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		int num=(int)session.getAttribute("mem_num");
+		String num=(String)session.getAttribute("mem_num");
 		//int mem_num=Integer.parseInt(num);
 		System.out.println("MemberUpdateAction1  "+num +"  " );
 		MemberDAO mdao= new MemberDAO();

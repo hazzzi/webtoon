@@ -18,7 +18,7 @@ public class MemberModpassAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		System.out.println("MemberModpassAction execute()");
 		HttpSession session = request.getSession();
-		int mem_num = (int)session.getAttribute("mem_num");
+		String mem_num = (String)session.getAttribute("mem_num");
 		String nowpass=request.getParameter("nowpass");
 		String newpass=request.getParameter("newpass");
 		MemberDAO mdao = new MemberDAO();
