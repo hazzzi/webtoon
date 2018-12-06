@@ -107,6 +107,7 @@ public class FanDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
+				
 				String tmp = rs.getString("web_subject");
 				list.add(tmp);
 			}

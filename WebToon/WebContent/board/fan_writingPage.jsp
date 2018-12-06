@@ -30,17 +30,14 @@
 				$("#header-srch").toggle(500);
 			});
 
-			$("#bd_sel").click(function() {
+			$("#bd_sel").change(function() {
 				//alert($("#bd_sel option:selected").text());
 					$.ajax('fanCategory.fo', {				
 				    data: {
-				    	fan_category: $('#bd_sel').val()
+				    	fan_category: $("#bd_sel option:selected").val()
 				    },
-					success : function(data) {
-						alert(data);
-						$('#bd_sel2>optgroup>option').append(function(data) {
-							return data;
-						});
+					success : function(data) {	
+						$('#bd_sel2 .optEx').html(data);
 					}
 				});
 			});
