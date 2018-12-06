@@ -42,12 +42,16 @@ function modifyCommentToggle(articleNo) {
 
 <body>
 <%
-String fb_mem_nik = (String)session.getAttribute("fb_mem_nik");
+String mem_num = (String)session.getAttribute("mem_num"); 
+
 int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 String pageNum = (String)request.getAttribute("pageNum");
 
 BoardDAO bdao = new BoardDAO();
 BoardBean bd = bdao.getBoard(fb_num);
+
+
+// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
 %>
 
 <!-- wrap 영역 시작 -->
@@ -109,8 +113,8 @@ BoardBean bd = bdao.getBoard(fb_num);
 	<!-- 파일 다운 및 삭제  -->	
 <div id="file-list" style="text-align: right;">
     <div class="attach-file">
-        <a href="#" title="filename" class="download">TEST.png</a>
-        <a href="#" title="filekey">삭제</a>
+        <!-- <a href="#" title="filename" class="download">TEST.png</a>
+        <a href="#" title="filekey">삭제</a> -->
     </div>
 </div>
 
@@ -120,11 +124,15 @@ BoardBean bd = bdao.getBoard(fb_num);
 <div class="view-menu" style="margin-bottom: 47px;">
     <div class="fi">
     <br>
-   
+   	<%
+   	if(mem_num.equals(bd.getFb_mem_num())){ %>
         <input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
         <input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        <%} %>
+        
+        <%if(mem_num!=null){ %>
 	  	<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
-  
+  		<%}%>
         
     </div>
 	</div>
