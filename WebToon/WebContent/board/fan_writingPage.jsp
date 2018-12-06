@@ -1,3 +1,5 @@
+<%@page import="net.webtoon.db.WebtoonBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,10 +28,11 @@
 		        $("#header-srch").toggle(500);
 		    });
 			
-				
+			
+			
 			
 		}); 
-	
+		
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
@@ -52,9 +55,9 @@
 			
 			<select id="bd_sel2" name="fan_category">
 				<optgroup label="웹툰 선택"></optgroup>
-				<%//for문 쓸 예정 %>
+				
 				<option></option>
-				<% %>
+				
 			</select>
 			
 			<div id="bw_img">
