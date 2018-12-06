@@ -513,8 +513,7 @@ td>a:HOVER {
 	font-size: 25px;
     color: #333;
     min-height: 160px;
-    margin-left: 20px;
-    margin-bottom: 100px;
+    margin: 20px 0 60px 20px;
 }
 
 #date-writer-hit {
@@ -711,7 +710,7 @@ hr {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-       margin-left: 1041px;
+    margin-left: 818px;
 }
 
 .bt-2:HOVER {
@@ -730,7 +729,7 @@ hr {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 818px;
+    margin-left: 1034px;
 }
 
 .bt-2-if:HOVER {

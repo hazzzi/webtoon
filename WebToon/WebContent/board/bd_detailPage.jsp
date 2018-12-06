@@ -105,7 +105,9 @@ BoardBean bd = bdao.getBoard(fb_num);
 		<!-- 내용 영역 -->
 		<div id="article-content">
 <%-- 			<a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
+<%if(bd.getFb_img()!=null){ %>
 			<img src="./upload/<%=bd.getFb_img()%>"><br><br>
+			<%} %>
 			<%=bd.getFb_content() %><br><br>
 		</div>
 </div>
@@ -135,14 +137,13 @@ BoardBean bd = bdao.getBoard(fb_num);
     	if(mem_num.equals(bd.getFb_mem_num())){ %> 
        		<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
         	<input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-        <%}%>
-       <% }%> 
+        	<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+        <%}else{%>
+        	<input type="button" class="bt-2-if" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+       <% }}%>
+    	
            </div>
-        <%if(mem_num!=null){ %>
-	  	 <input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
-  		<%}else{%>
-  		 <input type="button" class="bt-2-if" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
-  		<%}%>
+       
         
     
 	</div>
