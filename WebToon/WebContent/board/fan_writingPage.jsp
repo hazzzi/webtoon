@@ -25,7 +25,9 @@
 				$(".tmp").toggle();
 		        $("#header-srch").toggle(500);
 		    });
+			
 				
+			
 		}); 
 	
 	</script>
@@ -34,26 +36,25 @@
 	<div class="bw_writing">
 		<div class="bw_subject">
 			<input type="text" placeholder="제목" class="bw_sub_tex">
-			<select class="bd_sel" name="">
+			<select id="bd_sel" name="fan_category" onchange="itemChange()">
 				<optgroup label="장르 선택"></optgroup>
-				<option>일상</option>
-				<option>개그</option>
-				<option>판타지</option>
-				<option>액션</option>
-				<option>드라마</option>
-				<option>순정</option>
-				<option>감성</option>
-				<option>스릴러</option>
-				<option>시대극</option>
-				<option>스포츠</option>
+				<option id="daily" value="일상">일상</option>
+				<option id="gag" value="개그">개그</option>
+				<option id="fantasy" value="판타지">판타지</option>
+				<option id="action" value="액션">액션</option>
+				<option id="drama" value="드라마">드라마</option>
+				<option id="love" value="순정">순정</option>
+				<option id="sensitivity" value="감성">감성</option>
+				<option id="thriller" value="스릴러">스릴러</option>
+				<option id="period" value="시대극">시대극</option>
+				<option id="sports" value="스포츠">스포츠</option>
 			</select>
 			
-			<select class="bd_sel2" name="">
+			<select id="bd_sel2" name="fan_category">
 				<optgroup label="웹툰 선택"></optgroup>
-				<option>대학일기</option>
-				<option>조의 영역</option>
-				<option>갑분싸</option>
-				
+				<%//for문 쓸 예정 %>
+				<option></option>
+				<% %>
 			</select>
 			
 			<div id="bw_img">

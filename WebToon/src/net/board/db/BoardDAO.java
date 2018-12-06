@@ -546,4 +546,5 @@ public class BoardDAO {
 		}
 		return nextNum;
 	}
+	
 }
