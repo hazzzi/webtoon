@@ -153,7 +153,9 @@ public class RecommendDAO {
 	    long id = Long.parseLong(session);
 	    System.out.println("long ID값 : "+id);
 /*	    long id2 = Long.parseLong("a123",16);
-	    System.out.println(id2);	*/
+	    System.out.println(id2);	
+	    Long.toHexString(id2) // 16진수 -> String 변환 메서드
+	    */
 	      try{
 	         MysqlDataSource dataSource = new MysqlDataSource();
 	         dataSource.setServerName("192.168.2.9");
