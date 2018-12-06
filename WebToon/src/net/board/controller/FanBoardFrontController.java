@@ -25,20 +25,21 @@ public class FanBoardFrontController extends HttpServlet {
 		Action action = null;
 
 		if (command.equals("/fanboardWrite.fo")) {
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./board/fan_writingPage.jsp");
 
-		}else if (command.equals("/fanboardWriteAction.fo")){
+		} else if (command.equals("/fanboardWriteAction.fo")) {
+			
 			action = new fanboardWriteAction();
 
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}			
+			}
 
-			
 		} else if (command.equals("/fanboardList.fo")) {
 
 			action = new FanBoardList();
@@ -49,7 +50,7 @@ public class FanBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} 
+		}
 
 		// 이동 시작
 		if (forward != null) {
