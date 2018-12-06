@@ -18,7 +18,7 @@ public class MainRecommendAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RecommendDAO rdao = new RecommendDAO();
 		HttpSession session = request.getSession();
-		int mem_num = (int) session.getAttribute("mem_num");
+		String mem_num = (String) session.getAttribute("mem_num");
 		
 		int count_Recommend = rdao.getRecommend(mem_num);
 		request.setAttribute("count_Recommend", count_Recommend); // 평가한 웹툰 수 저장

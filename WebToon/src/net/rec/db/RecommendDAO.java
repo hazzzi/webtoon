@@ -34,7 +34,7 @@ public class RecommendDAO {
 		return con;
 	}
 	
-	public List<WebtoonBean> getWebtoon(int mem_num){
+	public List<WebtoonBean> getWebtoon(String mem_num){
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
 		Connection con = null;
@@ -44,7 +44,7 @@ public class RecommendDAO {
 			con = getConnection();
 			String sql = "select * from webtoon where web_num not in (select rec_web_num from recommend where rec_mem_num=?) order by rand()"; //이미 추천한 웹툰은 제외
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num );
+			pstmt.setString(1, mem_num );
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면
 			while (rs.next()) {
@@ -127,7 +127,7 @@ public class RecommendDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 		}
 	}
-	public int getRecommend(int mem_num){
+	public int getRecommend(String mem_num){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -136,7 +136,7 @@ public class RecommendDAO {
 			con = getConnection();
 			String sql = "select count(*) from recommend where rec_mem_num=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setString(1, mem_num);
 			rs = pstmt.executeQuery();
 			rs.next();
 			sum = rs.getInt(1);
@@ -149,9 +149,12 @@ public class RecommendDAO {
 		return sum;
 	}
 	
-	public List<RecommendedItem> UserRecommend_list(int session){
+	public List<RecommendedItem> UserRecommend_list(String session){
 		List<RecommendedItem> recommendations=null;
-	      
+	    long id = Long.parseLong(session);
+	    System.out.println(id);
+/*	    long id2 = Long.parseLong("a123",16);
+	    System.out.println(id2);	*/
 	      try{
 	         MysqlDataSource dataSource = new MysqlDataSource();
 	         dataSource.setServerName("192.168.2.9");
@@ -166,7 +169,7 @@ public class RecommendDAO {
 	         UserSimilarity similarity = new LogLikelihoodSimilarity(dataModel);
 	         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel);
 	         UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
-	         recommendations = recommender.recommend(session, 6);
+	         recommendations = recommender.recommend(id, 6);
 	         for(RecommendedItem recommendation : recommendations){
 	            System.out.println(recommendation);
 	         }

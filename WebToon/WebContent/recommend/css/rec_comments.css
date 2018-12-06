@@ -104,11 +104,11 @@ header#header-head{
 }
 
 .rec_user_name>p {
-	width: 570px;
+    width: 570px;
     display: inline-block;
     position: absolute;
-    top: 5px;
-    left: 29px;
+    top: 22px;
+    left: 70px;
     font-size: 21px;
 }
 

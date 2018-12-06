@@ -1,6 +1,7 @@
 package net.webtoon.action;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ public class WebtoonWriteReview implements Action{
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session = request.getSession();
+		
 		if(session.getAttribute("mem_num")==null){
 			response.setContentType("text/html; charset=UTF-8"); // jsp 상단의 contentType과 같게함
 			PrintWriter out=response.getWriter(); // response의 권한을 받아오기
@@ -29,13 +31,14 @@ public class WebtoonWriteReview implements Action{
 			out.close();
 			return null;
 		}
+		
 		WebtoonBoardBean wbb = new WebtoonBoardBean();
 		WebtoonDAO wdao = new WebtoonDAO();
 		MemberDAO mdao = new MemberDAO();
 
 		int wbb_web_num = 0;
-		if(request.getParameter("wbb_web_num")!=null){
-			wbb_web_num = Integer.parseInt(request.getParameter("wbb_web_num"));
+		if(request.getParameter("num")!=null){
+			wbb_web_num = Integer.parseInt(request.getParameter("num"));
 		}
 		wbb.setWbb_web_num(wbb_web_num);
 		
@@ -49,10 +52,9 @@ public class WebtoonWriteReview implements Action{
 		
 		wdao.writeReview(wbb);
 		
-		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./getReview.wbt");
+		forward.setPath("./getReview.wbt?num="+wbb_web_num);
 		
 		return forward;
 	}
