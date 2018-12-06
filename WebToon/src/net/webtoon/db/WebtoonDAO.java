@@ -298,4 +298,27 @@ public class WebtoonDAO {
 		}
 		return list;
 	}
+	
+	public int getReviewCount(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(wbb_bdnum) from webtoon_board where wbb_web_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				count = rs.getInt("count(wbb_bdnum)");
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return count;
+	}
 }

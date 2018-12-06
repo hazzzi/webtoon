@@ -82,7 +82,6 @@
 		</div> -->
 		<div style="clear: both;"></div>
 		
-		<jsp:include page="../main/wbt-review.jsp"></jsp:include>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				/* 웹툰 리뷰 남기기 영역 보여주기 */

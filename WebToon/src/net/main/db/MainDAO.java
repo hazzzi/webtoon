@@ -136,7 +136,7 @@ public class MainDAO {
 			// member 테이블에서 나이랑 성별을 들고옴
 			String sql = "select mem_ages,mem_gender from member where mem_num=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, recbean.getRec_mem_num());
+			pstmt.setString(1, recbean.getRec_mem_num());
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -157,7 +157,7 @@ public class MainDAO {
 			if(rs.next()){
 				sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, recbean.getRec_mem_num());
+				pstmt.setString(1, recbean.getRec_mem_num());
 				pstmt.setInt(2, recbean.getRec_web_num());
 				rs1 = pstmt.executeQuery();
 				System.out.println("select() rec 실행");
@@ -204,7 +204,7 @@ public class MainDAO {
 				rs1.close();
 				sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, recbean.getRec_mem_num());
+				pstmt.setString(1, recbean.getRec_mem_num());
 				pstmt.setInt(2, recbean.getRec_web_num());
 				rs1 = pstmt.executeQuery();
 				if(rs1.next()){

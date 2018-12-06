@@ -31,22 +31,26 @@ public class WebtoonDetailAction implements Action{
 			double score = wdao.getMeanScore(web_num);
 			int count = wdao.getCountRec(web_num);
 			List<WebtoonBoardBean> wbb = wdao.getTop2Review(web_num);
+			int reviewcount = wdao.getReviewCount(web_num);
 			
 			
 			MemberDAO mdao = new MemberDAO();
 			
 			// 수정 필요. 멤버 추천수 상위 2명만 들고와야함
-			List<MemberBean> wbbimg = new ArrayList<MemberBean>();
-			MemberBean mb1 = mdao.getMemberImg(wbb.get(0).getWbb_mem_num());
-			MemberBean mb2 = mdao.getMemberImg(wbb.get(1).getWbb_mem_num());
-			wbbimg.add(mb1);
-			wbbimg.add(mb2);
+			if(wbb.isEmpty()==false){
+				List<MemberBean> wbbimg = new ArrayList<MemberBean>();
+				for(WebtoonBoardBean bb:wbb){
+					MemberBean mb = mdao.getMemberImg(bb.getWbb_mem_num());
+					wbbimg.add(mb);
+				}
+				request.setAttribute("wbbimg", wbbimg);
+			}
 			
 			request.setAttribute("wb", wb);
 			request.setAttribute("score", score);
 			request.setAttribute("count", count);
+			request.setAttribute("reviewcount", reviewcount);
 			request.setAttribute("wbb", wbb);
-			request.setAttribute("wbbimg", wbbimg);
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);

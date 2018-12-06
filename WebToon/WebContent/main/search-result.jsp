@@ -40,7 +40,10 @@
 	int count = (int)request.getAttribute("count");
 	List<WebtoonBoardBean> wbb = (List<WebtoonBoardBean>)request.getAttribute("wbb");
 	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
+	int reviewcount = (int)request.getAttribute("reviewcount");
 	
+	String mem_num = (String)session.getAttribute("mem_num");
+
 	int tmp0 = (int)(score*10);
 	int tmp1 = tmp0%10;
 	int tmp2 = 0;
@@ -142,7 +145,7 @@
 		 			<!-- db이용 -->
 		 			<!-- 리뷰의 갯수 -->
 		 			<!-- select count(wbb_bdnum) from webtoon_borad where web_num=??-->
-		 			<p>+2349</p>
+		 			<p>+<%=reviewcount %></p>
 		 			<!-- 로그인 제어 필요, 로그인시 사용가능합니다  -->
 		 			<!-- 제이쿼리 이용해서 div영역 보여줌 -->
 		 			<p><a class="review-action" style="cursor: pointer;">리뷰남기기</a>|
@@ -151,25 +154,29 @@
 		 			<br>
 		 			<!-- 추천수 상위 2개 리뷰 -->
 		 			<%
-		 			int i=0;
-		 			for(WebtoonBoardBean bb:wbb){ %>
-		 			<div>
-		 				<% if(wbbimg.get(i).getProfileimg()==null){%>
-		 				<img src="./main/img/member.png">
-		 				<%}else{%>
-		 				<img src="./upload/<%=wbbimg.get(i).getProfileimg()%>">
-		 				<%}%>
-		 				<!-- webtoon_borad -->
-		 				<!-- join 이용해서 member_nik -->
-		 				<p><%=bb.getWbb_mem_nik() %></p>
-		 				<hr>
-		 				<!-- wbb_content -->
-		 				<p><%=bb.getWbb_comment() %></p>
-		 				<hr>
-		 				<!-- wbb_sumlike -->
-		 				<i class="fa fa-thumbs-o-up"></i><p><%=bb.getWbb_sumlike() %></p>
-		 			</div>
-		 			<%i++;} %>
+		 			if(wbb.size()==0){%>
+		 				<h3 style="text-align: center;">아직 리뷰가 없습니다! 리뷰를 작성해 주세요</h3>
+		 			<%}else{
+			 			int i=0;
+			 			for(WebtoonBoardBean bb:wbb){ %>
+			 			<div>
+			 				<% if(wbbimg.get(i).getProfileimg()==null){%>
+			 				<img src="./main/img/member.png">
+			 				<%}else{%>
+			 				<img src="./upload/<%=wbbimg.get(i).getProfileimg()%>">
+			 				<%}%>
+			 				<!-- webtoon_borad -->
+			 				<!-- join 이용해서 member_nik -->
+			 				<p><%=bb.getWbb_mem_nik() %></p>
+			 				<hr>
+			 				<!-- wbb_content -->
+			 				<p><%=bb.getWbb_comment() %></p>
+			 				<hr>
+			 				<!-- wbb_sumlike -->
+			 				<i class="fa fa-thumbs-o-up"></i><p><%=bb.getWbb_sumlike() %></p>
+			 			</div>
+			 			<%i++;}
+		 			} %>
 <!-- 		 			<div> -->
 <%-- 		 				<%// if(wbbimg.get(1).getProfileimg()==null){%> --%>
 <!-- 		 				<img src="./main/img/member.png"> -->
@@ -261,7 +268,7 @@
 			
 			<!-- db insert 작업 필요, action은 임시링크 -->
 			<form action="./writeReview.wbt" method="post">
-				<input type="hidden" name="wbb_web_num" value="<%=wb.getWeb_num()%>">
+				<input type="hidden" name="num" value="<%=wb.getWeb_num()%>">
 				<div class="container review_block">
 					<!-- <p>리뷰 남기기</p> -->
 					<hr style="border-color: white;">
@@ -282,7 +289,11 @@
 		}
 		$(document).ready(function(){
 			$('.review-action').click(function(index){
-				$('#webtoon-content').show();
+				if(<%=mem_num%>==null){
+					alert('로그인이 필요한 서비스입니다.');
+				}else{
+					$('#webtoon-content').show();
+				}
 			});
 			
 			$('.close').click(function(){

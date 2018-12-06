@@ -135,7 +135,6 @@ test session값 : <%=session.getAttribute("mem_num") %>
 		
 		<div style="clear: both;"></div>
 		
-		<jsp:include page="../main/wbt-review.jsp"></jsp:include>
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
