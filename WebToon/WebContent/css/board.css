@@ -407,7 +407,7 @@ td>a:HOVER {
 }
 
 /* 게시판 카테고리 */
-.bd_sel {
+#bd_sel {
 	width: 250px;
 	height: 40px;
 	padding-top: 5px;
@@ -417,7 +417,7 @@ td>a:HOVER {
 	font-family: 'NanumBarunpenR', sans-serif;
 }
 
-.bd_sel2 {
+#bd_sel2 {
 	width: 250px;
 	height: 40px;
 	padding-top: 5px;
