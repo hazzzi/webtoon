@@ -475,7 +475,7 @@ public class BoardDAO {
 		
 		try {
 			con = getConnection();
-			String sql ="select fb_subject from free_board where fb_num(select max(fb_num) from free_board where fb_num<?)";
+			String sql ="select fb_num from free_board where fb_num =(select fb_num from free_board where fb_num<? order by fb_num desc limit 1)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fb_num);
 			rs = pstmt.executeQuery();
@@ -512,10 +512,12 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		System.out.println("여기는 dao"+fb_num);
 		int nextNum = 0;
 		try {
 			con = getConnection();
-			String sql ="select fb_subject from free_board where fb_num=(select min(fb_num) from free_board where fb_num>?)";
+			String sql ="select fb_num from free_board where fb_num =(select fb_num from free_board where ?<fb_num order by fb_num limit 1)";
+			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fb_num);
 			rs = pstmt.executeQuery();
 			
