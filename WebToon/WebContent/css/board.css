@@ -275,8 +275,8 @@ td>a {
 }
 
 td>a:HOVER {
-	color: #0080ff;
-	text-decoration: underline;
+	color: #866dfa;
+	font-weight: bold;
 }
 
 /* 자유게시판 페이징 */
@@ -287,6 +287,8 @@ td>a:HOVER {
 	display: inline-block;
 	letter-spacing: 4px;
 	width: 320px;
+	text-align: center;
+
 }
 
 .board_paging a {
@@ -389,6 +391,12 @@ td>a:HOVER {
 	margin: 10px 0 0 10px;
 }
 
+.bw_content img {
+	max-height: 1000px;
+    max-width: 1000px;
+    margin: 0 0 10px 350px;
+}
+
 /* 상단 컨텐츠 영역(제목, 카테고리, 버튼) */
 .bw_subject {
 	margin-left: 10px;
@@ -484,6 +492,7 @@ td>a:HOVER {
 	color: #0f001e !important;
 }
 
+
 /* 글 내용 전체 content 영역 */
 .tex01 {
 	border-style: none;
@@ -492,7 +501,7 @@ td>a:HOVER {
 	font-size: 30px;
 	font-family: 'NanumBarunpenR';
 	resize: none;
-	max-height: 800px;
+	max-height: 300px;
 }
 
 /* bd_detailPage */
