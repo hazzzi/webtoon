@@ -637,7 +637,7 @@ td>a:HOVER {
 
 .fi {
 	float: left;
-/* 	margin: 20px 0; */
+margin-bottom: 10px;
 }
 
 hr {
@@ -656,7 +656,7 @@ hr {
 	font-family: 'NanumBarunpenR', sans-serif;
 	font-size: 20px;
 	font-weight: bold;
-	margin-bottom: 10px;
+	float: left;
 }
 
 .bt:HOVER {
@@ -664,8 +664,8 @@ hr {
 	color: #fff;
 }
 
-.bt-1{
-    width: 100px;
+.bt-pri{
+   width: 100px;
     height: 41px;
     background-color: white;
     position: absolute;
@@ -674,20 +674,36 @@ hr {
     font-family: 'NanumBarunpenR', sans-serif;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
-    right: 494px;
+    margin-left: 818px;
 }
 
-.bt-1:HOVER {
+.bt-pri:HOVER {
+	background-color: #74668c;
+	color: #fff;
+}
+
+.bt-if{
+  	width: 100px;
+    height: 41px;
+    background-color: white;
+    position: absolute;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 924px;
+}
+
+.bt-if:HOVER {
 	background-color: #74668c;
 	color: #fff;
 }
 
 .bt-2{
-	    width: 100px;
+   width: 100px;
     height: 41px;
     background-color: white;
-    margin-left: 811px;
     position: relative;
     border: 2px solid #74668c;
     border-radius: 30px;
@@ -695,10 +711,29 @@ hr {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    right: -1038px;
+       margin-left: 1041px;
 }
 
 .bt-2:HOVER {
+	background-color: #74668c;
+	color: #fff;
+}
+
+.bt-2-if{
+   width: 100px;
+    height: 41px;
+    background-color: white;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 818px;
+}
+
+.bt-2-if:HOVER {
 	background-color: #74668c;
 	color: #fff;
 }

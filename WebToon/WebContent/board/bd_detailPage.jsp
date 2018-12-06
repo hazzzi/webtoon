@@ -66,17 +66,23 @@ BoardBean bd = bdao.getBoard(fb_num);
 <!-- 다음 글 없을 경우 제어 -->
 <%if(nextNum!=0){ %>
 	<input type="button" class="bt" value="다음 글" onclick="location.href='./boardContent.bo?fb_num=<%=nextNum %>&pageNum=<%=pageNum%>'"/>
+<%}else{
+	%><input type="button" class="bt-if" onclick="location.href='./boardList.bo'" value="목록" />
 <%}
+
 %>
 <% int preNum = bdao.previousPost(fb_num);%>
 <!-- 이전 글 없을 경우 제어 -->
 <%if(preNum!=0){ %>
-<input type="button" class="bt" value="이전 글" onclick="location.href='./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>'" /><br>
+	<input type="button" class="bt" value="이전 글" onclick="location.href='./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>'" /><br>
+	<%}else{
+	%><input type="button" class="bt-if" onclick="location.href='./boardList.bo'" value="목록" />
 <%}%>
 </div>
 
-<input type="button" class="bt-1" onclick="location.href='./boardList.bo'" value="목록" />
-
+<%if(nextNum!=0 && preNum!=0){ %>
+<input type="button" class="bt-pri" onclick="location.href='./boardList.bo'" value="목록" />
+<%} %>
 <div class="clear"></div>
 
 <article>
@@ -125,16 +131,20 @@ BoardBean bd = bdao.getBoard(fb_num);
     <div class="fi">
     <br>
    	<%
-   	if(mem_num.equals(bd.getFb_mem_num())){ %>
-        <input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-        <input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-        <%} %>
-        
+   	if(mem_num!=null){
+    	if(mem_num.equals(bd.getFb_mem_num())){ %> 
+       		<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        	<input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        <%}%>
+       <% }%> 
+           </div>
         <%if(mem_num!=null){ %>
-	  	<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+	  	 <input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+  		<%}else{%>
+  		 <input type="button" class="bt-2-if" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
   		<%}%>
         
-    </div>
+    
 	</div>
 
 <!-- 수정 삭제 다음글 이전글 버튼끝 -->	
@@ -203,15 +213,15 @@ BoardBean bb3 = bdao.getBoard(preNum);
 </div>
 
 </div>			
-		
+	
 	</div>
-
+	<!-- footer 영역 시작-->
+	<jsp:include page="../main/footer.jsp"/>
+	<!-- footer 영역 끝  -->
 </div>
 	
 <div class="clear"></div>
 <!-- 본문 영역 끝 -->
-	<!-- footer 영역 시작-->
-	<jsp:include page="../main/footer.jsp"/>
-	<!-- footer 영역 끝  -->
+	
 </body>
 </html>
