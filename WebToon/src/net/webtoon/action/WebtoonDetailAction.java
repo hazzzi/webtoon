@@ -3,6 +3,7 @@ package net.webtoon.action;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 import net.webtoon.controller.Action;
 import net.webtoon.controller.ActionForward;
+import net.webtoon.db.SearchDAO;
 import net.webtoon.db.WebtoonBean;
 import net.webtoon.db.WebtoonBoardBean;
 import net.webtoon.db.WebtoonDAO;
@@ -27,16 +29,24 @@ public class WebtoonDetailAction implements Action{
 			int web_num = Integer.parseInt(num);
 			
 			WebtoonDAO wdao = new WebtoonDAO();
+			SearchDAO sdao = new SearchDAO();
+			// 기본적인 웹툰정보
 			WebtoonBean wb = wdao.getWebtoon(web_num);
+			
+			// 웹툰 평균 평점
 			double score = wdao.getMeanScore(web_num);
+			
+			// 웹툰 평가한 사람수
 			int count = wdao.getCountRec(web_num);
+			
+			// 리뷰 좋아요 상위2명
 			List<WebtoonBoardBean> wbb = wdao.getTop2Review(web_num);
+			// 리뷰 작성 수
 			int reviewcount = wdao.getReviewCount(web_num);
 			
 			
 			MemberDAO mdao = new MemberDAO();
-			
-			// 수정 필요. 멤버 추천수 상위 2명만 들고와야함
+			// 평가한 사람이없을때 제어
 			if(wbb.isEmpty()==false){
 				List<MemberBean> wbbimg = new ArrayList<MemberBean>();
 				for(WebtoonBoardBean bb:wbb){
@@ -46,11 +56,16 @@ public class WebtoonDetailAction implements Action{
 				request.setAttribute("wbbimg", wbbimg);
 			}
 			
+			List<WebtoonBean> similar = sdao.getSimilarity(web_num);
+			
+			
+			Vector<?> vector = new Vector<>();
 			request.setAttribute("wb", wb);
 			request.setAttribute("score", score);
 			request.setAttribute("count", count);
 			request.setAttribute("reviewcount", reviewcount);
 			request.setAttribute("wbb", wbb);
+			request.setAttribute("similar", similar);
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);
