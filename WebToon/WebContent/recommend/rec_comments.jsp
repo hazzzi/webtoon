@@ -61,7 +61,7 @@
 				<%for(WebtoonBoardBean wbb : webtoonBoardList){%>
 				<div class="rec_box1">
 					<div class="rec_user_name">
-						<img src="../main/img/member.png">
+						<img src="./main/img/member.png">
 						<p><%=wbb.getWbb_mem_nik() %></p>
 					</div>
 					<hr>

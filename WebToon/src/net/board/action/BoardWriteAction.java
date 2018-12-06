@@ -32,10 +32,10 @@ public class BoardWriteAction implements Action {
 		BoardBean bd = new BoardBean();
 		
 		HttpSession session = request.getSession();
-		int mem_num = (int)session.getAttribute("mem_num");
+		String mem_num = (String)session.getAttribute("mem_num");
 		
 		//추후 수정 예정
-		if (mem_num == 0) {
+		if (mem_num == null) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./login.me");

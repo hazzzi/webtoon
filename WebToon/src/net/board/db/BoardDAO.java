@@ -466,4 +466,84 @@ public class BoardDAO {
 		}
 		return bd;
 	}
+	public int previousPost(int fb_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int preNum = 0;
+		
+		try {
+			con = getConnection();
+			String sql ="select fb_num from free_board where fb_num =(select fb_num from free_board where fb_num<? order by fb_num desc limit 1)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				preNum=rs.getInt("fb_num");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return preNum;
+	}
+	public int nextPost(int fb_num){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		System.out.println("여기는 dao"+fb_num);
+		int nextNum = 0;
+		try {
+			con = getConnection();
+			String sql ="select fb_num from free_board where fb_num =(select fb_num from free_board where ?<fb_num order by fb_num limit 1)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				nextNum =rs.getInt("fb_num");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return nextNum;
+	}
 }

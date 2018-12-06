@@ -178,6 +178,10 @@ public class MemberFrontController extends HttpServlet{
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+		}else if(command.equals("/adminInsertWebtoon.me")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./data/webtoon.jsp");
 		}
 		
 		

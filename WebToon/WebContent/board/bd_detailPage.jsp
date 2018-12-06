@@ -58,8 +58,17 @@ BoardBean bd = bdao.getBoard(fb_num);
 
 <div class="detail">
 <div class="fi">
-<input type="button" class="bt" value="다음 글" />
-<input type="button" class="bt" value="이전 글" /><br><br>
+<% int nextNum = bdao.nextPost(fb_num); %>
+<!-- 다음 글 없을 경우 제어 -->
+<%if(nextNum!=0){ %>
+	<input type="button" class="bt" value="다음 글" onclick="location.href='./boardContent.bo?fb_num=<%=nextNum %>&pageNum=<%=pageNum%>'"/>
+<%}
+%>
+<% int preNum = bdao.previousPost(fb_num);%>
+<!-- 이전 글 없을 경우 제어 -->
+<%if(preNum!=0){ %>
+<input type="button" class="bt" value="이전 글" onclick="location.href='./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>'" /><br>
+<%}%>
 </div>
 
 <input type="button" class="bt-1" onclick="location.href='./boardList.bo'" value="목록" />
@@ -164,8 +173,25 @@ BoardBean bd = bdao.getBoard(fb_num);
 <!--  댓글 반복 끝 -->
 <br><br>
 <div id="next-prev">
-    <p>다음 글 : <a href="#">고양이세요?</a></p>
-    <p>이전 글 : <a href="#">고양이애오</a></p>
+ <%
+
+
+ BoardBean bb2 = bdao.getBoard(nextNum);
+ %>
+ <%if(nextNum==0){ %>
+   <p>다음 글이 존재하지 않습니다.</p>
+    <%}else{ %>
+     <p>다음 글 : <a href="./boardContent.bo?fb_num=<%=nextNum %>&pageNum=<%=pageNum%>"><%=bb2.getFb_subject() %></a></p>
+     <%} %>
+<%
+
+BoardBean bb3 = bdao.getBoard(preNum);
+ %>
+ <%if(preNum==0){ %>
+ 	<p>이전 글이 존재하지 않습니다.</p>
+ <%}else{ %>
+    <p>이전 글 : <a href="./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>"><%=bb3.getFb_subject() %></a></p> 
+    <%} %>
 </div>
 
 </div>			
