@@ -27,7 +27,7 @@ body {
 
 .rec_show_top_background {
 	width: 100%;
-	height: 64px;
+	height: 52px;
 	float: left;
 	padding-left: 30px;
 	background-color: #d5cde4;
@@ -45,12 +45,12 @@ body {
 	/* padding-bottom: 8px; */
 	float: left;
 	text-align: center;
-	margin-top: 14px;
+	margin-top: 6px;
 }
 
 .rec_show_top_background>b {
 	width: 80%;
-	font-size: 40px;
+	font-size: 30px;
 	float: left;
 	text-align: center;
 	color: #210042;
@@ -58,32 +58,33 @@ body {
 }
 
 .rec_show_main {
-	min-width: 850px;
-	min-height: -webkit-fill-available;
-	width: 30%;
-	margin: 0 auto;
-	font-family: 'NanumBarunpenR';
+	min-width: 1279px;
+    min-height: -webkit-fill-available;
+    width: 30%;
+    margin: 0 auto;
+    padding-left: 55px;
+    font-family: 'NanumBarunpenR';
 }
 
 .rec_show_wrap_div {
-	    /* border: 1px solid white; */
-    width: 100%;
-    height: 240px;
+	/* border: 1px solid white; */
+    width: 576px;
+    height: 225px;
     box-sizing: border-box;
     /* padding: 0px 10px 30px 30px; */
-    margin: 15px 0;
+    margin: 18px 0;
     display: inline-block;
     /* text-align: center; */
     font-family: 'NanumBarunpenR', sans-serif;
-    margin-left: 160px;
+    margin-left: 57px;
 }
 /* 웹툰썸네일 div */
 .rec_show_img_div {
 	width: 200px;
-	height: 200px;
-	color: white;
-	float: left;
-	display: inline-block;
+    height: 200px;
+    color: white;
+    float: left;
+    display: inline-block;
 }
 /* 웹툰썸네일 img */
 .rec_show_img_div img {
@@ -96,50 +97,52 @@ body {
 
 /* 웹툰이름, 작가 영역  */
 .rec_show_webtoon_div {
-	width: 600px;
-	height: 93px;
-	float: left;
-	margin-top: -7px;
-	margin-left: 30px;
-	text-align: left;
+	width: 480px;
+    height: auto;
+    float: left;
+    margin-top: -209px;
+    margin-left: 210px;
+    text-align: left;
 }
 
 .rec_show_webtoon_div>a {
-	width: 600px;
-	font-size: 45px;
-	color: #210042;
-	cursor: pointer;
-	float: left;
+	width: 340px;
+    font-size: 35px;
+    color: #210042;
+    cursor: pointer;
+    float: left;
 }
 
 .rec_show_webtoon_div>p {
 	width: 310px;
-	color: #7c7c7c;
-	font-size: 30px;
-	text-align: left;
-	float: left;
+    color: #7c7c7c;
+    font-size: 25px;
+    text-align: left;
+    float: left;
 }
 
 .rec_show_btn_div {
-	width: 200px;
-	float: left;
-	position: relative;
-	top: 17px;
+	width: 176px;
+    /* height: auto; */
+    float: left;
+    position: relative;
+    top: -95px;
+    left: 177px;
 }
 
 .rec_show_webtoon_btn {
-	width: 150px;
-	margin-left: 32px;
-	position: relative;
-	top: 45px;
-	color: #ffffff;
-	border: none;
-	text-align: center;
-	font-size: 23px;
-	padding: 10px;
-	border-radius: 2px 2px;
-	float: left;
-	font-weight: bold;
+	width: 100%;
+    margin-left: 32px;
+    position: relative;
+    top: 45px;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    font-size: 23px;
+    padding: 10px;
+    border-radius: 2px 2px;
+    float: left;
+    font-weight: bold;
 }
 
 .rec_show_webtoon_btn:HOVER {
