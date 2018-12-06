@@ -19,8 +19,9 @@ public class BoardContentAction implements Action{
 		
 		HttpSession session = request.getSession();
 		String mem_nik = (String)session.getAttribute("mem_nik");		
-		/*String fb_mem_num = (String)session.getAttribute("mem_num");
-		System.out.println("세션값은?"+fb_mem_num);*/
+		String mem_num = (String)session.getAttribute("mem_num");
+
+		System.out.println("세션값은?"+mem_num);
 		
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		

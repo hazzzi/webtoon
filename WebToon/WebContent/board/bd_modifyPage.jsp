@@ -19,7 +19,7 @@
 </head>
 <body>
 	<%
-	int mem_num = (int)session.getAttribute("mem_num");
+	String mem_num = (String)session.getAttribute("mem_num");
 	System.out.print(mem_num);
 	
 	int fb_num = Integer.parseInt(request.getParameter("fb_num"));
