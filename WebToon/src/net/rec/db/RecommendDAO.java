@@ -76,7 +76,6 @@ public class RecommendDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int sum = 0;
 		try {
 			con = getConnection();
 			String sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
@@ -152,9 +151,11 @@ public class RecommendDAO {
 	public List<RecommendedItem> UserRecommend_list(String session){
 		List<RecommendedItem> recommendations=null;
 	    long id = Long.parseLong(session);
-	    System.out.println(id);
+	    System.out.println("long ID값 : "+id);
 /*	    long id2 = Long.parseLong("a123",16);
-	    System.out.println(id2);	*/
+	    System.out.println(id2);	
+	    Long.toHexString(id2) // 16진수 -> String 변환 메서드
+	    */
 	      try{
 	         MysqlDataSource dataSource = new MysqlDataSource();
 	         dataSource.setServerName("192.168.2.9");

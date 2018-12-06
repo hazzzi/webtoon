@@ -16,11 +16,11 @@ div.sach-main{
 	min-height: 600px;
     height: 100%;
     width: 70%;
-/*     max-width: 1080px; */
-    min-width: 1060px;
+    /* max-width: 1080px; */
+    min-width: 1320px;
     line-height: 2;
     margin: 0 auto;
-    padding: 0 0 60px 0;
+    padding: 0 30px 60px 30px;
     box-sizing: border-box;
 }
 div.sach-main>h2{
@@ -58,9 +58,9 @@ div.sach-background{
 }
 
 div.sach-rt{
-	height: 185px;
-    margin: 0 50px 140px 50px;
-	display: inline-block;
+    height: 185px;
+    margin: 0 30px 140px 30px;
+    display: inline-block;
 }
 div.sach-rt>a{
 	color: #1b1526;

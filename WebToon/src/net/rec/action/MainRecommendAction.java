@@ -18,12 +18,12 @@ public class MainRecommendAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RecommendDAO rdao = new RecommendDAO();
 		HttpSession session = request.getSession();
-		String mem_num = (String) session.getAttribute("mem_num");
+		long mem_num = Long.parseLong((String)session.getAttribute("mem_num"));
 		
-		int count_Recommend = rdao.getRecommend(mem_num);
+		int count_Recommend = rdao.getRecommend(Long.toString(mem_num));
 		request.setAttribute("count_Recommend", count_Recommend); // 평가한 웹툰 수 저장
 
-		List<WebtoonBean> webtoonList = rdao.getWebtoon(mem_num);
+		List<WebtoonBean> webtoonList = rdao.getWebtoon(Long.toString(mem_num));
 		request.setAttribute("webtoonList", webtoonList); // 웹툰LIST 저장
 
 		ActionForward forward = new ActionForward(); // 이동

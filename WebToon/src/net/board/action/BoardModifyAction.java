@@ -50,7 +50,7 @@ public class BoardModifyAction implements Action {
 		bdao.updateBoard(bd);
 
 		ActionForward forward = new ActionForward();
-		forward.setPath("./BoardContent.bo?fb_num=" + fb_num + "&pageNum=" + pageNum);
+		forward.setPath("./boardContent.bo?fb_num=" + fb_num + "&pageNum=" + pageNum);
 		forward.setRedirect(true);
 
 		return forward;

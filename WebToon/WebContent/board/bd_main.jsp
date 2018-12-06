@@ -22,6 +22,7 @@
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
+		
 		if (page == null) {
 			pageNum = "1";
 		}
@@ -88,7 +89,7 @@
 								for (BoardBean bb : boardList) {
 						%>
 						<tr
-							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>'">
+							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>'">
 							<td><%=bb.getFb_num()%></td>
 							<td>[<%=bb.getFb_category()%>]
 							</td>
@@ -106,7 +107,7 @@
  %>
 							</td>
 							<td><a
-								href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=bb.getFb_num()%>"><%=bb.getFb_subject()%></a>
+								href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a>
 								<%
 									SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 

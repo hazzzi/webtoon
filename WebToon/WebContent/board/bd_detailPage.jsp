@@ -42,12 +42,16 @@ function modifyCommentToggle(articleNo) {
 
 <body>
 <%
-String fb_mem_nik = (String)session.getAttribute("fb_mem_nik");
+String mem_num = (String)session.getAttribute("mem_num"); 
+
 int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 String pageNum = (String)request.getAttribute("pageNum");
 
 BoardDAO bdao = new BoardDAO();
 BoardBean bd = bdao.getBoard(fb_num);
+
+
+// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
 %>
 
 <!-- wrap 영역 시작 -->
@@ -62,17 +66,23 @@ BoardBean bd = bdao.getBoard(fb_num);
 <!-- 다음 글 없을 경우 제어 -->
 <%if(nextNum!=0){ %>
 	<input type="button" class="bt" value="다음 글" onclick="location.href='./boardContent.bo?fb_num=<%=nextNum %>&pageNum=<%=pageNum%>'"/>
+<%}else{
+	%><input type="button" class="bt-if" onclick="location.href='./boardList.bo'" value="목록" />
 <%}
+
 %>
 <% int preNum = bdao.previousPost(fb_num);%>
 <!-- 이전 글 없을 경우 제어 -->
 <%if(preNum!=0){ %>
-<input type="button" class="bt" value="이전 글" onclick="location.href='./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>'" /><br>
+	<input type="button" class="bt" value="이전 글" onclick="location.href='./boardContent.bo?fb_num=<%=preNum %>&pageNum=<%=pageNum%>'" /><br>
+	<%}else{
+	%><input type="button" class="bt-if" onclick="location.href='./boardList.bo'" value="목록" />
 <%}%>
 </div>
 
-<input type="button" class="bt-1" onclick="location.href='./boardList.bo'" value="목록" />
-
+<%if(nextNum!=0 && preNum!=0){ %>
+<input type="button" class="bt-pri" onclick="location.href='./boardList.bo'" value="목록" />
+<%} %>
 <div class="clear"></div>
 
 <article>
@@ -95,7 +105,9 @@ BoardBean bd = bdao.getBoard(fb_num);
 		<!-- 내용 영역 -->
 		<div id="article-content">
 <%-- 			<a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
+<%if(bd.getFb_img()!=null){ %>
 			<img src="./upload/<%=bd.getFb_img()%>"><br><br>
+			<%} %>
 			<%=bd.getFb_content() %><br><br>
 		</div>
 </div>
@@ -109,8 +121,8 @@ BoardBean bd = bdao.getBoard(fb_num);
 	<!-- 파일 다운 및 삭제  -->	
 <div id="file-list" style="text-align: right;">
     <div class="attach-file">
-        <a href="#" title="filename" class="download">TEST.png</a>
-        <a href="#" title="filekey">삭제</a>
+        <!-- <a href="#" title="filename" class="download">TEST.png</a>
+        <a href="#" title="filekey">삭제</a> -->
     </div>
 </div>
 
@@ -120,13 +132,20 @@ BoardBean bd = bdao.getBoard(fb_num);
 <div class="view-menu" style="margin-bottom: 47px;">
     <div class="fi">
     <br>
-   
-        <input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-        <input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
-	  	<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
-  
+   	<%
+   	if(mem_num!=null){
+    	if(mem_num.equals(bd.getFb_mem_num())){ %> 
+       		<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        	<input type="button" class="bt" value="삭제" onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>'" />
+        	<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+        <%}else{%>
+        	<input type="button" class="bt-2-if" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+       <% }}%>
+    	
+           </div>
+       
         
-    </div>
+    
 	</div>
 
 <!-- 수정 삭제 다음글 이전글 버튼끝 -->	
@@ -195,15 +214,15 @@ BoardBean bb3 = bdao.getBoard(preNum);
 </div>
 
 </div>			
-		
+	
 	</div>
-
+	<!-- footer 영역 시작-->
+	<jsp:include page="../main/footer.jsp"/>
+	<!-- footer 영역 끝  -->
 </div>
 	
 <div class="clear"></div>
 <!-- 본문 영역 끝 -->
-	<!-- footer 영역 시작-->
-	<jsp:include page="../main/footer.jsp"/>
-	<!-- footer 영역 끝  -->
+	
 </body>
 </html>
