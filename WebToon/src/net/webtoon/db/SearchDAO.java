@@ -125,4 +125,25 @@ public class SearchDAO {
 		}
 		return result;
 	}
+	
+	public List<WebtoonBean> getSimilarity(int web_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			
+			String sql = "select ";
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
+		return null;
+	}
 }
