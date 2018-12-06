@@ -13,7 +13,7 @@ import net.board.controller.ActionForward;
 import net.board.db.BoardBean;
 import net.board.db.BoardDAO;
 
-public class fanboardWriteAction implements Action {
+public class FanboardWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
