@@ -18,6 +18,7 @@
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
+	
 	<!-- Board -->
 	<servlet>
 		<servlet-name>BoardFrontController</servlet-name>
@@ -29,6 +30,19 @@
 	</servlet-mapping>
 	<!-- Board -->
 
+	<!-- fanBoard -->
+	<servlet>
+		<servlet-name>FanBoardFrontController</servlet-name>
+		<servlet-class>net.board.controller.FanBoardFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FanBoardFrontController</servlet-name>
+		<url-pattern>*.fo</url-pattern>
+	</servlet-mapping>
+	<!-- fanBoard -->
+	
+	
+	
 	<!--member -->
 	<servlet>
 		<servlet-name>MemberFrontController</servlet-name>
