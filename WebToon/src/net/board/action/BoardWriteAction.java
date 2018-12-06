@@ -35,6 +35,7 @@ public class BoardWriteAction implements Action {
 		String mem_num = (String)session.getAttribute("mem_num");
 
 		// 추후 수정 예정
+
 		if (mem_num == null) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);

@@ -5,8 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="./main/css/test.css">
+<link rel="stylesheet" href="./main/css/header.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
+<link rel="stylesheet" href="./main/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./main/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./main/css/search-result.css">
+<link rel="stylesheet" href="./main/css/wbt-review.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
+<div id="main-wrap">
+	<jsp:include page="../main/header.jsp" />
 	<h1>내용 빠짐없이 다 채워 주세요. 내용빠지면 DB에 안들어갑니다!</h1>
 	<h2>아직 업데이트 쿼리가 없어서 잘못 입력한 부분없는지 꼭 확인해주세요.</h2>
 	<form action="webtoonPro.jsp" method="post">
@@ -65,5 +78,8 @@
 		<img alt="" src="thumb.JPG" width="800px"><br><br><br>
 		<input type="submit" value="웹툰 입력하기" style="width: 300px; height: 100px;">
 	</form>
+	<jsp:include page="../main/top.jsp"></jsp:include>
+	<jsp:include page="../main/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

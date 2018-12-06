@@ -26,7 +26,7 @@ public class InsertRecommendAction implements Action{
 		mdao.insertWebtoonCount(recbean);
 		rdao.insertRecommend(recbean);
 		
-		int sum = rdao.getRecommend((int)session.getAttribute("mem_num"));
+		int sum = rdao.getRecommend((String)session.getAttribute("mem_num"));
 		PrintWriter out = response.getWriter();
 		out.println(sum);
 		return null;

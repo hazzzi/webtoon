@@ -23,7 +23,7 @@ public class BoardModify implements Action{
 		System.out.println("fb_num");
 		
 		HttpSession session = request.getSession();
-		int mem_num = (int)session.getAttribute("mem_num");
+		String mem_num = (String)session.getAttribute("mem_num");
 		
 		
 		System.out.println(mem_num);
