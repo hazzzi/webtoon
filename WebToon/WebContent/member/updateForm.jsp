@@ -22,7 +22,7 @@
 </script>
 </head>
 <body>
-<jsp:include page="../main/header.jsp"></jsp:include>
+ <jsp:include page="../main/header.jsp"></jsp:include>
 						<!--  uf= updateForm  
 							  rif=reinfo		-->
 <div id="update_wrap">
@@ -33,7 +33,7 @@
 			
 
 <%request.setCharacterEncoding("utf-8");
-int mem_num=(int)session.getAttribute("mem_num");
+String mem_num=(String)session.getAttribute("mem_num");
  MemberBean mb=(MemberBean)request.getAttribute("mb"); 
 %>
 <!--사진을 업로드 등록하면 페이지를 새로 실행 시킨다.  -->

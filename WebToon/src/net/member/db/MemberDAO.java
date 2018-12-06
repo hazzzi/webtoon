@@ -45,13 +45,18 @@ public class MemberDAO {
 			con = getConnection();
 
 			// 회원에 각자 넘버가 존재함으로 회원가입시에 회원 넘버를 갱신 시켜준다.
-			String sql1 = "select max(mem_num) as mem_num from member";
+			//날짜를 검색해서 
+			String sql1 = "select max(mem_num) as mem_num from member order by mem_num asc";
 			pstmt = con.prepareStatement(sql1);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				System.out.println(rs.getString("mem_num"));
-				/*temp_num = rs.getString("mem_num") + 1;*/
-				
+				temp = rs.getString("mem_num");// 잠시 받아서 더한후 다시 형변환 해줄것.
+				temp_num=Integer.parseInt(temp);
+				temp_num+=1;
+				temp=Integer.toString(temp_num);
+				System.out.println(temp_num);
+				System.out.println(temp);
 			}
 			
 			// 회원 등록 하는 sql																	,profileimg
