@@ -46,7 +46,7 @@
 			<input type="hidden" value="<%=mem_num%>" name="mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex"
-					name="fb_subject" value="<%=borderbean.getFb_subject()%>"> <select class="bd_sel"
+					name="fb_subject" value="<%=borderbean.getFb_subject()%>"> <select id="bd_sel"
 					name="fb_category">
 					<option value="자유게시판">자유게시판</option>
 					<option value="중고장터">중고장터</option>
@@ -56,8 +56,10 @@
 				<div id="bw_img">
 
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
-						style="font-size: 48px; color: gray; margin-left: -30px;"><input
-						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img" value="<%=borderbean.getFb_img()%>"></i>
+						style="font-size: 48px; color: gray; margin-left: -30px;">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+					</i>
+
 
 					<button type="submit" class="bw_pho_icon2">
 						<i class="fa fa-check" id="bw_pho_icon2"
