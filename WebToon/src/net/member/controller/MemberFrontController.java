@@ -168,6 +168,8 @@ public class MemberFrontController extends HttpServlet{
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./data/webtoon.jsp");
+		}else if(command.equals("myWebtoonList.me")){
+			
 		}
 		
 		

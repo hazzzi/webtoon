@@ -21,8 +21,10 @@ public class ShowRecommendAction implements Action{
 		HttpSession session = request.getSession();
 		String mem_num = ((String)session.getAttribute("mem_num"));
 		List<RecommendedItem> recommendations = rdao.UserRecommend_list((mem_num)); // 추천받은 리스트
-		List<WebtoonBean> rec_list = (List<WebtoonBean>)rdao.showRecommend_list(recommendations);
-		request.setAttribute("rec_list", rec_list);
+		List<WebtoonBean> rec_list = (List<WebtoonBean>)rdao.showRecommend_list(recommendations); //추천받은 리스트가지고 웹툰 가져옴
+		
+		request.setAttribute("rec_list", rec_list);//웹툰 저장
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./recommend/recommend_show.jsp");

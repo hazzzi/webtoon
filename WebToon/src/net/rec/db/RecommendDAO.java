@@ -151,14 +151,16 @@ public class RecommendDAO {
 	
 	public List<RecommendedItem> UserRecommend_list(String session){
 		List<RecommendedItem> recommendations=null;
-	    
+	    String mem_num = session;
+	    long id = Long.parseLong(mem_num);
+	    System.out.println("long ID값 : "+id);
 /*	    long id2 = Long.parseLong("a123",16);
 	    System.out.println(id2);	
 	    Long.toHexString(id2) // 16진수 -> String 변환 메서드
 	    */
 	      try{
-	    	 Long id = Long.parseLong(session,16);
-	  	     System.out.println("long ID값 : "+id);
+	    	 //Long id = Long.parseLong(session,16);
+	  	     
 	         MysqlDataSource dataSource = new MysqlDataSource();
 	         dataSource.setServerName("192.168.2.9");
 	         dataSource.setUser("jspid");
@@ -214,5 +216,9 @@ public class RecommendDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 		}
 		return list;
+	}
+	public List AvgScore(List<WebtoonBean> rec_list){
+		return null;
+		
 	}
 }
