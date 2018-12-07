@@ -1,15 +1,14 @@
 package net.main.action;
 
 import java.util.List;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.main.controller.Action;
 import net.main.controller.ActionForward;
 import net.main.db.MainDAO;
-import net.rec.db.RecommendDAO;
 import net.webtoon.db.WebtoonBean;
 
 public class MainHomeAction implements Action{
@@ -17,11 +16,17 @@ public class MainHomeAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MainDAO mdao = new MainDAO();
+		Vector<List<WebtoonBean>> gender = mdao.getGenderrank();
 		List<WebtoonBean> webtoonList = mdao.mainWebtoon();
+		List<WebtoonBean> female = gender.get(0);
+		List<WebtoonBean> male = gender.get(1);
 		List<String> genre = mdao.getWebtoon_genre();
+		
 		
 		request.setAttribute("webtoonList", webtoonList);
 		request.setAttribute("genre", genre);
+		request.setAttribute("female", female);
+		request.setAttribute("male", male);
 		
 		//평가한 웹툰 수
 		int count_Recommend = mdao.CountRecommend();

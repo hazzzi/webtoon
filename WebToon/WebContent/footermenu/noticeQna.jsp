@@ -17,7 +17,7 @@
 <body>
 
 	<div class="nq_wrap">
-		<jsp:include page="../main/header.jsp"></jsp:include>
+		<%-- <jsp:include page="../main/header.jsp"></jsp:include> --%>
 
 		<div class="nq">
 			<div class="no">
