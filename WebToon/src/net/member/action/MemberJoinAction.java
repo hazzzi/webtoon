@@ -34,7 +34,6 @@ public class MemberJoinAction implements Action{
 		String ages=request.getParameter("sel_age");
 		String gender=request.getParameter("gender");
 		/*String progileimg=request.getParameter("progileimg");*/
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		
 		MemberBean mb = new MemberBean();
 		mb.setId(id);
@@ -45,7 +44,6 @@ public class MemberJoinAction implements Action{
 		mb.setNik(nik);
 		mb.setAges(ages);
 		mb.setGender(gender);
-		mb.setDate(timestamp);
 		/*mb.setProgileimg(progileimg);*/
 		MemberDAO mdao = new MemberDAO();
 		

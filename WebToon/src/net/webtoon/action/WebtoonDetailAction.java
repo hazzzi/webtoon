@@ -3,7 +3,6 @@ package net.webtoon.action;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -57,9 +56,7 @@ public class WebtoonDetailAction implements Action{
 			}
 			
 			List<WebtoonBean> similar = sdao.getSimilarity(web_num);
-			
-			
-			Vector<?> vector = new Vector<>();
+			System.out.println(similar.get(2).getWeb_subject());
 			request.setAttribute("wb", wb);
 			request.setAttribute("score", score);
 			request.setAttribute("count", count);

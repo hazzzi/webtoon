@@ -47,43 +47,49 @@
  <div class="id_input">
 <input type="text" name="id" placeholder="아이디" required>
 </div>
- <div class="email_input">
-<input type="email" name="email" placeholder="이메일" required>
-</div>
  <div class="pwd_input">
 <input type="password" name="pass" placeholder="비밀번호(8자리 이상)" required >
 </div>
  <div class="pwd_input">
 <input type="password" name="repass" placeholder="비밀번호확인" required>
 </div>
+ <div class="nik_input">
+<input type="text" name="nic" placeholder="닉네임" required>
+</div>
+ <div class="email_input">
+<input type="email" name="email" placeholder="이메일" required>
+</div>
  <div class="pwd_hint">
 <select name="sel_hint" required>
 <option value="">비밀번호 힌트를 선택하세요</option>
-<option value="1">나의 좌우명은?</option>
-<option value="2">나의 보물 제1호는?</option>
-<option value="3">제일 좋아하는 스포츠팀의 이름은?</option>
-<option value="4">나의 출생지역은?</option>
-<option value="5">제일 좋아하는 음식은?</option>
+<option value="나의 좌우명은?">나의 좌우명은?</option>
+<option value="나의 보물 제1호는?">나의 보물 제1호는?</option>
+<option value="제일 좋아하는 스포츠팀의 이름은?">제일 좋아하는 스포츠팀의 이름은?</option>
+<option value="나의 출생지역은?">나의 출생지역은?</option>
+<option value="제일 좋아하는 음식은?">제일 좋아하는 음식은?</option>
 </select>
 </div>
  <div class="pwd_hint">
 <input type="text" name="pass_htnt" placeholder="비밀번호 힌트 답" required>
 </div>
- <div class="nik_input">
-<input type="text" name="nic" placeholder="닉네임" required>
-</div>
  <div class="pwd_hint">
- <div>남<input type="radio" name="gender" value="남">
-여<input type="radio" name="gender" value="여"></div>
- 
+<select name="gender" required>
+<option value="">성별</option>
+<option value="남">남</option>
+<option value="여">여</option>
+</select>
+
 <select name="sel_age" required>
 <option value="">연령</option>
-<option value="1">10대</option>
-<option value="2">20대</option>
-<option value="3">30대</option>
-<option value="4">40대</option>
-<option value="5">50대 이상</option>
+<option value="10대">10대</option>
+<option value="20대">20대</option>
+<option value="30대">30대</option>
+<option value="40대">40대</option>
+<option value="50대">50대 이상</option>
 </select>
+
+<!--  <div>남<input type="radio" name="gender" value="남">
+여<input type="radio" name="gender" value="여"></div> -->
 </div>
  <div class="join_input">
 <input type="submit" value="회원가입">
