@@ -1,3 +1,5 @@
+<%@page import="net.footer.db.footerBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +17,12 @@
 
 </head>
 <body>
-
+<%request.setCharacterEncoding("utf-8");
+	List all= (List)request.getAttribute("all");
+	List<footerBean> noticelist = (List<footerBean>)all.get(0);
+	List<footerBean> qnalist = (List<footerBean>)all.get(1);
+	
+%>
 	<div class="nq_wrap">
 		<%-- <jsp:include page="../main/header.jsp"></jsp:include> --%>
 
