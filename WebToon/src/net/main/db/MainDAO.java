@@ -340,4 +340,54 @@ public class MainDAO {
 		}
 		
 	}
+	
+	public List<WebtoonBean> highscoreWebtoon(){
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			// 게시판 글 번호 구하기
+			// num 구하기, 게시판 글 중에 가장 큰 번호
+			String sql = "select w.*, r.avg "
+					+ "from webtoon w join "
+					+ "(select rec_web_num, round(avg(rec_web_grade),1) avg "
+					+ "from recommend group by rec_web_num) r "
+					+ "on w.web_num = r.rec_web_num "
+					+ "order by r.avg desc "
+					+ "limit 0,20"; //전체 웹툰 (test용)
+			//String sql = "select * from webtoon where web_num not in (select rec_web_num from recommend)"; //이미 추천한 웹툰은 제외
+			// 4 저장 <= 결과 실행
+			pstmt = con.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+			
+				list.add(wb);
+			}								
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
+		return list;
+	}
 }
