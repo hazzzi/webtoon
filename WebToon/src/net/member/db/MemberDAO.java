@@ -60,6 +60,30 @@ public class MemberDAO {
 				//전체 회원 숫자 +1
 				tmp = rs.getInt("count(*)")+1;
 			}
+
+			//날짜를 검색해서 
+		/*	String sql1 = "select max(mem_num) as mem_num from member order by mem_num asc";
+			pstmt = con.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				System.out.println(rs.getString("mem_num"));
+				temp = rs.getString("mem_num");// 잠시 받아서 더한후 다시 형변환 해줄것.
+				temp_num=Integer.parseInt(temp);
+				temp_num+=1;
+				temp=Integer.toString(temp_num);
+				System.out.println(temp_num);
+				System.out.println(temp);
+			}*/
+
+			//String sql1 = "select max(mem_num) as mem_num from member";
+			//pstmt = con.prepareStatement(sql1);
+			//rs = pstmt.executeQuery();
+			//if (rs.next()) {
+			//	System.out.println(rs.getString("mem_num"));
+				/*temp_num = rs.getString("mem_num") + 1;*/
+				
+			//}
+
 			
 			// ex) 2018-12-6 일 12시 50분 11초 전체멤버수 17명 가입시 -> 1812061250118
 			mb.setNum(date.format(d).toString()+tmp.toString());

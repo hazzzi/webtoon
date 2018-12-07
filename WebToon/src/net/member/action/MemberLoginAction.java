@@ -29,14 +29,14 @@ public class MemberLoginAction implements Action{
 		MemberBean mb = mdao.loginMember(id,pass);
 		System.out.println("로그인 여부 num: "+mb.getNum());
 		
-		if(!mb.getNum().equals("0")){//로그인 성공
+		if(mb.getNum()!=null){//로그인 성공
 			HttpSession session = request.getSession();
 
 			session.setAttribute("mem_num", mb.getNum());
 			session.setAttribute("mem_nik", mb.getNik());
 			forward.setRedirect(true);
 			forward.setPath("./home.today");
-		}else if(mb.getNum().equals("0")){
+		}else if(mb.getNum()==null){
 			forward.setRedirect(true);
 			forward.setPath("./login.me");
 			

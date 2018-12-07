@@ -19,10 +19,12 @@
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
+	<%
+		String mem_num = (String) session.getAttribute("mem_num");
+	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
-	
 		$(document).ready(function() {
 			$("#header-srch").hide();
 			$("#a_srch").click(function() {
@@ -32,11 +34,11 @@
 
 			$("#bd_sel").change(function() {
 				//alert($("#bd_sel option:selected").text());
-					$.ajax('fanCategory.fo', {				
-				    data: {
-				    	fan_category: $("#bd_sel option:selected").val()
-				    },
-					success : function(data) {	
+				$.ajax('fanCategory.fo', {
+					data : {
+						fan_category : $("#bd_sel option:selected").val()
+					},
+					success : function(data) {
 						$('#bd_sel2 .optEx').html(data);
 					}
 				});
@@ -46,41 +48,54 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<div class="bw_subject">
-			<input type="text" placeholder="제목" class="bw_sub_tex"> 
-			<select id="bd_sel" name="fan_category">
-				<optgroup label="장르 선택"></optgroup>
-				<option id="daily" value="일상" class="fan_cate">일상</option>
-				<option id="gag" value="개그" class="fan_cate">개그</option>
-				<option id="fantasy" value="판타지" class="fan_cate">판타지</option>
-				<option id="action" value="액션"  class="fan_cate">액션</option>
-				<option id="drama" value="드라마"  class="fan_cate">드라마</option>
-				<option id="love" value="순정"  class="fan_cate">순정</option>
-				<option id="sensitivity" value="감성" class="fan_cate" >감성</option>
-				<option id="thriller" value="스릴러" class="fan_cate" >스릴러</option>
-				<option id="period" value="시대극"  class="fan_cate">시대극</option>
-				<option id="sports" value="스포츠"  class="fan_cate">스포츠</option>
-			</select> 
-			
-			<select id="bd_sel2" name="fan_category">
-				<optgroup label="웹툰 선택"></optgroup>
-				<option class="optEx"></option>
-			</select>
+		<form action="./fanboardwriteAction.fo" method="post"
+			enctype="multipart/form-data">
+			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
+			<div class="bw_subject">
+				<input type="text" placeholder="제목" class="bw_sub_tex"
+					name="fa_subject"> <select id="bd_sel" name="fan_category"
+					name="fa_category1">
+					<optgroup label="장르 선택"></optgroup>
+					<option id="daily" value="일상" class="fan_cate">일상</option>
+					<option id="gag" value="개그" class="fan_cate">개그</option>
+					<option id="fantasy" value="판타지" class="fan_cate">판타지</option>
+					<option id="action" value="액션" class="fan_cate">액션</option>
+					<option id="drama" value="드라마" class="fan_cate">드라마</option>
+					<option id="love" value="순정" class="fan_cate">순정</option>
+					<option id="sensitivity" value="감성" class="fan_cate">감성</option>
+					<option id="thriller" value="스릴러" class="fan_cate">스릴러</option>
+					<option id="period" value="시대극" class="fan_cate">시대극</option>
+					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
+				</select> <select id="bd_sel2" name="fa_category2">
+					<optgroup label="웹툰 선택"></optgroup>
+					<option class="optEx"></option>
+				</select>
 
-			<div id="bw_img">
-				<a href="#"><i class="fa fa-file-image-o" id="bw_pho_icon"
+				<div id="bw_img">
+					<i class="fa fa-file-image-o" id="bw_pho_icon"
+						style="font-size: 48px; color: gray; margin-left: -30px;"> <input
+						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+					</i>
+
+
+					<button type="submit" class="bw_pho_icon2">
+						<i class="fa fa-check" id="bw_pho_icon2"
+							style="font-size: 48px; color: gray;"></i>
+					</button>
+					<!-- 				<a href="#"><i class="fa fa-file-image-o" id="bw_pho_icon"
 					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
 				<a href="#"><i class="fa fa-check" id="bw_pho_sub"
-					style="font-size: 48px; color: gray;"></i></a>
+					style="font-size: 48px; color: gray;"></i></a> -->
+				</div>
 			</div>
-		</div>
-		<!-- class="bw_hr" -->
-		<div class="clear"></div>
-		<hr>
-		<div class="bw_content">
-			<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+			<!-- class="bw_hr" -->
+			<div class="clear"></div>
 			<hr>
-		</div>
+			<div class="bw_content">
+				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+				<hr>
+			</div>
+		</form>
 	</div>
 	<!-- 본문 영역 끝 -->
 	<!-- footer 영역 시작-->
