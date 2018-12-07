@@ -137,8 +137,9 @@ public class RecommendDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mem_num);
 			rs = pstmt.executeQuery();
-			rs.next();
-			sum = rs.getInt(1);
+			if(rs.next()){
+				sum = rs.getInt(1);
+			}
 		} catch (Exception e) { e.printStackTrace(); }
 		finally {
 			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
@@ -150,13 +151,14 @@ public class RecommendDAO {
 	
 	public List<RecommendedItem> UserRecommend_list(String session){
 		List<RecommendedItem> recommendations=null;
-	    long id = Long.parseLong(session);
-	    System.out.println("long ID값 : "+id);
+	    
 /*	    long id2 = Long.parseLong("a123",16);
 	    System.out.println(id2);	
 	    Long.toHexString(id2) // 16진수 -> String 변환 메서드
 	    */
 	      try{
+	    	 Long id = Long.parseLong(session,16);
+	  	     System.out.println("long ID값 : "+id);
 	         MysqlDataSource dataSource = new MysqlDataSource();
 	         dataSource.setServerName("192.168.2.9");
 	         dataSource.setUser("jspid");
