@@ -16,6 +16,8 @@ public class BoardList implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("boardList execute()");
+	
+		request.setCharacterEncoding("utf-8");
 		
 		BoardDAO bdao = new BoardDAO();
 		

@@ -13,13 +13,23 @@
  function checking(){
 	var pass = document.f.pass.value;
 	var repass = document.f.repass.value;
- 	if (document.f.pass.value != document.f.repass.value) {
-         alert("비밀번호가 일치하지 않습니다")
-         document.f.pass.value = ""
-        	 document.f.repass.value = ""
-         document.f.pass.focus()
-         return false;
+ 	
+	// 비밀번호 일치 여부
+	if (document.f.pass.value != document.f.repass.value) { 
+ 		alert("비밀번호가 일치하지 않습니다")
+        document.f.pass.value = ""
+        document.f.repass.value = ""
+        document.f.pass.focus()
+        return false;
      }
+ 	// passward 길이 체크
+ 	if(document.f.pass.value.length <= 7){ 
+ 		alert("비밀번호를 확인해주세요.")
+ 		document.f.pass.value = ""
+        document.f.repass.value = ""
+        document.f.pass.focus()
+ 		return false;
+ 	}
 }
 </script>
 </head>
@@ -38,7 +48,7 @@
 <input type="text" name="id" placeholder="아이디" required>
 </div>
  <div class="pwd_input">
-<input type="password" name="pass" placeholder="비밀번호" required>
+<input type="password" name="pass" placeholder="비밀번호(8자리 이상)" required >
 </div>
  <div class="pwd_input">
 <input type="password" name="repass" placeholder="비밀번호확인" required>

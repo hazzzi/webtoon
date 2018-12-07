@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.board.action.FanBoardCategoryAction;
 import net.board.action.FanBoardList;
-import net.board.action.fanboardWriteAction;
+import net.board.action.FanboardWriteAction;
 
 public class FanBoardFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -24,22 +25,23 @@ public class FanBoardFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/fanboardWrite.fo")) {
+		if(command.equals("/fanboardWrite.fo")) {
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./board/fan_writingPage.jsp");
 
-		}else if (command.equals("/fanboardWriteAction.fo")){
-			action = new fanboardWriteAction();
+		}else if(command.equals("/fanboardWriteAction.fo")) {
+			
+			action = new FanboardWriteAction();
 
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}			
+			}
 
-			
-		} else if (command.equals("/fanboardList.fo")) {
+		}else if(command.equals("/fanboardList.fo")) {
 
 			action = new FanBoardList();
 
@@ -49,7 +51,17 @@ public class FanBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} 
+		}else if(command.equals("/fanCategory.fo")){
+			
+			action = new FanBoardCategoryAction();
+			
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+					
+		}
 
 		// 이동 시작
 		if (forward != null) {
