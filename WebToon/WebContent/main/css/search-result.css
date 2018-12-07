@@ -232,6 +232,12 @@ div.sr-content-comment>div>p:NTH-OF-TYPE(3){
 div.sr-content-rec>div img{
 	width: 97% !important;
 }
+div.sr-content-rec>div b{
+	color: #1b1526;
+    text-align: center;
+    display: inline-block;
+    width: 97%;
+}
 
 div.sr-content-comment>div i{
 	font-size: 25px !important;

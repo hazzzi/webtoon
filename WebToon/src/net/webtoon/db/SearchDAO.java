@@ -148,16 +148,17 @@ public class SearchDAO {
 			
 			pstmt.close();
 			rs.close();
-			
 			sql = "select w.*, r.avg "
 					+ "from webtoon w join "
-					+ "(select rec_web_num, round(avg(rec_web_grade),1) avg from recommend group by rec_web_num) r "
+					+ "(select rec_web_num, round(avg(rec_web_grade),1) avg "
+					+ "from recommend group by rec_web_num) r "
 					+ "on w.web_num = r.rec_web_num "
-					+ "where w.web_genre = ? "
+					+ "where w.web_genre=? "
 					+ "order by r.avg desc;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, genre);
 			
+			rs = pstmt.executeQuery();
 			while(rs.next()){
 				WebtoonBean wb = new WebtoonBean();
 				wb.setWeb_num(rs.getInt("web_num"));
@@ -182,6 +183,6 @@ public class SearchDAO {
 			}
 		}
 		
-		return null;
+		return list;
 	}
 }
