@@ -73,9 +73,6 @@
 <input type="text" name="nic" placeholder="닉네임" required>
 </div>
  <div class="pwd_hint">
- <div>남<input type="radio" name="gender" value="남">
-여<input type="radio" name="gender" value="여"></div>
- 
 <select name="sel_age" required>
 <option value="">연령</option>
 <option value="1">10대</option>
@@ -85,6 +82,16 @@
 <option value="5">50대 이상</option>
 </select>
 </div>
+
+ <div class="pwd_hint">
+<select name="sel_age" required>
+<option value="">성별</option>
+<option value="1">남</option>
+<option value="2">여</option>
+</select>
+</div>
+
+
  <div class="join_input">
 <input type="submit" value="회원가입">
 </div>
