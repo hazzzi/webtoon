@@ -37,14 +37,6 @@
 	<div id="wrap">
 		<!-- header 영역 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
-		<script>
-			$(document).ready(function() {
-				$("#a_srch").click(function() {
-					$(".tmp").toggle();
-					$("#header-srch").toggle(500);
-				});
-			});
-		</script>
 
 		<!-- header 영역 끝 -->
 
