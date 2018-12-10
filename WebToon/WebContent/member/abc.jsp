@@ -38,7 +38,6 @@
 // 				var id = naverLogin.user.getId();
 				var gender = naverLogin.user.getGender(); // 남자는M, 여자는F 로 들어와서 M->남 으로 변경?
 				var id_email = naverLogin.user.getEmail(); // @뒤에 삭제후 아이디로 사용
-				var email = naverLogin.user.getEmail();
 				var name = naverLogin.user.getNickName();
 				var profileImage = naverLogin.user.getProfileImage();
 // 				var birthday = naverLogin.user.getBirthday();			

@@ -52,5 +52,4 @@ public class MemberLoginAction implements Action{
 		
 		return forward;
 	}
-
 }
