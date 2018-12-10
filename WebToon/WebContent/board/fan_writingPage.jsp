@@ -64,10 +64,7 @@
 
 										$.each(op, function(i) {
 
-											$('#bd_sel2').append(
-													'<option class="option">'
-															+ op[i]
-															+ '</option>');
+											$('#bd_sel2').append('<option class="option">'+ op[i]+ '</option>');
 
 										});
 
@@ -98,14 +95,17 @@
 					<option id="thriller" value="스릴러" class="fan_cate">스릴러</option>
 					<option id="period" value="시대극" class="fan_cate">시대극</option>
 					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
-				</select> <select id="bd_sel2" name="fa_category2">
+				</select> 
+				
+				<select id="bd_sel2" name="fa_category2">
+				<input type="hidden" value="fa_web_num">
 					<optgroup label="웹툰 선택"></optgroup>
 				</select>
 
 				<div id="bw_img">
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
 						style="font-size: 48px; color: gray; margin-left: -30px;">
-						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
 
@@ -123,7 +123,7 @@
 			<form id="form1" runat="server" >
         			<img id="blah" onerror="this.style.visibility='none'">
   					  </form>
-				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"></textarea>
 				<hr>
 			</div>
 		</form>

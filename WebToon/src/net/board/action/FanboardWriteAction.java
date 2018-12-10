@@ -46,7 +46,7 @@ public class FanboardWriteAction implements Action {
 			String fa_category1 = multi.getParameter("fa_category1");
 			String fa_category2 = multi.getParameter("fa_category2");
 			String fa_content = multi.getParameter("fa_content");
-			String fa_img = multi.getParameter("fa_img");
+			String fa_img = multi.getFilesystemName("fa_img");
 			
 			fb.setFa_mem_num(mem_num);
 			fb.setFa_category1(fa_category1);
@@ -55,9 +55,9 @@ public class FanboardWriteAction implements Action {
 			fb.setFa_content(fa_content);
 			fb.setFa_img(fa_img);
 
-			//화장실 다녀와서 id 세팅할 거야
-			
 			FanDAO fdao = new FanDAO();
+			
+			System.out.println("이미지"+fa_img);
 			
 			fdao.insertFan(fb);
 			
