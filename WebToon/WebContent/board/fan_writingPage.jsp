@@ -25,25 +25,63 @@
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
+	
+		$(document).ready(
+				function() {
 
-			$("#bd_sel").change(function() {
-				//alert($("#bd_sel option:selected").text());
-				$.ajax('fanCategory.fo', {
-					data : {
-						fan_category : $("#bd_sel option:selected").val()
-					},
-					success : function(data) {
-						$('#bd_sel2 .optEx').html(data);
+					$(function() {
+						$("#bw_pho_file").on('change', function() {
+							readURL(this);
+						});
+					});
+
+					function readURL(input) {
+						if (input.files && input.files[0]) {
+							var reader = new FileReader();
+
+							reader.onload = function(e) {
+								$('#blah').attr('src', e.target.result);
+							}
+
+							reader.readAsDataURL(input.files[0]);
+						}
 					}
+
+					$("#bd_sel").change(
+							function() {
+								//alert($("#bd_sel option:selected").text());
+								$.ajax('fanCategory.fo', {
+									data : {
+										fan_category : $(
+												"#bd_sel option:selected")
+												.val()
+									},
+									success : function(data) {
+
+										$('.option').remove();
+
+										var op = data.split(",");
+										alert(op);
+
+										$.each(op, function(i) {
+
+											$('#bd_sel2').append(
+													'<option class="option">'
+															+ op[i]
+															+ '</option>');
+
+										});
+
+									}
+
+								});
+							});
 				});
-			});
-		});
-		
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./fanboardwriteAction.fo" method="post"
+		<form action="./fanboardWriteAction.fo" method="post"
 			enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="fa_mem_num">
 			<div class="bw_subject">
@@ -62,13 +100,13 @@
 					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
 				</select> <select id="bd_sel2" name="fa_category2">
 					<optgroup label="웹툰 선택"></optgroup>
-					<option class="optEx"></option>
+
 				</select>
 
 				<div id="bw_img">
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
-						style="font-size: 48px; color: gray; margin-left: -30px;"> <input
-						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+						style="font-size: 48px; color: gray; margin-left: -30px;">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
 					</i>
 
 
@@ -86,6 +124,9 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
+			<form id="form1" runat="server" >
+        			<img id="blah" onerror="this.style.visibility='none'">
+  					  </form>
 				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
 				<hr>
 			</div>
