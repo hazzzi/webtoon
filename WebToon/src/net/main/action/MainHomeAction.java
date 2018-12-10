@@ -18,15 +18,18 @@ public class MainHomeAction implements Action{
 		MainDAO mdao = new MainDAO();
 		Vector<List<WebtoonBean>> gender = mdao.getGenderrank();
 		List<WebtoonBean> webtoonList = mdao.mainWebtoon();
+		List<WebtoonBean> highscore = mdao.highscoreWebtoon();
 		List<WebtoonBean> female = gender.get(0);
 		List<WebtoonBean> male = gender.get(1);
 		List<String> genre = mdao.getWebtoon_genre();
+		
 		
 		
 		request.setAttribute("webtoonList", webtoonList);
 		request.setAttribute("genre", genre);
 		request.setAttribute("female", female);
 		request.setAttribute("male", male);
+		request.setAttribute("highscore", highscore);
 		
 		//평가한 웹툰 수
 		int count_Recommend = mdao.CountRecommend();

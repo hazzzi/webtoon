@@ -56,7 +56,7 @@ public class WebtoonDetailAction implements Action{
 			}
 			
 			List<WebtoonBean> similar = sdao.getSimilarity(web_num);
-			System.out.println(similar.get(2).getWeb_subject());
+			//System.out.println(similar.get(2).getWeb_subject());
 			request.setAttribute("wb", wb);
 			request.setAttribute("score", score);
 			request.setAttribute("count", count);

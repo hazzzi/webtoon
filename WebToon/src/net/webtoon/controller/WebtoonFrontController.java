@@ -55,6 +55,8 @@ public class WebtoonFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/insertWebtoon.wbt")){
+			
 		}
 		
 		// 이동
