@@ -55,6 +55,8 @@ public class FanboardWriteAction implements Action {
 			fb.setFa_content(fa_content);
 			fb.setFa_img(fa_img);
 
+			//화장실 다녀와서 id 세팅할 거야
+			
 			FanDAO fdao = new FanDAO();
 			
 			fdao.insertFan(fb);

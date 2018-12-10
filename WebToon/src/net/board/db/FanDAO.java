@@ -34,10 +34,11 @@ public class FanDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
+			
 			if (rs.next()) {
-				fb.setFa_num(rs.getInt("max(fa_num)" + 1));
+				fb.setFa_num(rs.getInt("max(fa_num)") + 1);
 			}
-
+			
 			pstmt.close();
 			rs.close();
 
@@ -50,21 +51,20 @@ public class FanDAO {
 				fb.setFa_mem_nik(rs.getString("mem_nik"));
 			}
 
-			sql = "insert into webtoon_fanart(fa_num, fa_web_num, fa_mem_num, fa_mem_id, fa_mem_nik, fa_subject, fa_category1, fa_category2, fa_img, fa_content, fa_sumlike, fa_readcount, fa_date)"
+			sql = "insert into webtoon_fanart(fa_num, fa_web_num, fa_mem_num, fa_mem_nik, fa_subject, fa_category1, fa_category2, fa_img, fa_content, fa_sumlike, fa_readcount, fa_date)"
 					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fb.getFa_num());
 			pstmt.setInt(2, fb.getFa_web_num());
 			pstmt.setString(3, fb.getFa_mem_num());
-			pstmt.setString(4, fb.getFa_mem_id());
-			pstmt.setString(5, fb.getFa_mem_nik());
-			pstmt.setString(6, fb.getFa_subject());
-			pstmt.setString(7, fb.getFa_category1());
-			pstmt.setString(8, fb.getFa_category2());
-			pstmt.setString(9, fb.getFa_img());
-			pstmt.setString(10, fb.getFa_content());
+			pstmt.setString(4, fb.getFa_mem_nik());
+			pstmt.setString(5, fb.getFa_subject());
+			pstmt.setString(6, fb.getFa_category1());
+			pstmt.setString(7, fb.getFa_category2());
+			pstmt.setString(8, fb.getFa_img());
+			pstmt.setString(9, fb.getFa_content());
+			pstmt.setInt(10, 0);
 			pstmt.setInt(11, 0);
-			pstmt.setInt(12, 0);
 
 			pstmt.executeUpdate();
 
