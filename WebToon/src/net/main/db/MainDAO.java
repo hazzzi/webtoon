@@ -91,9 +91,11 @@ public class MainDAO {
 		return list;
 	}
 	
-	public List<WebtoonBean> getGenderrank(String gender){
+	public Vector<List<WebtoonBean>> getGenderrank(){
+		Vector<List<WebtoonBean>> list = new Vector<List<WebtoonBean>>();
 		
 		List<WebtoonBean> female = new ArrayList<WebtoonBean>();
+		List<WebtoonBean> male = new ArrayList<WebtoonBean>();
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -106,7 +108,7 @@ public class MainDAO {
 			// 성별로 select 빈도수가 제일 높은순. 동차일경우 최근 입력된 웹툰순으로 
 			String sql = "select * from webtoon_rec_gender where webtoon_gender = ? order by webtoon_count desc, webtoon_web_num limit 0,20;";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, gender);
+			pstmt.setString(1, "여");
 			
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
@@ -135,6 +137,39 @@ public class MainDAO {
 				pstmt2.close();
 				rs2.close();
 			}
+			pstmt.close();
+			rs.close();
+			
+			sql = "select * from webtoon_rec_gender where webtoon_gender = ? order by webtoon_count desc, webtoon_web_num limit 0,20;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "남");
+			
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("webtoon_web_num"));
+				sql = "select * from webtoon where web_num=?";
+				pstmt2 = con.prepareStatement(sql);
+				pstmt2.setInt(1, wb.getWeb_num());
+				
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()){
+					wb.setWeb_subject(rs2.getString("web_subject"));
+					wb.setWeb_author(rs2.getString("web_author"));
+					wb.setWeb_genre(rs2.getString("web_genre"));
+					wb.setWeb_start(rs2.getString("web_start"));
+					wb.setWeb_portal(rs2.getString("web_portal"));
+					wb.setWeb_info(rs2.getString("web_info"));
+					wb.setWeb_ing(rs2.getString("web_ing"));
+					wb.setWeb_link(rs2.getString("web_link"));
+					wb.setWeb_thumb_link(rs2.getString("web_thumb_link"));
+				}
+				
+				male.add(wb);
+				pstmt2.close();
+				rs2.close();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -143,8 +178,10 @@ public class MainDAO {
 			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 		}
+		list.add(female);
+		list.add(male);
 		
-		return female;
+		return list;
 	}
 	
 	public List<String> getWebtoon_genre(){
