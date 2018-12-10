@@ -75,7 +75,7 @@ System.out.println(sessionid);
 </div>
 </a>
 
-<a href="./myArticle.me">
+<a href="./MembermyarticleListAction.me">
 <div class="mp_img3">
 <img src="./member/img/copyw.png">
 <img src="./member/img/copyhover.png"><br>
