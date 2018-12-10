@@ -90,8 +90,8 @@
  <div class="pwd_hint">
 <select name="gender" required>
 <option value="">성별</option>
-<option value="1">남</option>
-<option value="2">여</option>
+<option value="남">남</option>
+<option value="여">여</option>
 </select>
 </div>
 
