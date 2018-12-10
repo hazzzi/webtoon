@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="./main/js/jquery-3.3.1.js"></script>
+<script src="./js/jquery-3.3.1.js"></script>
 </head>
 <body>
 	<!-- wrap 영역 시작 -->
@@ -19,15 +19,6 @@
 
 		<!-- header 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
-
-		<script>
-			$(document).ready(function() {
-				$("#a_srch").click(function() {
-					$(".tmp").toggle();
-					$("#header-srch").toggle(500);
-				});
-			});
-		</script>
 		
 		<!--/ header 끝 -->
 
