@@ -1,3 +1,4 @@
+<%@page import="net.board.db.FanBean"%>
 <%@page import="net.webtoon.db.WebtoonBoardBean"%>
 <%@page import="java.util.List"%>
 <%@page import="net.member.db.MemberBean"%>
@@ -41,6 +42,7 @@
 	List<WebtoonBoardBean> wbb = (List<WebtoonBoardBean>)request.getAttribute("wbb");
 	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
 	List<WebtoonBean> similar = (List<WebtoonBean>)request.getAttribute("similar");
+	List<FanBean> fanList = (List<FanBean>)request.getAttribute("fanList");
 	int reviewcount = (int)request.getAttribute("reviewcount");
 	
 	String mem_num = (String)session.getAttribute("mem_num");
@@ -200,7 +202,7 @@
 		 			<div class="owl-carousel owl-theme">
 		 				<!-- 반복문 시작 -->
 		 				<% for(WebtoonBean s:similar){ %>
-			 			<a href="<%=s.getWeb_link()%>">
+			 			<a href="./detail.wbt?num=<%=s.getWeb_num()%>">
 				 		<img src="<%=s.getWeb_thumb_link()%>" width="150px" height="120px">
 				 		<b style="color:#1b1526; text-align: center;"><%=s.getWeb_subject() %></b>
 			 			</a>
@@ -216,20 +218,25 @@
 		 			<!-- 링크는 추후수정 -->
 		 			<!-- get방식 이용 id 파라미터 값 넘기기 -->
 		 			<p><!-- <a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>| -->
-		 			   <a href="../board/fanart.jsp">더보기</a></p>
-		 			<div>
-		 				<!-- 링크는 fanart content 영역으로 수정 -->
-		 				<!-- db 이용 -->
-		 				<!-- webtoon_fanart 디비 참조 -->
-		 				<!-- 최근에 올라간 팬아트 상위 2개 -->
-		 				<!-- where webtoon-number=?? -->
-		 				<a href="#">
-				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-			 			</a>
-		 				<a href="#">
-				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-			 			</a>
-		 			</div>
+		 			   <a href="./fanboardList.bo">더보기</a></p>
+		 			<%
+		 			if(fanList.size()==0){%>
+		 				<h3 style="text-align: center; line-height: 5;">아직 팬아트가 없습니다!</h3>
+		 			<%}else{
+		 				for(FanBean f:fanList){
+		 			%>
+			 			<div>
+			 				<!-- 링크는 fanart content 영역으로 수정 -->
+			 				<!-- db 이용 -->
+			 				<!-- webtoon_fanart 디비 참조 -->
+			 				<!-- 최근에 올라간 팬아트 상위 2개 -->
+			 				<!-- where webtoon-number=?? -->
+			 				<a href="./fanarttmpaddress.wbt?fa_num=<%=f.getFa_num()%>">
+					 			<img src="<%=f.getFa_img()%>">
+				 			</a>
+			 			</div>
+		 			<%} 
+		 			}%>
 		 		</div>
 		 		<hr>
 		 		<div class="sr-content-sub-star">

@@ -41,7 +41,6 @@
 
 		<script>
 			$(document).ready(function() {
-				$("#header-srch").hide();
 				$("#a_srch").click(function() {
 					$(".tmp").toggle();
 					$("#header-srch").toggle(500);

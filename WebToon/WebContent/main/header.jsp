@@ -64,5 +64,13 @@
 				<!-- 프로필 이미지  -->
 		</div>
 	</header>
+	<script>
+		$(document).ready(function() {
+			$("#a_srch").click(function() {
+			$(".tmp").toggle();
+				$("#header-srch").toggle(500);
+			});
+		});
+	</script>
 
 
