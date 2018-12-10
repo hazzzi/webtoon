@@ -503,7 +503,7 @@ public class FanDAO {
 		
 		try{
 			con = getConnection();
-			String sql = "select fa_num";
+			String sql = "select fa_num from webtoon_fanart";
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
