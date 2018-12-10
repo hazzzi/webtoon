@@ -50,7 +50,7 @@
 
 			<div class="qn">
 				<div class="titles">
-					<h1>문의사항</h1>
+					<h1>FQA</h1>
 				</div>
 				<% for(footerBean fb:qnalist){ %>
 				<div class="nq_header">
