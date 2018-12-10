@@ -61,7 +61,6 @@
 										$('.option').remove();
 
 										var op = data.split(",");
-										alert(op);
 
 										$.each(op, function(i) {
 
@@ -87,7 +86,7 @@
 			<input type="hidden" value="<%=mem_num%>" name="fa_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex" name="fa_subject"> 
-					<select id="bd_sel" name="fan_category" name="fa_category1">
+					<select id="bd_sel" name="fa_category1">
 					<optgroup label="장르 선택"></optgroup>
 					<option id="daily" value="일상" class="fan_cate">일상</option>
 					<option id="gag" value="개그" class="fan_cate">개그</option>
@@ -101,7 +100,6 @@
 					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
 				</select> <select id="bd_sel2" name="fa_category2">
 					<optgroup label="웹툰 선택"></optgroup>
-
 				</select>
 
 				<div id="bw_img">
