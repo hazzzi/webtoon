@@ -18,7 +18,7 @@ import net.member.action.MemberModpassAction;
 import net.member.action.MemberUpdateAction1;
 import net.member.action.MemberUpdateAction2;
 import net.member.action.MemberWithdrawAction;
-import net.member.action.footerNoticewriteAction;
+
 
 public class MemberFrontController extends HttpServlet{
 
@@ -164,24 +164,12 @@ public class MemberFrontController extends HttpServlet{
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-		}else if(command.equals("/noticewrite.me")){
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./footermenu/noticewrite.jsp");
-
-		}else if(command.equals("/footerNoticewriteAction.me")){
-			action =new footerNoticewriteAction();
-			
-			try{
-				forward=action.execute(request, response);
-			}catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}else if(command.equals("/adminInsertWebtoon.me")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./data/webtoon.jsp");
+		}else if(command.equals("myWebtoonList.me")){
+			
 		}
 		
 		

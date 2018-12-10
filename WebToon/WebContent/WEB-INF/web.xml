@@ -83,5 +83,16 @@
 		<url-pattern>*.rec</url-pattern>
 	</servlet-mapping>
 	<!-- Recommend -->
+	
+	<!--member -->
+	<servlet>
+		<servlet-name>FooterFrontController</servlet-name>
+		<servlet-class>net.footer.controller.FooterFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FooterFrontController</servlet-name>
+		<url-pattern>*.ft</url-pattern>
+	</servlet-mapping>
+	<!--member -->
 
 </web-app>

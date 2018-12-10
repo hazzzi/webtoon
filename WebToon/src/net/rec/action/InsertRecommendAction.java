@@ -19,8 +19,9 @@ public class InsertRecommendAction implements Action{
 		HttpSession session = request.getSession();
 		if(session != null){
 			RecommendBean recbean = new RecommendBean();
-			long mem_num = Long.parseLong((String)session.getAttribute("mem_num"));
-			recbean.setRec_mem_num(Long.toString(mem_num)); // ID 고유번호
+			String mem_num = ((String)session.getAttribute("mem_num"));
+			System.out.println(mem_num);
+			recbean.setRec_mem_num(mem_num); // ID 고유번호
 			recbean.setRec_web_num(Integer.parseInt(request.getParameter("rec_web_num"))); // 웹툰 고유번호
 			recbean.setRec_web_grade(Integer.parseInt(request.getParameter("rec_web_grade"))); // 웹툰 별점
 			RecommendDAO rdao = new RecommendDAO();
@@ -29,8 +30,10 @@ public class InsertRecommendAction implements Action{
 			rdao.insertRecommend(recbean);
 			
 			int sum = rdao.getRecommend((String)session.getAttribute("mem_num"));
-			PrintWriter out = response.getWriter();
-			out.println(sum);
+			
+			//Ajax의 data로 결과값을 리턴
+			PrintWriter out = response.getWriter(); 
+			out.println(sum); 
 		}
 		return null;
 	}

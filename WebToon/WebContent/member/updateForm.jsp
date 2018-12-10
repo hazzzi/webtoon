@@ -23,8 +23,13 @@
 </head>
 <body>
  <jsp:include page="../main/header.jsp"></jsp:include>
+<<<<<<< HEAD
                   <!--  uf= updateForm  
                        rif=reinfo      -->
+=======
+						<!--  uf= updateForm  
+							  rif=reinfo		-->
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 <div id="update_wrap">
    <!-- header 시작 -->
    <!--/ header 끝 -->

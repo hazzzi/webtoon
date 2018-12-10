@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -29,9 +31,9 @@ public class MemberDAO {
 	public void joinMember(MemberBean mb) {
 
 
-		int temp_num = 0;// 회원 넘버를 만드는 sql문에서 2번쨰 sql문으로 값을 전달하기 위한
+		//int temp_num = 0;// 회원 넘버를 만드는 sql문에서 2번쨰 sql문으로 값을 전달하기 위한
 						// 변수
-		String temp="0";//임시
+		//String temp="0";//임시
 		System.out.println(mb.getId());
 		System.out.println(mb.getPass());
 		System.out.println(mb.getEmail());
@@ -43,21 +45,55 @@ public class MemberDAO {
 		System.out.println(mb.getDate());
 		try {
 			con = getConnection();
-
+			
+			// 회원가입시 날짜 + 회원아이디 조합 회원넘버설정
+			Date d = new Date();
+			SimpleDateFormat date = new SimpleDateFormat("yyMMddHHMMss");
 			// 회원에 각자 넘버가 존재함으로 회원가입시에 회원 넘버를 갱신 시켜준다.
-			String sql1 = "select max(mem_num) as mem_num from member";
+			String sql1 = "select count(*) from member";
+			pstmt = con.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			Integer tmp = 0;
+			if (rs.next()) {
+				//System.out.println(rs.getString("mem_num"));
+				//temp_num = rs.getString("mem_num") + 1;
+				//전체 회원 숫자 +1
+				tmp = rs.getInt("count(*)")+1;
+			}
+
+			//날짜를 검색해서 
+		/*	String sql1 = "select max(mem_num) as mem_num from member order by mem_num asc";
 			pstmt = con.prepareStatement(sql1);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				System.out.println(rs.getString("mem_num"));
+				temp = rs.getString("mem_num");// 잠시 받아서 더한후 다시 형변환 해줄것.
+				temp_num=Integer.parseInt(temp);
+				temp_num+=1;
+				temp=Integer.toString(temp_num);
+				System.out.println(temp_num);
+				System.out.println(temp);
+			}*/
+
+			//String sql1 = "select max(mem_num) as mem_num from member";
+			//pstmt = con.prepareStatement(sql1);
+			//rs = pstmt.executeQuery();
+			//if (rs.next()) {
+			//	System.out.println(rs.getString("mem_num"));
 				/*temp_num = rs.getString("mem_num") + 1;*/
 				
-			}
+			//}
+
 			
+			// ex) 2018-12-6 일 12시 50분 11초 전체멤버수 17명 가입시 -> 1812061250118
+			mb.setNum(date.format(d).toString()+tmp.toString());
+			System.out.println(mb.getNum());
 			// 회원 등록 하는 sql																	,profileimg
-			String sql2 = "insert into member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint) values(?,?,?,?,?,?,?,?,?,?)";
+			String sql2 = "insert into "
+					+ "member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint) "
+					+ "values(?,?,?,?,?,?,?,now(),?,?)";
 			pstmt=con.prepareStatement(sql2);
-			pstmt.setString(1, temp);//임시
+			pstmt.setString(1, mb.getNum());//임시
 			pstmt.setString(2, mb.getId());
 			pstmt.setString(3, mb.getPass());
 			pstmt.setString(4, mb.getEmail());
@@ -65,9 +101,9 @@ public class MemberDAO {
 			pstmt.setString(6, mb.getAges());
 			pstmt.setString(7, mb.getGender());
 			/*pstmt.setString(8, mb.getProfileimg());*/
-			pstmt.setTimestamp(8, mb.getDate());
-			pstmt.setString(9, mb.getHintans());
-			pstmt.setString(10, mb.getHint());
+			// 가입 시간 sql의 now() 함수로 교체
+			pstmt.setString(8, mb.getHintans());
+			pstmt.setString(9, mb.getHint());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {

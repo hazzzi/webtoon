@@ -12,14 +12,18 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="footermenu/css/noticewrite.css">
 </head>
+<%request.setCharacterEncoding("utf-8");
+	String nik=(String)session.getAttribute("mem_nik");
+	
+%>
 <body>
 	<div class="niw_wrap">
 	
 		<jsp:include page="../main/header.jsp"></jsp:include>
-		<form action="#" method="POST">
+		<form action="footerNoticewriteAction.ft" method="POST">
 		<div class="ni_write">
 	<h1 id="ssss">공지사항 작성</h1>
-			 <div class="ni_nik">닉네임</div> 
+			 <div class="ni_nik"><%=nik%></div> 
 			 
 			<div class="ni_inputbox">
 				<select name="category" required>
@@ -34,7 +38,7 @@
 			
 
 
-			 <div><textarea name="npcontent" class="ni_content" cols="100" rows="30"></textarea></div>
+			 <div><textarea name="nicontent" class="ni_content" cols="100" rows="30"></textarea></div>
 
 
 

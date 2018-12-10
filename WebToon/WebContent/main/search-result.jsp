@@ -40,6 +40,7 @@
 	int count = (int)request.getAttribute("count");
 	List<WebtoonBoardBean> wbb = (List<WebtoonBoardBean>)request.getAttribute("wbb");
 	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
+	List<WebtoonBean> similar = (List<WebtoonBean>)request.getAttribute("similar");
 	int reviewcount = (int)request.getAttribute("reviewcount");
 	
 	String mem_num = (String)session.getAttribute("mem_num");
@@ -198,23 +199,14 @@
 		 			<h2>이 웹툰과 유사한 작품</h2>
 		 			<div class="owl-carousel owl-theme">
 		 				<!-- 반복문 시작 -->
-			 			<a href="#">
-				 		<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
+		 				<% for(WebtoonBean s:similar){ %>
+			 			<a href="<%=s.getWeb_link()%>">
+				 		<img src="<%=s.getWeb_thumb_link()%>" width="150px" height="120px">
+				 		<b style="color:#1b1526; text-align: center;"><%=s.getWeb_subject() %></b>
 			 			</a>
+			 			<%} %>
 		 				<!-- 반복문 끝-->
 		 				<!-- 반복문은 여러개 생길 수 있음 -->
-			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t125x101.jpg">
-			 			</a>
-			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-			 			</a>
-			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/670143/thumbnail/title_thumbnail_20160108202909_t125x101.jpg">
-			 			</a>
-			 			<a href="#">
-			 			<img src="https://shared-comic.pstatic.net/thumb/webtoon/679519/thumbnail/title_thumbnail_20160601180804_t125x101.jpg">
-			 			</a>
 		 			</div>
 		 		</div>
 		 	</div>
