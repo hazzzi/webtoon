@@ -18,7 +18,7 @@ public class MainFrontController extends HttpServlet{
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
-		System.out.println(command);
+		//System.out.println(command);
 		
 		ActionForward forward = null;
 		Action action = null;
@@ -48,13 +48,13 @@ public class MainFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MainFrontController doGet()메서드");
+		//System.out.println("MainFrontController doGet()메서드");
 		doProcess(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MainFrontController doPost()메서드");
+		//System.out.println("MainFrontController doPost()메서드");
 		doProcess(request, response);
 	}
 

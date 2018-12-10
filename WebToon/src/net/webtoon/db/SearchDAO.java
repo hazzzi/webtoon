@@ -153,10 +153,12 @@ public class SearchDAO {
 					+ "(select rec_web_num, round(avg(rec_web_grade),1) avg "
 					+ "from recommend group by rec_web_num) r "
 					+ "on w.web_num = r.rec_web_num "
-					+ "where w.web_genre=? "
-					+ "order by r.avg desc;";
+					+ "where w.web_genre=? and w.web_num not in(?) "
+					+ "order by r.avg desc "
+					+ "limit 0,20";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, genre);
+			pstmt.setInt(2, web_num);
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()){

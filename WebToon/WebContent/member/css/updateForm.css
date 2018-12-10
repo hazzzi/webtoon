@@ -1,136 +1,168 @@
 @CHARSET "UTF-8";
-/*  			uf= updateForm  
-				rif=reinfo				*/
+/*           uf= updateForm  
+            rif=reinfo            */
 *{
-	margin:0;
-	padding:0;
- }	
+   margin:0;
+   padding:0;
+ }   
 
 
 @font-face {
-	font-family: 'NanumBarunpenR';
-	src: url("../font/NanumBarunpenR.ttf") format('truetype');
+   font-family: 'NanumBarunpenR';
+   src: url("../font/NanumBarunpenR.ttf") format('truetype');
 }
 
 body {
-	font-family: 'NanumBarunpenR', sans-serif;
-	box-sizing: border-box;
+   font-family: 'NanumBarunpenR', sans-serif;
+   box-sizing: border-box;
 }
 
  
 #update_wrap{
-	border:1px solid red;
-	text-align: center;
-	height: 700px; width: 100%;
+   border:1px solid red;
+   text-align: center;
+   height: 700px; width: 100%;
 }
 
 #rif{
-/* 	border:1px solid #cac1dd; */
-	border-bottom: 1px solid #cac1dd;
-	border-top: 1px solid #cac1dd;
-	margin:auto auto;
-	display: inline-block;
- 	}
+/*    border:1px solid #cac1dd; */
+   border-bottom: 1px solid #cac1dd;
+   border-top: 1px solid #cac1dd;
+   margin:auto auto;
+   display: inline-block;
+    }
 #rif_title{
-	width:350px;
-	height:100px;
-	margin:0 auto;
-	font-size:30px;
-	margin-top:20px;
-	margin-bottom:20px;
-	}
-	
+   width:350px;
+   height:100px;
+   margin:0 auto;
+   font-size:30px;
+   margin-top:20px;
+   margin-bottom:20px;
+   }
+   
 #rif_photo{
-/* 	border:1px solid red; */
-	width:300px;
-	height: 350px;
-	text-align: center;
-	float: left;
-	}
+/*    border:1px solid red; */
+   width:300px;
+   height: 350px;
+   text-align: center;
+   float: left;
+   }
 
 #profileImg{
-/* 	border:1px solid red; */
-	display:inline-block;
-	margin-top: 20px;
-	margin-bottom:10px;
-	
-	}
-	
+/*    border:1px solid red; */
+   display:inline-block;
+   margin-top: 20px;
+   margin-bottom:10px;
+   
+   }
+   
 #profileImg>img{
-	width:150px;
-	height:150px;
-	border-radius: 70px;
-	}
+   width:150px;
+   height:150px;
+   border-radius: 70px;
+   }
 
 .profileImg_Btn>input {
-	width: 100px; height: 30px;
-	font-weight: bold;
-	border: none;
-	background-color:#cac1dd;
+   width: 100px; height: 30px;
+   font-weight: bold;
+   border: none;
+   background-color:#cac1dd;
     color:#3c2f55;
 }
 
 .profileImg_Btn>input:HOVER {
-	cursor: pointer;
+   cursor: pointer;
 }
 
-	
+   
 #rif_text{
-/* 	border: 1px solid red; */
-	margin-top: 20px;
-	width:800px;
-	height: 350px;
-	}
-	
+/*    border: 1px solid red; */
+   margin-top: 20px;
+   width:800px;
+   height: 350px;
+   }
+   
 table{
-	margin:0 auto;	
-	}
-	
+   margin:0 auto;   
+   }
+   
 th{
-	font-size:18px;
-	width:70px;
-	height:50px;
-/* 	background-color: #d5dced; */
-	}
-	
+   font-size:18px;
+   width:70px;
+   height:50px;
+/*    background-color: #d5dced; */
+   }
+   
 td{ 
-	width:300px;
-	height:50px;
-	text-align: left;
-	padding-left:10px;
-	}
+   width:300px;
+   height:50px;
+   text-align: left;
+   padding-left:10px;
+   }
 
 input {
-	width: 250px; height: 30px;
-	font-family: 'NanumBarunpenR', sans-serif;
+   width: 250px; height: 30px;
+   font-family: 'NanumBarunpenR', sans-serif;
 }
 
 select {
-	width: 250px; height: 30px;
-	font-family: 'NanumBarunpenR', sans-serif;
-	font-size: 15px;
-	font-weight: bold;
+   width: 250px; height: 30px;
+   font-family: 'NanumBarunpenR', sans-serif;
+   font-size: 15px;
+   font-weight: bold;
 }
 
 #uf_sub>input {
-	width: 100px; height: 30px;
-	font-weight: bold;
-	border: none;
-	background-color:#cac1dd;
+   width: 100px; height: 30px;
+   font-weight: bold;
+   border: none;
+   background-color:#cac1dd;
     color:#3c2f55;
     margin-bottom: 20px;
 }
 
 #uf_sub>input:HOVER {
-	cursor: pointer;
+   cursor: pointer;
 }
 
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #3c2f55;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #cac1dd;
+  cursor: pointer;
+  border: 1px solid #4cae4c;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
 
-	
-	
-	
-	
-	
-	
-	
-	
+.filebox label:hover {
+  background-color: #b9afce;
+}
+
+.filebox label:active {
+  background-color: #ac9fc9;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+   
+   
+   
+   
+   
+   
+   
+   

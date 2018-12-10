@@ -73,11 +73,6 @@
 <input type="text" name="pass_htnt" placeholder="비밀번호 힌트 답" required>
 </div>
  <div class="pwd_hint">
-<select name="gender" required>
-<option value="">성별</option>
-<option value="남">남</option>
-<option value="여">여</option>
-</select>
 
 <select name="sel_age" required>
 <option value="">연령</option>
@@ -91,6 +86,16 @@
 <!--  <div>남<input type="radio" name="gender" value="남">
 여<input type="radio" name="gender" value="여"></div> -->
 </div>
+
+ <div class="pwd_hint">
+<select name="gender" required>
+<option value="">성별</option>
+<option value="1">남</option>
+<option value="2">여</option>
+</select>
+</div>
+
+
  <div class="join_input">
 <input type="submit" value="회원가입">
 </div>

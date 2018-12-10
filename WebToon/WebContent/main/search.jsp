@@ -24,10 +24,10 @@
 			$("#header-srch").show();
 			$(".tmp").hide();
 			
-			$("#a_srch").click(function(){
-				$(".tmp").toggle();
-		        $("#header-srch").toggle(500);
-		    });
+// 			$("#a_srch").click(function(){
+// 				$(".tmp").toggle();
+// 		        $("#header-srch").toggle(500);
+// 		    });
 			
 			$('#srch-q').val('<%=(String)request.getAttribute("qurey")%>');
 			

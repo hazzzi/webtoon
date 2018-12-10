@@ -34,14 +34,12 @@
 	List<WebtoonBean> female = (List<WebtoonBean>)request.getAttribute("female");
 	List<WebtoonBean> male = (List<WebtoonBean>)request.getAttribute("male");
 	List<String> genre = (List<String>)request.getAttribute("genre");
+	List<WebtoonBean> highscore = (List<WebtoonBean>)request.getAttribute("highscore");
 	int count_Recommend = (int)request.getAttribute("count_Recommend"); //총 평가한 갯수
 	
 	ArrayList<String> gen = new ArrayList<String>();
 	gen.add("남");
 	gen.add("여");
-	
-	System.out.println(webtoonList.size());
-	System.out.println(genre.size());
 %>
 <div id="main-wrap">
 <%-- 	Home 페이지 , 로고누를시 돌아오는 홈 페이지 부분
@@ -114,6 +112,31 @@
 			<!-- db 장르별, 연령별, 연재사이트별, 연재여부별, 연재시작년도별 등등 -->
 			<!-- select ~~ from webtoon where ~~ -->
 			<!-- 반복문 시작1 -->
+			<div id="sildeshow">
+				<div id="content">
+					<!-- 주제 이름  -->
+					<h3>실시간 인기만화(종합)</h3>
+					<div id="con-img" class="owl-carousel owl-theme">
+						<!-- db에서 webtoon의 정보 가져오기  -->
+						<!-- 반복문 시작2 -->
+						<% for(WebtoonBean wb:highscore){
+						%>						
+						<div class="webtoon-img">
+							<!-- 웹툰 이미지 클릭시, 웹툰 num get방식으로 값 넘어감 -->
+							<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
+							    <!-- 웹툰의 썸네일 링크, src="" -->
+								<img class="a1"
+									src="<%=wb.getWeb_thumb_link()%>">
+								<!-- 웹툰의 제목 webtoon.getsubject --> 
+								<label id="label"><%=wb.getWeb_subject() %></label>
+							</a>
+						</div>
+						<%		
+							} %>
+						<!-- 반복문 끝2 -->
+					</div>
+				</div>
+			</div>
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->

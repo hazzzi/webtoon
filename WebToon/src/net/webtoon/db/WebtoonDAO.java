@@ -13,6 +13,8 @@ import javax.sql.DataSource;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
+import net.board.db.FanBean;
+
 public class WebtoonDAO {
 
 	private Connection getConnection() throws Exception {
@@ -320,5 +322,33 @@ public class WebtoonDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 		}
 		return count;
+	}
+	
+	public List<FanBean> getTop2Fanart(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<FanBean> list = new ArrayList<FanBean>();
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon_fanart where fa_web_num=? order by fa_sumlike limit 0,2;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				FanBean fb = new FanBean();
+				fb.setFa_num(rs.getInt("fa_num"));
+				fb.setFa_web_num(rs.getInt("fa_web_num"));
+				fb.setFa_img(rs.getString("fa_img"));
+				
+				list.add(fb);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return list;
 	}
 }

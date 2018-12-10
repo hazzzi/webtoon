@@ -14,7 +14,49 @@
 </head>
  <jsp:include page="../main/header.jsp"></jsp:include> 
 <body>				<!--mp_ =myProfile  -->
+<% request.setCharacterEncoding("utf-8"); 
+String sessionid=(String)session.getAttribute("mem_num");
+System.out.println(sessionid);
+%>
 
+<%if(sessionid.equals("1")){ %>
+<div class="mp_wrap">
+
+<a href="MemberUpdateAction1.me">
+<div class="mp_img1">
+<img src="./member/img/settingsw.png">
+<img src="./member/img/settingshover.png"><br>
+웹툰 등록하기
+</div>
+</a>
+
+<a href="./modPass.me">
+<div class="mp_img2">
+<img src="./member/img/editw.png">
+<img src="./member/img/edithover.png"><br>
+웹툰 수정하기
+</div>
+</a>
+
+<a href="./myArticle.me">
+<div class="mp_img3">
+<img src="./member/img/copyw.png">
+<img src="./member/img/copyhover.png"><br>
+공지사항 입력
+</div>
+</a>
+
+<a href="./withdrawMember.me">
+<div class="mp_img4">
+<img src="./member/img/garbagew.png">
+<img src="./member/img/garbagehover.png"><br>
+회원삭제
+</div>
+</a>
+   
+</div>
+
+<%}else{ %>
 <div class="mp_wrap">
 
 <a href="MemberUpdateAction1.me">
@@ -33,7 +75,7 @@
 </div>
 </a>
 
-<a href="./myArticle.me">
+<a href="./MembermyarticleListAction.me">
 <div class="mp_img3">
 <img src="./member/img/copyw.png">
 <img src="./member/img/copyhover.png"><br>
@@ -48,8 +90,10 @@
 회원탈퇴
 </div>
 </a>
-   
+    
 </div>
+
+<%} %>
 <jsp:include page="../main/footer.jsp"></jsp:include>
 </body>
 </html>
