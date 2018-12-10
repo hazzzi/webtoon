@@ -61,14 +61,10 @@
 										$('.option').remove();
 
 										var op = data.split(",");
-										alert(op);
 
 										$.each(op, function(i) {
 
-											$('#bd_sel2').append(
-													'<option class="option">'
-															+ op[i]
-															+ '</option>');
+											$('#bd_sel2').append('<option class="option">'+ op[i]+ '</option>');
 
 										});
 
@@ -87,7 +83,7 @@
 			<input type="hidden" value="<%=mem_num%>" name="fa_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex" name="fa_subject"> 
-					<select id="bd_sel" name="fan_category" name="fa_category1">
+					<select id="bd_sel" name="fa_category1">
 					<optgroup label="장르 선택"></optgroup>
 					<option id="daily" value="일상" class="fan_cate">일상</option>
 					<option id="gag" value="개그" class="fan_cate">개그</option>
@@ -107,7 +103,7 @@
 				<div id="bw_img">
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
 						style="font-size: 48px; color: gray; margin-left: -30px;">
-						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
 
@@ -125,7 +121,7 @@
 			<form id="form1" runat="server" >
         			<img id="blah" onerror="this.style.visibility='none'">
   					  </form>
-				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"></textarea>
 				<hr>
 			</div>
 		</form>

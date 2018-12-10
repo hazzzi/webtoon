@@ -52,7 +52,7 @@ public class FanDAO {
 			}
 
 			sql = "insert into webtoon_fanart(fa_num, fa_web_num, fa_mem_num, fa_mem_nik, fa_subject, fa_category1, fa_category2, fa_img, fa_content, fa_sumlike, fa_readcount, fa_date)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,now())";
+					+ "values(?,?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fb.getFa_num());
 			pstmt.setInt(2, fb.getFa_web_num());
