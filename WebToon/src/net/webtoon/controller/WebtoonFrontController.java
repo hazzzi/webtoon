@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.webtoon.action.WebtoonDetailAction;
+import net.webtoon.action.WebtoonInsertAction;
 import net.webtoon.action.WebtoonListReview;
 import net.webtoon.action.WebtoonWriteReview;
 import net.webtoon.action.WebtoonSearchAction;
@@ -56,7 +57,13 @@ public class WebtoonFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/insertWebtoon.wbt")){
-			
+			action = new WebtoonInsertAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		// 이동

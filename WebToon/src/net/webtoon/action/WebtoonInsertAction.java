@@ -14,10 +14,19 @@ public class WebtoonInsertAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		
+		WebtoonBean wb = new WebtoonBean();
+		wb.setWeb_author((String)request.getParameter("web_author"));
+		wb.setWeb_subject((String)request.getParameter("web_subject"));
+		wb.setWeb_genre((String)request.getParameter("web_genre"));
+		wb.setWeb_start((String)request.getParameter("web_start"));
+		wb.setWeb_portal((String)request.getParameter("web_portal"));
+		wb.setWeb_info((String)request.getParameter("web_info"));
+		wb.setWeb_ing((String)request.getParameter("web_ing"));
+		wb.setWeb_link((String)request.getParameter("web_link"));
+		wb.setWeb_thumb_link((String)request.getParameter("web_thumb_link"));
 		
-		WebtoonBean
 		WebtoonDAO wdao=new WebtoonDAO();
-		wdao.insertWebtoon(webtoon);
+		wdao.insertWebtoon(wb);
 		
 		return null;
 	}
