@@ -27,16 +27,7 @@
 </head>
 <body>
  	<jsp:include page="../main/header.jsp" /> 
-	<script>
-		var RecentView;
-		$(document).ready(function(){
-			$("#header-srch").hide();
-			$("#a_srch").click(function(){
-				$(".tmp").toggle();
-		        $("#header-srch").toggle(500);
-		    });
-		});
-	</script>
+
 	
 	<script> /* 고정바 그림자 효과 */
 		$(document).ready(function(){

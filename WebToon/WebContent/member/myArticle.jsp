@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet" href="member/css/myArticle.css">
 </head>
-<jsp:include page="../main/header.jsp"></jsp:include>
 <body>
 <%	request.setCharacterEncoding("utf-8");
 	int count = (int)request.getAttribute("count");
@@ -33,6 +32,7 @@
 							  		-->
 <div id="ma_wrap">
    <!-- header 시작 -->
+<jsp:include page="../main/header.jsp"></jsp:include>
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
 <div id="ma_title"><h1>내가 쓴 글 보기</h1></div>
