@@ -514,7 +514,6 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		System.out.println("여기는 dao"+fb_num);
 		int nextNum = 0;
 		try {
 			con = getConnection();
