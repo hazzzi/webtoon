@@ -71,8 +71,6 @@ public class FanboardWriteAction implements Action {
 
 			FanDAO fdao = new FanDAO();
 			
-			System.out.println("이미지"+fa_img);
-			
 			fdao.insertFan(fb);
 			}
 			

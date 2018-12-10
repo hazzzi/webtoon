@@ -51,7 +51,7 @@ public class MemberDAO {
 			
 			// 회원가입시 날짜 + 회원아이디 조합 회원넘버설정
 			Date d = new Date();
-			SimpleDateFormat date = new SimpleDateFormat("yyMMddHHMMss");
+			SimpleDateFormat date = new SimpleDateFormat("yyMMddHHmmss");
 			// 회원에 각자 넘버가 존재함으로 회원가입시에 회원 넘버를 갱신 시켜준다.
 			String sql1 = "select count(*) from member";
 			pstmt = con.prepareStatement(sql1);

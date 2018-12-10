@@ -93,7 +93,7 @@ public class MainDAO {
 	
 	public List<WebtoonBean> getGenderrank(String gender){
 		
-		List<WebtoonBean> female = new ArrayList<WebtoonBean>();
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -130,10 +130,7 @@ public class MainDAO {
 					wb.setWeb_thumb_link(rs2.getString("web_thumb_link"));
 				}
 				
-				female.add(wb);
-				
-				pstmt2.close();
-				rs2.close();
+				list.add(wb);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,7 +141,7 @@ public class MainDAO {
 			}
 		}
 		
-		return female;
+		return list;
 	}
 	
 	public List<String> getWebtoon_genre(){
@@ -352,5 +349,106 @@ public class MainDAO {
 		}
 		
 		return list;
+	}
+	public List<WebtoonBean> highcountWebtoon(){
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			// 최다 평가한 웹툰 20개
+			String sql = "select w.*, r.count "
+					+ "from webtoon w join "
+					+ "(select rec_web_num, count(rec_web_num) count "
+					+ "from recommend group by rec_web_num) r "
+					+ "on w.web_num = r.rec_web_num "
+					+ "order by r.count desc "
+					+ "limit 0,20"; //전체 웹툰 (test용)
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+				
+				list.add(wb);
+			}								
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
+		return list;
+	}
+	public List<WebtoonBean> getAgesrank(String ages){
+		
+		List<WebtoonBean> aList = new ArrayList<WebtoonBean>();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		ResultSet rs = null;
+		ResultSet rs2 = null;
+		try {
+			con = getConnection();
+
+			// 성별로 select 빈도수가 제일 높은순. 동차일경우 최근 입력된 웹툰순으로
+			String sql = "select * from webtoon_rec_ages where webtoon_ages = ? order by webtoon_count desc, webtoon_web_num limit 0,20;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, ages);
+
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("webtoon_web_num"));
+				sql = "select * from webtoon where web_num=?";
+				pstmt2 = con.prepareStatement(sql);
+				pstmt2.setInt(1, wb.getWeb_num());
+
+				rs2 = pstmt2.executeQuery();
+				if (rs2.next()) {
+					wb.setWeb_subject(rs2.getString("web_subject"));
+					wb.setWeb_author(rs2.getString("web_author"));
+					wb.setWeb_genre(rs2.getString("web_genre"));
+					wb.setWeb_start(rs2.getString("web_start"));
+					wb.setWeb_portal(rs2.getString("web_portal"));
+					wb.setWeb_info(rs2.getString("web_info"));
+					wb.setWeb_ing(rs2.getString("web_ing"));
+					wb.setWeb_link(rs2.getString("web_link"));
+					wb.setWeb_thumb_link(rs2.getString("web_thumb_link"));
+				}
+
+				aList.add(wb);
+
+				pstmt2.close();
+				rs2.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
+		return aList;
 	}
 }

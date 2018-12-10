@@ -98,7 +98,6 @@
 				</select> 
 				
 				<select id="bd_sel2" name="fa_category2">
-				<input type="hidden" value="fa_web_num">
 					<optgroup label="웹툰 선택"></optgroup>
 				</select>
 
