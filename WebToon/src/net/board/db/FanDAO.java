@@ -30,7 +30,16 @@ public class FanDAO {
 		ResultSet rs = null;
 		try {
 			con = getConnection();
-			String sql = "select max(fa_num) from webtoon_fanart";
+			
+			String sql = "select * from webtoon where web_num=?";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			pstmt.close();
+			rs.close();
+
+			
+			sql = "select max(fa_num) from webtoon_fanart";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 

@@ -95,7 +95,10 @@
 					<option id="thriller" value="스릴러" class="fan_cate">스릴러</option>
 					<option id="period" value="시대극" class="fan_cate">시대극</option>
 					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
-				</select> <select id="bd_sel2" name="fa_category2">
+				</select> 
+				
+				<select id="bd_sel2" name="fa_category2">
+				<input type="hidden" value="fa_web_num">
 					<optgroup label="웹툰 선택"></optgroup>
 
 				</select>
