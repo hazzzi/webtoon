@@ -126,9 +126,10 @@ body{
 
 
 #main-content-div{
-	min-height: -webkit-fill-available;
-	width: 1500px;
+    min-height: -webkit-fill-available;
+    width: 1500px;
     margin: 0 auto;
+    position: relative;
 }
 
 #main-content-div>h2{
@@ -198,7 +199,15 @@ body{
 	background-color: #fff;
 }
 
-
+.main-line{
+    border-left: 1px solid #d9d2e8;
+    width: 1px;
+    height: 3680px;
+    position: absolute;
+    left: 740px;
+    top: 50px;
+    margin: 0 auto;
+}
 
 
 

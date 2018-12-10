@@ -85,6 +85,7 @@ public class WebtoonDAO {
 			while (rs.next()) {
 				num=rs.getInt("max(web_num)")+1;
 			}								
+			
 			// sql insert num구한값 => re_ref
 			// re_lev 0, re_seq 0,
 			sql = "insert into webtoon(web_num,web_subject,web_author,web_genre,web_start,web_portal,web_info,web_ing,web_link,web_thumb_link) "
