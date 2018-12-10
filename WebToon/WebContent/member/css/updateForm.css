@@ -128,11 +128,11 @@ select {
 .filebox label {
   display: inline-block;
   padding: .5em .75em;
-  color: #fff;
+  color: #3c2f55;
   font-size: inherit;
   line-height: normal;
   vertical-align: middle;
-  background-color: #5cb85c;
+  background-color: #cac1dd;
   cursor: pointer;
   border: 1px solid #4cae4c;
   border-radius: .25em;
@@ -141,11 +141,11 @@ select {
 }
 
 .filebox label:hover {
-  background-color: #6ed36e;
+  background-color: #b9afce;
 }
 
 .filebox label:active {
-  background-color: #367c36;
+  background-color: #ac9fc9;
 }
 
 .filebox input[type="file"] {

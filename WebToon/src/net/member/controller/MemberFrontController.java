@@ -18,6 +18,7 @@ import net.member.action.MemberModpassAction;
 import net.member.action.MemberUpdateAction1;
 import net.member.action.MemberUpdateAction2;
 import net.member.action.MemberWithdrawAction;
+import net.member.action.MembermyarticleListAction;
 
 
 public class MemberFrontController extends HttpServlet{
@@ -170,6 +171,15 @@ public class MemberFrontController extends HttpServlet{
 			forward.setPath("./data/webtoon.jsp");
 		}else if(command.equals("myWebtoonList.me")){
 			
+		}else if(command.equals("/MembermyarticleListAction.me")){
+				action =new MembermyarticleListAction();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}
 		
 		

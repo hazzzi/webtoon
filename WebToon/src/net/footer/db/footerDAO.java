@@ -44,7 +44,7 @@ public class footerDAO {
 					+ "values(?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql2);
 			pstmt.setInt(1, fb.getNi_num());
-			pstmt.setString(2, fb.getNi_num_num());
+			pstmt.setString(2, fb.getNi_mem_num());
 			pstmt.setString(3, fb.getNi_mem_nik());
 			pstmt.setString(4, fb.getNi_category());
 			pstmt.setString(5, fb.getNi_subject());
@@ -146,14 +146,14 @@ public class footerDAO {
 
 	public List<footerBean> getNoticelist() {
 		List<footerBean> noticeList = new ArrayList<footerBean>();
-
+		String one="1";
 		try {
 			con = getConnection();
 
-			String sql = "select * from notice_inq_board " + "where ni_category=? order by ni_num desc" + "limit ?";
+			String sql = "select * from notice_inq_board " + "where ni_category=? order by ni_num desc " + "limit ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "1");
-			pstmt.setInt(2, 10);
+			pstmt.setString(1, one);
+			pstmt.setInt(2, 20);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				footerBean fb = new footerBean();
@@ -163,7 +163,7 @@ public class footerDAO {
 				fb.setNi_date(rs.getTimestamp("ni_date"));
 				fb.setNi_mem_nik(rs.getString("ni_mem_nik"));
 				fb.setNi_subject(rs.getString("ni_subject"));
-				fb.setNi_num_num(rs.getString("ni_num_num"));
+				fb.setNi_mem_num(rs.getString("ni_mem_num"));
 				noticeList.add(fb);
 			}
 
@@ -171,7 +171,21 @@ public class footerDAO {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
-
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
 		}
 
 		return noticeList;
@@ -179,14 +193,14 @@ public class footerDAO {
 
 	public List<footerBean> getqnalist() {
 		List<footerBean> qnaList = new ArrayList<footerBean>();
-
+		String two="2";
 		try {
 			con = getConnection();
 
-			String sql = "select * from notice_inq_board " + "where ni_category=? order by ni_num desc" + "limit ?";
+			String sql = "select * from notice_inq_board " + "where ni_category=? order by ni_num desc " + "limit ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "2");
-			pstmt.setInt(2, 10);
+			pstmt.setString(1, two);
+			pstmt.setInt(2, 20);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				footerBean fb = new footerBean();
@@ -196,7 +210,7 @@ public class footerDAO {
 				fb.setNi_date(rs.getTimestamp("ni_date"));
 				fb.setNi_mem_nik(rs.getString("ni_mem_nik"));
 				fb.setNi_subject(rs.getString("ni_subject"));
-				fb.setNi_num_num(rs.getString("ni_num_num"));
+				fb.setNi_mem_num(rs.getString("ni_mem_num"));
 				qnaList.add(fb);
 			}
 		} catch (Exception e) {

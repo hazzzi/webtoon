@@ -137,16 +137,14 @@ a {
 	cursor: pointer;
 }
 
-<<<<<<< HEAD
+
 #naver_id_login {
 	margin-top: 50px;
 	margin-bottom: 10px;	
 }
 
-.naver_login {
-=======
+
 .naver_login  {
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 /* 	border: 1px solid red; */
 	background-color: #1EC800;
 	width: 250px; height: 30px;
@@ -230,7 +228,3 @@ a {
 	font-family: 'NanumBarunpenR', sans-serif;
 }
 
-#naverIdLogin {
-	border: 1px solid red;
-	margin-top: 50px;
-}
