@@ -90,7 +90,7 @@ System.out.println(sessionid);
 회원탈퇴
 </div>
 </a>
-   
+    
 </div>
 
 <%} %>
