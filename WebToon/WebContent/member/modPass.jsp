@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet" href="member/css/modPass.css">
 </head>
-   <jsp:include page="../main/header.jsp"></jsp:include>
 <body>
 						<!--  mdps=modPass		-->
 <div id="mdps_wrap">
    <!-- header 시작 -->
+   <jsp:include page="../main/header.jsp"></jsp:include>
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
 <div id="mdps_title"><h1>비밀 번호 변경</h1></div>

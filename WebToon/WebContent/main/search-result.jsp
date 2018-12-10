@@ -60,10 +60,10 @@
 		$(document).ready(function(){
 			
 			/* 헤더 부분 상단바 검색 토글 기능 */
-			$("#a_srch").click(function(){
+/* 			$("#a_srch").click(function(){
 				$(".tmp").toggle();
 		        $("#header-srch").toggle(500);
-		    });
+		    }); */
 			
 			/* 스크롤시 헤더 아래쪽 그림자 생성 */
 			var scrollPosition;
