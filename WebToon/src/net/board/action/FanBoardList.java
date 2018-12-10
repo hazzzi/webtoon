@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
-import net.board.db.BoardBean;
-import net.board.db.BoardDAO;
+import net.board.db.FanBean;
+import net.board.db.FanDAO;
 
 public class FanBoardList implements Action {
 
@@ -17,9 +17,9 @@ public class FanBoardList implements Action {
 		
 		System.out.println("fanboardList execute()");
 		
-		BoardDAO bdao = new BoardDAO();
+		FanDAO fdao = new FanDAO();
 		
-		int count = bdao.getBoardCount();
+		int count = fdao.getFanBoardCount();
 		int pageSize = 20;
 		
 		String pageNum = request.getParameter("pageNum");
@@ -32,9 +32,9 @@ public class FanBoardList implements Action {
 		int startRow = (currentPage-1)*pageSize+1;
 		int endRow = currentPage*pageSize;
 		
-		List <BoardBean> fanboardList = null;
+		List <FanBean> fanboardList = null;
 		if(count!=0){
-			fanboardList = bdao.getBoardList(startRow, pageSize);
+			fanboardList = fdao.getBoardList(startRow, pageSize);
 		}
 		
 		int pageCount = (count%pageSize==0)? count/pageSize:count/pageSize+1;

@@ -132,6 +132,399 @@ public class FanDAO {
 				}
 		}
 		return list;
-	}
+	}//category 제목 뽑아오기 end
 
+	public int getFanBoardCount(){
+		
+		int count = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = getConnection();
+
+			String sql = "select count(*) from webtoon_fanart";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				count = rs.getInt("count(*)");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return count;	
+	}// fanboard 게시판 글 개수 end
+	
+	public int getFanBoardCount(String search){
+		int count = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = getConnection();
+			
+			String sql = "select count(*) from webtoon_fanart where fa_subject like ? "
+					+ "or fa_mem_nik like ?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+ search + "%");
+			pstmt.setString(2, "%"+ search + "%");
+			pstmt.setString(3, "%"+ search + "%");
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				count = rs.getInt("count(*)");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return count;		
+	}
+	
+	public List<FanBean> getBoardList(int startRow, int pageSize){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;		
+		
+		List<FanBean> boardList = new ArrayList<FanBean>();
+		
+		try{
+			
+			con = getConnection();
+			
+			String sql = "select * from webtoon_fanart order by fa_num desc" + "limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, startRow-1);
+			pstmt.setInt(2, pageSize);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				FanBean fb = new FanBean();
+				
+				fb.setFa_num(rs.getInt("fa_num"));
+				fb.setFa_mem_num(rs.getString("fa_mem_num"));
+				fb.setFa_mem_nik(rs.getString("fa_mem_nik"));
+				fb.setFa_category1(rs.getString("fa_category1"));
+				fb.setFa_category2(rs.getString("fa_category2"));
+				fb.setFa_subject(rs.getString("fa_content"));
+				fb.setFa_img(rs.getString("fa_img"));
+				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
+				fb.setFa_readcount(rs.getInt("fa_readcount"));
+				fb.setFa_date(rs.getDate("fa_date"));
+				
+				boardList.add(fb);
+			}
+		}catch (Exception e) {	
+			e.printStackTrace();		
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return boardList;
+	}// list end
+	
+	public List<FanBean> getBoardList(int startRow, int pageSize, String search){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		List<FanBean> list = new ArrayList<FanBean>();
+		
+		try{
+
+			con = getConnection();
+			
+			String sql = "select * from webtoon_fanart where fa_subject like ? or fa_category1 like ? or fa_category2 like ? or fa_mem_nik like ?"
+					 + " limit ?,? ";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+search+"%");
+			pstmt.setString(2, "%"+search+"%");
+			pstmt.setString(3, "%"+search+"%");
+			pstmt.setString(4, "%"+search+"%");
+			pstmt.setInt(4, startRow-1);
+			pstmt.setInt(5, pageSize);	
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				FanBean fb = new FanBean();
+				
+				fb.setFa_num(rs.getInt("fa_num"));
+				fb.setFa_mem_num(rs.getString("fa_mem_num"));
+				fb.setFa_mem_nik(rs.getString("fa_mem_nik"));
+				fb.setFa_category1(rs.getString("fa_category1"));
+				fb.setFa_category2(rs.getString("fa_category2"));
+				fb.setFa_subject(rs.getString("fa_content"));
+				fb.setFa_img(rs.getString("fa_img"));
+				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
+				fb.setFa_readcount(rs.getInt("fa_readcount"));
+				fb.setFa_date(rs.getDate("fa_date"));
+				
+				list.add(fb);
+			}
+			
+			rs.close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}			
+		}	
+		return list;	
+	}// search end
+	
+	public void updateFanBoard(FanBean fb){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = getConnection();
+			
+			String sql = "update webtoon_fanart set fa_subject=?, fa_content=?, fa_img=? where fa_num=? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, fb.getFa_subject());
+			pstmt.setString(2, fb.getFa_content());
+			pstmt.setString(3, fb.getFa_img());
+			pstmt.setInt(4, fb.getFa_num());
+			pstmt.executeUpdate();
+					
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return;
+	}// update end
+	
+	public void deleteFanBoard(FanBean fb){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			String sql = "delete from webtoon_fanart where fa_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb.getFa_num());
+			pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return;
+	}// delete end
+	
+	public void updateReadCount(int fa_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;	
+		
+		try{
+			con = getConnection();
+			String sql = "update webtoon_fanart set fa_readcount=fa_readcount+1 where fa_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fa_num);
+			pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return;
+	}//readcount_update end
+	
+	public FanBean getFanBoard(int fb1){
+		FanBean fb = new FanBean();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			con = getConnection();
+			String sql = "select * from webtoon_fanart where fa_num=? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb1);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				fb.setFa_mem_num(rs.getString("fa_mem_num"));
+				fb.setFa_mem_nik(rs.getString("fa_mem_nik"));
+				fb.setFa_category1(rs.getString("fa_category1"));
+				fb.setFa_category2(rs.getString("fa_category2"));
+				fb.setFa_subject(rs.getString("fa_subject"));
+				fb.setFa_content(rs.getString("fa_content"));
+				fb.setFa_img(rs.getString("fa_img"));
+				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
+				fb.setFa_readcount(rs.getInt("fa_readcount"));
+				fb.setFa_date(rs.getDate("fa_date"));
+			}		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return fb;	
+	}// getBoard end
+	
+	public int previousPost(int fa_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int preNum = 0;
+		
+		try{
+			con = getConnection();
+			String sql = "select fa_num from webtoon_fanart";
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}			
+		}
+		
+		return fa_num;
+		
+	}
 }

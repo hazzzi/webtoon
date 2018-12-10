@@ -14,7 +14,7 @@ public class FanBean {
 	private String fa_img;
 	private String fa_content;
 	private int fa_sumlike;
-	private String fa_readcount;
+	private int fa_readcount;
 	private Date fa_date;
 	
 	
@@ -81,15 +81,16 @@ public class FanBean {
 	public int getFa_sumlike() {
 		return fa_sumlike;
 	}
+	public int getFa_readcount() {
+		return fa_readcount;
+	}
+	public void setFa_readcount(int fa_readcount) {
+		this.fa_readcount = fa_readcount;
+	}
 	public void setFa_sumlike(int fa_sumlike) {
 		this.fa_sumlike = fa_sumlike;
 	}
-	public String getFa_readcount() {
-		return fa_readcount;
-	}
-	public void setFa_readcount(String fa_readcount) {
-		this.fa_readcount = fa_readcount;
-	}
+	
 	public Date getFa_date() {
 		return fa_date;
 	}

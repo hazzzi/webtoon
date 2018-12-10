@@ -25,12 +25,6 @@
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
-		$(document).ready(function() {
-			$("#header-srch").hide();
-			$("#a_srch").click(function() {
-				$(".tmp").toggle();
-				$("#header-srch").toggle(500);
-			});
 
 			$("#bd_sel").change(function() {
 				//alert($("#bd_sel option:selected").text());
@@ -50,11 +44,10 @@
 	<div class="bw_writing">
 		<form action="./fanboardwriteAction.fo" method="post"
 			enctype="multipart/form-data">
-			<input type="hidden" value="<%=mem_num%>" name="fb_mem_num">
+			<input type="hidden" value="<%=mem_num%>" name="fa_mem_num">
 			<div class="bw_subject">
-				<input type="text" placeholder="제목" class="bw_sub_tex"
-					name="fa_subject"> <select id="bd_sel" name="fan_category"
-					name="fa_category1">
+				<input type="text" placeholder="제목" class="bw_sub_tex" name="fa_subject"> 
+					<select id="bd_sel" name="fan_category" name="fa_category1">
 					<optgroup label="장르 선택"></optgroup>
 					<option id="daily" value="일상" class="fan_cate">일상</option>
 					<option id="gag" value="개그" class="fan_cate">개그</option>
