@@ -30,14 +30,24 @@ public class FanDAO {
 		ResultSet rs = null;
 		try {
 			con = getConnection();
-			String sql = "select max(fa_num) from webtoon_fanart";
+			
+			String sql = "select * from webtoon where web_num=?";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			pstmt.close();
+			rs.close();
+
+			
+			sql = "select max(fa_num) from webtoon_fanart";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
+			
 			if (rs.next()) {
-				fb.setFa_num(rs.getInt("max(fa_num)" + 1));
+				fb.setFa_num(rs.getInt("max(fa_num)") + 1);
 			}
-
+			
 			pstmt.close();
 			rs.close();
 
@@ -50,21 +60,20 @@ public class FanDAO {
 				fb.setFa_mem_nik(rs.getString("mem_nik"));
 			}
 
-			sql = "insert into webtoon_fanart(fa_num, fa_web_num, fa_mem_num, fa_mem_id, fa_mem_nik, fa_subject, fa_category1, fa_category2, fa_img, fa_content, fa_sumlike, fa_readcount, fa_date)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,now())";
+			sql = "insert into webtoon_fanart(fa_num, fa_web_num, fa_mem_num, fa_mem_nik, fa_subject, fa_category1, fa_category2, fa_img, fa_content, fa_sumlike, fa_readcount, fa_date)"
+					+ "values(?,?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fb.getFa_num());
 			pstmt.setInt(2, fb.getFa_web_num());
 			pstmt.setString(3, fb.getFa_mem_num());
-			pstmt.setString(4, fb.getFa_mem_id());
-			pstmt.setString(5, fb.getFa_mem_nik());
-			pstmt.setString(6, fb.getFa_subject());
-			pstmt.setString(7, fb.getFa_category1());
-			pstmt.setString(8, fb.getFa_category2());
-			pstmt.setString(9, fb.getFa_img());
-			pstmt.setString(10, fb.getFa_content());
+			pstmt.setString(4, fb.getFa_mem_nik());
+			pstmt.setString(5, fb.getFa_subject());
+			pstmt.setString(6, fb.getFa_category1());
+			pstmt.setString(7, fb.getFa_category2());
+			pstmt.setString(8, fb.getFa_img());
+			pstmt.setString(9, fb.getFa_content());
+			pstmt.setInt(10, 0);
 			pstmt.setInt(11, 0);
-			pstmt.setInt(12, 0);
 
 			pstmt.executeUpdate();
 
@@ -247,6 +256,7 @@ public class FanDAO {
 				fb.setFa_num(rs.getInt("fa_num"));
 				fb.setFa_mem_num(rs.getString("fa_mem_num"));
 				fb.setFa_mem_nik(rs.getString("fa_mem_nik"));
+				fb.setFa_subject(rs.getString("fa_subject"));
 				fb.setFa_category1(rs.getString("fa_category1"));
 				fb.setFa_category2(rs.getString("fa_category2"));
 				fb.setFa_subject(rs.getString("fa_content"));
@@ -503,7 +513,18 @@ public class FanDAO {
 		
 		try{
 			con = getConnection();
-			String sql = "select fa_num from webtoon_fanart";
+			String sql = "select fa_num from webtoon_fanart where fa_num"
+					+ "=(select fa_num from webtoon_fanart where fa_num<? "
+					+ "order by fa_num desc limit 1)";
+			
+			pstmt = con.prepareStatement(sql);			
+			pstmt.setInt(1, fa_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				preNum = rs.getInt("fa_num");
+			}
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -526,5 +547,21 @@ public class FanDAO {
 		
 		return fa_num;
 		
+	}// previousPost end
+	
+	public int nextPost(int fa_num){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;	
+		
+		int nextNum = 0;
+		try{
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return nextNum;
+
 	}
 }

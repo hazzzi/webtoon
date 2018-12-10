@@ -25,29 +25,65 @@
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
+	
+		$(document).ready(
+				function() {
 
-			$("#bd_sel").change(function() {
-				//alert($("#bd_sel option:selected").text());
-				$.ajax('fanCategory.fo', {
-					data : {
-						fan_category : $("#bd_sel option:selected").val()
-					},
-					success : function(data) {
-						$('#bd_sel2 .optEx').html(data);
+					$(function() {
+						$("#bw_pho_file").on('change', function() {
+							readURL(this);
+						});
+					});
+
+					function readURL(input) {
+						if (input.files && input.files[0]) {
+							var reader = new FileReader();
+
+							reader.onload = function(e) {
+								$('#blah').attr('src', e.target.result);
+							}
+
+							reader.readAsDataURL(input.files[0]);
+						}
 					}
+
+					$("#bd_sel").change(
+							function() {
+								//alert($("#bd_sel option:selected").text());
+								$.ajax('fanCategory.fo', {
+									data : {
+										fan_category : $(
+												"#bd_sel option:selected")
+												.val()
+									},
+									success : function(data) {
+
+										$('.option').remove();
+
+										var op = data.split(",");
+
+										$.each(op, function(i) {
+
+											$('#bd_sel2').append('<option class="option">'+ op[i]+ '</option>');
+
+										});
+
+									}
+
+								});
+							});
 				});
-			});
-		});
+
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./fanboardwriteAction.fo" method="post"
+		<form action="./fanboardWriteAction.fo" method="post"
 			enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="fa_mem_num">
 			<div class="bw_subject">
 				<input type="text" placeholder="제목" class="bw_sub_tex" name="fa_subject"> 
-					<select id="bd_sel" name="fan_category" name="fa_category1">
+					<select id="bd_sel" name="fa_category1">
 					<optgroup label="장르 선택"></optgroup>
 					<option id="daily" value="일상" class="fan_cate">일상</option>
 					<option id="gag" value="개그" class="fan_cate">개그</option>
@@ -59,15 +95,17 @@
 					<option id="thriller" value="스릴러" class="fan_cate">스릴러</option>
 					<option id="period" value="시대극" class="fan_cate">시대극</option>
 					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
-				</select> <select id="bd_sel2" name="fa_category2">
+				</select> 
+				
+				<select id="bd_sel2" name="fa_category2">
+				<input type="hidden" value="fa_web_num">
 					<optgroup label="웹툰 선택"></optgroup>
-					<option class="optEx"></option>
 				</select>
 
 				<div id="bw_img">
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
-						style="font-size: 48px; color: gray; margin-left: -30px;"> <input
-						type="file" id="bw_pho_file" class="bw_pho_icon" name="fb_img">
+						style="font-size: 48px; color: gray; margin-left: -30px;">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
 
@@ -75,17 +113,17 @@
 						<i class="fa fa-check" id="bw_pho_icon2"
 							style="font-size: 48px; color: gray;"></i>
 					</button>
-					<!-- 				<a href="#"><i class="fa fa-file-image-o" id="bw_pho_icon"
-					style="font-size: 48px; color: gray; margin-right: 50px; margin-left: -30px;"></i></a>
-				<a href="#"><i class="fa fa-check" id="bw_pho_sub"
-					style="font-size: 48px; color: gray;"></i></a> -->
+					
 				</div>
 			</div>
 			<!-- class="bw_hr" -->
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
-				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요"></textarea>
+			<form id="form1" runat="server" >
+        			<img id="blah" onerror="this.style.visibility='none'">
+  					  </form>
+				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"></textarea>
 				<hr>
 			</div>
 		</form>

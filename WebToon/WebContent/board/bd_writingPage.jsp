@@ -32,28 +32,27 @@
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
-			  $(function() {
-		            $("#bw_pho_file").on('change', function(){
-		                readURL(this);
-		            });
-		        });
 
-		        function readURL(input) {
-		            if (input.files && input.files[0]) {
-		            var reader = new FileReader();
-
-		            reader.onload = function (e) {
-		                    $('#blah').attr('src', e.target.result);
-		                }
-
-		              reader.readAsDataURL(input.files[0]);
-		            }
-		        }
-
-
+		$(document).ready(function() {
+			$(function() {
+				$("#bw_pho_file").on('change', function() {
+					readURL(this);
 				});
-			
-		
+			});
+
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function(e) {
+						$('#blah').attr('src', e.target.result);
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+		});
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
