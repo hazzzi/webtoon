@@ -22,7 +22,6 @@
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
-		
 		if (page == null) {
 			pageNum = "1";
 		}
@@ -38,6 +37,14 @@
 	<div id="wrap">
 		<!-- header 영역 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
+		<script>
+			$(document).ready(function() {
+				$("#a_srch").click(function() {
+					$(".tmp").toggle();
+					$("#header-srch").toggle(500);
+				});
+			});
+		</script>
 
 		<script>
 			$(document).ready(function() {
@@ -157,11 +164,11 @@
 				<!-- 검색창 영역 -->
 
 				<jsp:include page="search_engine.jsp"></jsp:include>
-				
+
 				<!-- 검색창 영역 -->
-				
-					<input type="button" value="글 쓰기" class="write"
-						onclick="location.href='./bd_writingPage.bo'">
+
+				<input type="button" value="글 쓰기" class="write"
+					onclick="location.href='./bd_writingPage.bo'">
 			</div>
 			<!-- 카테고리 영역 끝-->
 

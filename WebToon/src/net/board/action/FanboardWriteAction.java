@@ -12,6 +12,8 @@ import net.board.controller.Action;
 import net.board.controller.ActionForward;
 import net.board.db.BoardBean;
 import net.board.db.BoardDAO;
+import net.board.db.FanBean;
+import net.board.db.FanDAO;
 
 public class FanboardWriteAction implements Action {
 
@@ -27,8 +29,7 @@ public class FanboardWriteAction implements Action {
 		String filePath = context.getRealPath("./upload");
 	    MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "utf-8", new DefaultFileRenamePolicy());		
 		
-	    BoardBean bd = new BoardBean();
-	    
+	    FanBean fb = new FanBean();
 		HttpSession session = request.getSession();
 		String mem_num = (String)session.getAttribute("mem_num");	    
 	    
@@ -40,27 +41,30 @@ public class FanboardWriteAction implements Action {
 			return forward;
 			
 		}else {
+			
+			String fa_subject = multi.getParameter("fa_subject");
+			String fa_category1 = multi.getParameter("fa_category1");
+			String fa_category2 = multi.getParameter("fa_category2");
+			String fa_content = multi.getParameter("fa_content");
+			String fa_img = multi.getParameter("fa_img");
+			
+			fb.setFa_mem_num(mem_num);
+			fb.setFa_category1(fa_category1);
+			fb.setFa_category2(fa_category2);
+			fb.setFa_subject(fa_subject);
+			fb.setFa_content(fa_content);
+			fb.setFa_img(fa_img);
 
-			String fb_category = multi.getParameter("fb_"+"fb_category");
-			String fb_subject = multi.getParameter("fb_subject");
-			String fb_content = multi.getParameter("fb_content");
-			String fb_img = multi.getFilesystemName("fb_img");
-					
-			bd.setFb_mem_num(mem_num);
-			bd.setFb_category(fb_category);
-			bd.setFb_subject(fb_subject);
-			bd.setFb_content(fb_content);
-			bd.setFb_img(fb_img);
+			FanDAO fdao = new FanDAO();
 			
-			BoardDAO bdao = new BoardDAO();
-			
-			bdao.insertBoard(bd);
+			fdao.insertFan(fb);
 			
 			ActionForward forward = new ActionForward();
 			forward.setPath("./fanboardList.bo");
 			forward.setRedirect(true);
 			
 			return forward;
+
 		}
 		
 	}

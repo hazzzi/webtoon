@@ -441,8 +441,8 @@ public class BoardDAO {
 				bd.setFb_subject(rs.getString("fb_subject"));
 				bd.setFb_content(rs.getString("fb_content"));
 				bd.setFb_img(rs.getString("fb_img"));
-				bd.setFb_sumlike(rs.getShort("fb_sumlike"));
-				bd.setFb_readcount(rs.getShort("fb_readcount"));
+				bd.setFb_sumlike(rs.getInt("fb_sumlike"));
+				bd.setFb_readcount(rs.getInt("fb_readcount"));
 				bd.setFb_date(rs.getDate("fb_date"));
 			}
 		} catch (Exception e) {
@@ -475,7 +475,9 @@ public class BoardDAO {
 		
 		try {
 			con = getConnection();
-			String sql ="select fb_num from free_board where fb_num =(select fb_num from free_board where fb_num<? order by fb_num desc limit 1)";
+			String sql ="select fb_num from free_board where fb_num "
+					+ "=(select fb_num from free_board where fb_num<? "
+					+ "order by fb_num desc limit 1)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fb_num);
 			rs = pstmt.executeQuery();
