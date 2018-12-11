@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.action.FanBoardCategoryAction;
+import net.board.action.FanBoardContentAction;
 import net.board.action.FanBoardList;
-import net.board.action.FanboardWriteAction;
+import net.board.action.FanBoardWriteAction;
 
 public class FanBoardFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -33,7 +34,7 @@ public class FanBoardFrontController extends HttpServlet {
 
 		}else if(command.equals("/fanboardWriteAction.fo")) {
 			
-			action = new FanboardWriteAction();
+			action = new FanBoardWriteAction();
 
 			try {
 				forward = action.execute(request, response);
@@ -67,6 +68,15 @@ public class FanBoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./board/fan_writingPage.jsp");
 			
+		}else if(command.equals("/fanboardContent.fo")){
+			
+			action = new FanBoardContentAction();
+			
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();	
+			}
 		}
 
 		// 이동 시작

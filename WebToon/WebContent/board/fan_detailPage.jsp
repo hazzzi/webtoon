@@ -1,3 +1,5 @@
+<%@page import="net.board.db.FanBean"%>
+<%@page import="net.board.db.FanDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +14,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript"
+	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 <script type="text/javascript">
 	function modifyCommentToggle(articleNo) {
@@ -35,18 +39,25 @@
 		form.style.display = form_display;
 	}
 </script>
-
-
 </head>
 
 <body>
+<%
+	String mem_num = (String)session.getAttribute("mem_num");
+	
+	int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+	String pageNum = (String)request.getAttribute("pageNum");
+	
+	FanDAO fdao = new FanDAO();
+	FanBean fb = fdao.getFanBoard(fa_num);
+%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
 		<!-- header 영역 끝-->
 
-		<div class="fan_detail">
+		<div class="detail">
 			<div class="fi">
 				<input type="button" class="bt" value="다음 글" /> <input
 					type="button" class="bt" value="이전 글" /><br>
@@ -61,19 +72,21 @@
 						<tr>
 							<th
 								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">TITLE&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;">제목입니다 제목입니다</th>
+							<th style="text-align: left; font-size: 30px;"><%=fb.getFa_subject() %></th>
 						</tr>
 						<hr>
 					</table>
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span>2018.11.19 | </span> <span>김야옹 | </span> <span>조회수가
-								들어갈 거햐 | </span>
+							<span><%=fb.getFa_date() %> | </span> 
+							<span><%=fb.getFa_mem_nik() %> | </span> 
+							<span><%=fb.getFa_readcount() %></span>
 						</div>
 						<div id="article-content">
-							<a href="#"><img src="https://via.placeholder.com/500"
-								class="content_img"></a> <br> 내용 들어갈 공간
+							<a href="./upload/<%=fb.getFa_img()%>"><img src="./upload/<%=fb.getFa_img() %>"
+								class="content_img"></a>
+								<br><br> <%=fb.getFa_content() %><br><br>
 						</div>
 					</div>
 					<!-- LikeBtn.com BEGIN -->
@@ -115,9 +128,9 @@
 					</div>
 					<div class="fr">
 						<br> <input type="button" class="bt"
-							onclick="location.href='bd_main.jsp'" value="목록" /> <input
+							onclick="location.href='./fanboardList.fo'" value="목록" /> <input
 							type="button" class="bt"
-							onclick="location.href='bd_writingPage.jsp'" value="새 글쓰기" />
+							onclick="location.href='./fan_writingPage.fo'" value="새 글쓰기" />
 					</div>
 				</div>
 
@@ -129,7 +142,6 @@
 			<form id="addCommentForm" style="margin: 10px 0;"
 				action="addComment.jsp" method="post">
 				<div id="addComment">
-					<!--        				 <textarea id="addComment-ta" name="memo" rows="5" cols="50" ></textarea> -->
 					<textarea id="dtl_tex" rows="6" cols="202"></textarea>
 				</div>
 

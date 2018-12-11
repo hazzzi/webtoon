@@ -17,11 +17,11 @@ import net.board.db.BoardDAO;
 import net.board.db.FanBean;
 import net.board.db.FanDAO;
 
-public class FanboardWriteAction implements Action {
+public class FanBoardWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("fanboardWriteAction execute()");
+		System.out.println("fanBoardWriteAction execute()");
 		
 		request.setCharacterEncoding("UTF-8");
 		
@@ -29,6 +29,7 @@ public class FanboardWriteAction implements Action {
 		
 		int maxSize = 5*1024*1024;
 		String filePath = context.getRealPath("./upload");
+		System.out.println(filePath);
 	    MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "utf-8", new DefaultFileRenamePolicy());		
 		
 	    FanBean fb = new FanBean();
