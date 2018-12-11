@@ -247,7 +247,7 @@ public class FanDAO {
 			
 			con = getConnection();
 			
-			String sql = "select * from webtoon_fanart order by fa_num desc" + "limit ?,?";
+			String sql = "select * from webtoon_fanart order by fa_num desc " + "limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, startRow-1);

@@ -17,18 +17,19 @@ public class FanBoardList implements Action {
 		
 		System.out.println("fanboardList execute()");
 		
+		request.setCharacterEncoding("utf-8");
+		
 		FanDAO fdao = new FanDAO();
 		
 		int count = fdao.getFanBoardCount();
 		int pageSize = 20;
-		
 		String pageNum = request.getParameter("pageNum");
-		
+			
 		if(pageNum==null){
 			pageNum="1";
 		}
 		
-		int currentPage = Integer.parseInt("pageNum");
+		int currentPage = Integer.parseInt(pageNum);
 		int startRow = (currentPage-1)*pageSize+1;
 		int endRow = currentPage*pageSize;
 		
