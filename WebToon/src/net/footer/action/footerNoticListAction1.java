@@ -23,9 +23,9 @@ public class footerNoticListAction1 implements Action {
 		footerBean fb =new footerBean();
 		footerDAO fd = new footerDAO();
 		
-		int noticecount = fd.getnoticecount();//notice카운트
+		/*int noticecount = fd.getnoticecount();//notice카운트
 		int qnacount=fd.getqnacount();//qna카운트
-		
+*/		
 		List<footerBean> fbnoticelist = null;
 		List<footerBean> fbqnalist = null;
 		
@@ -42,7 +42,7 @@ public class footerNoticListAction1 implements Action {
 		request.setAttribute("all", all);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./footermenu/noitceQna.jsp");
+		forward.setPath("./footermenu/noticeQna.jsp");
 		
 		
 		return forward;

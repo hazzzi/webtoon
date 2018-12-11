@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class footerBean {
 	private int ni_num;
-	private String ni_num_num;
+	private String ni_mem_num;
 	private String ni_mem_nik;
 	private String ni_category;
 	private String ni_subject;
@@ -16,11 +16,11 @@ public class footerBean {
 	public void setNi_num(int ni_num) {
 		this.ni_num = ni_num;
 	}
-	public String getNi_num_num() {
-		return ni_num_num;
+	public String getNi_mem_num() {
+		return ni_mem_num;
 	}
-	public void setNi_num_num(String ni_num_num) {
-		this.ni_num_num = ni_num_num;
+	public void setNi_mem_num(String nimnem_num) {
+		this.ni_mem_num = ni_mem_num;
 	}
 	public String getNi_mem_nik() {
 		return ni_mem_nik;

@@ -25,7 +25,7 @@ public class footerNoticewriteAction implements Action {
 		System.out.println(mem_num);
 		System.out.println(mem_nik);
 		footerBean fb = new footerBean();
-		fb.setNi_num_num(mem_num);
+		fb.setNi_mem_num(mem_num);
 		fb.setNi_mem_nik(mem_nik);
 		fb.setNi_category(category);
 		fb.setNi_content(ni_content);

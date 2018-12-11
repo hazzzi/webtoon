@@ -1,5 +1,7 @@
 package net.board.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +14,8 @@ import net.board.controller.Action;
 import net.board.controller.ActionForward;
 import net.board.db.BoardBean;
 import net.board.db.BoardDAO;
+import net.board.db.FanBean;
+import net.board.db.FanDAO;
 
 public class FanboardWriteAction implements Action {
 
@@ -27,42 +31,53 @@ public class FanboardWriteAction implements Action {
 		String filePath = context.getRealPath("./upload");
 	    MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "utf-8", new DefaultFileRenamePolicy());		
 		
-	    BoardBean bd = new BoardBean();
-	    
+	    FanBean fb = new FanBean();
 		HttpSession session = request.getSession();
 		String mem_num = (String)session.getAttribute("mem_num");	    
-	    
+		ActionForward forward = new ActionForward();
+		
+		String fa_subject = multi.getParameter("fa_subject");
+		String fa_category1 = multi.getParameter("fa_category1");
+		String fa_category2 = multi.getParameter("fa_category2");
+		String fa_content = multi.getParameter("fa_content");
+		String fa_img = multi.getFilesystemName("fa_img");
+		
+		
 		if (mem_num == null) {
-			ActionForward forward = new ActionForward();
+			
 			forward.setRedirect(true);
 			forward.setPath("./login.me");
 			
 			return forward;
 			
-		}else {
-
-			String fb_category = multi.getParameter("fb_"+"fb_category");
-			String fb_subject = multi.getParameter("fb_subject");
-			String fb_content = multi.getParameter("fb_content");
-			String fb_img = multi.getFilesystemName("fb_img");
-					
-			bd.setFb_mem_num(mem_num);
-			bd.setFb_category(fb_category);
-			bd.setFb_subject(fb_subject);
-			bd.setFb_content(fb_content);
-			bd.setFb_img(fb_img);
-			
-			BoardDAO bdao = new BoardDAO();
-			
-			bdao.insertBoard(bd);
-			
-			ActionForward forward = new ActionForward();
+		}else if(fa_img==null){
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out=response.getWriter();
+				out.println("<script>");
+				out.println("alert('사진 첨부는 필수 사항입니다.');");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+			}else{
 			forward.setPath("./fanboardList.bo");
-			forward.setRedirect(true);
+			forward.setRedirect(true);	
+				
+			fb.setFa_mem_num(mem_num);
+			fb.setFa_category1(fa_category1);
+			fb.setFa_category2(fa_category2);
+			fb.setFa_subject(fa_subject);
+			fb.setFa_content(fa_content);
+			fb.setFa_img(fa_img);
+
+			FanDAO fdao = new FanDAO();
+			
+			fdao.insertFan(fb);
+			}
 			
 			return forward;
+
 		}
 		
 	}
 	
-}
+

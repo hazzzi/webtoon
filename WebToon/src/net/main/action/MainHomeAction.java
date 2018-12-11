@@ -16,17 +16,28 @@ public class MainHomeAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MainDAO mdao = new MainDAO();
-		Vector<List<WebtoonBean>> gender = mdao.getGenderrank();
 		List<WebtoonBean> webtoonList = mdao.mainWebtoon();
-		List<WebtoonBean> female = gender.get(0);
-		List<WebtoonBean> male = gender.get(1);
+		List<WebtoonBean> highscore = mdao.highscoreWebtoon();
+		List<WebtoonBean> female = mdao.getGenderrank("여");
+		List<WebtoonBean> male = mdao.getGenderrank("남");
 		List<String> genre = mdao.getWebtoon_genre();
+		List<WebtoonBean> highcount = mdao.highcountWebtoon();
+
 		
+		System.out.println(male.size());
 		
 		request.setAttribute("webtoonList", webtoonList);
 		request.setAttribute("genre", genre);
 		request.setAttribute("female", female);
 		request.setAttribute("male", male);
+		request.setAttribute("highscore", highscore);
+		request.setAttribute("highcount", highcount);
+		
+		for(int i=1; i<=5; i++){
+			String a = i+"0대";
+			List<WebtoonBean> age = mdao.getAgesrank(a);
+			request.setAttribute(a, age);
+		}
 		
 		//평가한 웹툰 수
 		int count_Recommend = mdao.CountRecommend();

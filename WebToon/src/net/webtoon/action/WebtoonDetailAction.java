@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.board.db.FanBean;
 import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 import net.webtoon.controller.Action;
@@ -29,6 +30,7 @@ public class WebtoonDetailAction implements Action{
 			
 			WebtoonDAO wdao = new WebtoonDAO();
 			SearchDAO sdao = new SearchDAO();
+			MemberDAO mdao = new MemberDAO();
 			// 기본적인 웹툰정보
 			WebtoonBean wb = wdao.getWebtoon(web_num);
 			
@@ -43,8 +45,9 @@ public class WebtoonDetailAction implements Action{
 			// 리뷰 작성 수
 			int reviewcount = wdao.getReviewCount(web_num);
 			
+			// 팬아트 좋아요 상위2명
+			List<FanBean> fanList = wdao.getTop2Fanart(web_num);
 			
-			MemberDAO mdao = new MemberDAO();
 			// 평가한 사람이없을때 제어
 			if(wbb.isEmpty()==false){
 				List<MemberBean> wbbimg = new ArrayList<MemberBean>();
@@ -56,13 +59,14 @@ public class WebtoonDetailAction implements Action{
 			}
 			
 			List<WebtoonBean> similar = sdao.getSimilarity(web_num);
-			System.out.println(similar.get(2).getWeb_subject());
+			//System.out.println(similar.get(2).getWeb_subject());
 			request.setAttribute("wb", wb);
 			request.setAttribute("score", score);
 			request.setAttribute("count", count);
 			request.setAttribute("reviewcount", reviewcount);
 			request.setAttribute("wbb", wbb);
 			request.setAttribute("similar", similar);
+			request.setAttribute("fanList", fanList);
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);

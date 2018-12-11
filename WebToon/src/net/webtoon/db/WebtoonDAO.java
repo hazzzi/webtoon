@@ -13,6 +13,8 @@ import javax.sql.DataSource;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
+import net.board.db.FanBean;
+
 public class WebtoonDAO {
 
 	private Connection getConnection() throws Exception {
@@ -83,6 +85,7 @@ public class WebtoonDAO {
 			while (rs.next()) {
 				num=rs.getInt("max(web_num)")+1;
 			}								
+			
 			// sql insert num구한값 => re_ref
 			// re_lev 0, re_seq 0,
 			sql = "insert into webtoon(web_num,web_subject,web_author,web_genre,web_start,web_portal,web_info,web_ing,web_link,web_thumb_link) "
@@ -110,7 +113,41 @@ public class WebtoonDAO {
 			}
 		}
 	}
-	
+	public List<WebtoonBean> getWebtoonList(){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		try{
+			con = getConnection();
+			
+			String sql="select * from webtoon";
+			pstmt = con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+				
+				list.add(wb);
+				
+				
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+	}
 	
 	public void updateWebtoon(WebtoonBean webtoon) {
 		Connection con = null;
@@ -320,5 +357,33 @@ public class WebtoonDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 		}
 		return count;
+	}
+	
+	public List<FanBean> getTop2Fanart(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<FanBean> list = new ArrayList<FanBean>();
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon_fanart where fa_web_num=? order by fa_sumlike limit 0,2;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				FanBean fb = new FanBean();
+				fb.setFa_num(rs.getInt("fa_num"));
+				fb.setFa_web_num(rs.getInt("fa_web_num"));
+				fb.setFa_img(rs.getString("fa_img"));
+				
+				list.add(fb);
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return list;
 	}
 }

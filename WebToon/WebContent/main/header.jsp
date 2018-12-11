@@ -30,7 +30,7 @@
 					</li>
 					<!-- 자유게시판으로 이동 -->
 					<li class="tmp">
-						<a href="./bd_main.bo">게시판</a>
+						<a href="./boardList.bo">게시판</a>
 					</li>
 					<li>
 						<div id="header-profile">
@@ -64,5 +64,13 @@
 				<!-- 프로필 이미지  -->
 		</div>
 	</header>
+	<script>
+		$(document).ready(function() {
+			$("#a_srch").click(function() {
+			$(".tmp").toggle();
+				$("#header-srch").toggle(500);
+			});
+		});
+	</script>
 
 

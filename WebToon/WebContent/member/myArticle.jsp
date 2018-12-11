@@ -1,3 +1,5 @@
+<%@page import="net.board.db.BoardBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,18 +11,34 @@
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet" href="member/css/myArticle.css">
 </head>
-<jsp:include page="../main/header.jsp"></jsp:include>
 <body>
+<%	request.setCharacterEncoding("utf-8");
+	int count = (int)request.getAttribute("count");
+	String pageNum=(String)request.getAttribute("pageNum");
+	
+	if (pageNum == null) {
+		pageNum = "1";
+	}
+	
+	int pageCount = ((Integer) request.getAttribute("pageCount")).intValue();
+	int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
+	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
+	int endPage = ((Integer) request.getAttribute("endPage")).intValue();
+	
+	List<BoardBean> myBoardList =(List<BoardBean>)request.getAttribute("myBoardList");
+%>
+
 						<!--  ma=myArticle  
 							  		-->
 <div id="ma_wrap">
    <!-- header 시작 -->
+<jsp:include page="../main/header.jsp"></jsp:include>
    <!--/ header 끝 -->
 <!--회원 정보 수정 부분  -->	
 <div id="ma_title"><h1>내가 쓴 글 보기</h1></div>
 
 <div class="mya_back">
-<input type="button" value="뒤로가기" onclick="location.href='myProfile.jsp'">
+<input type="button" value="뒤로가기" onclick="location.href='myProfile.me'">
 </div>
 
 <div class="clear"></div>
@@ -50,56 +68,45 @@
 			</tr>
 				
 				
-				<% for(int i=0 ; i<2 ; i++){ %>
+				<% for(BoardBean bb: myBoardList){ %>
 			<tr>
-				<td>1</td>
-				<td>[자유게시판]</td>
-				<td><a href="#">안녕하세요</a></td>
+				<td><%=bb.getFb_num()%></td>
+				<td>[<%=bb.getFb_category()%>]</td>
+				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
 				<td>5</td>
-				<td>나</td>
-				<td>50</td>
-				<td>2018.11.02</td>
+				<td><%=bb.getFb_mem_nik()%></td>
+				<td><%=bb.getFb_readcount()%></td>
+				<td><%=bb.getFb_date()%></td>
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>[자유게시판]</td>
-				<td><a href="#">출석체크 합니다~</a></td>
-				<td>19</td>
-				<td>나</td>
-				<td>2</td>
-				<td>2018.11.02</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>[자유게시판]</td>
-				<td><a href="#">와 이런 웹페이지가 생겼다니 너무 좋아요</a></td>
-				<td>134</td>
-				<td>나</td>
-				<td>9999</td>
-				<td>2018.11.02</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>[자유게시판]</td>
-				<td><a href="#">출첵 ㅇㅇ</a></td>
-				<td>10</td>
-				<td>나</td>
-				<td>78</td>
-				<td>2018.11.02</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>[자유게시판]</td>
-				<td><a href="#">출첵 ㅇㅇ</a></td>
-				<td>10</td>
-				<td>나</td>
-				<td>78</td>
-				<td>2018.11.02</td>
-			</tr>
+			
 						<%} %>			
 			
 		</table>
  	</div> <!--id="rif_text" -->
+ 	<div class="paging">
+ 	<%
+							if (endPage > pageCount) {
+								endPage = pageCount;
+							}
+
+							if (startPage > pageBlock) {
+						%><a href="./MembermyarticleListAction.me?pageNum=<%=startPage - pageBlock%>">&lt;</a>
+						<%
+							}
+
+							for (int i = startPage; i <= endPage; i++) {
+						%><a href="./MembermyarticleListAction.me?pageNum=<%=i%>">[<%=i%>]
+						</a>
+						<%
+							}
+
+							if (endPage < pageCount) {
+						%><a href="./MembermyarticleListAction.me?pageNum=<%=startPage + pageBlock%>">&gt;</a>
+						<%
+							}
+						%>
+ 	
+ 	</div>
 	<div id="ma_sub">
 	<input type="search" id="mt_search" name="mt_search">
 	<input type="submit" id="mt_submit" value="검색">

@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.board.db.BoardBean;
 import net.webtoon.db.WebtoonBean;
 
 public class MemberDAO {
@@ -48,7 +51,7 @@ public class MemberDAO {
 			
 			// 회원가입시 날짜 + 회원아이디 조합 회원넘버설정
 			Date d = new Date();
-			SimpleDateFormat date = new SimpleDateFormat("yyMMddHHMMss");
+			SimpleDateFormat date = new SimpleDateFormat("yyMMddHHmmss");
 			// 회원에 각자 넘버가 존재함으로 회원가입시에 회원 넘버를 갱신 시켜준다.
 			String sql1 = "select count(*) from member";
 			pstmt = con.prepareStatement(sql1);
@@ -393,5 +396,67 @@ public class MemberDAO {
 		
 		
 		return DBPw;
+	}
+	
+	public int getmyboardCount(String mem_num){
+		int count=0;
+		try{
+			con=getConnection();
+			String sql = "select count(*) from free_board where fb_mem_num=?";
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				count=rs.getInt("count(*)");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		return count;
+	}
+	
+	public List<BoardBean> getmyBoardList(int startRow,int pageSize,String mem_num){
+		List<BoardBean> myBoardList = new ArrayList<BoardBean>();
+		try{
+			con=getConnection();
+			
+			String sql = "select * from free_board where fb_mem_num=? limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setInt(2, startRow -1);
+			pstmt.setInt(3, pageSize);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				BoardBean bb = new BoardBean();
+
+				bb.setFb_num(rs.getInt("fb_num"));
+				bb.setFb_mem_num(rs.getString("fb_mem_num"));
+				bb.setFb_mem_nik(rs.getString("fb_mem_nik"));
+				bb.setFb_category(rs.getString("fb_category"));
+				bb.setFb_subject(rs.getString("fb_subject"));
+				bb.setFb_content(rs.getString("fb_content"));
+				bb.setFb_img(rs.getString("fb_img"));
+				bb.setFb_sumlike(rs.getInt("fb_sumlike"));
+				bb.setFb_readcount(rs.getInt("fb_readcount"));
+				bb.setFb_date(rs.getDate("fb_date"));
+				
+				myBoardList.add(bb);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		return myBoardList;
 	}
 }

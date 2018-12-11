@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
-<script src="./main/js/jquery-3.3.1.js"></script>
+<script src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- include libraries(jQuery, bootstrap) -->
@@ -32,35 +32,27 @@
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<script>
+
 		$(document).ready(function() {
-			$("#header-srch").hide();
-			$("#a_srch").click(function() {
-				$(".tmp").toggle();
-				$("#header-srch").toggle(500);
+			$(function() {
+				$("#bw_pho_file").on('change', function() {
+					readURL(this);
+				});
 			});
 
-			  $(function() {
-		            $("#bw_pho_file").on('change', function(){
-		                readURL(this);
-		            });
-		        });
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
 
-		        function readURL(input) {
-		            if (input.files && input.files[0]) {
-		            var reader = new FileReader();
+					reader.onload = function(e) {
+						$('#blah').attr('src', e.target.result);
+					}
 
-		            reader.onload = function (e) {
-		                    $('#blah').attr('src', e.target.result);
-		                }
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
 
-		              reader.readAsDataURL(input.files[0]);
-		            }
-		        }
-
-
-				});
-			
-		
+		});
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
