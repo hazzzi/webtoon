@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.member.action.MembermanagementDelete;
 import net.member.action.MemberForgetidAction;
 import net.member.action.MemberForgetpwAction;
 import net.member.action.MemberJoinAction;
+import net.member.action.MemberListAction;
 import net.member.action.MemberLoginAction;
 import net.member.action.MemberLogoutAction;
 import net.member.action.MemberModpassAction;
@@ -19,6 +21,7 @@ import net.member.action.MemberUpdateAction1;
 import net.member.action.MemberUpdateAction2;
 import net.member.action.MemberWithdrawAction;
 import net.member.action.MembermyarticleListAction;
+import net.member.action.MemberSearchAction;
 
 
 public class MemberFrontController extends HttpServlet{
@@ -189,15 +192,33 @@ public class MemberFrontController extends HttpServlet{
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-	}else if(command.equals("/MembermanagementDelete.me")){
-		action =new MembermyarticleListAction();
+		}else if(command.equals("/MembermanagementDelete.me")){
+		action =new MembermanagementDelete();
 		
-	try{
-		forward=action.execute(request, response);
-	}catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
-	}
+		try{
+			forward=action.execute(request, response);
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		}else if(command.equals("/memberList.me")){
+			action = new MemberListAction();
+			
+		try{
+				forward=action.execute(request, response);
+		}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+		}
+		}else if(command.equals("/memberSearch.me")){
+			action = new MemberSearchAction();
+			
+		try{
+				forward=action.execute(request, response);
+		}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+		}
 }
 		
 		
