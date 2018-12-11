@@ -61,6 +61,12 @@ public class FanBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 					
+		}else if(command.equals("/fan_writingPage.fo")){
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/fan_writingPage.jsp");
+			
 		}
 
 		// 이동 시작

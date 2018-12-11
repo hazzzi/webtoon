@@ -59,7 +59,7 @@ public class FanboardWriteAction implements Action {
 				out.println("</script>");
 				out.close();
 			}else{
-			forward.setPath("./fanboardList.bo");
+			forward.setPath("./fanboardList.fo");
 			forward.setRedirect(true);	
 				
 			fb.setFa_mem_num(mem_num);

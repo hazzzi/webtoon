@@ -346,9 +346,9 @@ td>a:HOVER {
 
 /* 본문 콘텐트(img)가 들어갈 영역 */
 .fan_content2 {
-	width: 1524px;
+	width: 1300px;
 	min-height: 300px;
-	margin-top: 7px;
+	margin: 0 auto;
 }
 
 .fan_content2 img {
