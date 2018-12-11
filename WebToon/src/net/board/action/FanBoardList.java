@@ -15,9 +15,9 @@ public class FanBoardList implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println("fanboardList execute()");
+		System.out.println("fanBoardList execute()");
 		
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		FanDAO fdao = new FanDAO();
 		

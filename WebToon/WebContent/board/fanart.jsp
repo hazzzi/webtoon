@@ -66,11 +66,12 @@
 						<%
 							}
 						%>
-						<td alt="사진"><a
-							href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>">
+						<td alt="사진">
+						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>">
 								<img style="width: 300px; height: 300px;"
 								src="./upload/<%=fb.getFa_img()%>" class="fb_img">
-						</a></td>
+						</a>
+						</td>
 						<%
 							if ((i % 4) + 1 == 0) {
 						%>
