@@ -22,8 +22,8 @@
 <!--recommend폴더안 -->
 <link href="./recommend/css/recommend_show.css" rel="stylesheet">
 <link rel="stylesheet" href="css/fontawesome-stars.css">
-<script src="../js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="js/jquery.barrating.min.js"></script>
+<script src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="./js/jquery.barrating.min.js"></script>
 </head>
 <body>
  	<jsp:include page="../main/header.jsp" /> 

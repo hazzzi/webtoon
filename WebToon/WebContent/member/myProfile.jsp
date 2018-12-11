@@ -13,7 +13,8 @@
 
 </head>
  <jsp:include page="../main/header.jsp"></jsp:include> 
-<body>				<!--mp_ =myProfile  -->
+<body>	
+			<!--mp_ =myProfile  -->
 <% request.setCharacterEncoding("utf-8"); 
 String sessionid=(String)session.getAttribute("mem_num");
 System.out.println(sessionid);
@@ -46,11 +47,11 @@ System.out.println(sessionid);
 </div>
 </a>
 
-<a href="./withdrawMember.me">
+<a href="memberList.me">
 <div class="mp_img4">
 <img src="./member/img/garbagew.png">
 <img src="./member/img/garbagehover.png"><br>
-회원삭제
+회원 목록관리
 </div>
 </a>
    

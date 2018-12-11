@@ -74,7 +74,7 @@ var naverLogin = new naver.LoginWithNaverId(
   //]]>
 </script>
 
- <div class="hpname">
+<div class="hpname">
 <i class="fa fa-search co"></i>
 오늘 뭐 볼까?
 </div>

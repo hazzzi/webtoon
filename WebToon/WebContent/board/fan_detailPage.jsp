@@ -42,15 +42,15 @@
 </head>
 
 <body>
-<%
-	String mem_num = (String)session.getAttribute("mem_num");
-	
-	int fa_num = Integer.parseInt(request.getParameter("fa_num"));
-	String pageNum = (String)request.getAttribute("pageNum");
-	
-	FanDAO fdao = new FanDAO();
-	FanBean fb = fdao.getFanBoard(fa_num);
-%>
+	<%
+		String mem_num = (String) session.getAttribute("mem_num");
+
+		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+		String pageNum = (String) request.getAttribute("pageNum");
+
+		FanDAO fdao = new FanDAO();
+		FanBean fb = fdao.getFanBoard(fa_num);
+	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -59,6 +59,8 @@
 
 		<div class="detail">
 			<div class="fi">
+				<input type="button" class="bt" value="다음 글" /> <input
+					type="button" class="bt" value="이전 글" /><br> <br>
 				<!-- 이전 글 없을 경우 제어 -->
 				<%
 					int nextNum = fdao.nextPost(fa_num);
@@ -107,8 +109,7 @@
 				<div class="detail_content">
 					<table class="main">
 						<tr>
-							<th
-								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
+							<th	style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
 							<th style="text-align: left; font-size: 30px;"><%=fb.getFa_subject() %></th>
 						</tr>
 						<hr>
@@ -116,34 +117,20 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=fb.getFa_date() %> | </span> 
-							<span><%=fb.getFa_mem_nik() %> | </span> 
-							<span><%=fb.getFa_readcount() %></span>
+							<span><%=fb.getFa_date()%> | </span> <span><%=fb.getFa_mem_nik()%>
+								| </span> <span><%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>"><img src="./upload/<%=fb.getFa_img() %>"
-								class="content_img"></a>
-								<br><br> <%=fb.getFa_content() %><br><br>
+							<a href="./upload/<%=fb.getFa_img()%>"><img
+								src="./upload/<%=fb.getFa_img()%>" class="content_img"></a> <br>
+							<br>
+							<%=fb.getFa_content()%><br>
+							<br>
 						</div>
 					</div>
 					<!-- LikeBtn.com BEGIN -->
-					<span class="likebtn-wrapper" data-theme="disk" data-lang="ko"
-						data-ef_voting="heartbeat" data-identifier="item_1"></span>
-					<script>
-						(function(d, e, s) {
-							if (d.getElementById("likebtn_wjs"))
-								return;
-							a = d.createElement(e);
-							m = d.getElementsByTagName(e)[0];
-							a.async = 1;
-							a.id = "likebtn_wjs";
-							a.src = s;
-							m.parentNode.insertBefore(a, m)
-						})
-								(document, "script",
-										"//w.likebtn.com/js/w/widget.js");
-					</script>
-
+					
+					
 					<!-- LikeBtn.com END -->
 				</div>
 
@@ -229,8 +216,7 @@
 				</form>
 			</div>
 			<!--  댓글 반복 끝 -->
-			<br>
-			<br>
+			<br> <br>
 			<div id="next-prev">
 				<%
 					FanBean fb2 = fdao.getFanBoard(nextNum);

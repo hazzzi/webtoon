@@ -103,7 +103,6 @@
 <i class="fa fa-search co"></i>
 오늘 뭐 볼까?
 </div>
-	
 </div>
 </form>
 </body>
