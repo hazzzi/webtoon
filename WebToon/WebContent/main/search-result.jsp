@@ -232,7 +232,7 @@
 			 				<!-- 최근에 올라간 팬아트 상위 2개 -->
 			 				<!-- where webtoon-number=?? -->
 			 				<a href="./fanarttmpaddress.wbt?fa_num=<%=f.getFa_num()%>">
-					 			<img src="<%=f.getFa_img()%>">
+					 			<img src="./upload/<%=f.getFa_img()%>">
 				 			</a>
 			 			</div>
 		 			<%} 

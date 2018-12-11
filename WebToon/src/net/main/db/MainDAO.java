@@ -92,7 +92,6 @@ public class MainDAO {
 	}
 	
 	public List<WebtoonBean> getGenderrank(String gender){
-		
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
 		Connection con = null;

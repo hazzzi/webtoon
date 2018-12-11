@@ -42,7 +42,7 @@
 
 
 
-			<div class="ni_btns"><input type="button" class="ni_back" value="취소" onclick="location.href='#'">  <input class="ni_sub" type="submit" value="작성" class="ni_sub"></div> 
+			<div class="ni_btns"><input type="button" class="ni_back" value="취소" onclick="location.href='./myProfile.me'">  <input class="ni_sub" type="submit" value="작성" class="ni_sub"></div> 
 
 
 

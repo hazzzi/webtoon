@@ -1,3 +1,5 @@
+<%@page import="net.board.db.FanBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,12 +16,28 @@
 <script src="./js/jquery-3.3.1.js"></script>
 </head>
 <body>
+	<%
+		FanBean fb = new FanBean();
+		int count = ((Integer) request.getAttribute("count")).intValue();
+		String pageNum = (String) request.getAttribute("pageNum");
+
+		if (page == null) {
+			pageNum = "1";
+		}
+
+		int pageCount = ((Integer) request.getAttribute("pageCount")).intValue();
+		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
+		int startPage = ((Integer) request.getAttribute("startPage")).intValue();
+		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
+
+		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
+	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 
 		<!-- header 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
-		
+
 		<!--/ header 끝 -->
 
 		<div class="fan_content">
@@ -31,35 +49,69 @@
 				});
 			</script>
 			<article>
-				<div class="fan_content2">
+			<div class="fan_content2">
+				<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
+				<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 
-					<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
-					<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
-					<% for(int i=0 ; i<5 ; i++){ %>
-					<a href="#"><img src="https://via.placeholder.com/260"></a> 
-					<a href="#"><img src="https://via.placeholder.com/260"></a> 
-					<a href="#"><img src="https://via.placeholder.com/260"></a> 
-					<a href="#"><img src="https://via.placeholder.com/260"></a> 
-					<a href="#"><img src="https://via.placeholder.com/260"></a> 
-				
-					<%} %>
-
-				</div>
-
-				<span class="fan_paging"> <a href="#">&lt;</a> <%for(int i=0; i<10; i++){ %>
-					<a href="#"><%=i+1 %></a> <% }%> <a href="#">&gt;</a>
-				</span>
-				
-				
-				
-				<!-- 팬아트의 콘텐츠가 들어갈 영역 (끝) -->
-				<jsp:include page="search_engine.jsp"></jsp:include>
-
-				 <input type="button" value="글 쓰기" class="write" onclick="location.href='fan_writingPage.jsp'">
+				<!-- 게시물 없으면 게시물 없음 뜨도록 -->
+				<table>
+					<%
+						for (int i = 0; i < fanboardList.size(); i++) {
+							fb = fanboardList.get(i);
+					%>
+					<%
+						if (i == 0 || (i % 4) + 1 == 1) {
+					%>
+					<tr alt="줄바꿈">
+						<%
+							}
+						%>
+						<td alt="사진"><a
+							href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>">
+								<img style="width: 300px; height: 300px;"
+								src="./upload/<%=fb.getFa_img()%>" class="fb_img">
+						</a></td>
+						<%
+							if ((i % 4) + 1 == 0) {
+						%>
+					</tr>
+					<%
+						}
+					%>
+					<%
+						}
+					%>
+				</table>
 			</div>
-			<!-- 카테고리 영역 끝-->
 
-		
+			<span class="fan_paging"> <%
+ 			if (endPage > pageCount) {
+ 				endPage = pageCount;
+ 				}
+
+ 			if (startPage > pageBlock) {
+ 			%><a href="./fanboardList.fo?pageNum=<%=startPage - pageBlock%>">&lt;</a>
+				<%
+				}
+
+			for (int i = startPage; i <= endPage; i++) {
+				%><a href="./fanboardList.fo?pageNum=<%=i%>">[<%=i%>]
+			</a> <%
+ 				}
+
+ 			if (endPage < pageCount) {
+ 			%><a href="./fanboardList.fo?pageNum=<%=startPage + pageBlock%>">&gt;</a>
+				<%
+					}
+				%>
+			</span> <!-- 팬아트의 콘텐츠가 들어갈 영역 (끝) --> 
+			<jsp:include page="search_engine.jsp"></jsp:include>
+			<input type="button" value="글 쓰기" class="write"
+				onclick="location.href='./fan_writingPage.fo'">
+		</div>
+		<!-- 카테고리 영역 끝-->
+
+
 		<jsp:include page="top.jsp"></jsp:include>
 
 		</article>

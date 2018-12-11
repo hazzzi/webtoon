@@ -13,7 +13,7 @@ public class WebtoonInsertAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		
+		System.out.println("WebtoonInsertAction execute()");
 		WebtoonBean wb = new WebtoonBean();
 		wb.setWeb_author((String)request.getParameter("web_author"));
 		wb.setWeb_subject((String)request.getParameter("web_subject"));
@@ -28,7 +28,12 @@ public class WebtoonInsertAction implements Action{
 		WebtoonDAO wdao=new WebtoonDAO();
 		wdao.insertWebtoon(wb);
 		
-		return null;
+		ActionForward forward = new ActionForward();
+		
+		forward.setRedirect(true);
+		forward.setPath("./myProfile.me");
+		
+		return forward;
 	}
 
 }
