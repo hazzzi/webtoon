@@ -504,7 +504,7 @@ public class MemberDAO {
 		
 		try{
 			con=getConnection();
-			String sql="select * from member where mem_id like ? ";
+			String sql="select * from member where mem_id like ? order by mem_date";
 			pstmt = con.prepareStatement(sql);
 			 pstmt.setString(1, "%"+search+"%");
 			 rs = pstmt.executeQuery();
@@ -534,7 +534,7 @@ public class MemberDAO {
 		
 		try{
 			con=getConnection();
-			String sql="select * from member where mem_email like ? ";
+			String sql="select * from member where mem_email like ? order by mem_date";
 			pstmt = con.prepareStatement(sql);
 			 pstmt.setString(1, "%"+search+"%");
 			 rs = pstmt.executeQuery();
