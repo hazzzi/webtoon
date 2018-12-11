@@ -86,9 +86,10 @@ input {
 }
 
 select {
-	width: 250px; height: 30px;
+	width: 150px; height: 30px;
 	font-family: 'NanumBarunpenR', sans-serif;
 	font-size: 15px;
+	text-align: center;
 	font-weight: bold;
 	}
 
@@ -132,6 +133,7 @@ select {
 .mya_back>input:HOVER {
 	cursor: pointer;
 }
+
 	
 	
 	

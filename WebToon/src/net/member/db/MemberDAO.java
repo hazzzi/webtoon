@@ -1,6 +1,7 @@
 package net.member.db;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -458,5 +459,103 @@ public class MemberDAO {
 			if(con !=null)try {con.close();}catch (SQLException e) {}
 		}
 		return myBoardList;
+	}
+	
+	public List<MemberBean> getMemberList(){
+//		업캐스팅 부모->자식
+//		List list = new ArrayList();
+//		제네릭 설정(형지정)
+		List<MemberBean> list = new ArrayList();
+//		ArrayList list = new ArrayList();
+		try{
+			con=getConnection();
+
+			String sql="select * from member order by mem_date";
+			PreparedStatement pstmt=con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+//				한사람의 정보를 mb에 저장하기위해 객체생성
+				MemberBean mb = new MemberBean();
+				mb.setNum(rs.getString("mem_num"));
+				mb.setId(rs.getString("mem_id"));
+				mb.setPass(rs.getString("mem_pass"));
+				mb.setEmail(rs.getString("mem_email"));
+				mb.setHint(rs.getString("mem_hint"));
+				mb.setHintans(rs.getString("mem_hintans"));
+				mb.setNik(rs.getString("mem_nik"));
+				mb.setAges(rs.getString("mem_ages"));
+				mb.setGender(rs.getString("mem_gender"));
+				mb.setDate(rs.getTimestamp("mem_date"));
+				mb.setProfileimg(rs.getString("mem_profileimg"));
+//				mb값을 한사람당 한칸에 list 한칸에 저장
+				list.add(mb);
+	
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+		}return list;
+		
+	}
+	public List<MemberBean> getMemberList_id(String search){
+		BoardBean bb;
+		List<MemberBean> ml = new ArrayList<>();
+		
+		try{
+			con=getConnection();
+			String sql="select * from member where mem_id like ? ";
+			pstmt = con.prepareStatement(sql);
+			 pstmt.setString(1, "%"+search+"%");
+			 rs = pstmt.executeQuery();
+			 while(rs.next()){
+				 MemberBean mb = new MemberBean();
+					mb.setNum(rs.getString("mem_num"));
+					mb.setId(rs.getString("mem_id"));
+					mb.setPass(rs.getString("mem_pass"));
+					mb.setEmail(rs.getString("mem_email"));
+					mb.setHint(rs.getString("mem_hint"));
+					mb.setHintans(rs.getString("mem_hintans"));
+					mb.setNik(rs.getString("mem_nik"));
+					mb.setAges(rs.getString("mem_ages"));
+					mb.setGender(rs.getString("mem_gender"));
+					mb.setDate(rs.getTimestamp("mem_date"));
+					mb.setProfileimg(rs.getString("mem_profileimg"));
+				 ml.add(mb);
+				}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+		}return ml;
+	}
+	public List<MemberBean> getMemberList_email(String search){
+		BoardBean bb;
+		List<MemberBean> ml = new ArrayList<>();
+		
+		try{
+			con=getConnection();
+			String sql="select * from member where mem_email like ? ";
+			pstmt = con.prepareStatement(sql);
+			 pstmt.setString(1, "%"+search+"%");
+			 rs = pstmt.executeQuery();
+			 while(rs.next()){
+				 MemberBean mb = new MemberBean();
+					mb.setNum(rs.getString("mem_num"));
+					mb.setId(rs.getString("mem_id"));
+					mb.setPass(rs.getString("mem_pass"));
+					mb.setEmail(rs.getString("mem_email"));
+					mb.setHint(rs.getString("mem_hint"));
+					mb.setHintans(rs.getString("mem_hintans"));
+					mb.setNik(rs.getString("mem_nik"));
+					mb.setAges(rs.getString("mem_ages"));
+					mb.setGender(rs.getString("mem_gender"));
+					mb.setDate(rs.getTimestamp("mem_date"));
+					mb.setProfileimg(rs.getString("mem_profileimg"));
+				 ml.add(mb);
+				}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+		}return ml;
 	}
 }
