@@ -13,6 +13,7 @@ import net.board.action.FanBoardContentAction;
 import net.board.action.FanBoardList;
 import net.board.action.FanBoardWriteAction;
 import net.board.action.FanModify;
+import net.board.action.FanModifyAction;
 
 public class FanBoardFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -67,6 +68,13 @@ public class FanBoardFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./board/fan_modifyPage.jsp");
 			forward.setRedirect(false);
+		}else if(command.equals("/fanModifyAction.fo")){
+			action = new FanModifyAction();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();	
+			}
 		}else if(command.equals("/fan_writingPage.fo")){
 			
 			forward = new ActionForward();

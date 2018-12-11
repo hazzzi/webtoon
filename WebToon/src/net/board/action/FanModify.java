@@ -15,23 +15,19 @@ public class FanModify implements Action {
 
 		System.out.println("FanModify execute()");
 		request.setCharacterEncoding("utf-8");
-		
-		int fa_num = Integer.parseInt(request.getParameter("fa_num")); 
-		String pageNum =request.getParameter("pageNum");
-		
-		System.out.println("fa_num은?"+fa_num);
-		
+
+		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+		String pageNum = request.getParameter("pageNum");
+
 		HttpSession session = request.getSession();
-		String mem_num = (String)session.getAttribute("mem_num");
-		
-		System.out.println("mem_num은?"+mem_num);
-		
+		String mem_num = (String) session.getAttribute("mem_num");
+
 		FanDAO fdao = new FanDAO();
-		
+
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/fan_modifyPage.jsp");
 		forward.setRedirect(false);
-		
+
 		return forward;
 	}
 

@@ -59,11 +59,48 @@
 
 		<div class="detail">
 			<div class="fi">
-				<input type="button" class="bt" value="다음 글" /> <input
-					type="button" class="bt" value="이전 글" /><br>
+				<!-- 이전 글 없을 경우 제어 -->
+				<%
+					int nextNum = fdao.nextPost(fa_num);
+				%>
+				<!-- 다음 글 없을 경우 제어 -->
+				<%
+					if (nextNum != 0) {
+				%>
+				<input type="button" class="bt" value="다음 글"
+					onclick="location.href='./fanboardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>'" />
+				<%
+					} else {
+				%><input type="button" class="bt-if"
+					onclick="location.href='./fanboardList.fo'" value="목록" />
+				<%
+					}
+				%>
+				<%
+					int preNum = fdao.previousPost(fa_num);
+				%>
+				<%
+					if (preNum != 0) {
+				%>
+				<input type="button" class="bt" value="이전 글"
+					onclick="location.href='./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>'" /><br>
+				<%
+					} else {
+				%><input type="button" class="bt-if"
+					onclick="location.href='./fanboardList.fo'" value="목록" />
+				<%
+					}
+				%>
 				<br>
 			</div>
-
+			<%
+				if (nextNum != 0 && preNum != 0) {
+			%>
+			<input type="button" class="bt-pri"
+				onclick="location.href='./fanboardList.fo'" value="목록" />
+			<%
+				}
+			%>
 			<div class="clear"></div>
 
 			<article>
@@ -122,16 +159,32 @@
 
 				<!-- 수정삭제 다음글 이전글 -->
 				<div class="view-menu" style="margin-bottom: 47px;">
-					<div class="fl">
-						<br> <input type="button" class="bt" value="수정" /> <input
-							type="button" class="bt" value="삭제" />
+					<div class="fi">
+						<br>
+						<%
+							if (mem_num != null) {
+								if (mem_num.equals(fb.getFa_mem_num())) {
+						%>
+						<input type="button" class="bt" value="수정"
+							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt" value="삭제"
+							onclick="location.href='./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt-2"
+							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
+						<%
+							} else {
+						%>
+						<input type="button" class="bt-2-if"
+							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
+						<%
+							}
+							}
+						%>
+
 					</div>
-					<div class="fr">
-						<br> <input type="button" class="bt"
-							onclick="location.href='./fanboardList.fo'" value="목록" /> <input
-							type="button" class="bt"
-							onclick="location.href='./fan_writingPage.fo'" value="새 글쓰기" />
-					</div>
+
+
+
 				</div>
 
 				<!-- 수정 삭제 다음글 이전글 버튼끝 -->
