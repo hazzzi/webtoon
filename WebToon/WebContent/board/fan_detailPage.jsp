@@ -59,8 +59,6 @@
 
 		<div class="detail">
 			<div class="fi">
-				<input type="button" class="bt" value="다음 글" /> <input
-					type="button" class="bt" value="이전 글" /><br> <br>
 				<!-- 이전 글 없을 경우 제어 -->
 				<%
 					int nextNum = fdao.nextPost(fa_num);
