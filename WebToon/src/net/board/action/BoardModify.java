@@ -20,17 +20,10 @@ public class BoardModify implements Action{
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		String pageNum = request.getParameter("pageNum");
 		
-		
 		HttpSession session = request.getSession();
 		String mem_num = (String)session.getAttribute("mem_num");
 		
-		
-		System.out.println(mem_num);
-		
 		BoardDAO bdao = new BoardDAO();
-//		BoardBean boardbean = bdao.getBoard(mem_num);
-		
-//		request.setAttribute("boardbean", boardbean);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/bd_modifyPage.jsp");

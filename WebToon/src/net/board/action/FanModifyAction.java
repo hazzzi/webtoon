@@ -30,11 +30,12 @@ public class FanModifyAction implements Action {
 				new DefaultFileRenamePolicy());
 
 		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+
 		String pageNum = request.getParameter("pageNum");
 
 		FanBean fb = new FanBean();
 		FanDAO fdao = new FanDAO();
-		ActionForward forward = new ActionForward();
+		
 
 		String fa_category1 = multi.getParameter("fa_category1");
 		String fa_category2 = multi.getParameter("fa_category2");
@@ -42,37 +43,23 @@ public class FanModifyAction implements Action {
 		String fa_content = multi.getParameter("fa_content");
 		String fa_img = multi.getFilesystemName("fa_img");
 
-		if (fa_img == null) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('사진 첨부는 필수 사항입니다.');");
-			out.println("history.back();");
-			out.println("</script>");
-			out.close();
-		} else if (fa_category1 == null) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('카테고리 선택은 필수 사항입니다.');");
-			out.println("history.back();");
-			out.println("</script>");
-			out.close();
-		} else {
-			fb.setFa_category1(fa_category1);
-			fb.setFa_category2(fa_category2);
-			fb.setFa_subject(fa_subject);
-			fb.setFa_content(fa_content);
-			fb.setFa_img(fa_img);
+		System.out.println(fa_content);
 
-			fdao.updateFanBoard(fb);
+		fb.setFa_category1(fa_category1);
+		fb.setFa_category2(fa_category2);
+		fb.setFa_subject(fa_subject);
+		fb.setFa_content(fa_content);
+		fb.setFa_img(fa_img);
+		fb.setFa_num(fa_num);
 
-			forward.setPath("./fanContent.bo?fa_num=" + fa_num + "&pageNum=" + pageNum);
-			forward.setRedirect(true);
-
-		}
+		fdao.updateFanBoard(fb);
+		
+		ActionForward forward = new ActionForward();
+		forward.setPath("./fanboardContent.fo?fa_num=" + fa_num + "&pageNum=" + pageNum);
+		forward.setRedirect(true);
 
 		return forward;
+
 	}
 
 }

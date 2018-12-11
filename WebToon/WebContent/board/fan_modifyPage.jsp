@@ -83,7 +83,7 @@
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
-		<form action="./fanModifyAction.fo" method="post" enctype="multipart/form-data">
+		<form action="./fanModifyAction.fo?fa_num=<%=fa_num %>&pageNum=<%=pageNum %>" method="post" enctype="multipart/form-data">
 			<input type="hidden" value="<%=mem_num%>" name="fa_mem_num">
 			<div class="bw_subject">
 				<input type="text" value="<%=fb.getFa_subject() %>" class="bw_sub_tex" name="fa_subject"> 
