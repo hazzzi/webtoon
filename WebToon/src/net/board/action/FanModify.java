@@ -6,38 +6,33 @@ import javax.servlet.http.HttpSession;
 
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
-import net.board.db.BoardBean;
-import net.board.db.BoardDAO;
+import net.board.db.FanDAO;
 
-public class BoardModify implements Action{
+public class FanModify implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		System.out.println("BoardModify execute()");
+
+		System.out.println("FanModify execute()");
 		request.setCharacterEncoding("utf-8");
 		
-		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
-		String pageNum = request.getParameter("pageNum");
+		int fa_num = Integer.parseInt(request.getParameter("fa_num")); 
+		String pageNum =request.getParameter("pageNum");
 		
+		System.out.println("fa_num은?"+fa_num);
 		
 		HttpSession session = request.getSession();
 		String mem_num = (String)session.getAttribute("mem_num");
 		
+		System.out.println("mem_num은?"+mem_num);
 		
-		System.out.println(mem_num);
-		
-		BoardDAO bdao = new BoardDAO();
-//		BoardBean boardbean = bdao.getBoard(mem_num);
-		
-//		request.setAttribute("boardbean", boardbean);
+		FanDAO fdao = new FanDAO();
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./board/bd_modifyPage.jsp");
+		forward.setPath("./board/fan_modifyPage.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
 	}
 
-	
 }

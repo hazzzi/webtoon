@@ -363,12 +363,14 @@ public class FanDAO {
 		try{
 			con = getConnection();
 			
-			String sql = "update webtoon_fanart set fa_subject=?, fa_content=?, fa_img=? where fa_num=? ";
+			String sql = "update webtoon_fanart set fa_subject=?, fa_content=?, fa_img=?, fa_category1=?, fa_category2=? where fa_num=? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, fb.getFa_subject());
 			pstmt.setString(2, fb.getFa_content());
 			pstmt.setString(3, fb.getFa_img());
-			pstmt.setInt(4, fb.getFa_num());
+			pstmt.setString(4, fb.getFa_category1());
+			pstmt.setString(4, fb.getFa_category2());
+			pstmt.setInt(6, fb.getFa_num());
 			pstmt.executeUpdate();
 					
 		}catch (Exception e) {

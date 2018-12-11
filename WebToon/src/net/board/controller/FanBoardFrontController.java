@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.board.action.FanBoardCategoryAction;
 import net.board.action.FanBoardList;
+import net.board.action.FanModify;
 import net.board.action.FanboardWriteAction;
 
 public class FanBoardFrontController extends HttpServlet {
@@ -61,6 +62,10 @@ public class FanBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 					
+		}else if(command.equals("/fanModify.fo")){
+			forward = new ActionForward();
+			forward.setPath("./board/fan_modifyPage.jsp");
+			forward.setRedirect(false);
 		}
 
 		// 이동 시작
