@@ -552,7 +552,7 @@ public class FanDAO {
 				}			
 		}
 		
-		return fa_num;
+		return preNum;
 		
 	}// previousPost end
 	
@@ -564,7 +564,15 @@ public class FanDAO {
 		
 		int nextNum = 0;
 		try{
+			con = getConnection();
+			String sql ="select fa_num from webtoon_fanart where fa_num =(select fa_num from webtoon_fanart where ?<fa_num order by fa_num limit 1)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fa_num);
+			rs = pstmt.executeQuery();
 			
+			if(rs.next()){
+				nextNum =rs.getInt("fa_num");
+			}
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
