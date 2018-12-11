@@ -108,7 +108,7 @@
 					<table class="main">
 						<tr>
 							<th
-								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">TITLE&nbsp;&nbsp;</th>
+								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
 							<th style="text-align: left; font-size: 30px;"><%=fb.getFa_subject() %></th>
 						</tr>
 						<hr>
@@ -232,12 +232,40 @@
 			<br>
 			<br>
 			<div id="next-prev">
+				<%
+					FanBean fb2 = fdao.getFanBoard(nextNum);
+				%>
+				<%
+					if (nextNum == 0) {
+				%>
+				<p>다음 글이 존재하지 않습니다.</p>
+				<%
+					} else {
+				%>
 				<p>
-					다음 글 : <a href="#">고양이세요?</a>
+					다음 글 : <a
+						href="./fanBoardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=fb2.getFa_subject()%></a>
 				</p>
+				<%
+					}
+				%>
+				<%
+				FanBean fb3 = fdao.getFanBoard(preNum);
+				%>
+				<%
+					if (preNum == 0) {
+				%>
+				<p>이전 글이 존재하지 않습니다.</p>
+				<%
+					} else {
+				%>
 				<p>
-					이전 글 : <a href="#">고양이애오</a>
+					이전 글 : <a
+						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
 				</p>
+				<%
+					}
+				%>
 			</div>
 
 		</div>
