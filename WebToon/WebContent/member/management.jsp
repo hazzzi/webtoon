@@ -15,6 +15,7 @@
 <%
 List<MemberBean> list = (List<MemberBean>)request.getAttribute("list");
 List<MemberBean> mt_search = (List<MemberBean>)request.getAttribute("mt_search");
+
 %>
 
 <div id="ma_wrap">
@@ -42,7 +43,7 @@ List<MemberBean> mt_search = (List<MemberBean>)request.getAttribute("mt_search")
 				<th>연령대</th>
 				<th>이메일</th>
 				<th>가입일</th>
-				<th><a href="MembermanagementDelete.me">회원삭제</a></th>
+				<th>회원삭제</th>
 			</tr>
 				
 				
@@ -59,7 +60,7 @@ List<MemberBean> mt_search = (List<MemberBean>)request.getAttribute("mt_search")
 				<td><%=mb.getAges()%></td>
 				<td><%=mb.getEmail()%></td>
 				<td><%=mb.getDate()%></td>
-				<td><input class="del_member" type="button" value="회원삭제" onclick="location.href='#'"></td>
+				<td><a href="MembermanagementDelete.me?mem_num=<%=mb.getNum()%>"><input class="del_member" type="button" value="회원삭제"></a></td>
 			</tr>
 			
 			
@@ -77,7 +78,7 @@ List<MemberBean> mt_search = (List<MemberBean>)request.getAttribute("mt_search")
 				<td><%=mb.getAges()%></td>
 				<td><%=mb.getEmail()%></td>
 				<td><%=mb.getDate()%></td>
-				<td><input class="del_member" type="button" value="회원삭제" onclick="location.href='#'"></td>
+				<td><a href="MembermanagementDelete.me?mem_num=<%=mb.getNum()%>"><input class="del_member" type="button" value="회원삭제"></a></td>
 			</tr>		
 					<%}}%>
 		</table>
