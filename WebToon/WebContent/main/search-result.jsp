@@ -291,7 +291,17 @@
 				if(<%=mem_num%>==null){
 					alert('로그인이 필요한 서비스입니다.');
 				}else{
-					$('#webtoon-content').show();
+					$.ajax('check_member.wbt',{
+						data:{
+							web_num:<%=wb.getWeb_num()%>
+						},success:function(data){
+							if(data){
+								$('#webtoon-content').show();
+							}else{
+								alert("평가후 이용가능한 서비스입니다.");
+							}
+						}
+					});
 				}
 			});
 			
