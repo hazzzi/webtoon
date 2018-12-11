@@ -26,7 +26,7 @@ System.out.println(sessionid);
 <div class="mp_img1">
 <img src="./member/img/settingsw.png">
 <img src="./member/img/settingshover.png"><br>
-웹툰 등록하기
+웹툰 목록관리
 </div>
 </a>
 
@@ -34,11 +34,11 @@ System.out.println(sessionid);
 <div class="mp_img2">
 <img src="./member/img/editw.png">
 <img src="./member/img/edithover.png"><br>
-웹툰 수정하기
+웹툰 등록하기
 </div>
 </a>
 
-<a href="./myArticle.me">
+<a href="./noticewrite.ft">
 <div class="mp_img3">
 <img src="./member/img/copyw.png">
 <img src="./member/img/copyhover.png"><br>

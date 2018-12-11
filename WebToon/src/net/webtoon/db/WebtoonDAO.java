@@ -113,7 +113,41 @@ public class WebtoonDAO {
 			}
 		}
 	}
-	
+	public List<WebtoonBean> getWebtoonList(){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		try{
+			con = getConnection();
+			
+			String sql="select * from webtoon";
+			pstmt = con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+				
+				list.add(wb);
+				
+				
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+	}
 	
 	public void updateWebtoon(WebtoonBean webtoon) {
 		Connection con = null;

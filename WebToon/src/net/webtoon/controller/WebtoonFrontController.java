@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.webtoon.action.WebtoonDetailAction;
 import net.webtoon.action.WebtoonInsertAction;
 import net.webtoon.action.WebtoonListReview;
+import net.webtoon.action.WebtoonManageListAction;
 import net.webtoon.action.WebtoonWriteReview;
 import net.webtoon.action.WebtoonSearchAction;
 
@@ -56,8 +57,20 @@ public class WebtoonFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/insertWebtoon.wbt")){
+		}else if(command.equals("/WebtoonInsertAction.wbt")){//12-10-7-59
 			action = new WebtoonInsertAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/insertWebtoon.wbt")){//12-10-7-59
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./data/webtoon.jsp");
+		}else if(command.equals("/WebtoonManageListAction.wbt")){//12-10-7-25
+			action = new WebtoonManageListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
