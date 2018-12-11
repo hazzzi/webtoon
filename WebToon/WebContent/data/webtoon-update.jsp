@@ -10,16 +10,18 @@
 </head>
 <body>
 	<%
-		String num = request.getParameter("num");
+		/* String num = request.getParameter("num");
 		int intnum = 0;
 		if(num!=null){
 			intnum=Integer.parseInt(num);
 		}
 		WebtoonDAO wdao=new WebtoonDAO();
-		WebtoonBean wb = wdao.getWebtoon(intnum);
+		WebtoonBean wb = wdao.getWebtoon(intnum); //18/12/11 14:32 */
+		WebtoonBean wb = (WebtoonBean)request.getAttribute("wb");
+		
 	%>
 	<h1>내용 빠짐없이 다 채워 주세요. 내용빠지면 DB에 안들어갑니다!</h1>
-	<form action="webtoon-updatePro.jsp" method="post">
+	<form action="WebtoonUpdatetAction2.wbt" method="post">
 		<input type="hidden" name="web_num" value="<%=wb.getWeb_num()%>">
 		웹툰 제목 : <input type="text" name="web_subject" value="<%=wb.getWeb_subject()%>"><br> 
 		웹툰 작가 : <input type="text" name="web_author" value="<%=wb.getWeb_author()%>"><br>

@@ -10,9 +10,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		MainDAO mdao = new MainDAO();
-		List<WebtoonBean> list = mdao.mainWebtoon();
+	<%request.setCharacterEncoding("utf-8");
+		/* MainDAO mdao = new MainDAO();
+		List<WebtoonBean> list = mdao.mainWebtoon(); //18-12-11이전 코드
+		*/
+		//18/12/11-12:06분
+		List<WebtoonBean> list=(List<WebtoonBean>)request.getAttribute("wbList");
+		
+		
 	%>
 	<table border="1">
 		<tr>
@@ -29,7 +34,7 @@
 		%>
 		<tr>
 			<td><%=wb.getWeb_num()%></td>
-			<td><a href="webtoon-update.jsp?num=<%=wb.getWeb_num()%>"><%=wb.getWeb_subject()%></a></td>
+			<td><a href="./WebtoonUpdatetAction1.wbt?num=<%=wb.getWeb_num()%>"><%=wb.getWeb_subject()%></a></td>
 			<td><%=wb.getWeb_author()%></td>
 			<td><%=wb.getWeb_genre()%></td>
 			<td><%=wb.getWeb_start()%></td>

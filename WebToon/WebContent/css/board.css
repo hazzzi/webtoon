@@ -358,11 +358,12 @@ td>a:HOVER {
 /* 팬아트 페이징 */
 .fan_paging {
 	font-size: 26px;
-	font-weight: bold;
-	margin: 10px 550px;
-	display: inline-block;
-	letter-spacing: 4px;
-	width: 320px;
+    font-weight: bold;
+    margin: 10px 550px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
+    text-align: center;
 }
 
 .fan_paging a {
