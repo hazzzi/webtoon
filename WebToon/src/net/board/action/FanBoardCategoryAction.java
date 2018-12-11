@@ -16,7 +16,7 @@ public class FanBoardCategoryAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 				
-		System.out.println("fanboardcategory() execute()");
+		System.out.println("fanBoardcategory() execute()");
 		
 		request.setCharacterEncoding("utf-8");
 		

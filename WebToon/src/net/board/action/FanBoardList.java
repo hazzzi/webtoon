@@ -15,20 +15,21 @@ public class FanBoardList implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println("fanboardList execute()");
+		System.out.println("fanBoardList execute()");
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		FanDAO fdao = new FanDAO();
 		
 		int count = fdao.getFanBoardCount();
 		int pageSize = 20;
-		
 		String pageNum = request.getParameter("pageNum");
-		
+			
 		if(pageNum==null){
 			pageNum="1";
 		}
 		
-		int currentPage = Integer.parseInt("pageNum");
+		int currentPage = Integer.parseInt(pageNum);
 		int startRow = (currentPage-1)*pageSize+1;
 		int endRow = currentPage*pageSize;
 		

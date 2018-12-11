@@ -106,6 +106,7 @@ public class WebtoonDAO {
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
 			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
@@ -136,19 +137,58 @@ public class WebtoonDAO {
 				wb.setWeb_info(rs.getString("web_info"));
 				wb.setWeb_ing(rs.getString("web_ing"));
 				wb.setWeb_link(rs.getString("web_link"));
-				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
-				
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));		
 				list.add(wb);
-				
-				
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}}
 		}
-		
-		return null;
+		return list;
 	}
 	
+	public WebtoonBean updategetwebtoon(int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		WebtoonBean wb=new WebtoonBean();
+		try{
+			con=getConnection();
+			
+			String sql = "select * from webtoon where web_num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_start"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+			}
+			
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally{
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}}
+		}
+		
+		
+		return wb;
+	}
 	public void updateWebtoon(WebtoonBean webtoon) {
 		Connection con = null;
 		PreparedStatement pstmt = null;

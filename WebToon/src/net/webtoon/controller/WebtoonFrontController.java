@@ -14,6 +14,8 @@ import net.webtoon.action.WebtoonListReview;
 import net.webtoon.action.WebtoonManageListAction;
 import net.webtoon.action.WebtoonWriteReview;
 import net.webtoon.action.WebtoonSearchAction;
+import net.webtoon.action.WebtoonUpdatetAction1;
+import net.webtoon.action.WebtoonUpdatetAction2;
 
 public class WebtoonFrontController extends HttpServlet{	
 	
@@ -71,6 +73,22 @@ public class WebtoonFrontController extends HttpServlet{
 			forward.setPath("./data/webtoon.jsp");
 		}else if(command.equals("/WebtoonManageListAction.wbt")){//12-10-7-25
 			action = new WebtoonManageListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/WebtoonUpdatetAction1.wbt")){//12-10-7-59
+			action = new WebtoonUpdatetAction1();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/WebtoonUpdatetAction2.wbt")){//12-10-7-59
+			action = new WebtoonUpdatetAction2();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

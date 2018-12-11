@@ -62,6 +62,7 @@ public class MainDAO {
          // 4 저장 <= 결과 실행
          pstmt = con.prepareStatement(sql);
 
+
          rs = pstmt.executeQuery();
          // 5 첫행에 데이터가 있으면 가장큰 번호+1;
          while (rs.next()) {
@@ -91,71 +92,73 @@ public class MainDAO {
       return list;
    }
    
-   public List<WebtoonBean> getGenderrank(String gender){
-      List<WebtoonBean> list = new ArrayList<WebtoonBean>();
-      
-      Connection con = null;
-      PreparedStatement pstmt = null;
-      PreparedStatement pstmt2 = null;
-      ResultSet rs = null;
-      ResultSet rs2 = null;
-      try {
-         con = getConnection();
-         
-         // 성별로 select 빈도수가 제일 높은순. 동차일경우 최근 입력된 웹툰순으로 
-         String sql = "select * from webtoon_rec_gender where webtoon_gender = ? order by webtoon_count desc, webtoon_web_num limit 0,20;";
-         pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, gender);
-         
-         rs = pstmt.executeQuery();
-         // 5 첫행에 데이터가 있으면 가장큰 번호+1;
-         while (rs.next()) {
-            WebtoonBean wb = new WebtoonBean();
-            wb.setWeb_num(rs.getInt("webtoon_web_num"));
-            sql = "select * from webtoon where web_num=?";
-            pstmt2 = con.prepareStatement(sql);
-            pstmt2.setInt(1, wb.getWeb_num());
-            
-            rs2 = pstmt2.executeQuery();
-            if(rs2.next()){
-               wb.setWeb_subject(rs2.getString("web_subject"));
-               wb.setWeb_author(rs2.getString("web_author"));
-               wb.setWeb_genre(rs2.getString("web_genre"));
-               wb.setWeb_start(rs2.getString("web_start"));
-               wb.setWeb_portal(rs2.getString("web_portal"));
-               wb.setWeb_info(rs2.getString("web_info"));
-               wb.setWeb_ing(rs2.getString("web_ing"));
-               wb.setWeb_link(rs2.getString("web_link"));
-               wb.setWeb_thumb_link(rs2.getString("web_thumb_link"));
-            }
-            
-            list.add(wb);
-         }
-      } catch (Exception e) {
-         e.printStackTrace();
-      } finally {
-         if (pstmt != null)try {pstmt.close();} catch (SQLException e) {   e.printStackTrace();}
-         if (con != null)try {con.close();} catch (SQLException e) {   e.printStackTrace();}
-         if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
-         }
-      }
-      
-      return list;
-   }
-   
-   public List<String> getWebtoon_genre(){
-      List<String> list = new ArrayList<String>();
-      
-      Connection con = null;
-      PreparedStatement pstmt = null;
-      ResultSet rs = null;
-      try {
-         con = getConnection();
-         // 게시판 글 번호 구하기
-         // num 구하기, 게시판 글 중에 가장 큰 번호
-         String sql = "select distinct web_genre from webtoon";
-         // 4 저장 <= 결과 실행
-         pstmt = con.prepareStatement(sql);
+
+	
+	public List<WebtoonBean> getGenderrank(String gender){
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		ResultSet rs = null;
+		ResultSet rs2 = null;
+		try {
+			con = getConnection();
+			
+			// 성별로 select 빈도수가 제일 높은순. 동차일경우 최근 입력된 웹툰순으로 
+			String sql = "select * from webtoon_rec_gender where webtoon_gender = ? order by webtoon_count desc, webtoon_web_num limit 0,20;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, gender);
+			
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("webtoon_web_num"));
+				sql = "select * from webtoon where web_num=?";
+				pstmt2 = con.prepareStatement(sql);
+				pstmt2.setInt(1, wb.getWeb_num());
+				
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()){
+					wb.setWeb_subject(rs2.getString("web_subject"));
+					wb.setWeb_author(rs2.getString("web_author"));
+					wb.setWeb_genre(rs2.getString("web_genre"));
+					wb.setWeb_start(rs2.getString("web_start"));
+					wb.setWeb_portal(rs2.getString("web_portal"));
+					wb.setWeb_info(rs2.getString("web_info"));
+					wb.setWeb_ing(rs2.getString("web_ing"));
+					wb.setWeb_link(rs2.getString("web_link"));
+					wb.setWeb_thumb_link(rs2.getString("web_thumb_link"));
+				}
+				
+				list.add(wb);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
+		return list;
+	}
+	
+	public List<String> getWebtoon_genre(){
+		List<String> list = new ArrayList<String>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			// 게시판 글 번호 구하기
+			// num 구하기, 게시판 글 중에 가장 큰 번호
+			String sql = "select distinct web_genre from webtoon";
+			// 4 저장 <= 결과 실행
+			pstmt = con.prepareStatement(sql);
 
          rs = pstmt.executeQuery();
          // 5 첫행에 데이터가 있으면 가장큰 번호+1;

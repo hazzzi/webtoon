@@ -23,7 +23,7 @@ System.out.println(sessionid);
 <%if(sessionid.equals("1")){ %>
 <div class="mp_wrap">
 
-<a href="MemberUpdateAction1.me">
+<a href="./WebtoonManageListAction.wbt">
 <div class="mp_img1">
 <img src="./member/img/settingsw.png">
 <img src="./member/img/settingshover.png"><br>
@@ -31,7 +31,7 @@ System.out.println(sessionid);
 </div>
 </a>
 
-<a href="./modPass.me">
+<a href="./insertWebtoon.wbt">
 <div class="mp_img2">
 <img src="./member/img/editw.png">
 <img src="./member/img/edithover.png"><br>

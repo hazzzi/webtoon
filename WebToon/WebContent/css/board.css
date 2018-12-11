@@ -346,9 +346,9 @@ td>a:HOVER {
 
 /* 본문 콘텐트(img)가 들어갈 영역 */
 .fan_content2 {
-	width: 1524px;
+	width: 1300px;
 	min-height: 300px;
-	margin-top: 7px;
+	margin: 0 auto;
 }
 
 .fan_content2 img {
@@ -358,11 +358,12 @@ td>a:HOVER {
 /* 팬아트 페이징 */
 .fan_paging {
 	font-size: 26px;
-	font-weight: bold;
-	margin: 10px 550px;
-	display: inline-block;
-	letter-spacing: 4px;
-	width: 320px;
+    font-weight: bold;
+    margin: 10px 550px;
+    display: inline-block;
+    letter-spacing: 4px;
+    width: 320px;
+    text-align: center;
 }
 
 .fan_paging a {
