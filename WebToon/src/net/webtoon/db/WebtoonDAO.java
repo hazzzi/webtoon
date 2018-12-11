@@ -426,4 +426,29 @@ public class WebtoonDAO {
 		}
 		return list;
 	}
+	
+	public boolean isRecommend(String mem_num, int web_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean check = false;
+		try {
+			con = getConnection();
+			String sql = "select * from recommend where rec_web_num=? and rec_mem_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, web_num);
+			pstmt.setString(2, mem_num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				check = true;
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return check;
+	}
 }
