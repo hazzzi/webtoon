@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>오늘 뭐 볼까?</title>
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./main/css/test.css">
 <link rel="stylesheet" href="./main/css/header.css">

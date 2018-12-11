@@ -12,6 +12,7 @@ import net.board.action.FanBoardCategoryAction;
 import net.board.action.FanBoardContentAction;
 import net.board.action.FanBoardList;
 import net.board.action.FanBoardWriteAction;
+import net.board.action.FanDeleteAction;
 import net.board.action.FanModify;
 import net.board.action.FanModifyAction;
 
@@ -85,6 +86,13 @@ public class FanBoardFrontController extends HttpServlet {
 			
 			action = new FanBoardContentAction();
 			
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();	
+			}
+		}else if(command.equals("/fanDelete.fo")){
+			action = new FanDeleteAction();
 			try{
 				forward = action.execute(request, response);
 			}catch (Exception e) {
