@@ -39,7 +39,32 @@
 
 <%request.setCharacterEncoding("utf-8");
 String mem_num=(String)session.getAttribute("mem_num");
- MemberBean mb=(MemberBean)request.getAttribute("mb"); 
+ MemberBean mb=(MemberBean)request.getAttribute("mb");
+ 
+ if(mb.getHint().equals("나의 좌우명은?")){
+	 mb.setHint("1");
+ }else if(mb.getHint().equals("나의 보물 제1호는?")){
+	 mb.setHint("2");
+ }else if(mb.getHint().equals("제일 좋아하는 스포츠팀의 이름은?")){
+	 mb.setHint("3");
+ }else if(mb.getHint().equals("나의 출생지역은?")){
+	 mb.setHint("4");
+ }else if(mb.getHint().equals("제일 좋아하는 음식은?")){
+	 mb.setHint("5");
+ }
+ 
+ if(mb.getAges().equals("10대")){
+	 mb.setAges("1");
+ }else if(mb.getAges().equals("20대")){
+	 mb.setAges("2");
+ }else if(mb.getAges().equals("30대")){
+	 mb.setAges("3");
+ }else if(mb.getAges().equals("40대")){
+	 mb.setAges("4");
+ }else if(mb.getAges().equals("50대 이상")){
+	 mb.setAges("5");
+ }
+ 
 %>
 <!--사진을 업로드 등록하면 페이지를 새로 실행 시킨다.  -->
 <form action="MemberUpdateAction2.me" method="post" enctype="multipart/form-data">

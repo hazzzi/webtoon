@@ -37,7 +37,9 @@ public class naverLoginAction implements Action{
 			gender="여";
 		}
 		ages=ages.substring(0,2)+"대";
-		
+		if(ages.equals("50대")){
+			ages="50대 이상";
+		}
 		
 		System.out.println(gender+","+email+","+nik+","+ profileImage+","+ uniqId+","+ ages);
 		
