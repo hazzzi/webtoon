@@ -108,7 +108,7 @@
 					<table class="main">
 						<tr>
 							<th	style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;"><%=fb.getFa_subject() %></th>
+							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>] [<%=fb.getFa_category2() %>]  <%=fb.getFa_subject() %></th>
 						</tr>
 						<hr>
 					</table>

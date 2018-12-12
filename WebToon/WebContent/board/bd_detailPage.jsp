@@ -111,7 +111,7 @@
 						<tr>
 							<th
 								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;"><%=bd.getFb_subject()%></th>
+							<th style="text-align: left; font-size: 30px;">[<%=bd.getFb_category()%>]    <%=bd.getFb_subject()%></th>
 						</tr>
 						<hr>
 					</table>
