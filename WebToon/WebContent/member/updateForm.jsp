@@ -41,27 +41,27 @@
 String mem_num=(String)session.getAttribute("mem_num");
  MemberBean mb=(MemberBean)request.getAttribute("mb");
  
- if(mb.getHint().equals("나의 좌우명은?")){
+ if(mb.getHint().equals("나의 좌우명은?")||mb.getHint().equals("1")){
 	 mb.setHint("1");
- }else if(mb.getHint().equals("나의 보물 제1호는?")){
+ }else if(mb.getHint().equals("나의 보물 제1호는?")||mb.getHint().equals("2")){
 	 mb.setHint("2");
- }else if(mb.getHint().equals("제일 좋아하는 스포츠팀의 이름은?")){
+ }else if(mb.getHint().equals("제일 좋아하는 스포츠팀의 이름은?")||mb.getHint().equals("3")){
 	 mb.setHint("3");
- }else if(mb.getHint().equals("나의 출생지역은?")){
+ }else if(mb.getHint().equals("나의 출생지역은?")||mb.getHint().equals("4")){
 	 mb.setHint("4");
- }else if(mb.getHint().equals("제일 좋아하는 음식은?")){
+ }else if(mb.getHint().equals("제일 좋아하는 음식은?")||mb.getHint().equals("5")){
 	 mb.setHint("5");
  }
  
- if(mb.getAges().equals("10대")){
+ if(mb.getAges().equals("10대")||mb.getAges().equals("1")){
 	 mb.setAges("1");
- }else if(mb.getAges().equals("20대")){
+ }else if(mb.getAges().equals("20대")||mb.getAges().equals("2")){
 	 mb.setAges("2");
- }else if(mb.getAges().equals("30대")){
+ }else if(mb.getAges().equals("30대")||mb.getAges().equals("3")){
 	 mb.setAges("3");
- }else if(mb.getAges().equals("40대")){
+ }else if(mb.getAges().equals("40대")||mb.getAges().equals("4")){
 	 mb.setAges("4");
- }else if(mb.getAges().equals("50대 이상")){
+ }else if(mb.getAges().equals("50대 이상")||mb.getAges().equals("5")){
 	 mb.setAges("5");
  }
  
