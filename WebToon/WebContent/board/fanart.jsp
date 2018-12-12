@@ -92,7 +92,6 @@
 							 <div class="img_hover"><br>
 							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
 									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
-<!-- 									 <div class="hover_line"> | </div>      -->
 									 <div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
 								</div> 
 								

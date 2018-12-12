@@ -74,8 +74,17 @@
 						%>
 						<td alt="사진">
 						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>">
+								
+								<div class="fb_img">
 								<img style="width: 300px; height: 300px;"
-								src="./upload/<%=fb.getFa_img()%>" class="fb_img">
+								src="./upload/<%=fb.getFa_img()%>">
+						
+								 <div class="img_hover"><br>
+							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
+									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
+									 <div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
+								</div> 
+								</div>
 						</a>
 						</td>
 						<%
@@ -91,7 +100,7 @@
 				</table>
 			</div>
 
-			<span class="fan_paging"> <%
+			<span class="fan_paging "> <%
  			if (endPage > pageCount) {
  				endPage = pageCount;
  				}
@@ -127,10 +136,10 @@
 		<jsp:include page="top.jsp"></jsp:include>
 
 		</article>
-
+</div>
 		<!-- footer 영역 시작-->
 		<jsp:include page="../main/footer.jsp"></jsp:include>
 		<!-- footer 영역 끝  -->
-	</div>
+	
 </body>
 </html>
