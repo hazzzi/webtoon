@@ -22,7 +22,7 @@
 	<%
 		String pageNum = (String) request.getAttribute("pageNum");
 
-		if (page == null) {
+		if (pageNum == null) {
 			pageNum = "1";
 		}
 
@@ -84,7 +84,8 @@
 						<%
 							if (count == 0) {
 						%>
-						<td>게시판 글 없음</td>
+						<tr>
+							<td colspan="8" rowspan="8" align="center">해당 게시물을 찾을 수 없습니다.</td>						
 						</tr>
 						<%
 							} else {
