@@ -46,9 +46,9 @@ public class MemberUpdateAction2 implements Action {
 
 		ActionForward forward = new ActionForward();
 
-		
-
-			/*if (mdao.emailOverlapcheck(mb)) {
+		/* 폼의 닉와 이메일이 디비와 다르면 디비에 중복체크를 실행해야한다. */
+		if (!mb.getEmail().equals(mb2.getEmail())) {//이메일이 기존과 다를때 에는
+			if (mdao.emailOverlapcheck(mb)) {//이메일이 다른 것과 중복되는지 체크해본다.
 				forward.setRedirect(true);
 				forward.setPath("./login.me");
 
@@ -59,7 +59,17 @@ public class MemberUpdateAction2 implements Action {
 				out.println("history.back();");
 				out.println("</script>");
 				out.close();
-			} else if (mdao.nikOverlapcheck(mb)) {
+			}else {//이메일 닉이 그전과 같으면 그대로 업데이트
+
+				mdao.updateMember(mb);
+
+				session.setAttribute("mem_nik", mb.getNik());
+
+				forward.setRedirect(true);
+				forward.setPath("./myProfile.me");
+			}
+		} else if (!mb.getNik().equals(mb2.getNik())) {
+			if (mdao.nikOverlapcheck(mb)) {
 				forward.setRedirect(true);
 				forward.setPath("./login.me");
 
@@ -70,7 +80,7 @@ public class MemberUpdateAction2 implements Action {
 				out.println("history.back();");
 				out.println("</script>");
 				out.close();
-			} else {
+			}else {//이메일 닉이 그전과 같으면 그대로 업데이트
 
 				mdao.updateMember(mb);
 
@@ -78,15 +88,19 @@ public class MemberUpdateAction2 implements Action {
 
 				forward.setRedirect(true);
 				forward.setPath("./myProfile.me");
-			}*/
-			
+			}
+		} else {//이메일 닉이 그전과 같으면 그대로 업데이트
+
 			mdao.updateMember(mb);
 
 			session.setAttribute("mem_nik", mb.getNik());
 
 			forward.setRedirect(true);
 			forward.setPath("./myProfile.me");
-	
+		}
+
+		
+
 		return forward;
 	}
 

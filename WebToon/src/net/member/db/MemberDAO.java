@@ -373,12 +373,19 @@ public class MemberDAO {
 		}
 	}
 
-	public void deleteMember(String mem_num) {
+	public void deleteMember(MemberBean mb) {
 		try {
 			con = getConnection();
-			String sql = "delete from member where mem_num=?";
+			String sql = "update member set mem_id=?,mem_email=?,mem_nik=?,mem_ages=?,mem_profileimg=?,mem_hint=?,mem_hintans=? where mem_num=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, mem_num);
+			pstmt.setString(1, "@"+mb.getId());
+			pstmt.setString(2, "@"+mb.getEmail());
+			pstmt.setString(3, "@"+mb.getNik());
+			pstmt.setString(4, "@"+mb.getAges());
+			pstmt.setString(5, "@"+mb.getProfileimg());
+			pstmt.setString(6, "@"+mb.getHint());
+			pstmt.setString(7, "@"+mb.getHintans());
+			pstmt.setString(8, mb.getNum());
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -956,5 +963,93 @@ public class MemberDAO {
 		}
 		
 		return flag;
+	}
+	
+	public int getmyboardCount_search(String mem_num,String search){
+		
+		int count = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(*) from free_board where fb_mem_num=? and fb_subject like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setString(2, "%" + search + "%");
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return count;
+	}
+	public List<BoardBean> getmyBoardList_search(int startRow, int pageSize, String mem_num,String search ){
+		List<BoardBean> myBoardList = new ArrayList<BoardBean>();
+		try {
+			con = getConnection();
+
+			String sql = "select * from free_board where fb_mem_num=? and fb_subject like ? limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setString(2, "%" + search + "%");
+			pstmt.setInt(3, startRow - 1);
+			pstmt.setInt(4, pageSize);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardBean bb = new BoardBean();
+
+				bb.setFb_num(rs.getInt("fb_num"));
+				bb.setFb_mem_num(rs.getString("fb_mem_num"));
+				bb.setFb_mem_nik(rs.getString("fb_mem_nik"));
+				bb.setFb_category(rs.getString("fb_category"));
+				bb.setFb_subject(rs.getString("fb_subject"));
+				bb.setFb_content(rs.getString("fb_content"));
+				bb.setFb_img(rs.getString("fb_img"));
+				bb.setFb_sumlike(rs.getInt("fb_sumlike"));
+				bb.setFb_readcount(rs.getInt("fb_readcount"));
+				bb.setFb_date(rs.getDate("fb_date"));
+
+				myBoardList.add(bb);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return myBoardList;
 	}
 }
