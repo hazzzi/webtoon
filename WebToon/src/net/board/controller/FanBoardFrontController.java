@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.board.action.FanBoardCategoryAction;
 import net.board.action.FanBoardContentAction;
+import net.board.action.FanBoardLikeAction;
 import net.board.action.FanBoardList;
 import net.board.action.FanBoardSearchAction;
 import net.board.action.FanBoardWriteAction;
@@ -117,6 +118,13 @@ public class FanBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}else if(command.equals("/fanboardLike.fo")){
+			action =new FanBoardLikeAction();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		// 이동 시작

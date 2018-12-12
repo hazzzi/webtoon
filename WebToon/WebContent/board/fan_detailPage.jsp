@@ -38,6 +38,13 @@
 		p.style.display = p_display;
 		form.style.display = form_display;
 	}
+	
+	$(document).ready(function() {
+	
+		$ajax()
+	
+	});
+	
 </script>
 </head>
 

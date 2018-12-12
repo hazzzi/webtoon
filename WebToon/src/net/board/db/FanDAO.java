@@ -531,8 +531,91 @@ public class FanDAO {
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}			
 		}
 		return nextNum;
 
+	}//nextPost end
+	
+	public int likeCount(FanBean fb){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int like=0;
+		
+		try{
+			con = getConnection();
+			String sql = "select fa_likecount from fanart_likecount where fa_mem_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, fb.getFa_mem_num());
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				sql ="update fanart_likecount set fa_likecount=? where fa_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_sumlike()-1);
+				pstmt.setString(2, fb.getFa_mem_num());
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				rs.close();
+				
+				like = fb.getFa_sumlike();
+				
+				return like;
+			}else{
+				sql = "insert into fanart_likecount(fa_num, fa_likecount, fa_mem_num) values(?, ?, ?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_num());
+				pstmt.setInt(2, fb.getFa_sumlike()+1);
+				pstmt.setString(3, fb.getFa_mem_num());
+				pstmt.executeUpdate();
+				//like를 리턴해야 하나...
+				
+				pstmt.close();
+				rs.close();
+				
+				like = fb.getFa_sumlike();
+				
+				return like;
+			}
+		}catch(Exception e){
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}			
+		}
+		
+		
+		return like;
 	}
 }

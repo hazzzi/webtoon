@@ -60,7 +60,7 @@ public class FanBoardWriteAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 			out.close();
-		} else if (fa_category1 == null) {
+		} else if (fa_category2 == null) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
