@@ -204,7 +204,6 @@ public class FanDAO {
 			
 			pstmt.setString(1, "%"+ search + "%");
 			pstmt.setString(2, "%"+ search + "%");
-			pstmt.setString(3, "%"+ search + "%");
 			
 			rs = pstmt.executeQuery();
 			
@@ -314,8 +313,8 @@ public class FanDAO {
 			pstmt.setString(2, "%"+search+"%");
 			pstmt.setString(3, "%"+search+"%");
 			pstmt.setString(4, "%"+search+"%");
-			pstmt.setInt(4, startRow-1);
-			pstmt.setInt(5, pageSize);	
+			pstmt.setInt(5, startRow-1);
+			pstmt.setInt(6, pageSize);	
 			
 			ResultSet rs = pstmt.executeQuery();
 			

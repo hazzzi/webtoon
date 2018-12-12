@@ -18,8 +18,6 @@
 </head>
 <body>
 	<%
-		FanBean fb = new FanBean();
-		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
 		if (pageNum == null) {
@@ -33,8 +31,13 @@
 
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
+		String search = request.getParameter("search");
+		FanBean fb = new FanBean();
+		FanDAO fdao = new FanDAO();
+		int count = fdao.getFanBoardCount(search);
+		
 		String mem_num = (String)session.getAttribute("mem_num");
-	
+		
 	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
@@ -58,16 +61,6 @@
 				<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 
 				<table>
-				<!-- 게시물 없으면 게시물 없음 뜨도록 -->
-				<%
-				if(count ==0){
-				%>
-				<tr>
-					<td colspan="8" rowspan="8" align="center">해당 게시물을 찾을 수 없습니다.</td>
-				</tr>
-				<%
-				}
-				%>
 					<%
 						for (int i = 0; i < fanboardList.size(); i++) {
 							fb = fanboardList.get(i);
