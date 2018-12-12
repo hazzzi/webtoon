@@ -115,7 +115,7 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=fb.getFa_category1()%> | </span>
+							<span>[<%=fb.getFa_category1()%>] | </span>
 							<span><%=fb.getFa_category2()%> | </span>
 							<span><%=fb.getFa_date()%> | </span>
 							<span><%=fb.getFa_mem_nik()%> | </span>

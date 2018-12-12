@@ -37,6 +37,8 @@
 
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
+		System.out.print(fanboardList.size());
+		
 		String mem_num = (String)session.getAttribute("mem_num");
 	
 	%>
@@ -92,10 +94,8 @@
 							 <div class="img_hover"><br>
 							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
 									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
-<!-- 									 <div class="hover_line"> | </div>      -->
-									 <div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
+									<div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
 								</div> 
-								
 							</div>
 						</a>
 						</td>

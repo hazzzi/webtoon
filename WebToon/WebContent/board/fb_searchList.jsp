@@ -31,11 +31,11 @@
 
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
+		System.out.print(fanboardList.size());
+		
 		String search = request.getParameter("search");
 		FanBean fb = new FanBean();
-		FanDAO fdao = new FanDAO();
-		int count = fdao.getFanBoardCount(search);
-		
+
 		String mem_num = (String)session.getAttribute("mem_num");
 		
 	%>
