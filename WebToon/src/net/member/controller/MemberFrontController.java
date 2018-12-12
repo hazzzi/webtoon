@@ -22,6 +22,8 @@ import net.member.action.MemberUpdateAction2;
 import net.member.action.MemberWithdrawAction;
 import net.member.action.MembermyarticleListAction;
 import net.member.action.naverLoginAction;
+import net.member.action.naverLoginAction2;
+import net.member.action.naverinsertAction;
 import net.member.action.MemberSearchAction;
 
 public class MemberFrontController extends HttpServlet {
@@ -232,6 +234,24 @@ public class MemberFrontController extends HttpServlet {
 			}
 		}else if (command.equals("/naverLoginAction.me")) {
 			action = new naverLoginAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if (command.equals("/naverLoginAction2.me")) {
+			action = new naverLoginAction2();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if (command.equals("/naverinsertAction.me")) {
+			action = new naverinsertAction();
 
 			try {
 				forward = action.execute(request, response);

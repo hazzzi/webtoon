@@ -39,6 +39,9 @@ public class MemberUpdateAction2 implements Action{
 		System.out.println("파일 스트링 확인 "+filePath+multi.getFilesystemName("file"));
 		MemberDAO mdao = new MemberDAO();
 		mdao.updateMember(mb);
+		
+		session.setAttribute("mem_nik", mb.getNik());
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("./myProfile.me");

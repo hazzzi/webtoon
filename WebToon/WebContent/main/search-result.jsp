@@ -219,13 +219,13 @@
 		 			<!-- get방식 이용 id 파라미터 값 넘기기 -->
 		 			<p><!-- <a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>| -->
 		 			   <a href="./fanboardList.bo">더보기</a></p>
+		 			<div>
 		 			<%
 		 			if(fanList.size()==0){%>
 		 				<h3 style="text-align: center; line-height: 5;">아직 팬아트가 없습니다!</h3>
 		 			<%}else{
 		 				for(FanBean f:fanList){
 		 			%>
-			 			<div>
 			 				<!-- 링크는 fanart content 영역으로 수정 -->
 			 				<!-- db 이용 -->
 			 				<!-- webtoon_fanart 디비 참조 -->
@@ -234,9 +234,9 @@
 			 				<a href="./fanarttmpaddress.wbt?fa_num=<%=f.getFa_num()%>">
 					 			<img src="./upload/<%=f.getFa_img()%>">
 				 			</a>
-			 			</div>
 		 			<%} 
 		 			}%>
+		 			</div>
 		 		</div>
 		 		<hr>
 		 		<div class="sr-content-sub-star">
@@ -295,7 +295,7 @@
 						data:{
 							web_num:<%=wb.getWeb_num()%>
 						},success:function(data){
-							if(data){
+							if($.trim(data)=='true'){
 								$('#webtoon-content').show();
 							}else{
 								alert("평가후 이용가능한 서비스입니다.");
