@@ -263,7 +263,7 @@ public class FanDAO {
 				fb.setFa_subject(rs.getString("fa_subject"));
 				fb.setFa_category1(rs.getString("fa_category1"));
 				fb.setFa_category2(rs.getString("fa_category2"));
-				fb.setFa_subject(rs.getString("fa_content"));
+				fb.setFa_content(rs.getString("fa_content"));
 				fb.setFa_img(rs.getString("fa_img"));
 				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
 				fb.setFa_readcount(rs.getInt("fa_readcount"));
