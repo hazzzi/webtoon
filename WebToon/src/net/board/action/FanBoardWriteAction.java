@@ -17,6 +17,7 @@ import net.board.db.BoardDAO;
 import net.board.db.FanBean;
 import net.board.db.FanDAO;
 
+//a
 public class FanBoardWriteAction implements Action {
 
 	@Override

@@ -189,51 +189,6 @@ public class FanDAO {
 		return count;	
 	}// fanboard 게시판 글 개수 end
 	
-	public int getFanBoardCount(String search){
-		int count = 0;
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try{
-			con = getConnection();
-			
-			String sql = "select count(*) from webtoon_fanart where fa_subject like ? "
-					+ "or fa_mem_nik like ?";
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, "%"+ search + "%");
-			pstmt.setString(2, "%"+ search + "%");
-			pstmt.setString(3, "%"+ search + "%");
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()){
-				count = rs.getInt("count(*)");
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			if (con != null)
-				try {
-					con.close();
-				} catch (SQLException e) {
-				}
-		}
-		
-		return count;		
-	}
 	
 	public List<FanBean> getBoardList(int startRow, int pageSize){
 		
@@ -264,7 +219,7 @@ public class FanDAO {
 				fb.setFa_subject(rs.getString("fa_subject"));
 				fb.setFa_category1(rs.getString("fa_category1"));
 				fb.setFa_category2(rs.getString("fa_category2"));
-				fb.setFa_subject(rs.getString("fa_content"));
+				fb.setFa_content(rs.getString("fa_content"));
 				fb.setFa_img(rs.getString("fa_img"));
 				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
 				fb.setFa_readcount(rs.getInt("fa_readcount"));
@@ -314,8 +269,8 @@ public class FanDAO {
 			pstmt.setString(2, "%"+search+"%");
 			pstmt.setString(3, "%"+search+"%");
 			pstmt.setString(4, "%"+search+"%");
-			pstmt.setInt(4, startRow-1);
-			pstmt.setInt(5, pageSize);	
+			pstmt.setInt(5, startRow-1);
+			pstmt.setInt(6, pageSize);	
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -435,6 +390,8 @@ public class FanDAO {
 		
 		try{
 			con = getConnection();
+			
+			
 			String sql = "update webtoon_fanart set fa_readcount=fa_readcount+1 where fa_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fa_num);

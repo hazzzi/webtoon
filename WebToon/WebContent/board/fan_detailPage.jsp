@@ -115,8 +115,11 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=fb.getFa_date()%> | </span> <span><%=fb.getFa_mem_nik()%>
-								| </span> <span><%=fb.getFa_readcount()%></span>
+							<span>[<%=fb.getFa_category1()%>] | </span>
+							<span><%=fb.getFa_category2()%> | </span>
+							<span><%=fb.getFa_date()%> | </span>
+							<span><%=fb.getFa_mem_nik()%> | </span>
+							<span><%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
 							<a href="./upload/<%=fb.getFa_img()%>"><img
@@ -127,8 +130,10 @@
 						</div>
 					</div>
 					<!-- LikeBtn.com BEGIN -->
-					
-					
+			
+			
+			
+			
 					<!-- LikeBtn.com END -->
 				</div>
 

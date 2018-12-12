@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.board.action.FanBoardCategoryAction;
 import net.board.action.FanBoardContentAction;
 import net.board.action.FanBoardList;
+import net.board.action.FanBoardSearchAction;
 import net.board.action.FanBoardWriteAction;
 import net.board.action.FanDeleteAction;
 import net.board.action.FanModify;
@@ -66,16 +67,21 @@ public class FanBoardFrontController extends HttpServlet {
 			}
 					
 		}else if(command.equals("/fanModify.fo")){
+			
 			forward = new ActionForward();
 			forward.setPath("./board/fan_modifyPage.jsp");
 			forward.setRedirect(false);
+			
 		}else if(command.equals("/fanModifyAction.fo")){
+			
 			action = new FanModifyAction();
+			
 			try{
 				forward = action.execute(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();	
 			}
+			
 		}else if(command.equals("/fan_writingPage.fo")){
 			
 			forward = new ActionForward();
@@ -91,13 +97,26 @@ public class FanBoardFrontController extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();	
 			}
+			
 		}else if(command.equals("/fanDelete.fo")){
+			
 			action = new FanDeleteAction();
+			
 			try{
 				forward = action.execute(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();	
 			}
+		}else if(command.equals("/fanboardSearch.fo")){
+			
+			action = new FanBoardSearchAction();
+			
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 
 		// 이동 시작

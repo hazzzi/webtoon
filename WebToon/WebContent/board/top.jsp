@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
     
 <nav class="top1">
-       <a href="#"><img alt="TOP" src="../css/images/btn_top01.png" width="70px"></a>
+       <a href="#"><img alt="TOP" src="./css/images/btn_top01.png" width="70px"></a>
 </nav>
