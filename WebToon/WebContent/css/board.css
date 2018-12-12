@@ -379,7 +379,7 @@ td>a:HOVER {
 /*     text-align: center left;  */
 }
 
-.fb_img .img_hover{
+.fb_img:HOVER .img_hover{
 	width: 300px;
     height: 80px;
     background-color: black;
