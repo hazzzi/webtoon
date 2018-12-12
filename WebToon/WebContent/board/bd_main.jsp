@@ -22,7 +22,7 @@
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
-		if (page == null) {
+		if (pageNum == null) {
 			pageNum = "1";
 		}
 
@@ -32,6 +32,8 @@
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 
 		List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
+		
+		String mem_num = (String)session.getAttribute("mem_num");
 	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
@@ -71,7 +73,8 @@
 						<%
 							if (count == 0) {
 						%>
-						<td>게시판 글 없음</td>
+						<tr>
+							<td colspan="7" align="center">게시판 글 없음</td>
 						</tr>
 						<%
 							} else {
@@ -148,9 +151,12 @@
 				<jsp:include page="search_engine.jsp"></jsp:include>
 
 				<!-- 검색창 영역 -->
-
+				<%if(mem_num!=null) {%>
 				<input type="button" value="글 쓰기" class="write"
 					onclick="location.href='./bd_writingPage.bo'">
+					<%
+					}	
+					%>
 			</div>
 			<!-- 카테고리 영역 끝-->
 
