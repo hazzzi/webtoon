@@ -41,20 +41,20 @@
 	<div id="wrap">
 		<!-- header 영역 시작 -->
 		<jsp:include page="../main/header.jsp"></jsp:include>
-		<script>
+		<!-- 	<script>
 			$(document).ready(function() {
-				$("#header-srch").hide();
 				$("#a_srch").click(function() {
 					$(".tmp").toggle();
 					$("#header-srch").toggle(500);
 				});
 			});
-		</script>
+		</script> -->
 
 		<!-- header 영역 끝 -->
 
 		<!-- article 영역 시작 -->
-		<article> <!-- content 영역 -->
+		<article> 
+		<!-- content 영역 -->
 		<div class="content">
 			<!-- 페이지 이동 버튼, 검색창, 공지사항 영역 시작 -->
 			<jsp:include page="header_main.jsp"></jsp:include>
@@ -85,7 +85,8 @@
 							if (count == 0) {
 						%>
 						<tr>
-							<td colspan="8" rowspan="8" align="center">해당 게시물을 찾을 수 없습니다.</td>						
+							<td colspan="8" rowspan="8" align="center">해당 게시물을 찾을 수
+								없습니다.</td>
 						</tr>
 						<%
 							} else {
