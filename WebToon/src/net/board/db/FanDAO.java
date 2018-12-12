@@ -435,6 +435,8 @@ public class FanDAO {
 		
 		try{
 			con = getConnection();
+			
+			
 			String sql = "update webtoon_fanart set fa_readcount=fa_readcount+1 where fa_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fa_num);
