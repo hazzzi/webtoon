@@ -60,7 +60,12 @@ public class WebtoonFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/WebtoonInsertAction.wbt")){//12-10-7-59
+		}else if(command.equals("/insertWebtoon.wbt")){//12-10-7-59
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./data/webtoon.jsp");
+			
+		}else if(command.equals("/webtoonInsertAction.wbt")){//12-10-7-59
 			action = new WebtoonInsertAction();
 			try {
 				forward = action.execute(request, response);
@@ -68,10 +73,6 @@ public class WebtoonFrontController extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else if(command.equals("/insertWebtoon.wbt")){//12-10-7-59
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./data/webtoon.jsp");
 		}else if(command.equals("/WebtoonManageListAction.wbt")){//12-10-7-25
 			action = new WebtoonManageListAction();
 			try {
