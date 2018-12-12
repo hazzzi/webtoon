@@ -18,17 +18,11 @@
 </head>
 <body>
 	<%
-		FanBean fb = new FanBean();
-		FanDAO fdao = new FanDAO();
-		
-		
-		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
 		if (pageNum == null) {
 			pageNum = "1";
 		}
-		
 
 		int pageCount = ((Integer) request.getAttribute("pageCount")).intValue();
 		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
@@ -39,8 +33,11 @@
 		
 		System.out.print(fanboardList.size());
 		
+		String search = request.getParameter("search");
+		FanBean fb = new FanBean();
+
 		String mem_num = (String)session.getAttribute("mem_num");
-	
+		
 	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
@@ -64,16 +61,6 @@
 				<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 
 				<table>
-				<!-- 게시물 없으면 게시물 없음 뜨도록 -->
-				<%
-				if(count ==0){
-				%>
-				<tr>
-					<td colspan="8" rowspan="8" align="center">해당 게시물을 찾을 수 없습니다.</td>
-				</tr>
-				<%
-				}
-				%>
 					<%
 						for (int i = 0; i < fanboardList.size(); i++) {
 							fb = fanboardList.get(i);
@@ -85,18 +72,19 @@
 						<%
 							}
 						%>
-						<td alt="사진"> 
-						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>" >
-						<div class="fb_img" >
+						<td alt="사진">
+						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>">
+								
+								<div class="fb_img">
 								<img style="width: 300px; height: 300px;"
-								src="./upload/<%=fb.getFa_img()%>" >
-										
-							 <div class="img_hover"><br>
+								src="./upload/<%=fb.getFa_img()%>">
+						
+								 <div class="img_hover"><br>
 							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
 									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
-									<div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
+									 <div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
 								</div> 
-							</div>
+								</div>
 						</a>
 						</td>
 						<%
@@ -112,7 +100,7 @@
 				</table>
 			</div>
 
-			<span class="fan_paging"> <%
+			<span class="fan_paging "> <%
  			if (endPage > pageCount) {
  				endPage = pageCount;
  				}
@@ -145,13 +133,13 @@
 		<!-- 카테고리 영역 끝-->
 
 
-			<!-- 상단 이동 바 --> <jsp:include page="top.jsp"></jsp:include> <!-- 상단 이동 바 끝-->
+		<jsp:include page="top.jsp"></jsp:include>
 
 		</article>
-
+</div>
 		<!-- footer 영역 시작-->
 		<jsp:include page="../main/footer.jsp"></jsp:include>
 		<!-- footer 영역 끝  -->
-	</div>
+	
 </body>
 </html>
