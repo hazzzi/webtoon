@@ -1,3 +1,4 @@
+<%@page import="net.board.db.FanDAO"%>
 <%@page import="net.board.db.FanBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,12 +19,16 @@
 <body>
 	<%
 		FanBean fb = new FanBean();
+		FanDAO fdao = new FanDAO();
+		
+		
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
 
 		if (page == null) {
 			pageNum = "1";
 		}
+		
 
 		int pageCount = ((Integer) request.getAttribute("pageCount")).intValue();
 		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
@@ -66,10 +71,20 @@
 						<%
 							}
 						%>
-						<td alt="사진">
-						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>">
+						<td alt="사진"> 
+						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>" >
+						<div class="fb_img" >
 								<img style="width: 300px; height: 300px;"
-								src="./upload/<%=fb.getFa_img()%>" class="fb_img">
+								src="./upload/<%=fb.getFa_img()%>" >
+										
+							 <div class="img_hover"><br>
+							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
+									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
+<!-- 									 <div class="hover_line"> | </div>      -->
+									 <div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
+								</div> 
+								
+							</div>
 						</a>
 						</td>
 						<%
@@ -113,7 +128,7 @@
 		<!-- 카테고리 영역 끝-->
 
 
-		<jsp:include page="top.jsp"></jsp:include>
+			<!-- 상단 이동 바 --> <jsp:include page="top.jsp"></jsp:include> <!-- 상단 이동 바 끝-->
 
 		</article>
 

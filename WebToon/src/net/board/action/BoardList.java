@@ -56,6 +56,7 @@ public class BoardList implements Action{
 		forward.setRedirect(false);
 		forward.setPath("./board/bd_main.jsp");
 		
+		
 		return forward;
 	}
 
