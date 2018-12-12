@@ -750,5 +750,87 @@ public class MemberDAO {
 		
 		return flag;
 	}
+	
+	public void naverIdinsert(MemberBean nmb){
+		
+		try{
+			con=getConnection();
+			
+			String sql = "insert into "
+					+ "member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint,mem_profileimg) "
+					+ "values(?,?,?,?,?,?,?,now(),?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, nmb.getNum());//uniqId
+			pstmt.setString(2, nmb.getId());//uniqId
+			pstmt.setString(3, nmb.getPass());//"  " 공백값
+			pstmt.setString(4, nmb.getEmail());//네이버 이메일
+			pstmt.setString(5, nmb.getNik());//네이버 닉네임
+			pstmt.setString(6, nmb.getAges());//연령대 ex)10대 20대
+			pstmt.setString(7, nmb.getGender());//성별 ex)남 여
+			pstmt.setString(8, nmb.getHintans());//나의 보물 제1호는? 
+			pstmt.setString(9, nmb.getHint());//"   " 공백값
+			pstmt.setString(10, nmb.getProfileimg());//네이버 프로필
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+	}
+	
+	public MemberBean loginNaver(MemberBean nmb){
+		MemberBean mb=new MemberBean();
+		try{
+			con=getConnection();
+			
+			String sql="select mem_num, mem_nik from member where mem_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, nmb.getNum());
+
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				mb.setNum(rs.getString("mem_num"));
+				mb.setNik(rs.getString("mem_nik"));
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return mb;
+	}
 
 }
