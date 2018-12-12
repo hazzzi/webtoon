@@ -1,5 +1,6 @@
 package net.board.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,7 @@ public class BoardSearchAction implements Action {
 		int endRow = currentPage*pageSize;		
 		
 		List <BoardBean> boardList = null;
+		
 		if(count!=0){
 			boardList = bdao.getBoardList(startRow, pageSize, search);
 		}

@@ -189,50 +189,6 @@ public class FanDAO {
 		return count;	
 	}// fanboard 게시판 글 개수 end
 	
-	public int getFanBoardCount(String search){
-		int count = 0;
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try{
-			con = getConnection();
-			
-			String sql = "select count(*) from webtoon_fanart where fa_subject like ? "
-					+ "or fa_mem_nik like ?";
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, "%"+ search + "%");
-			pstmt.setString(2, "%"+ search + "%");
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()){
-				count = rs.getInt("count(*)");
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			if (con != null)
-				try {
-					con.close();
-				} catch (SQLException e) {
-				}
-		}
-		
-		return count;		
-	}
 	
 	public List<FanBean> getBoardList(int startRow, int pageSize){
 		
