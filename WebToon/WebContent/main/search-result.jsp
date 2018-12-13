@@ -44,7 +44,7 @@
 	List<WebtoonBean> similar = (List<WebtoonBean>)request.getAttribute("similar");
 	List<FanBean> fanList = (List<FanBean>)request.getAttribute("fanList");
 	int reviewcount = (int)request.getAttribute("reviewcount");
-	
+	List<Integer> check = (List<Integer>)request.getAttribute("check");
 	String mem_num = (String)session.getAttribute("mem_num");
 
 	int tmp0 = (int)(score*10);
@@ -176,7 +176,7 @@
 			 				<p><%=bb.getWbb_comment() %></p>
 			 				<hr>
 			 				<!-- wbb_sumlike -->
-			 				<i class="fa fa-thumbs-o-up"></i><p><%=bb.getWbb_sumlike() %></p>
+			 				<i class="fa fa-heart-o like" title="<%=bb.getWbb_bdnum()%>" style="cursor: pointer;"></i><p><%=bb.getWbb_sumlike() %></p>
 			 			</div>
 			 			<%i++;}
 		 			} %>
@@ -219,13 +219,13 @@
 		 			<!-- get방식 이용 id 파라미터 값 넘기기 -->
 		 			<p><!-- <a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>| -->
 		 			   <a href="./fanboardList.bo">더보기</a></p>
+		 			<div>
 		 			<%
 		 			if(fanList.size()==0){%>
 		 				<h3 style="text-align: center; line-height: 5;">아직 팬아트가 없습니다!</h3>
 		 			<%}else{
 		 				for(FanBean f:fanList){
 		 			%>
-			 			<div>
 			 				<!-- 링크는 fanart content 영역으로 수정 -->
 			 				<!-- db 이용 -->
 			 				<!-- webtoon_fanart 디비 참조 -->
@@ -234,9 +234,9 @@
 			 				<a href="./fanarttmpaddress.wbt?fa_num=<%=f.getFa_num()%>">
 					 			<img src="./upload/<%=f.getFa_img()%>">
 				 			</a>
-			 			</div>
 		 			<%} 
 		 			}%>
+		 			</div>
 		 		</div>
 		 		<hr>
 		 		<div class="sr-content-sub-star">
@@ -291,7 +291,17 @@
 				if(<%=mem_num%>==null){
 					alert('로그인이 필요한 서비스입니다.');
 				}else{
-					$('#webtoon-content').show();
+					$.ajax('check_member.wbt',{
+						data:{
+							web_num:<%=wb.getWeb_num()%>
+						},success:function(data){
+							if($.trim(data)=='true'){
+								$('#webtoon-content').show();
+							}else{
+								alert("평가후 이용가능한 서비스입니다.");
+							}
+						}
+					});
 				}
 			});
 			
@@ -309,7 +319,48 @@
 					$(this).addClass('fa-star-half-full');
 				}
 			});
-			
+			// 좋아요를 이미 했을때 보여지는 값
+			$('.like').each(function(index){
+				var check = <%=check%>;
+				if(check.length!=0){
+					for(var i=0; i<check.length; i++){
+						//alert(check[i]);
+						if(check[i]==$(this).attr('title')){
+							$(this).removeClass('fa-heart-o');
+							$(this).addClass('fa-heart');
+							//$(this).css("color", "#1b1526");
+						}
+					}
+				}
+			});	
+			$('i.like').click(function(){
+				if(<%=mem_num%>==null){
+					alert('로그인이 필요한 서비스 입니다.');
+				}else{
+					$.ajax('comment_like.wbt',{
+						context: this,
+						data:{	
+							wbb_bdnum: $(this).attr('title')
+						},success:function(data){
+							//alert(data);
+							var op = data.split(",");
+							// 이미 좋아요를 했을때
+							if(op[0]=='true'){
+								$(this).removeClass('fa-heart');
+								$(this).addClass('fa-heart-o');
+								//$(this).css("color", "#c0c0c0");
+								$(this).next().html(op[1]);
+							// 좋아요 안눌렀을때
+							}else{
+								$(this).removeClass('fa-heart-o');
+								$(this).addClass('fa-heart');
+								//$(this).css("color", "#1b1526");
+								$(this).next().html(op[1]);
+							}
+						}
+					});
+				}
+			});
 		});
 	</script>
 	<jsp:include page="top.jsp"></jsp:include>

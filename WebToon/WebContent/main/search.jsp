@@ -29,7 +29,7 @@
 // 		        $("#header-srch").toggle(500);
 // 		    });
 			
-			$('#srch-q').val('<%=(String)request.getAttribute("qurey")%>');
+			$('#srch-q').val('<%=(String)request.getAttribute("query")%>');
 			
 			var scrollPosition;
 			$(window).scroll(function(){
@@ -44,77 +44,87 @@
 	</script>
 	<!-- search-result header 영역 (끝) -->
 		<%
-			List<WebtoonBean> subject = (List<WebtoonBean>) request.getAttribute("subject");
-			List<WebtoonBean> author = (List<WebtoonBean>) request.getAttribute("author");
-			List<WebtoonBean> portal = (List<WebtoonBean>) request.getAttribute("portal");
+			List<WebtoonBean> result = (List<WebtoonBean>) request.getAttribute("result");
 			
-			System.out.println(subject);
-			System.out.println(author);
-			System.out.println(portal);
+			System.out.println(result);
+			String query = (String)request.getAttribute("query");
+			
+			int index = 0;
 		%>
 
 		<div class="sach-background">
-			<h2>'<%=(String)request.getAttribute("qurey") %>' 검색 결과</h2>
-			<%if(subject.size()+author.size()+portal.size()!=0){ %>
-				<h3> <%=subject.size()+author.size()+portal.size() %>건이 검색되었습니다.</h3>
+			<h2>'<%=query %>' 검색 결과</h2>
+			<%if(result.size()!=0){ %>
+				<h3> <%=result.size() %>건이 검색되었습니다.</h3>
 			<%} %>
 		</div>
 		<div class="sach-main">
 		<!-- 넘어온 파라미터기준으로 디비에서 검색 select where절 이용해서 -->
 		<!-- webtoon 디비에서만 검색, subject, author 까지-->
 			<!-- 반복문 시작 -->
-			<%
-			if(subject.size()!=0){%>
-				<h2>제목</h2>
-				<%for(WebtoonBean wb:subject){ %>
-				<div class="sach-rt">
-					<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
-						<!-- webtoon 썸네일  -->
-						<img src="<%=wb.getWeb_thumb_link()%>">
-						<!-- 제목 -->
-						<span><%=wb.getWeb_subject() %></span> 
-						<!-- 작가 -->
-						<span><%=wb.getWeb_author() %></span> 
-						<!-- 포털  -->
-					</a>
-				</div>
-			<%}%>
-			<%}%>
-			<%
-			if(author.size()!=0){%>
-				<h2>작가</h2>
-				<%for(WebtoonBean wb:author){ %>
-				<div class="sach-rt">
-					<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
-						<!-- webtoon 썸네일  -->
-						<img src="<%=wb.getWeb_thumb_link()%>">
-						<!-- 제목 -->
-						<span><%=wb.getWeb_subject() %></span> 
-						<!-- 작가 -->
-						<span><%=wb.getWeb_author() %></span> 
-						<!-- 포털  -->
-					</a>
-				</div>
-			<%}%>
-			<%}%>
-			<%if(portal.size()!=0){%>
-				<h2>연재포털</h2>
-				<%for(WebtoonBean wb:portal){ %>
-				<div class="sach-rt">
-					<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
-						<!-- webtoon 썸네일  -->
-						<img src="<%=wb.getWeb_thumb_link()%>">
-						<!-- 제목 -->
-						<span><%=wb.getWeb_subject() %></span> 
-						<!-- 작가 -->
-						<span><%=wb.getWeb_author() %></span> 
-						<!-- 포털  -->
-					</a>
-				</div>
-			<%} 
-			}%>
-			<%
-			 if(portal.size()==0 && author.size()==0 && subject.size()==0){%>
+			  <%for(WebtoonBean wb:result){ 
+			  	if(wb.getWeb_subject().contains(query)){
+			  		if(index==0){
+			  			%><h2>제목</h2><%
+			  			index++;
+			  		}%>
+			  		<div class="sach-rt">
+						<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
+							<!-- webtoon 썸네일  -->
+							<img src="<%=wb.getWeb_thumb_link()%>">
+							<!-- 제목 -->
+							<span><%=wb.getWeb_subject() %></span> 
+							<!-- 작가 -->
+							<span><%=wb.getWeb_author() %></span> 
+							<!-- 포털  -->
+						</a>
+					</div>
+			  	<%
+			  	}
+			  }
+			  index=0;
+			  for(WebtoonBean wb:result){
+			   if(wb.getWeb_author().contains(query)){
+			  		if(index==0){
+			  			%><h2>작가</h2><%
+			  			index++;
+			  		}%>
+			  		<div class="sach-rt">
+						<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
+							<!-- webtoon 썸네일  -->
+							<img src="<%=wb.getWeb_thumb_link()%>">
+							<!-- 제목 -->
+							<span><%=wb.getWeb_subject() %></span> 
+							<!-- 작가 -->
+							<span><%=wb.getWeb_author() %></span> 
+							<!-- 포털  -->
+						</a>
+					</div>
+			  	<%
+			  	}
+			  }
+			  index=0;
+			  for(WebtoonBean wb:result){
+				  if(wb.getWeb_portal().contains(query)){
+			  		if(index==0){
+			  			%><h2>연재 포털</h2><%
+			  			index++;
+			  		}%>
+			  		<div class="sach-rt">
+						<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"> 
+							<!-- webtoon 썸네일  -->
+							<img src="<%=wb.getWeb_thumb_link()%>">
+							<!-- 제목 -->
+							<span><%=wb.getWeb_subject() %></span> 
+							<!-- 작가 -->
+							<span><%=wb.getWeb_author() %></span> 
+							<!-- 포털  -->
+						</a>
+					</div>
+			  	<%
+			  	}
+			  }
+			 if(result.size()==0){%>
 				 <h2 style="text-align: center;line-height: 15;"><i class="fa fa-search"></i>검색 결과가 존재하지 않습니다.</h2>
 			<% }
 			%>

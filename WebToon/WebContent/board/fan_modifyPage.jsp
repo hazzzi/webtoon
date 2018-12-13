@@ -52,14 +52,12 @@
 						}
 					}
 
-					$("#bd_sel").change(
-							function() {
+					$("#bd_sel").change(function() {
 								//alert($("#bd_sel option:selected").text());
 								$.ajax('fanCategory.fo', {
 									data : {
 										fan_category : $(
-												"#bd_sel option:selected")
-												.val()
+												"#bd_sel option:selected").val()
 									},
 									success : function(data) {
 

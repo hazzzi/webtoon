@@ -1,8 +1,8 @@
 package net.board.action;
 
+import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
 import net.board.db.FanBean;
@@ -24,7 +24,7 @@ public class FanDeleteAction implements Action {
 		fb.setFa_num(fa_num);
 
 		fdao.deleteFanBoard(fb);
-
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./fanboardList.fo");
 		forward.setRedirect(true);

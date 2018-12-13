@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.webtoon.action.WebtoonCheckAction;
+import net.webtoon.action.WebtoonCommLike;
 import net.webtoon.action.WebtoonDetailAction;
 import net.webtoon.action.WebtoonInsertAction;
 import net.webtoon.action.WebtoonListReview;
@@ -59,7 +61,12 @@ public class WebtoonFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/WebtoonInsertAction.wbt")){//12-10-7-59
+		}else if(command.equals("/insertWebtoon.wbt")){//12-10-7-59
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./data/webtoon.jsp");
+			
+		}else if(command.equals("/webtoonInsertAction.wbt")){//12-10-7-59
 			action = new WebtoonInsertAction();
 			try {
 				forward = action.execute(request, response);
@@ -67,10 +74,6 @@ public class WebtoonFrontController extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else if(command.equals("/insertWebtoon.wbt")){//12-10-7-59
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./data/webtoon.jsp");
 		}else if(command.equals("/WebtoonManageListAction.wbt")){//12-10-7-25
 			action = new WebtoonManageListAction();
 			try {
@@ -89,6 +92,22 @@ public class WebtoonFrontController extends HttpServlet{
 			}
 		}else if(command.equals("/WebtoonUpdatetAction2.wbt")){//12-10-7-59
 			action = new WebtoonUpdatetAction2();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/check_member.wbt")){
+			action = new WebtoonCheckAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/comment_like.wbt")){
+			action = new WebtoonCommLike();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

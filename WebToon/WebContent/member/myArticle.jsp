@@ -13,7 +13,7 @@
 </head>
 <body>
 <%	request.setCharacterEncoding("utf-8");
-	int count = (int)request.getAttribute("count");
+	int count =  ((Integer) request.getAttribute("count")).intValue();
 	String pageNum=(String)request.getAttribute("pageNum");
 	
 	if (pageNum == null) {
@@ -26,6 +26,7 @@
 	int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 	
 	List<BoardBean> myBoardList =(List<BoardBean>)request.getAttribute("myBoardList");
+	List<BoardBean> myBoardList_search =(List<BoardBean>)request.getAttribute("myBoardList_search");
 %>
 
 						<!--  ma=myArticle  
@@ -43,13 +44,14 @@
 
 <div class="clear"></div>
 
-<form action="#" method="post">
+<form action="myArticleSearchAction.me" method="post">
 <div id="ma"><!--reinfo  -->
 
 	<div id="ma_text">
 		<table border="0">
 			<tr>
 				<th>글 번호</th>
+<<<<<<< HEAD
 				<th>
 				
 					<select name="jump" onchange="location.href=this.value">
@@ -59,6 +61,9 @@
 
 					
 				</th>
+=======
+				<th>자유게시판</th>
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 				<th>제목</th>
 				<th>댓글 수</th>
 				<th>작성자</th>
@@ -67,7 +72,21 @@
 			</tr>
 				
 				
-				<% for(BoardBean bb: myBoardList){ %>
+				<%
+			if(myBoardList_search==null){
+				if(myBoardList==null){%>
+				<tr>
+				<td></td>
+				<td></td>
+				<td>게시글이 없습니다.</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+				
+				<%}else{
+				for(BoardBean bb: myBoardList){ %>
 			<tr>
 				<td><%=bb.getFb_num()%></td>
 				<td>[<%=bb.getFb_category()%>]</td>
@@ -78,7 +97,23 @@
 				<td><%=bb.getFb_date()%></td>
 			</tr>
 			
-						<%} %>			
+						<%}} 
+			}else{
+				
+				for(BoardBean bb: myBoardList_search){ %>
+			<tr>
+				<td><%=bb.getFb_num()%></td>
+				<td>[<%=bb.getFb_category()%>]</td>
+				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
+				<td>5</td>
+				<td><%=bb.getFb_mem_nik()%></td>
+				<td><%=bb.getFb_readcount()%></td>
+				<td><%=bb.getFb_date()%></td>
+			</tr>
+			
+						<%}
+			
+			}%>			
 			
 		</table>
  	</div> <!--id="rif_text" -->

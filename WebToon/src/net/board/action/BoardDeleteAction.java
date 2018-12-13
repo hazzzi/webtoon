@@ -33,5 +33,6 @@ public class BoardDeleteAction implements Action{
 		forward.setRedirect(true);
 		
 		return forward;
+		
 	}
 }

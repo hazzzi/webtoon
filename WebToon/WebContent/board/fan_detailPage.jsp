@@ -12,10 +12,22 @@
 <link rel="stylesheet" href="./main/css/border-header.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../main/css/footer-main.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+	<%
+		String mem_num = (String) session.getAttribute("mem_num");
+
+		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+		String pageNum = (String) request.getAttribute("pageNum");
+
+		FanDAO fdao = new FanDAO();
+		FanBean fb = fdao.getFanBoard(fa_num);
+	%>
+
 
 <script type="text/javascript">
 	function modifyCommentToggle(articleNo) {
@@ -38,19 +50,30 @@
 		p.style.display = p_display;
 		form.style.display = form_display;
 	}
+	
+	function del(fa_num){
+		if(confirm("해당 글을 삭제하시겠습니까?")==true){
+			location.href="./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>";
+		}
+	};
+ 	
+ 		
+	$(document).ready(function() {
+		$(".like").click(function(){
+		$ajax('fanboardLike.fo',{
+				data : {
+					fa_sumlike: $(".like")
+				},
+				
+			});
+ 		});
+	});
+	
 </script>
 </head>
 
 <body>
-	<%
-		String mem_num = (String) session.getAttribute("mem_num");
 
-		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
-		String pageNum = (String) request.getAttribute("pageNum");
-
-		FanDAO fdao = new FanDAO();
-		FanBean fb = fdao.getFanBoard(fa_num);
-	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -108,28 +131,32 @@
 					<table class="main">
 						<tr>
 							<th	style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;"><%=fb.getFa_subject() %></th>
+							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>] [<%=fb.getFa_category2() %>]  <%=fb.getFa_subject() %></th>
 						</tr>
 						<hr>
 					</table>
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=fb.getFa_date()%> | </span> <span><%=fb.getFa_mem_nik()%>
-								| </span> <span><%=fb.getFa_readcount()%></span>
+							<span><%=fb.getFa_date()%> | </span>
+							<span>닉네임: <%=fb.getFa_mem_nik()%> | </span>
+							<span>조회수: <%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>"><img
-								src="./upload/<%=fb.getFa_img()%>" class="content_img"></a> <br>
+							<a href="./upload/<%=fb.getFa_img()%>">
+							<img src="./upload/<%=fb.getFa_img()%>" class="content_img" style="max-width: 100%;"></a> <br>
 							<br>
 							<%=fb.getFa_content()%><br>
 							<br>
 						</div>
 					</div>
-					<!-- LikeBtn.com BEGIN -->
-					
-					
-					<!-- LikeBtn.com END -->
+
+					<!-- LikeBtn 시작 -->
+						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
+							<input type="button" class="like" onclick="location.href='#'" name="fa_sumlike">
+						</i>
+						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
+					<!-- LikeBtn 끝 -->
 				</div>
 
 				<!-- 파일 다운 및 삭제  -->
@@ -153,7 +180,8 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
-							onclick="location.href='./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
+						onclick="del(<%=fa_num %>)">
+<%-- 							onclick="location.href='./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" /> --%>
 						<input type="button" class="bt-2"
 							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
 						<%

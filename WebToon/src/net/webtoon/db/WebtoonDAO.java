@@ -352,7 +352,7 @@ public class WebtoonDAO {
 		List<WebtoonBoardBean> list = new ArrayList<WebtoonBoardBean>();
 		try {
 			con = getConnection();
-			String sql = "select * from webtoon_board where wbb_web_num=? order by wbb_sumlike limit 0,2;";
+			String sql = "select * from webtoon_board where wbb_web_num=? order by wbb_sumlike desc limit 0,2;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
@@ -425,5 +425,133 @@ public class WebtoonDAO {
 			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 		}
 		return list;
+	}
+	
+	public boolean isRecommend(String mem_num, int web_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean check = false;
+		try {
+			con = getConnection();
+			String sql = "select * from recommend where rec_web_num=? and rec_mem_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, web_num);
+			pstmt.setString(2, mem_num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				check = true;
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return check;
+	}
+	
+	public boolean setCommLike(String mem_num, int wbb_bdnum){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean check = false;
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon_likecount where wbb_mem_num=? and wbb_bdnum=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setInt(2, wbb_bdnum);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				pstmt.close();
+				sql = "delete from webtoon_likecount where wbb_mem_num=? and wbb_bdnum=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_num);
+				pstmt.setInt(2, wbb_bdnum);
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				sql = "update webtoon_board set wbb_sumlike=wbb_sumlike-1 where wbb_bdnum=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, wbb_bdnum);
+				pstmt.executeUpdate();
+				
+				check = true;
+			}else{
+				pstmt.close();
+				sql = "insert into webtoon_likecount values(?,?,?);";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, wbb_bdnum);
+				pstmt.setInt(2, 100);
+				pstmt.setString(3, mem_num);
+				
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				sql = "update webtoon_board set wbb_sumlike=wbb_sumlike+1 where wbb_bdnum=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, wbb_bdnum);
+				pstmt.executeUpdate();
+				
+				check = false;
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return check;
+	}
+	
+	public int sumLike(int wbb_bdnum){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int num = 0;
+		try {
+			con = getConnection();
+			String sql = "select wbb_sumlike from webtoon_board where wbb_bdnum=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, wbb_bdnum);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				num = rs.getInt("wbb_sumlike");
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return num;
+	}
+	
+	public List<Integer> isCommLike(String mem_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Integer> check = new ArrayList<Integer>();
+		try {
+			con = getConnection();
+			String sql = "select * from webtoon_likecount where wbb_mem_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				check.add(rs.getInt("wbb_bdnum"));
+			}
+		} catch (Exception e) { e.printStackTrace(); }
+		finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return check;
 	}
 }
