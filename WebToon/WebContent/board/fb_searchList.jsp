@@ -27,7 +27,8 @@
 		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
 		int startPage = ((Integer) request.getAttribute("startPage")).intValue();
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
-
+		int count = ((Integer)request.getAttribute("count")).intValue();
+		
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
 		System.out.print(fanboardList.size());
@@ -60,6 +61,11 @@
 				<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 
 				<table>
+				
+				<%if(count==0){ %>
+					<td class="not-fount">해당 게시글을 찾을 수 없습니다.</td>
+				
+				<%}%>
 					<%
 						for (int i = 0; i < fanboardList.size(); i++) {
 							fb = fanboardList.get(i);
