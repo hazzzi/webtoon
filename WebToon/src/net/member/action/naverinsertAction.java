@@ -1,5 +1,7 @@
 package net.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,18 +25,47 @@ public class naverinsertAction implements Action {
 		//System.out.println("네이버 로그인 액션 nmbtest"+nmb.getId());
 		
 		MemberDAO mdao= new MemberDAO();
-		mdao.naverIdinsert(nmb);
-		
-		session.removeAttribute("nmb");//정보 세션 삭제
-		
-		session.setAttribute("mem_num", nmb.getNum());
-		session.setAttribute("mem_nik", nmb.getNik());
-		
-		
 		ActionForward forward = new ActionForward();
+		
+		if(mdao.emailOverlapcheck(nmb)){
+			forward.setRedirect(true);
+			forward.setPath("./login.me");
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out=response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미 있는 이메일입니다..');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}else if(mdao.nikOverlapcheck(nmb)){
+			forward.setRedirect(true);
+			forward.setPath("./login.me");
+			
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out=response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미 있는 닉네임입니다..');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}else{
+			mdao.naverIdinsert(nmb);
+			
+			session.removeAttribute("nmb");//정보 세션 삭제
+			
+			session.setAttribute("mem_num", nmb.getNum());
+			session.setAttribute("mem_nik", nmb.getNik());
+			forward.setRedirect(true);
+			forward.setPath("./home.today");
+			
+		}
+		
+		
+		
 				
-				forward.setRedirect(true);
-				forward.setPath("./home.today");
+				
 		return forward;
 	}
 

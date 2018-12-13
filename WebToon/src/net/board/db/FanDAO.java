@@ -310,6 +310,10 @@ public class FanDAO {
 		return list;	
 	}// search end
 	
+	
+	
+	
+	
 	public void updateFanBoard(FanBean fb){
 		Connection con = null;
 		PreparedStatement pstmt = null;
