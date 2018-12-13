@@ -39,10 +39,11 @@
 		form.style.display = form_display;
 	}
 	
-	$(document).ready(function() {
 	
- 	$(".like").click(function(){
-		
+ 	
+ 		
+	$(document).ready(function() {
+		$(".like").click(function(){
 		$ajax('fanboardLike.fo',{
 				data : {
 					fa_sumlike: $(".like")

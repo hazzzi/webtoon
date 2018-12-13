@@ -17,6 +17,7 @@ public class FanBoardLikeAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("FanBoardLikeAction execute()");
+		request.setCharacterEncoding("utf-8");	
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session = request.getSession();
@@ -32,6 +33,7 @@ public class FanBoardLikeAction implements Action{
 			out.println("./login.me");
 			out.println("</script>");
 			out.close();
+			
 		}else{
 		
 		FanBean fb = new FanBean();
@@ -43,6 +45,7 @@ public class FanBoardLikeAction implements Action{
 		
 		fdao.likeCount(fb);
 		}
+		
 		return null;
 	}
 	
