@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.board.db.FanBean;
 import net.member.db.MemberBean;
@@ -22,9 +23,9 @@ public class WebtoonDetailAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		
+		HttpSession session = request.getSession();
 		String num = request.getParameter("num");
-		
+		String mem_num = (String)session.getAttribute("mem_num");
 		if(num!=null){
 			int web_num = Integer.parseInt(num);
 			
@@ -57,7 +58,7 @@ public class WebtoonDetailAction implements Action{
 				}
 				request.setAttribute("wbbimg", wbbimg);
 			}
-			
+			List<Integer> check= wdao.isCommLike(mem_num);
 			List<WebtoonBean> similar = sdao.getSimilarity(web_num);
 			//System.out.println(similar.get(2).getWeb_subject());
 			request.setAttribute("wb", wb);
@@ -67,6 +68,7 @@ public class WebtoonDetailAction implements Action{
 			request.setAttribute("wbb", wbb);
 			request.setAttribute("similar", similar);
 			request.setAttribute("fanList", fanList);
+			request.setAttribute("check", check);
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);

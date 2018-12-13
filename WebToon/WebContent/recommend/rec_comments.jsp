@@ -42,7 +42,6 @@
 	List<Integer> check = (List<Integer>)request.getAttribute("check");
 	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
 	String mem_num = (String)session.getAttribute("mem_num");
-	int a = 0;
 %>
 		<div id="rec_c">
 			<div id="rec_c_top">
@@ -55,15 +54,21 @@
 				<%for(WebtoonBoardBean wbb : webtoonBoardList){%>
 				<div class="rec_box1">
 					<div class="rec_user_name">
-						<%for(MemberBean mb : wbbimg){
-							System.out.println("실행전");
-							if(mb.getNum()==wbb.getWbb_mem_num()){
-								System.out.println("실행");
-								%><img src="<%=mb.getProfileimg() %>" class="rec_memberimg"><%
-								a++;
+						<%
+						int a = 0;
+						for(MemberBean mb : wbbimg){
+							//System.out.println("mb.getNum():"+mb.getNum()+" ,wbb.getWbb_mem_num():"+wbb.getWbb_mem_num());
+							
+							if(mb.getNum().equals(wbb.getWbb_mem_num())){
+								//System.out.println("실행");
+								if(mb.getProfileimg()!=null){
+									%><img src="./upload/<%=mb.getProfileimg() %>" class="rec_memberimg"><%
+									a++;
+								}
 								break;
 							}
 						  }
+						System.out.println(a);
 						if(a==0){
 							%><img src="./main/img/member.png" class="rec_memberimg"><%
 						}
@@ -77,7 +82,7 @@
 					<div class="rec_comment_date"><%=wbb.getWbb_date() %></div>
 					<hr>
 					<div class="rec_comment_like">
-						<i class="fa fa-thumbs-o-up like" title="<%=wbb.getWbb_bdnum()%>" style="cursor: pointer;"></i>
+						<i class="fa fa-heart-o like" title="<%=wbb.getWbb_bdnum()%>" style="cursor: pointer;"></i>
 						<p><%=wbb.getWbb_sumlike() %></p>
 					</div>
 					
@@ -93,8 +98,8 @@
 							for(var i=0; i<check.length; i++){
 								//alert(check[i]);
 								if(check[i]==$(this).attr('title')){
-									$(this).removeClass('fa-thumbs-o-up');
-									$(this).addClass('fa-thumbs-up');
+									$(this).removeClass('fa-heart-o');
+									$(this).addClass('fa-heart');
 								}
 							}
 						}
@@ -112,13 +117,13 @@
 									//alert(data);
 									var op = data.split(",");
 									if(op[0]=='true'){
-										$(this).removeClass('fa-thumbs-up');
-										$(this).addClass('fa-thumbs-o-up');
+										$(this).removeClass('fa-heart');
+										$(this).addClass('fa-heart-o');
 										$(this).next().html(op[1]);
 									// 좋아요 안눌렀을때
 									}else{
-										$(this).removeClass('fa-thumbs-o-up');
-										$(this).addClass('fa-thumbs-up');
+										$(this).removeClass('fa-heart-o');
+										$(this).addClass('fa-heart');
 										$(this).next().html(op[1]);
 									}
 								}

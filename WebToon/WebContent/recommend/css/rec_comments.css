@@ -7,6 +7,9 @@
 .fa-thumbs-up{
 	color: #1b1526;
 }
+.fa-thumbs-o-up{
+	color: #1b1526;
+}
 header#header-head{   
     /* 상단바 고정 */
     position: sticky;
@@ -96,11 +99,13 @@ header#header-head{
 	font-family: 'NanumBarunpenR', sans-serif;
 	text-align: left;
 	font-size: 18px;
-	padding: 10px 0 0px 6px;
+	padding: 10px 0 0px 15px;
 }
 
 .rec_user_name>img {
-	width: 50px;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
 	display: inline-block;
 	/* margin: 10px 0 0 10px; */
 }
@@ -112,6 +117,7 @@ header#header-head{
     top: 22px;
     left: 70px;
     font-size: 21px;
+    color: #1b1526;
 }
 
 .rec_comment {
@@ -120,16 +126,17 @@ header#header-head{
 	display: inline-block;
 	font-family: 'NanumBarunpenR', sans-serif;
 	text-align: left;
-	font-size: 16px;
-	padding: 5px 0 5px 10px;
+	font-size: 16px;	
+	padding: 10px 0 10px 25px;
 }
 .rec_comment>p{
 	width: 622px;
+	color: #1b1526;
 }
 .rec_comment_date{
 	text-align: left;
     font-size: 8px;
-    margin: 0px 1px 3px 10px;
+    margin: 0px 1px 3px 15px;
     color: gray;
 }
 .rec_comment_like {
@@ -137,13 +144,16 @@ header#header-head{
 	font-size: 23px;
 	position: relative;
 	left: 15px;
+    padding: 5px;
 }
 
 .rec_comment_like>p {
 	display: inline-block;
 	position: relative;
-	left: 3px;
 	font-size: 20px;
+	color: #1b1526;
+	left: 5px;
+    bottom: 2px;
 }
 #no_review{
 	width: 100%;
