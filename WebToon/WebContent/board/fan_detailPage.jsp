@@ -178,15 +178,14 @@
 							if (mem_num != null) {
 								if (mem_num.equals(fb.getFa_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
-						<input type="button" class="bt" value="수정"
-							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt" value="수정"	onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" >
 						<input type="button" class="bt" value="삭제"	onclick="del(<%=fa_num %>)">
-						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
+						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" >
 						<%
 							} else {
 						%>
 						<input type="button" class="bt-2-if"
-							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
+							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" >
 						<%
 							}
 							}
@@ -252,7 +251,7 @@
 				%>
 				<p>
 					다음 글 : <a
-						href="./fanBoardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=fb2.getFa_subject()%></a>
+						href="./fanboardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=fb2.getFa_subject()%></a>
 				</p>
 				<%
 					}
@@ -267,7 +266,7 @@
 				%>
 				<p>
 					이전 글 : <a
-						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
+						href="./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
 				</p>
 				<%
 					}

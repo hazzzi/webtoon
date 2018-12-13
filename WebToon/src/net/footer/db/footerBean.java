@@ -19,7 +19,7 @@ public class footerBean {
 	public String getNi_mem_num() {
 		return ni_mem_num;
 	}
-	public void setNi_mem_num(String nimnem_num) {
+	public void setNi_mem_num(String ni_mem_num) {
 		this.ni_mem_num = ni_mem_num;
 	}
 	public String getNi_mem_nik() {

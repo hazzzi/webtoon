@@ -14,13 +14,14 @@
 </head>
 <%request.setCharacterEncoding("utf-8");
 	String nik=(String)session.getAttribute("mem_nik");
-	
+	String mem_num=(String)session.getAttribute("mem_num");
+	System.out.println(mem_num);
 %>
 <body>
 	<div class="niw_wrap">
 	
 		<jsp:include page="../main/header.jsp"></jsp:include>
-		<form action="footerNoticewriteAction.ft" method="POST">
+		<form action="./footerNoticewriteAction.ft?mem_num=<%=mem_num%>" method="post">
 		<div class="ni_write">
 	<h1 id="ssss">공지사항 작성</h1>
 			 <div class="ni_nik"><%=nik%></div> 
@@ -47,6 +48,7 @@
 
 
 		</div>
+		<input type="hidden" name="mem_num" value="<%=mem_num%>">
 		</form>
 	</div>
 	<jsp:include page="../main/footer.jsp"></jsp:include>
