@@ -118,8 +118,9 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=bd.getFb_date()%> | </span> <span><%=bd.getFb_mem_nik()%>
-								| </span> <span><%=bd.getFb_readcount()%> | </span>
+							<span><%=bd.getFb_date()%> | </span> 
+							<span>닉네임 : <%=bd.getFb_mem_nik()%>  | </span> 
+							<span>조회수 : <%=bd.getFb_readcount()%> | </span>
 						</div>
 
 						<!-- 내용 영역 -->
@@ -137,17 +138,17 @@
 							<br>
 						</div>
 					</div>
-					<!-- LikeBtn.com BEGIN -->
-					<i class="fa fa-heart" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;"></i>
-					<span class="likeBtnSp">좋아요</span>
-					<!-- LikeBtn.com END -->
+					<!-- LikeBtn 시작 -->
+						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
+						<input type="button" class="like" onclick="location.href='#'">
+						</i>
+						<span class="likeBtnSp">좋아요 0</span>
+					<!-- LikeBtn 끝 -->
 				</div>
 
 				<!-- 파일 다운 및 삭제  -->
 				<div id="file-list" style="text-align: right;">
 					<div class="attach-file">
-						<!-- <a href="#" title="filename" class="download">TEST.png</a>
-        <a href="#" title="filekey">삭제</a> -->
 					</div>
 				</div>
 
