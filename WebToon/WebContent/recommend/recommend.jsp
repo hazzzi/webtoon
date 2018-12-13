@@ -58,12 +58,13 @@
 <%
 	List<WebtoonBean> webtoonList = (List<WebtoonBean>)request.getAttribute("webtoonList"); //웹툰 리스트
 	int num = (int)request.getAttribute("count_Recommend");
+	String mem_num = (String)session.getAttribute("mem_num");
 %>
 test session값 : <%=session.getAttribute("mem_num") %>
 	<div class="rec_top_background">
 		평가한 웹툰 수 : <span><%=num%></span>
 		<div id="rec_star_menu">
-			<a href="./recommend_show.rec">★추천 받기★</a>
+			<a class="rec_log" style="cursor: pointer;">★추천 받기★</a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div>
 	</div>
@@ -83,7 +84,7 @@ test session값 : <%=session.getAttribute("mem_num") %>
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰보기</button></a>
 				<b class="rec_b">평가하기 test:웹툰ID=<%=wb.getWeb_num() %></b>
 				 
-				<select id="example<%=wb.getWeb_num()%>">
+				<select id="example<%=wb.getWeb_num()%>" class="test">
 					<option value="">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -102,14 +103,20 @@ test session값 : <%=session.getAttribute("mem_num") %>
 							/*	mem_num : session
 								wb.getWeb_num() : 웹툰고유번호
 								text : 별점 값  */
-							$.ajax('recDB_insert.rec',{
-								data:{
-									rec_web_num:<%=wb.getWeb_num()%>,
-									rec_web_grade:text
-								},success:function(data){
-									$('.rec_top_background>span').html(data)
-								}
-							});
+							if(<%=mem_num%>==null){
+								alert('로그인이 필요한 서비스 입니다.');
+								// 수정
+							}else{
+								alert('db동작');
+								$.ajax('recDB_insert.rec',{
+									data:{
+										rec_web_num:<%=wb.getWeb_num()%>,
+										rec_web_grade:text
+									},success:function(data){
+										$('.rec_top_background>span').html(data)
+									}
+								});
+							}
 						}
 					});
 					//'set' 을 이용하여 값 설정 
@@ -130,8 +137,12 @@ test session값 : <%=session.getAttribute("mem_num") %>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				/* 웹툰 리뷰 남기기 영역 보여주기 */
-				$('.review-action').click(function(index) {
-					$('#webtoon-content').show();
+				$('.rec_log').click(function(){
+					if(<%=mem_num%>==null){
+						alert('로그인이 필요한 서비스입니다.');
+					}else{
+						location.href='./recommend_show.rec';
+					}
 				});
 			});
 		</script>
