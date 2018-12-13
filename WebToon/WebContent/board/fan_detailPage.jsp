@@ -122,8 +122,8 @@
 							<span><%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>"><img
-								src="./upload/<%=fb.getFa_img()%>" class="content_img"></a> <br>
+							<a href="./upload/<%=fb.getFa_img()%>">
+							<img src="./upload/<%=fb.getFa_img()%>" class="content_img" style="max-width: 100%;"></a> <br>
 							<br>
 							<%=fb.getFa_content()%><br>
 							<br>
