@@ -853,6 +853,10 @@ hr {
 	color: red !important;
 }
 
+.like:HOVER{
+	cursor: pointer;
+}
+
 .likeBtnSp {
 	font-size: 20px;
 	margin-left: 5px;
