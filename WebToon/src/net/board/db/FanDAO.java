@@ -568,15 +568,16 @@ public class FanDAO {
 		
 		try{
 			con = getConnection();
-			String sql = "select fa_likecount from fanart_likecount where fa_mem_num=?";
+			String sql = "select fa_likecount from fanart_likecount where fa_mem_num=? and fa_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, fb.getFa_mem_num());
+			pstmt.setInt(2, fb.getFa_num());
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				sql ="update fanart_likecount set fa_likecount=? where fa_mem_num=?";
+				sql ="delete from fanart_likecount where fa_num=? and fa_mem_num=?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, fb.getFa_sumlike()-1);
+				pstmt.setInt(1, fb.getFa_num());
 				pstmt.setString(2, fb.getFa_mem_num());
 				pstmt.executeUpdate();
 				
@@ -585,19 +586,37 @@ public class FanDAO {
 				
 				like = fb.getFa_sumlike();
 				
+				sql ="update webtoon_fanart set fa_sumlike=? where fa_num=? and fa_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_sumlike()-1);
+				pstmt.setInt(2, fb.getFa_num());
+				pstmt.setString(3, fb.getFa_mem_num());
+				
+				pstmt.close();
+				rs.close();
+				
 			}else{
+				
 				sql = "insert into fanart_likecount(fa_num, fa_likecount, fa_mem_num) values(?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, fb.getFa_num());
 				pstmt.setInt(2, fb.getFa_sumlike()+1);
 				pstmt.setString(3, fb.getFa_mem_num());
 				pstmt.executeUpdate();
-				//like를 리턴해야 하나...
 				
 				pstmt.close();
 				rs.close();
 				
 				like = fb.getFa_sumlike();
+				
+				sql ="update webtoon_fanart set fa_sumlike=? where fa_num=? and fa_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_sumlike()+1);
+				pstmt.setInt(2, fb.getFa_num());
+				pstmt.setString(3, fb.getFa_mem_num());
+				
+				pstmt.close();
+				rs.close();
 				
 			}
 		}catch(Exception e){

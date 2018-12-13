@@ -42,7 +42,7 @@
 	$(document).ready(function() {
 	
 		$ajax('fanboardLike.fo',{
-				data{
+				data : {
 					
 				}
 		});
@@ -143,7 +143,8 @@
 					<!-- LikeBtn.com BEGIN -->
 					
 					<i class="fa fa-heart" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;" name="fa_likecount"></i>
-					<span class="likeBtnSp">좋아요</span>
+					
+					<span class="likeBtnSp"><%=fb.getFa_sumlike() %> 좋아요</span>
 					
 					<!-- LikeBtn.com END -->
 				</div>

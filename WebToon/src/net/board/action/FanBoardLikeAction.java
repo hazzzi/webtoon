@@ -17,16 +17,19 @@ public class FanBoardLikeAction implements Action{
 		System.out.println("FanBoardLikeAction execute()");
 		request.setCharacterEncoding("utf-8");
 		
-		HttpSession session = request.getSession();
-		String mem_num = (String) session.getAttribute("mem_num");
-		
+		FanBean fb = new FanBean();
 		FanDAO fdao = new FanDAO();
 		
-		int fa_likecount = Integer.parseInt(request.getParameter("fa_likecount"));
+		HttpSession session = request.getSession();
+		String mem_num = (String) session.getAttribute("mem_num");
+		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+		int fa_sumlike = Integer.parseInt(request.getParameter("fa_sumlike"));
 		
-		FanBean fb = new FanBean();
+		fb.setFa_mem_num(mem_num);
+		fb.setFa_sumlike(fa_sumlike);
+		fb.setFa_num(fa_num);
 		
-		
+		fdao.likeCount(fb);
 		
 		return null;
 	}
