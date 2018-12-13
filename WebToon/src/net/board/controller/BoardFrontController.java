@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.board.action.BoardContentAction;
 import net.board.action.BoardDeleteAction;
+import net.board.action.BoardLikeAction;
 import net.board.action.BoardList;
 import net.board.action.BoardModifyAction;
 import net.board.action.BoardSearchAction;
@@ -100,6 +101,15 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+		}else if(command.equals("/boardLikeAction.bo")){
+			
+			action = new BoardLikeAction();
+			
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		// 이동 시작

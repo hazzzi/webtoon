@@ -118,7 +118,7 @@ public class FanBoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}else if(command.equals("/fanboardLike.fo")){
+		}else if(command.equals("/fanboardLikeAction.fo")){
 			action =new FanBoardLikeAction();
 			try{
 				forward = action.execute(request, response);

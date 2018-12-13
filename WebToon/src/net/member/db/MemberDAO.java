@@ -15,6 +15,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import net.board.db.BoardBean;
+import net.board.db.FanBean;
 import net.webtoon.db.WebtoonBean;
 
 public class MemberDAO {
@@ -515,8 +516,31 @@ public class MemberDAO {
 		}
 		return count;
 	}
-
-	public List<BoardBean> getmyBoardList(int startRow, int pageSize, String mem_num) {
+	
+	
+	public int getmyboardCount2(String mem_num){
+		int count=0;
+		try{
+			con=getConnection();
+			String sql = "select count(*) from webtoon_fanart where fa_mem_num=?";
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				count=rs.getInt("count(*)");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		return count;
+	}
+	
+	public List<BoardBean> getmyBoardList(int startRow,int pageSize,String mem_num){
 		List<BoardBean> myBoardList = new ArrayList<BoardBean>();
 		try {
 			con = getConnection();
@@ -567,6 +591,49 @@ public class MemberDAO {
 		}
 		return myBoardList;
 	}
+	
+	public List<FanBean> getmyBoardList2(int startRow,int pageSize,String mem_num){
+		List<FanBean> myFanList = new ArrayList<FanBean>();
+		try{
+			con=getConnection();
+			
+			String sql = "select * from webtoon_fanart where fa_mem_num=? limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setInt(2, startRow -1);
+			pstmt.setInt(3, pageSize);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				FanBean fb = new FanBean();
+
+				fb.setFa_num(rs.getInt("fa_num"));
+				fb.setFa_web_num(rs.getInt("fa_web_num"));
+				fb.setFa_mem_num(rs.getString("fa_mem_num"));
+				fb.setFa_mem_nik(rs.getString("fa_mem_nik"));
+				fb.setFa_subject(rs.getString("fa_subject"));
+				fb.setFa_category1(rs.getString("fa_category1"));
+				fb.setFa_category2(rs.getString("fa_category2"));
+				fb.setFa_img(rs.getString("fa_img"));
+				fb.setFa_content(rs.getString("fa_content"));
+				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
+				fb.setFa_readcount(rs.getInt("fa_readcount"));
+				fb.setFa_date(rs.getDate("fa_date"));
+				
+				myFanList.add(fb);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(rs !=null)try {rs.close();}catch (SQLException e) {}
+			if(pstmt !=null)try {pstmt.close();}catch (SQLException e) {}
+			if(con !=null)try {con.close();}catch (SQLException e) {}
+		}
+		return myFanList;
+	}
+	
 
 	public List<MemberBean> getMemberList() {
 		// 업캐스팅 부모->자식

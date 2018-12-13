@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@page import="net.board.db.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,6 +15,18 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
+<%
+		String mem_num = (String) session.getAttribute("mem_num");
+
+		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+		String pageNum = (String) request.getAttribute("pageNum");
+
+		BoardDAO bdao = new BoardDAO();
+		BoardBean bd = bdao.getBoard(fb_num);
+		List<Integer> check = (List<Integer>)request.getAttribute("check");
+
+		// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
+%>
 
 <script type="text/javascript">
 	function modifyCommentToggle(articleNo) {
@@ -36,22 +49,18 @@
 		p.style.display = p_display;
 		form.style.display = form_display;
 	}
+	
+	function del(fb_num){
+		if(confirm("해당 글을 삭제하시겠습니까?")==true){
+			location.href="./boardDelete.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>";
+		}
+	};
 </script>
 
 </head>
 
 <body>
-	<%
-		String mem_num = (String) session.getAttribute("mem_num");
 
-		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
-		String pageNum = (String) request.getAttribute("pageNum");
-
-		BoardDAO bdao = new BoardDAO();
-		BoardBean bd = bdao.getBoard(fb_num);
-
-		// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
-	%>
 
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
@@ -111,16 +120,18 @@
 						<tr>
 							<th
 								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;">[<%=bd.getFb_category()%>]    <%=bd.getFb_subject()%></th>
+							<th style="text-align: left; font-size: 30px;">[<%=bd.getFb_category()%>]
+								<%=bd.getFb_subject()%></th>
 						</tr>
 						<hr>
 					</table>
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=bd.getFb_date()%> | </span> 
-							<span>닉네임 : <%=bd.getFb_mem_nik()%>  | </span> 
-							<span>조회수 : <%=bd.getFb_readcount()%> | </span>
+							<span><%=bd.getFb_date()%> | </span> <span>닉네임 : <%=bd.getFb_mem_nik()%>
+								|
+							</span> <span>조회수 : <%=bd.getFb_readcount()%> |
+							</span>
 						</div>
 
 						<!-- 내용 영역 -->
@@ -129,27 +140,68 @@
 							<%
 								if (bd.getFb_img() != null) {
 							%>
-							<img src="./upload/<%=bd.getFb_img()%>"><br>
-							<br>
+							<img src="./upload/<%=bd.getFb_img()%>"><br> <br>
 							<%
 								}
 							%>
-							<%=bd.getFb_content()%><br>
-							<br>
+							<%=bd.getFb_content()%><br> <br>
 						</div>
 					</div>
 					<!-- LikeBtn 시작 -->
-						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
-						<input type="button" class="like" onclick="location.href='#'">
-						</i>
-						<span class="likeBtnSp">좋아요 0</span>
+					
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$('.like').each(function(index){
+								var check = <%=check%>
+								if(check.length!=0){
+									for(var i=0; i<check.length; i++){
+										if(check[i]==<%=fb_num%>){
+											$(this).removeClass('fa-heart-o');
+											$(this).addClass('fa-heart');
+										}
+									}
+								}
+							});
+							
+							$("i.like").click(function(){
+								if(<%=mem_num%>==null){
+									alert('로그인이 필요한 서비스 입니다.');
+								}else{
+									$.ajax('boardLikeAction.bo',{
+										context: this,
+										data:{
+											fb_num: $(<%=fb_num%>)
+										},success:function(data){
+											// 이미 좋아요 했을 때
+											var op = data.split(",");
+											if(op[0]=='true'){
+												$(this).removeClass('fa-heart');
+												$(this).addClass('fa-heart-o');
+												$(this).next().html(op[1]);
+												// 좋아요를 누르지 않았을 때
+											}else{
+												$(this).removeClass('fa-heart-o');
+												$(this).addClass('fa-heart');
+												$(this).next().html(op[1]);
+												}
+											}
+										});
+									}
+								  });
+								});
+					</script>
+
+
+					<i class="fa fa-heart-o like" id="likeIcon"
+						style="margin: 10px 0 0 15px; font-size: 32px;"> 
+						<!-- <input type="button" class="like" onclick="location.href='./boardLikeAction.bo'"> -->
+					</i> <span class="likeBtnSp">좋아요 <%=bd.getFb_sumlike()%></span>
 					<!-- LikeBtn 끝 -->
 				</div>
 
 				<!-- 파일 다운 및 삭제  -->
 				<div id="file-list" style="text-align: right;">
-					<div class="attach-file">
-					</div>
+					<div class="attach-file"></div>
 				</div>
 
 				<!-- 파일 다운 및 삭제 끝 -->
@@ -165,9 +217,9 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
-							onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
-						<input type="button" class="bt-2"
-							onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+							onclick="del(<%=fb_num%>)"> <input type="button"
+							class="bt-2" onclick="location.href='./bd_writingPage.bo'"
+							value="새 글 쓰기" />
 						<%
 							} else {
 						%>
@@ -227,8 +279,7 @@
 				</form>
 			</div>
 			<!--  댓글 반복 끝 -->
-			<br>
-			<br>
+			<br> <br>
 			<div id="next-prev">
 				<%
 					BoardBean bb2 = bdao.getBoard(nextNum);

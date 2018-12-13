@@ -547,5 +547,150 @@ public class BoardDAO {
 		}
 		return nextNum;
 	}
-	
+	// 좋아요 카운트
+		public boolean likecount(String mem_num, int fb_num) {
+
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			boolean check = false;
+
+			try {
+				con = getConnection();
+				String sql = "select * from fb_likecount where fb_mem_num=? and fb_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_num);
+				pstmt.setInt(2, fb_num);
+
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+					pstmt.close();
+					sql = "delete from fb_likecount where fb_mem_num=? and fb_num=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, mem_num);
+					pstmt.setInt(2, fb_num);
+					pstmt.executeUpdate();
+
+					pstmt.close();
+					sql = "update free_board set fb_sumlike = fb_sumlike-1 where fb_num=? ";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, fb_num);
+					pstmt.executeUpdate();
+
+					check = true;
+				} else {
+					pstmt.close();
+					sql = "insert into fb_likecount values(?,?,?)";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, fb_num);
+					pstmt.setInt(2, 100);
+					pstmt.setString(3, mem_num);
+
+					pstmt.executeUpdate();
+
+					pstmt.close();
+					sql = "update free_board set fb_sumlike = fb_sumlike+1 where fb_num=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, fb_num);
+					pstmt.executeUpdate();
+
+					check = false;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+
+			return check;
+
+		}
+		
+		public int sumLike(int fb_num){
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			int num = 0;
+			
+			try{
+				con = getConnection();
+				String sql = "select fb_sumlike from free_board where fb_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb_num);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					num = rs.getInt("fb_sumlike");
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+			return num;
+		}
+		
+		public List<Integer> isLike(String mem_num){
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			List<Integer> check = new ArrayList<Integer>();		
+			
+			try{
+				con = getConnection();
+				String sql = "select * from fb_likecount where fb_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_num);
+
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					check.add(rs.getInt("fb_mem_num"));
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();
+				}
+			}
+			return check;
+		}
 }
