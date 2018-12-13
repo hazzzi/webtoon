@@ -23,6 +23,11 @@
 		
 		BoardBean bd = (BoardBean)request.getAttribute("bd");
 		boolean likeCheck = (boolean)request.getAttribute("likeCheck");
+		
+		int nextNum =(Integer)request.getAttribute("nextNum");
+		int preNum =(Integer)request.getAttribute("preNum");
+		BoardBean bd2 = (BoardBean)request.getAttribute("bd2");
+		BoardBean bd3 = (BoardBean)request.getAttribute("bd3");
 %>
 
 <script type="text/javascript">
@@ -67,9 +72,7 @@
 
 		<div class="detail">
 			<div class="fi">
-				<%
-					int nextNum = bdao.nextPost(fb_num);
-				%>
+				
 				<!-- 다음 글 없을 경우 제어 -->
 				<%
 					if (nextNum != 0) {
@@ -83,9 +86,7 @@
 				<%
 					}
 				%>
-				<%
-					int preNum = bdao.previousPost(fb_num);
-				%>
+				
 				<!-- 이전 글 없을 경우 제어 -->
 				<%
 					if (preNum != 0) {
@@ -261,9 +262,6 @@
 			<br> <br>
 			<div id="next-prev">
 				<%
-					BoardBean bb2 = bdao.getBoard(nextNum);
-				%>
-				<%
 					if (nextNum == 0) {
 				%>
 				<p>다음 글이 존재하지 않습니다.</p>
@@ -272,14 +270,12 @@
 				%>
 				<p>
 					다음 글 : <a
-						href="./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=bb2.getFb_subject()%></a>
+						href="./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=bd2.getFb_subject()%></a>
 				</p>
 				<%
 					}
 				%>
-				<%
-					BoardBean bb3 = bdao.getBoard(preNum);
-				%>
+				
 				<%
 					if (preNum == 0) {
 				%>
@@ -289,7 +285,7 @@
 				%>
 				<p>
 					이전 글 : <a
-						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=bb3.getFb_subject()%></a>
+						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=bd3.getFb_subject()%></a>
 				</p>
 				<%
 					}

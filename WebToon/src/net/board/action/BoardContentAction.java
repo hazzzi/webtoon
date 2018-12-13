@@ -34,9 +34,21 @@ public class BoardContentAction implements Action{
 		bdao.updateReadCount(fb_num);
 		BoardBean bd = bdao.getBoard(fb_num);
 		
+		int nextNum = bdao.nextPost(fb_num);
+		int preNum = bdao.previousPost(fb_num);	
+		
+		BoardBean bd2 = bdao.getBoard(nextNum);
+		BoardBean bd3 = bdao.getBoard(preNum);
+		
+		
 		request.setAttribute("fb_num", fb_num);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("bd", bd);
+		request.setAttribute("nextNum", nextNum);
+		request.setAttribute("preNum", preNum);
+		request.setAttribute("bd2", bd2);
+		request.setAttribute("bd3", bd3);
+		
 		
 		boolean likeCheck = bdao.isLike(mem_num, fb_num);
 		request.setAttribute("likeCheck", likeCheck);
