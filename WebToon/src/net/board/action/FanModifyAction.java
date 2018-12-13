@@ -42,9 +42,8 @@ public class FanModifyAction implements Action {
 		String fa_subject = multi.getParameter("fa_subject");
 		String fa_content = multi.getParameter("fa_content");
 		String fa_img = multi.getFilesystemName("fa_img");
-		String fa_img2 = multi.getParameter("fa_img");
 		
-		System.out.println(fa_content);
+		System.out.println("fa_img는?"+fa_img);
 
 		fb.setFa_category1(fa_category1);
 		fb.setFa_category2(fa_category2);
