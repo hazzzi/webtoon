@@ -19,6 +19,8 @@
 		
 		
 	%>
+	
+	<a href="./insertWebtoon.wbt">웹툰등록하기</a>
 	<table border="1">
 		<tr>
 			<th>번호</th>
