@@ -140,7 +140,7 @@
 						<div id="date-writer-hit">
 							<span><%=fb.getFa_date()%> | </span>
 							<span>닉네임: <%=fb.getFa_mem_nik()%> | </span>
-							<span><%=fb.getFa_readcount()%></span>
+							<span>조회수: <%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
 							<a href="./upload/<%=fb.getFa_img()%>">
