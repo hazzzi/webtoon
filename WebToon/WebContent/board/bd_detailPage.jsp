@@ -20,12 +20,9 @@
 
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		String pageNum = (String) request.getAttribute("pageNum");
-
-		BoardDAO bdao = new BoardDAO();
-		BoardBean bd = bdao.getBoard(fb_num);
-		List<Integer> check = (List<Integer>)request.getAttribute("check");
-
-		// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
+		
+		BoardBean bd = (BoardBean)request.getAttribute("bd");
+		boolean likeCheck = (boolean)request.getAttribute("likeCheck");
 %>
 
 <script type="text/javascript">
@@ -136,7 +133,7 @@
 
 						<!-- 내용 영역 -->
 						<div id="article-content">
-							<%-- 			<a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
+							<%-- <a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
 							<%
 								if (bd.getFb_img() != null) {
 							%>
@@ -149,56 +146,41 @@
 					</div>
 					<!-- LikeBtn 시작 -->
 					
-					<script type="text/javascript">
-						$(document).ready(function() {
-							$('.like').each(function(index){
-								var check = <%=check%>
-								if(check.length!=0){
-									for(var i=0; i<check.length; i++){
-										if(check[i]==<%=fb_num%>){
-											$(this).removeClass('fa-heart-o');
-											$(this).addClass('fa-heart');
-										}
-									}
-								}
-							});
-							
-							$("i.like").click(function(){
-								if(<%=mem_num%>==null){
-									alert('로그인이 필요한 서비스 입니다.');
-								}else{
-									$.ajax('boardLikeAction.bo',{
-										context: this,
-										data:{
-											fb_num: $(<%=fb_num%>)
-										},success:function(data){
-											// 이미 좋아요 했을 때
-											var op = data.split(",");
-											if(op[0]=='true'){
-												$(this).removeClass('fa-heart');
-												$(this).addClass('fa-heart-o');
-												$(this).next().html(op[1]);
-												// 좋아요를 누르지 않았을 때
-											}else{
-												$(this).removeClass('fa-heart-o');
-												$(this).addClass('fa-heart');
-												$(this).next().html(op[1]);
-												}
-											}
-										});
-									}
-								  });
-								});
-					</script>
-
-
 					<i class="fa fa-heart-o like" id="likeIcon"
-						style="margin: 10px 0 0 15px; font-size: 32px;"> 
+						style="margin: 10px 0 0 15px; font-size: 32px; 	cursor: pointer;"> 
 						<!-- <input type="button" class="like" onclick="location.href='./boardLikeAction.bo'"> -->
 					</i> <span class="likeBtnSp">좋아요 <%=bd.getFb_sumlike()%></span>
 					<!-- LikeBtn 끝 -->
 				</div>
-
+				<script>
+							
+							$("i.like").click(function(){
+								if(<%=mem_num%>==null){
+									alert('로그인이 필요합니다');
+								}else{
+									$.ajax('boardLikeAction.bo',{
+										context:this,
+										data: {
+											fb_num : <%=fb_num%>
+										},success: function(data){
+											var op = data.split(",");
+											if(op[0]=='true'){
+												$(this).removeClass('fa-heart');
+												$(this).addClass('fa-heart-o');
+												$(this).next().html('좋아요 '+op[1]);
+											}else{
+												$(this).removeClass('fa-heart-o');
+												$(this).addClass('fa-heart');
+												$(this).next().html('좋아요 '+op[1]);
+											}
+										}
+									});
+								}
+							});
+							
+						});
+						
+					</script>
 				<!-- 파일 다운 및 삭제  -->
 				<div id="file-list" style="text-align: right;">
 					<div class="attach-file"></div>

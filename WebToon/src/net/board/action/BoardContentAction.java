@@ -23,7 +23,6 @@ public class BoardContentAction implements Action{
 
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		
-//		String pageNum = (String)request.getAttribute("pageNum");
 		String pageNum = request.getParameter("pageNum");
 		
 		if(pageNum==null){
@@ -39,9 +38,13 @@ public class BoardContentAction implements Action{
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("bd", bd);
 		
+		boolean likeCheck = bdao.isLike(mem_num, fb_num);
+		request.setAttribute("likeCheck", likeCheck);
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./board/bd_detailPage.jsp");
+		
 		
 		return forward;
 	}
