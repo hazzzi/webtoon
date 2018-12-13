@@ -39,8 +39,9 @@
 		form.style.display = form_display;
 	}
 	
-	$(document).ready(function() {
 	
+	$(document).ready(function() {
+		
 		$ajax('fanboardLike.fo',{
 				data : {
 					

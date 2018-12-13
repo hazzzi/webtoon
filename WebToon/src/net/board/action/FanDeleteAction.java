@@ -1,8 +1,8 @@
 package net.board.action;
 
+import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
 import net.board.db.FanBean;
@@ -24,7 +24,13 @@ public class FanDeleteAction implements Action {
 		fb.setFa_num(fa_num);
 
 		fdao.deleteFanBoard(fb);
-
+		
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('성공적으로 삭제하였습니다 ')");
+		out.println("</script>");
+		out.close();
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./fanboardList.fo");
 		forward.setRedirect(true);

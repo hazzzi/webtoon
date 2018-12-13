@@ -17,15 +17,12 @@ public class FanBoardLikeAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("FanBoardLikeAction execute()");
-		request.setCharacterEncoding("utf-8");
-		
-		
+		request.setCharacterEncoding("utf-8");	
 		
 		HttpSession session = request.getSession();
 		String mem_num = (String) session.getAttribute("mem_num");
 		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
 		int fa_sumlike = Integer.parseInt(request.getParameter("fa_sumlike"));
-		
 		
 		if(mem_num==null){
 			response.setContentType("text/html; charset=UTF-8");
@@ -35,6 +32,7 @@ public class FanBoardLikeAction implements Action{
 			out.println("./login.me");
 			out.println("</script>");
 			out.close();
+			
 		}else{
 		
 		FanBean fb = new FanBean();
@@ -46,6 +44,7 @@ public class FanBoardLikeAction implements Action{
 		
 		fdao.likeCount(fb);
 		}
+		
 		return null;
 	}
 	
