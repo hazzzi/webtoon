@@ -19,8 +19,6 @@
 <body>
 	<%
 		FanBean fb = new FanBean();
-		FanDAO fdao = new FanDAO();
-		
 		
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
@@ -28,7 +26,6 @@
 		if (pageNum == null) {
 			pageNum = "1";
 		}
-		
 
 		int pageCount = ((Integer) request.getAttribute("pageCount")).intValue();
 		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
@@ -37,7 +34,6 @@
 
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
-		System.out.print(fanboardList.size());
 		
 		String mem_num = (String)session.getAttribute("mem_num");
 	
