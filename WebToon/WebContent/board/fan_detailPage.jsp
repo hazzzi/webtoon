@@ -138,8 +138,6 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span>분류 : <%=fb.getFa_category1()%> | </span>
-							<span><%=fb.getFa_category2()%> | </span>
 							<span><%=fb.getFa_date()%> | </span>
 							<span>닉네임: <%=fb.getFa_mem_nik()%> | </span>
 							<span><%=fb.getFa_readcount()%></span>
