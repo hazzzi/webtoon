@@ -130,10 +130,10 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=fb.getFa_category1()%> | </span>
+							<span>분류 : <%=fb.getFa_category1()%> | </span>
 							<span><%=fb.getFa_category2()%> | </span>
 							<span><%=fb.getFa_date()%> | </span>
-							<span><%=fb.getFa_mem_nik()%> | </span>
+							<span>닉네임: <%=fb.getFa_mem_nik()%> | </span>
 							<span><%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
@@ -147,7 +147,7 @@
 
 					<!-- LikeBtn 시작 -->
 						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
-						<input type="button" class="like" onclick="location.href='#'" name="fa_sumlike">
+							<input type="button" class="like" onclick="location.href='#'" name="fa_sumlike">
 						</i>
 						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
 					<!-- LikeBtn 끝 -->

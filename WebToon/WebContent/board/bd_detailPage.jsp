@@ -14,7 +14,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
-
 <script type="text/javascript">
 	function modifyCommentToggle(articleNo) {
 		var p_id = "comment" + articleNo;
@@ -36,6 +35,7 @@
 		p.style.display = p_display;
 		form.style.display = form_display;
 	}
+	
 </script>
 
 </head>
@@ -139,6 +139,25 @@
 						</div>
 					</div>
 					<!-- LikeBtn 시작 -->
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$("i.like").click(function(){
+								if(<%=mem_num%>==null){
+									alert('로그인이 필요한 서비스 입니다.');
+								}else{
+									$.ajax('boardLikeAction.bo',{
+										context: this,
+										data:{
+											fb_num: $
+										}
+									});
+								}
+				 			});
+						});
+					
+					</script>
+					
+					
 						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
 						<input type="button" class="like" onclick="location.href='#'">
 						</i>
