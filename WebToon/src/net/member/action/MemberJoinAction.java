@@ -1,5 +1,6 @@
 package net.member.action;
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,11 +48,58 @@ public class MemberJoinAction implements Action{
 		/*mb.setProgileimg(progileimg);*/
 		MemberDAO mdao = new MemberDAO();
 		
-		mdao.joinMember(mb);
+		//아이디가 중복 일떄 false
+		//이메일이 중복일떄
+		//닉네임이 중복일떄
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("./login.me");
+		
+		
+		
+		 if(mdao.idOverlapcheck(mb)){
+			forward.setRedirect(true);
+			forward.setPath("./join.me");
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out=response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미 있는 아이디입니다..');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}else if(mdao.nikOverlapcheck(mb)){
+			forward.setRedirect(true);
+			forward.setPath("./join.me");
+			
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out=response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미 있는 닉네임입니다..');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}else if(mdao.emailOverlapcheck(mb)){
+			forward.setRedirect(true);
+			forward.setPath("./join.me");
+				
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out=response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미 있는 이메일입니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}else{
+
+			mdao.joinMember(mb);
+			forward.setRedirect(true);
+			forward.setPath("./login.me");
+			
+		}
+
+		//위 3가지가 중복체크 성공하면 회원 가입.
+
 		return forward;
 	}
 
