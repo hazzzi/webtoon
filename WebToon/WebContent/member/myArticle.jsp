@@ -51,7 +51,6 @@
 		<table border="0">
 			<tr>
 				<th>글 번호</th>
-<<<<<<< HEAD
 				<th>
 				
 					<select name="jump" onchange="location.href=this.value">
@@ -61,9 +60,6 @@
 
 					
 				</th>
-=======
-				<th>자유게시판</th>
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 				<th>제목</th>
 				<th>댓글 수</th>
 				<th>작성자</th>

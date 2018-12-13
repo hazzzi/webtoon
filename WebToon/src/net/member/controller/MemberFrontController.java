@@ -187,16 +187,19 @@ public class MemberFrontController extends HttpServlet {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-<<<<<<< HEAD
 		}else if(command.equals("/MembermyarticleListAction2.me")){
 			action =new MembermyarticleListAction2();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		
-=======
 
 		}else if(command.equals("/MembermanagementList.me")){
 			action =new MembermyarticleListAction();
 			
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 		try{
 			forward=action.execute(request, response);
 			}catch (Exception e) {

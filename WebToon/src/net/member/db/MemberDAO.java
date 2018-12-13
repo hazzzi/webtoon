@@ -516,7 +516,8 @@ public class MemberDAO {
 		}
 		return count;
 	}
-<<<<<<< HEAD
+	
+	
 	public int getmyboardCount2(String mem_num){
 		int count=0;
 		try{
@@ -540,10 +541,6 @@ public class MemberDAO {
 	}
 	
 	public List<BoardBean> getmyBoardList(int startRow,int pageSize,String mem_num){
-=======
-
-	public List<BoardBean> getmyBoardList(int startRow, int pageSize, String mem_num) {
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 		List<BoardBean> myBoardList = new ArrayList<BoardBean>();
 		try {
 			con = getConnection();
@@ -594,7 +591,6 @@ public class MemberDAO {
 		}
 		return myBoardList;
 	}
-<<<<<<< HEAD
 	
 	public List<FanBean> getmyBoardList2(int startRow,int pageSize,String mem_num){
 		List<FanBean> myFanList = new ArrayList<FanBean>();
@@ -638,16 +634,6 @@ public class MemberDAO {
 		return myFanList;
 	}
 	
-	public List<MemberBean> getMemberList(){
-//		업캐스팅 부모->자식
-//		List list = new ArrayList();
-//		제네릭 설정(형지정)
-		List<MemberBean> list = new ArrayList();
-//		ArrayList list = new ArrayList();
-		try{
-			con=getConnection();
-=======
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 
 	public List<MemberBean> getMemberList() {
 		// 업캐스팅 부모->자식
