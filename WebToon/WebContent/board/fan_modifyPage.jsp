@@ -52,8 +52,7 @@
 						}
 					}
 
-					$("#bd_sel").change(
-							function() {
+					$("#bd_sel").change(function() {
 								//alert($("#bd_sel option:selected").text());
 								$.ajax('fanCategory.fo', {
 									data : {

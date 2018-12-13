@@ -41,12 +41,15 @@
 	
 	$(document).ready(function() {
 	
+ 	$(".like").click(function(){
+		
 		$ajax('fanboardLike.fo',{
 				data : {
-					
-				}
-		});
-	
+					fa_sumlike: $(".like")
+				},
+				
+			});
+ 		});
 	});
 	
 </script>
@@ -143,7 +146,7 @@
 
 					<!-- LikeBtn 시작 -->
 						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
-						<input type="button" class="like" onclick="location.href='#'">
+						<input type="button" class="like" onclick="location.href='#'" name="fa_sumlike">
 						</i>
 						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
 					<!-- LikeBtn 끝 -->
