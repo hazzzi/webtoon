@@ -14,7 +14,18 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
+<%
+		String mem_num = (String) session.getAttribute("mem_num");
 
+		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+		String pageNum = (String) request.getAttribute("pageNum");
+
+		BoardDAO bdao = new BoardDAO();
+		BoardBean bd = bdao.getBoard(fb_num);
+
+		// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
+%>
+	
 <script type="text/javascript">
 	function modifyCommentToggle(articleNo) {
 		var p_id = "comment" + articleNo;
@@ -36,22 +47,18 @@
 		p.style.display = p_display;
 		form.style.display = form_display;
 	}
+	
+	function del(fb_num){
+		if(confirm("해당 글을 삭제하시겠습니까?")==true){
+			location.href="./boardDelete.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>";
+		}
+	};
 </script>
 
 </head>
 
 <body>
-	<%
-		String mem_num = (String) session.getAttribute("mem_num");
-
-		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
-		String pageNum = (String) request.getAttribute("pageNum");
-
-		BoardDAO bdao = new BoardDAO();
-		BoardBean bd = bdao.getBoard(fb_num);
-
-		// System.out.println("디테일 멤넘2"+bd.getFb_mem_num());
-	%>
+	
 
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
@@ -164,8 +171,7 @@
 						%>
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
-						<input type="button" class="bt" value="삭제"
-							onclick="location.href='./boardDelete.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt" value="삭제" onclick="del(<%=fb_num %>)">
 						<input type="button" class="bt-2"
 							onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
 						<%

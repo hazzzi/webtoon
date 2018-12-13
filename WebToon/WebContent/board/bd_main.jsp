@@ -87,7 +87,6 @@
 							</td>
 							<td class="table_img">
 								<%
-									System.out.print(bb.getFb_img());
 											if (bb.getFb_img() != null) {
 								%> <img src="./images/bd_img.png" width="30px" height="30px">
 
