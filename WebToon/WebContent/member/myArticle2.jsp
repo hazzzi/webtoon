@@ -1,3 +1,4 @@
+<%@page import="net.board.db.FanBean"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,7 +14,7 @@
 </head>
 <body>
 <%	request.setCharacterEncoding("utf-8");
-	int count =  ((Integer) request.getAttribute("count")).intValue();
+	int count = (int)request.getAttribute("count");
 	String pageNum=(String)request.getAttribute("pageNum");
 	
 	if (pageNum == null) {
@@ -25,8 +26,7 @@
 	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
 	int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 	
-	List<BoardBean> myBoardList =(List<BoardBean>)request.getAttribute("myBoardList");
-	List<BoardBean> myBoardList_search =(List<BoardBean>)request.getAttribute("myBoardList_search");
+	List<FanBean> myFanList =(List<FanBean>)request.getAttribute("myFanList");
 %>
 
 						<!--  ma=myArticle  
@@ -44,7 +44,7 @@
 
 <div class="clear"></div>
 
-<form action="myArticleSearchAction.me" method="post">
+<form action="#" method="post">
 <div id="ma"><!--reinfo  -->
 
 	<div id="ma_text">
@@ -55,7 +55,7 @@
 				
 					<select name="jump" onchange="location.href=this.value">
 						<option value="./MembermyarticleListAction.me?pageNum=<%=pageNum%>">자유게시판</option>
-						<option value="./MembermyarticleListAction2.me?pageNum=<%=pageNum%>">팬아트</option>
+						<option selected value="./MembermyarticleListAction2.me?pageNum=<%=pageNum%>">팬아트</option>
 					</select>
 
 					
@@ -65,49 +65,33 @@
 				<th>조회수</th>
 				<th>작성 날짜</th>
 			</tr>
+			<%
+				if(myFanList==null){%>
+            <tr>
+            <td></td>
+            <td></td>
+            <td>게시글이 없습니다.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+         </tr>
+            
+            
 				
-				
-				<%
-			if(myBoardList_search==null){
-				if(myBoardList==null){%>
-				<tr>
-				<td></td>
-				<td></td>
-				<td>게시글이 없습니다.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-				
-				<%}else{
-				for(BoardBean bb: myBoardList){ %>
+				<% 
+				}else{
+				for(FanBean fb: myFanList){ %>
 			<tr>
-				<td><%=bb.getFb_num()%></td>
-				<td>[자유게시판]</td>
-				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
-				<td><%=bb.getFb_mem_nik()%></td>
-				<td><%=bb.getFb_readcount()%></td>
-				<td><%=bb.getFb_date()%></td>
+				<td><%=fb.getFa_num()%></td>
+				<td>[팬아트]</td>
+				<td><a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>"><%=fb.getFa_subject()%></a></td>
+				<td><%=fb.getFa_mem_nik()%></td>
+				<td><%=fb.getFa_readcount()%></td>
+				<td><%=fb.getFa_date()%></td>
 			</tr>
 			
-						<%}} 
-			}else{
-				
-				for(BoardBean bb: myBoardList_search){ %>
-			<tr>
-				<td><%=bb.getFb_num()%></td>
-				<td>[<%=bb.getFb_category()%>]</td>
-				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
-				<td>5</td>
-				<td><%=bb.getFb_mem_nik()%></td>
-				<td><%=bb.getFb_readcount()%></td>
-				<td><%=bb.getFb_date()%></td>
-			</tr>
-			
-						<%}
-			
-			}%>			
+						<%}} %>			
 			
 		</table>
  	</div> <!--id="rif_text" -->
@@ -118,12 +102,12 @@
 							}
 
 							if (startPage > pageBlock) {
-						%><a href="./MembermyarticleListAction.me?pageNum=<%=startPage - pageBlock%>">&lt;</a>
+						%><a href="./MembermyarticleListAction2.me?pageNum=<%=startPage - pageBlock%>">&lt;</a>
 						<%
 							}
 
 							for (int i = startPage; i <= endPage; i++) {
-						%><a href="./MembermyarticleListAction.me?pageNum=<%=i%>">[<%=i%>]
+						%><a href="./MembermyarticleListAction2.me?pageNum=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							}
