@@ -21,6 +21,7 @@ import net.member.action.MemberModpassAction;
 import net.member.action.MemberUpdateAction1;
 import net.member.action.MemberUpdateAction2;
 import net.member.action.MemberWithdrawAction;
+import net.member.action.MembermyarticleListAction2;
 import net.member.action.MembermyarticleListAction;
 import net.member.action.MemberSearchAction;
 
@@ -184,15 +185,15 @@ public class MemberFrontController extends HttpServlet{
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-		}else if(command.equals("/MembermanagementList.me")){
-			action =new MembermyarticleListAction();
-			
+		}else if(command.equals("/MembermyarticleListAction2.me")){
+			action =new MembermyarticleListAction2();
+		
 		try{
 			forward=action.execute(request, response);
-		}catch (Exception e) {
+			}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+			}
 		}else if(command.equals("/MembermanagementDelete.me")){
 		action =new MembermanagementDelete();
 		
