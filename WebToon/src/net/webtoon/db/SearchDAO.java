@@ -24,12 +24,9 @@ public class SearchDAO {
 		return con;
 	}
 	
-	public Vector<List<WebtoonBean>> getSearchResult(String query){
-		Vector<List<WebtoonBean>> result = new Vector<List<WebtoonBean>>();
+	public List<WebtoonBean> getSearchResult(String query){
 		
-		List<WebtoonBean> subject = new ArrayList<WebtoonBean>();
-		List<WebtoonBean> author = new ArrayList<WebtoonBean>();
-		List<WebtoonBean> portal = new ArrayList<WebtoonBean>();
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -41,10 +38,12 @@ public class SearchDAO {
 			System.out.println(query);
 			// 게시판 글 번호 구하기
 			// num 구하기, 게시판 글 중에 가장 큰 번호
-			String sql = "select * from webtoon where replace(web_subject,' ','') like ?";
+			String sql = "select * from webtoon where replace(web_subject,' ','') like ? or replace(web_author,' ','') like ? or replace(web_portal,' ','') like ?";
 			// 4 저장 <= 결과 실행
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, query);
+			pstmt.setString(2, query);
+			pstmt.setString(3, query);
 
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
@@ -61,59 +60,8 @@ public class SearchDAO {
 				wb.setWeb_link(rs.getString("web_link"));
 				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
 				
-				subject.add(wb);
+				list.add(wb);
 			}
-			pstmt.close();
-			rs.close();
-			
-			sql ="select * from webtoon where replace(web_author,' ','') like ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, query);
-
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				WebtoonBean wb = new WebtoonBean();
-				wb.setWeb_num(rs.getInt("web_num"));
-				wb.setWeb_subject(rs.getString("web_subject"));
-				wb.setWeb_author(rs.getString("web_author"));
-				wb.setWeb_genre(rs.getString("web_genre"));
-				wb.setWeb_start(rs.getString("web_start"));
-				wb.setWeb_portal(rs.getString("web_portal"));
-				wb.setWeb_info(rs.getString("web_info"));
-				wb.setWeb_ing(rs.getString("web_ing"));
-				wb.setWeb_link(rs.getString("web_link"));
-				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
-				
-				author.add(wb);
-			}		
-			
-			pstmt.close();
-			rs.close();
-			
-			sql ="select * from webtoon where replace(web_portal,' ','') like ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, query);
-			
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				WebtoonBean wb = new WebtoonBean();
-				wb.setWeb_num(rs.getInt("web_num"));
-				wb.setWeb_subject(rs.getString("web_subject"));
-				wb.setWeb_author(rs.getString("web_author"));
-				wb.setWeb_genre(rs.getString("web_genre"));
-				wb.setWeb_start(rs.getString("web_start"));
-				wb.setWeb_portal(rs.getString("web_portal"));
-				wb.setWeb_info(rs.getString("web_info"));
-				wb.setWeb_ing(rs.getString("web_ing"));
-				wb.setWeb_link(rs.getString("web_link"));
-				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
-				
-				portal.add(wb);
-			}		
-			
-			result.add(subject);
-			result.add(portal);
-			result.add(author);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -123,7 +71,7 @@ public class SearchDAO {
 			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 		}
-		return result;
+		return list;
 	}
 	
 	

@@ -18,6 +18,7 @@ public class FanBoardLikeAction implements Action{
 
 		System.out.println("FanBoardLikeAction execute()");
 		request.setCharacterEncoding("utf-8");	
+		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session = request.getSession();
 		String mem_num = (String) session.getAttribute("mem_num");
