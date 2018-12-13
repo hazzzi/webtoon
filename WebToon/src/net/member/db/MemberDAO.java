@@ -188,7 +188,7 @@ public class MemberDAO {
 		MemberBean mb = new MemberBean();
 		try {
 			con = getConnection();
-			String sql = "select mem_profileimg from member where mem_num=?";
+			String sql = "select mem_num,mem_profileimg from member where mem_num=?";
 			// 4 저장 <= 결과 실행
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mem_num);
@@ -196,6 +196,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			// 5 첫행에 데이터가 있으면 가장큰 번호+1;
 			while (rs.next()) {
+				mb.setNum(rs.getString("mem_num"));
 				mb.setProfileimg(rs.getString("mem_profileimg"));
 			}
 		} catch (Exception e) {

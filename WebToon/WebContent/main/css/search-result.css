@@ -202,8 +202,8 @@ div.sr-content-comment>div{
     box-sizing: border-box;
 }
 div.sr-content-comment>div>img{
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     display: inline-block;
     /* border: 1px solid; */
     margin: 10px 0 0 10px;
@@ -214,7 +214,7 @@ div.sr-content-comment>div>p:NTH-OF-TYPE(1){
     /* border: 1px solid red; */
     /* margin: 0 10px 20px 10px; */
     position: absolute;
-    top: 28px;
+    top: 25px;
     left: 70px;
     font-size: 20px;
 }
