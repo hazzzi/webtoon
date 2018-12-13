@@ -553,12 +553,14 @@ public class FanDAO {
 	}//nextPost end
 	
 	public int likeCount(FanBean fb){
+		//미완성
+		
+		int like =0;
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		int like=0;
 		
 		try{
 			con = getConnection();
@@ -579,7 +581,6 @@ public class FanDAO {
 				
 				like = fb.getFa_sumlike();
 				
-				return like;
 			}else{
 				sql = "insert into fanart_likecount(fa_num, fa_likecount, fa_mem_num) values(?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
@@ -594,7 +595,6 @@ public class FanDAO {
 				
 				like = fb.getFa_sumlike();
 				
-				return like;
 			}
 		}catch(Exception e){
 		}finally {
@@ -614,7 +614,6 @@ public class FanDAO {
 				} catch (SQLException e) {
 				}			
 		}
-		
 		
 		return like;
 	}

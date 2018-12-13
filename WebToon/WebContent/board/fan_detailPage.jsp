@@ -41,7 +41,11 @@
 	
 	$(document).ready(function() {
 	
-		$ajax()
+		$ajax('fanboardLike.fo',{
+				data{
+					
+				}
+		});
 	
 	});
 	
@@ -137,10 +141,10 @@
 						</div>
 					</div>
 					<!-- LikeBtn.com BEGIN -->
-			
-			
-			
-			
+					
+					<i class="fa fa-heart" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;" name="fa_likecount"></i>
+					<span class="likeBtnSp">좋아요</span>
+					
 					<!-- LikeBtn.com END -->
 				</div>
 
