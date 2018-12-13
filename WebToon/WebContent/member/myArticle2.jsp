@@ -61,7 +61,6 @@
 					
 				</th>
 				<th>제목</th>
-				<th>댓글 수</th>
 				<th>작성자</th>
 				<th>조회수</th>
 				<th>작성 날짜</th>
@@ -85,9 +84,8 @@
 				for(FanBean fb: myFanList){ %>
 			<tr>
 				<td><%=fb.getFa_num()%></td>
-				<td>[<%=fb.getFa_category2()%>]</td>
-				<td><a href="./boardContent.bo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>"><%=fb.getFa_subject()%></a></td>
-				<td>5</td>
+				<td>[팬아트]</td>
+				<td><a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>"><%=fb.getFa_subject()%></a></td>
 				<td><%=fb.getFa_mem_nik()%></td>
 				<td><%=fb.getFa_readcount()%></td>
 				<td><%=fb.getFa_date()%></td>

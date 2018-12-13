@@ -61,7 +61,6 @@
 					
 				</th>
 				<th>제목</th>
-				<th>댓글 수</th>
 				<th>작성자</th>
 				<th>조회수</th>
 				<th>작성 날짜</th>
@@ -85,9 +84,8 @@
 				for(BoardBean bb: myBoardList){ %>
 			<tr>
 				<td><%=bb.getFb_num()%></td>
-				<td>[<%=bb.getFb_category()%>]</td>
+				<td>[자유게시판]</td>
 				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
-				<td>5</td>
 				<td><%=bb.getFb_mem_nik()%></td>
 				<td><%=bb.getFb_readcount()%></td>
 				<td><%=bb.getFb_date()%></td>
