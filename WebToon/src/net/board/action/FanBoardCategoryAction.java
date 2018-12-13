@@ -26,6 +26,7 @@ public class FanBoardCategoryAction implements Action{
 		
 		List <String> list = fdao.categoryFan(fan_category);
 		
+		
 		//request.setAttribute("fan_category", fan_category);
 		System.out.println(list);
 		

@@ -106,7 +106,10 @@
 				<div id="bw_img">
 					<i class="fa fa-file-image-o" id="bw_pho_icon"
 						style="font-size: 48px; color: gray; margin-left: -30px;">
-						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
+						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img" value="./upload/<%=fb.getFa_img()%>">
+						<%if(fb.getFa_img().equals(null)){%>
+							
+						<% }%>
 					</i>
 
 
@@ -122,7 +125,7 @@
 			<hr>
 			<div class="bw_content">
 			<form id="form1" runat="server" >
-        			<img id="blah" onerror="this.style.visibility='none'" src="./upload/<%=fb.getFa_img()%>">
+        			<img id="blah" onerror="this.style.visibility='none'" src="./upload/<%=fb.getFa_img()%>" name="fa_img2">
   					  </form>
 				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"><%=fb.getFa_content() %></textarea>
 				<hr>
