@@ -374,12 +374,19 @@ public class MemberDAO {
 		}
 	}
 
-	public void deleteMember(String mem_num) {
+	public void deleteMember(MemberBean mb) {
 		try {
 			con = getConnection();
-			String sql = "delete from member where mem_num=?";
+			String sql = "update member set mem_id=?,mem_email=?,mem_nik=?,mem_ages=?,mem_profileimg=?,mem_hint=?,mem_hintans=? where mem_num=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, mem_num);
+			pstmt.setString(1, "@"+mb.getId());
+			pstmt.setString(2, "@"+mb.getEmail());
+			pstmt.setString(3, "@"+mb.getNik());
+			pstmt.setString(4, "@"+mb.getAges());
+			pstmt.setString(5, "@"+mb.getProfileimg());
+			pstmt.setString(6, "@"+mb.getHint());
+			pstmt.setString(7, "@"+mb.getHintans());
+			pstmt.setString(8, mb.getNum());
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -619,10 +626,9 @@ public class MemberDAO {
 		BoardBean bb;
 		List<MemberBean> ml = new ArrayList<>();
 
-		
-		try{
-			con=getConnection();
-			String sql="select * from member where mem_id like ? order by mem_date";
+		try {
+			con = getConnection();
+			String sql = "select * from member where mem_id like ? order by mem_date";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + search + "%");
@@ -668,10 +674,9 @@ public class MemberDAO {
 		BoardBean bb;
 		List<MemberBean> ml = new ArrayList<>();
 
-		
-		try{
-			con=getConnection();
-			String sql="select * from member where mem_email like ? order by mem_date";
+		try {
+			con = getConnection();
+			String sql = "select * from member where mem_email like ? order by mem_date";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + search + "%");
@@ -713,25 +718,25 @@ public class MemberDAO {
 		return ml;
 	}
 
-	public Boolean memberIdCheck(String uniqId){
-		Boolean flag=false;
-		try{
-			con =getConnection();
-			String sql="select * from member where mem_num=?";
+	public Boolean memberIdCheck(String uniqId) {
+		Boolean flag = false;
+		try {
+			con = getConnection();
+			String sql = "select * from member where mem_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, uniqId);
 
 			rs = pstmt.executeQuery();
-			if(rs.next()){
-				flag=true; //아이디 존재함. 바로 로그인 해야함   
-			}else{
-				flag=false;//아이디 없음  회원가입 필요함. 그후 로그인해야함.
+			if (rs.next()) {
+				flag = true; // 아이디 존재함. 바로 로그인 해야함
+			} else {
+				flag = false;// 아이디 없음 회원가입 필요함. 그후 로그인해야함.
 			}
-			
-		}catch (Exception e) {
+
+		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}finally{
+		} finally {
 			if (rs != null)
 				try {
 					rs.close();
@@ -748,29 +753,29 @@ public class MemberDAO {
 				} catch (SQLException e) {
 				}
 		}
-		
+
 		return flag;
 	}
-	
-	public void naverIdinsert(MemberBean nmb){
-		
-		try{
-			con=getConnection();
-			
+
+	public void naverIdinsert(MemberBean nmb) {
+
+		try {
+			con = getConnection();
+
 			String sql = "insert into "
 					+ "member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint,mem_profileimg) "
 					+ "values(?,?,?,?,?,?,?,now(),?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, nmb.getNum());//uniqId
-			pstmt.setString(2, nmb.getId());//uniqId
-			pstmt.setString(3, nmb.getPass());//"  " 공백값
-			pstmt.setString(4, nmb.getEmail());//네이버 이메일
-			pstmt.setString(5, nmb.getNik());//네이버 닉네임
-			pstmt.setString(6, nmb.getAges());//연령대 ex)10대 20대
-			pstmt.setString(7, nmb.getGender());//성별 ex)남 여
-			pstmt.setString(8, nmb.getHintans());//나의 보물 제1호는? 
-			pstmt.setString(9, nmb.getHint());//"   " 공백값
-			pstmt.setString(10, nmb.getProfileimg());//네이버 프로필
+			pstmt.setString(1, nmb.getNum());// uniqId
+			pstmt.setString(2, nmb.getId());// uniqId
+			pstmt.setString(3, nmb.getPass());// " " 공백값
+			pstmt.setString(4, nmb.getEmail());// 네이버 이메일
+			pstmt.setString(5, nmb.getNik());// 네이버 닉네임
+			pstmt.setString(6, nmb.getAges());// 연령대 ex)10대 20대
+			pstmt.setString(7, nmb.getGender());// 성별 ex)남 여
+			pstmt.setString(8, nmb.getHintans());// 나의 보물 제1호는?
+			pstmt.setString(9, nmb.getHint());// " " 공백값
+			pstmt.setString(10, nmb.getProfileimg());// 네이버 프로필
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -794,27 +799,27 @@ public class MemberDAO {
 				}
 		}
 	}
-	
-	public MemberBean loginNaver(MemberBean nmb){
-		MemberBean mb=new MemberBean();
-		try{
-			con=getConnection();
-			
-			String sql="select mem_num, mem_nik from member where mem_num=?";
+
+	public MemberBean loginNaver(MemberBean nmb) {
+		MemberBean mb = new MemberBean();
+		try {
+			con = getConnection();
+
+			String sql = "select mem_num, mem_nik from member where mem_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, nmb.getNum());
 
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()){
+
+			if (rs.next()) {
 				mb.setNum(rs.getString("mem_num"));
 				mb.setNik(rs.getString("mem_nik"));
 			}
-			
-		}catch (Exception e) {
+
+		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}finally {
+		} finally {
 			if (rs != null)
 				try {
 					rs.close();
@@ -834,4 +839,218 @@ public class MemberDAO {
 		return mb;
 	}
 
+	public boolean idOverlapcheck(MemberBean mb) {
+		boolean flag = true;
+		// false면 생성가능 true명 중복.
+		try {
+			con = getConnection();
+
+			String sql1 = "select * from member where mem_id=? ";
+			pstmt = con.prepareStatement(sql1);
+			pstmt.setString(1, mb.getId());
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				flag = true;
+				System.out.println("id 중복");
+			} else {
+				flag = false;
+
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return flag;
+	}
+
+	public boolean nikOverlapcheck(MemberBean mb) {
+			Boolean flag=true;
+		try {
+			con = getConnection();
+
+			String sql2 = "select * from member where mem_nik=? ";
+			pstmt = con.prepareStatement(sql2);
+			pstmt.setString(1, mb.getNik());
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				flag = true;
+				System.out.println("닉 중복");
+			} else {
+				flag = false;
+			}
+
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return flag;
+	}
+
+	public boolean emailOverlapcheck(MemberBean mb) {
+		Boolean flag=true;
+		
+		try {
+			con = getConnection();
+
+			String sql3 = "select * from member where mem_email=? ";
+			pstmt = con.prepareStatement(sql3);
+			pstmt.setString(1, mb.getEmail());
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				flag = true;
+				System.out.println("이메일 중복");
+			} else {
+				flag = false;
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		
+		return flag;
+	}
+	
+	public int getmyboardCount_search(String mem_num,String search){
+		
+		int count = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(*) from free_board where fb_mem_num=? and fb_subject like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setString(2, "%" + search + "%");
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return count;
+	}
+	public List<BoardBean> getmyBoardList_search(int startRow, int pageSize, String mem_num,String search ){
+		List<BoardBean> myBoardList = new ArrayList<BoardBean>();
+		try {
+			con = getConnection();
+
+			String sql = "select * from free_board where fb_mem_num=? and fb_subject like ? limit ?,?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setString(2, "%" + search + "%");
+			pstmt.setInt(3, startRow - 1);
+			pstmt.setInt(4, pageSize);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardBean bb = new BoardBean();
+
+				bb.setFb_num(rs.getInt("fb_num"));
+				bb.setFb_mem_num(rs.getString("fb_mem_num"));
+				bb.setFb_mem_nik(rs.getString("fb_mem_nik"));
+				bb.setFb_category(rs.getString("fb_category"));
+				bb.setFb_subject(rs.getString("fb_subject"));
+				bb.setFb_content(rs.getString("fb_content"));
+				bb.setFb_img(rs.getString("fb_img"));
+				bb.setFb_sumlike(rs.getInt("fb_sumlike"));
+				bb.setFb_readcount(rs.getInt("fb_readcount"));
+				bb.setFb_date(rs.getDate("fb_date"));
+
+				myBoardList.add(bb);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+		}
+		return myBoardList;
+	}
 }

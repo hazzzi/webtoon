@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./main/css/border-header.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../main/css/footer-main.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -38,6 +38,17 @@
 		p.style.display = p_display;
 		form.style.display = form_display;
 	}
+	
+	$(document).ready(function() {
+	
+		$ajax('fanboardLike.fo',{
+				data : {
+					
+				}
+		});
+	
+	});
+	
 </script>
 </head>
 
@@ -108,33 +119,34 @@
 					<table class="main">
 						<tr>
 							<th	style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;"><%=fb.getFa_subject() %></th>
+							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>] [<%=fb.getFa_category2() %>]  <%=fb.getFa_subject() %></th>
 						</tr>
 						<hr>
 					</table>
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span>[<%=fb.getFa_category1()%>] | </span>
+							<span><%=fb.getFa_category1()%> | </span>
 							<span><%=fb.getFa_category2()%> | </span>
 							<span><%=fb.getFa_date()%> | </span>
 							<span><%=fb.getFa_mem_nik()%> | </span>
 							<span><%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>"><img
-								src="./upload/<%=fb.getFa_img()%>" class="content_img"></a> <br>
+							<a href="./upload/<%=fb.getFa_img()%>">
+							<img src="./upload/<%=fb.getFa_img()%>" class="content_img" style="max-width: 100%;"></a> <br>
 							<br>
 							<%=fb.getFa_content()%><br>
 							<br>
 						</div>
 					</div>
-					<!-- LikeBtn.com BEGIN -->
-			
-			
-			
-			
-					<!-- LikeBtn.com END -->
+
+					<!-- LikeBtn 시작 -->
+						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
+						<input type="button" class="like" onclick="location.href='#'">
+						</i>
+						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
+					<!-- LikeBtn 끝 -->
 				</div>
 
 				<!-- 파일 다운 및 삭제  -->

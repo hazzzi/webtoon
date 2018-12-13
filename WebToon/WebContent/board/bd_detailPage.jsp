@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./main/css/border-header.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../main/css/footer-main.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
 
 <script type="text/javascript">
@@ -111,15 +111,16 @@
 						<tr>
 							<th
 								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;"><%=bd.getFb_subject()%></th>
+							<th style="text-align: left; font-size: 30px;">[<%=bd.getFb_category()%>]    <%=bd.getFb_subject()%></th>
 						</tr>
 						<hr>
 					</table>
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=bd.getFb_date()%> | </span> <span><%=bd.getFb_mem_nik()%>
-								| </span> <span><%=bd.getFb_readcount()%> | </span>
+							<span><%=bd.getFb_date()%> | </span> 
+							<span>닉네임 : <%=bd.getFb_mem_nik()%>  | </span> 
+							<span>조회수 : <%=bd.getFb_readcount()%> | </span>
 						</div>
 
 						<!-- 내용 영역 -->
@@ -137,32 +138,17 @@
 							<br>
 						</div>
 					</div>
-					<!-- LikeBtn.com BEGIN -->
-					<span class="likebtn-wrapper" data-theme="disk" data-lang="ko"
-						data-ef_voting="heartbeat" data-identifier="item_1"></span>
-					<script>
-						(function(d, e, s) {
-							if (d.getElementById("likebtn_wjs"))
-								return;
-							a = d.createElement(e);
-							m = d.getElementsByTagName(e)[0];
-							a.async = 1;
-							a.id = "likebtn_wjs";
-							a.src = s;
-							m.parentNode.insertBefore(a, m)
-						})
-								(document, "script",
-										"//w.likebtn.com/js/w/widget.js");
-					</script>
-
-					<!-- LikeBtn.com END -->
+					<!-- LikeBtn 시작 -->
+						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
+						<input type="button" class="like" onclick="location.href='#'">
+						</i>
+						<span class="likeBtnSp">좋아요 0</span>
+					<!-- LikeBtn 끝 -->
 				</div>
 
 				<!-- 파일 다운 및 삭제  -->
 				<div id="file-list" style="text-align: right;">
 					<div class="attach-file">
-						<!-- <a href="#" title="filename" class="download">TEST.png</a>
-        <a href="#" title="filekey">삭제</a> -->
 					</div>
 				</div>
 

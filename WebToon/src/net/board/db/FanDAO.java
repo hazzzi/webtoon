@@ -310,6 +310,10 @@ public class FanDAO {
 		return list;	
 	}// search end
 	
+	
+	
+	
+	
 	public void updateFanBoard(FanBean fb){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -531,8 +535,109 @@ public class FanDAO {
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}			
 		}
 		return nextNum;
 
+	}//nextPost end
+	
+	public int likeCount(FanBean fb){
+		//미완성
+		
+		int like =0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try{
+			con = getConnection();
+			String sql = "select fa_likecount from fanart_likecount where fa_mem_num=? and fa_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, fb.getFa_mem_num());
+			pstmt.setInt(2, fb.getFa_num());
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				sql ="delete from fanart_likecount where fa_num=? and fa_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_num());
+				pstmt.setString(2, fb.getFa_mem_num());
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				rs.close();
+				
+				like = fb.getFa_sumlike();
+				
+				sql ="update webtoon_fanart set fa_sumlike=? where fa_num=? and fa_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_sumlike()-1);
+				pstmt.setInt(2, fb.getFa_num());
+				pstmt.setString(3, fb.getFa_mem_num());
+				
+				pstmt.close();
+				rs.close();
+				
+			}else{
+				
+				sql = "insert into fanart_likecount(fa_num, fa_likecount, fa_mem_num) values(?, ?, ?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_num());
+				pstmt.setInt(2, fb.getFa_sumlike()+1);
+				pstmt.setString(3, fb.getFa_mem_num());
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				rs.close();
+				
+				like = fb.getFa_sumlike();
+				
+				sql ="update webtoon_fanart set fa_sumlike=? where fa_num=? and fa_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, fb.getFa_sumlike()+1);
+				pstmt.setInt(2, fb.getFa_num());
+				pstmt.setString(3, fb.getFa_mem_num());
+				
+				pstmt.close();
+				rs.close();
+				
+			}
+		}catch(Exception e){
+		}finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e2) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}			
+		}
+		
+		return like;
 	}
 }

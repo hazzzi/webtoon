@@ -58,8 +58,7 @@
 								$.ajax('fanCategory.fo', {
 									data : {
 										fan_category : $(
-												"#bd_sel option:selected")
-												.val()
+												"#bd_sel option:selected").val()
 									},
 									success : function(data) {
 

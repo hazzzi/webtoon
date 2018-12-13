@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import net.member.controller.Action;
 import net.member.controller.ActionForward;
+import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 
 public class MemberWithdrawAction implements Action{
@@ -24,7 +25,10 @@ public class MemberWithdrawAction implements Action{
 			String nowpass = request.getParameter("pass");
 			ActionForward forward = new ActionForward();
 			if(DBPass.equals(nowpass)){//같으면 삭제
-				mdao.deleteMember(mem_num);
+				MemberBean mb=new MemberBean();
+				mb=mdao.getMember(mem_num);
+				mdao.deleteMember(mb);
+				session.invalidate();
 				forward.setRedirect(true);
 				forward.setPath("./login.me");
 			}else{//다르면 백
