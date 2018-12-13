@@ -112,7 +112,7 @@ public class FanDAO {
 
 		try {
 			con = getConnection();
-			String sql = "select web_subject from webtoon where web_genre=?";
+			String sql = "select web_subject from webtoon where web_genre=? order by web_subject";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, fan_category);
