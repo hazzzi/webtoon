@@ -140,13 +140,13 @@
 							<br>
 						</div>
 					</div>
-					<!-- LikeBtn.com BEGIN -->
-					
-					<i class="fa fa-heart" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;" name="fa_likecount"></i>
-					
-					<span class="likeBtnSp"><%=fb.getFa_sumlike() %> 좋아요</span>
-					
-					<!-- LikeBtn.com END -->
+
+					<!-- LikeBtn 시작 -->
+						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
+						<input type="button" class="like" onclick="location.href='#'">
+						</i>
+						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
+					<!-- LikeBtn 끝 -->
 				</div>
 
 				<!-- 파일 다운 및 삭제  -->
