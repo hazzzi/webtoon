@@ -44,7 +44,7 @@
 	List<WebtoonBean> similar = (List<WebtoonBean>)request.getAttribute("similar");
 	List<FanBean> fanList = (List<FanBean>)request.getAttribute("fanList");
 	int reviewcount = (int)request.getAttribute("reviewcount");
-	
+	List<Integer> check = (List<Integer>)request.getAttribute("check");
 	String mem_num = (String)session.getAttribute("mem_num");
 
 	int tmp0 = (int)(score*10);
@@ -176,7 +176,7 @@
 			 				<p><%=bb.getWbb_comment() %></p>
 			 				<hr>
 			 				<!-- wbb_sumlike -->
-			 				<i class="fa fa-thumbs-o-up"></i><p><%=bb.getWbb_sumlike() %></p>
+			 				<i class="fa fa-heart-o like" title="<%=bb.getWbb_bdnum()%>" style="cursor: pointer;"></i><p><%=bb.getWbb_sumlike() %></p>
 			 			</div>
 			 			<%i++;}
 		 			} %>
@@ -319,7 +319,48 @@
 					$(this).addClass('fa-star-half-full');
 				}
 			});
-			
+			// 좋아요를 이미 했을때 보여지는 값
+			$('.like').each(function(index){
+				var check = <%=check%>;
+				if(check.length!=0){
+					for(var i=0; i<check.length; i++){
+						//alert(check[i]);
+						if(check[i]==$(this).attr('title')){
+							$(this).removeClass('fa-heart-o');
+							$(this).addClass('fa-heart');
+							//$(this).css("color", "#1b1526");
+						}
+					}
+				}
+			});	
+			$('i.like').click(function(){
+				if(<%=mem_num%>==null){
+					alert('로그인이 필요한 서비스 입니다.');
+				}else{
+					$.ajax('comment_like.wbt',{
+						context: this,
+						data:{	
+							wbb_bdnum: $(this).attr('title')
+						},success:function(data){
+							//alert(data);
+							var op = data.split(",");
+							// 이미 좋아요를 했을때
+							if(op[0]=='true'){
+								$(this).removeClass('fa-heart');
+								$(this).addClass('fa-heart-o');
+								//$(this).css("color", "#c0c0c0");
+								$(this).next().html(op[1]);
+							// 좋아요 안눌렀을때
+							}else{
+								$(this).removeClass('fa-heart-o');
+								$(this).addClass('fa-heart');
+								//$(this).css("color", "#1b1526");
+								$(this).next().html(op[1]);
+							}
+						}
+					});
+				}
+			});
 		});
 	</script>
 	<jsp:include page="top.jsp"></jsp:include>
