@@ -42,7 +42,7 @@ System.out.println(sessionid);
 <div class="mp_img3">
 <img src="./member/img/copyw.png">
 <img src="./member/img/copyhover.png"><br>
-공지사항 입력
+공지사항 관리
 </div>
 </a>
 
