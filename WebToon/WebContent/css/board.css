@@ -849,12 +849,13 @@ hr {
 	right: 39px;
 }
 
-#likeIcon:HOVER {
-	color: red !important;
+#likeIcon {
+	position: relative;
+	left: 0px;
 }
 
-.like:HOVER{
-	cursor: pointer;
+#likeIcon:HOVER {
+	color: red !important;
 }
 
 .likeBtnSp {
@@ -862,5 +863,5 @@ hr {
 	margin-left: 5px;
 	position: relative;
 	bottom: 5px;
-	right: 30px;
+	left: 10px;
 }

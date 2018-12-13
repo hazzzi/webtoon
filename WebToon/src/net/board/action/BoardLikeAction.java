@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
+import net.board.db.BoardDAO;
 import net.board.db.FanDAO;
 
 public class BoardLikeAction implements Action {
@@ -30,10 +31,10 @@ public class BoardLikeAction implements Action {
 			out.println("</script>");
 			out.close();
 		}else {
-			FanDAO fdao = new FanDAO();
+			BoardDAO bd = new BoardDAO();
 			// 이미 좋아요가 되어 있으면 true, 아니면 false
-			boolean check = fdao.likecount(mem_num, fb_num);
-			int num = fdao.sumLike(fb_num);
+			boolean check = bd.likecount(mem_num, fb_num);
+			int num = bd.sumLike(fb_num);
 			
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -41,5 +42,4 @@ public class BoardLikeAction implements Action {
 		}
 		return null;
 	}
-
 }
