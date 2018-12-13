@@ -146,6 +146,25 @@
 						</div>
 					</div>
 					<!-- LikeBtn 시작 -->
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$("i.like").click(function(){
+								if(<%=mem_num%>==null){
+									alert('로그인이 필요한 서비스 입니다.');
+								}else{
+									$.ajax('boardLikeAction.bo',{
+										context: this,
+										data:{
+											fb_num: $
+										}
+									});
+								}
+				 			});
+						});
+					
+					</script>
+					
+					
 						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
 						<input type="button" class="like" onclick="location.href='#'">
 						</i>
