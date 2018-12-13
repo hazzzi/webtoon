@@ -257,7 +257,6 @@ public class MainDAO {
          rs = pstmt.executeQuery();
          if(rs.next()){
             pstmt.close();
-            rs1.close();
             sql = "select * from recommend where rec_mem_num=? and rec_web_num=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, recbean.getRec_mem_num());

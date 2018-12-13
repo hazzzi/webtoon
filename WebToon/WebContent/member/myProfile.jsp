@@ -18,8 +18,8 @@
 String sessionid=(String)session.getAttribute("mem_num");
 System.out.println(sessionid);
 %>
-
-<%if(sessionid.equals("1")){ %>
+					<!-- admin mem_num -->
+<%if(sessionid.equals("18121220303328")){ %>
 <div class="mp_wrap">
 
 <a href="./WebtoonManageListAction.wbt">
