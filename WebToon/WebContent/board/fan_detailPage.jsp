@@ -17,6 +17,18 @@
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
+
+	<%
+		String mem_num = (String) session.getAttribute("mem_num");
+
+		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+		String pageNum = (String) request.getAttribute("pageNum");
+
+		FanDAO fdao = new FanDAO();
+		FanBean fb = fdao.getFanBoard(fa_num);
+	%>
+
+
 <script type="text/javascript">
 	function modifyCommentToggle(articleNo) {
 		var p_id = "comment" + articleNo;
@@ -39,7 +51,11 @@
 		form.style.display = form_display;
 	}
 	
-	
+	function del(fa_num){
+		if(confirm("해당 글을 삭제하시겠습니까?")==true){
+			location.href="./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>";
+		}
+	};
  	
  		
 	$(document).ready(function() {
@@ -57,15 +73,7 @@
 </head>
 
 <body>
-	<%
-		String mem_num = (String) session.getAttribute("mem_num");
 
-		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
-		String pageNum = (String) request.getAttribute("pageNum");
-
-		FanDAO fdao = new FanDAO();
-		FanBean fb = fdao.getFanBoard(fa_num);
-	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
 		<!-- header 영역 시작 -->
@@ -174,7 +182,8 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
-							onclick="location.href='./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
+						onclick="del(<%=fa_num %>)">
+<%-- 							onclick="location.href='./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" /> --%>
 						<input type="button" class="bt-2"
 							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
 						<%

@@ -25,12 +25,6 @@ public class FanDeleteAction implements Action {
 
 		fdao.deleteFanBoard(fb);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("alert('성공적으로 삭제하였습니다 ')");
-		out.println("</script>");
-		out.close();
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./fanboardList.fo");
 		forward.setRedirect(true);

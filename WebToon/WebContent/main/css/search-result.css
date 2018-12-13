@@ -226,8 +226,8 @@ div.sr-content-comment>div>p:NTH-OF-TYPE(3){
     display: inline-block;
     margin-bottom: 5px;
     position: absolute;
-    bottom: 4px;
-    left: 50px;
+    bottom: 8px;
+    left: 55px;
 }
 
 div.sr-content-rec>div img{

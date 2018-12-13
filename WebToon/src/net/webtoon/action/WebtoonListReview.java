@@ -34,7 +34,7 @@ public class WebtoonListReview implements Action {
 			for(WebtoonBoardBean bb:webtoonBoardList){
 				MemberBean mb = mdao.getMemberImg(bb.getWbb_mem_num());
 				wbbimg.add(mb);
-				System.out.println(mb.getProfileimg());
+				//System.out.println(mb.getProfileimg());
 			}
 			request.setAttribute("wbbimg", wbbimg);
 		}
