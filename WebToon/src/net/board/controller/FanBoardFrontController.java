@@ -69,9 +69,12 @@ public class FanBoardFrontController extends HttpServlet {
 					
 		}else if(command.equals("/fanModify.fo")){
 			
-			forward = new ActionForward();
-			forward.setPath("./board/fan_modifyPage.jsp");
-			forward.setRedirect(false);
+			action = new FanModify();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 		}else if(command.equals("/fanModifyAction.fo")){
 			

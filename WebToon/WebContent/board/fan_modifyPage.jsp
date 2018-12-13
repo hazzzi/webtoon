@@ -23,9 +23,7 @@
 		String mem_num = (String) session.getAttribute("mem_num");
 		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
 		String pageNum = request.getParameter("pageNum");
-		
-		FanDAO fdao = new FanDAO();
-		FanBean fb = fdao.getFanBoard(fa_num);
+		FanBean fb = (FanBean)request.getAttribute("fb");
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>

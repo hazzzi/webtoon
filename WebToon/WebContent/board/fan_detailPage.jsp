@@ -21,12 +21,17 @@
 	<%
 		String mem_num = (String) session.getAttribute("mem_num");
 
-		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
+		int fa_num = (Integer)request.getAttribute("fa_num");
 		String pageNum = (String) request.getAttribute("pageNum");
-
-		FanDAO fdao = new FanDAO();
-		FanBean fb = fdao.getFanBoard(fa_num);
-	%>
+		
+		FanBean fb = (FanBean)request.getAttribute("fb");
+		
+		int nextNum = (Integer)request.getAttribute("nextNum");
+		int preNum =(Integer)request.getAttribute("preNum");
+		FanBean fb2 = (FanBean)request.getAttribute("fb2");
+		FanBean fb3 = (FanBean)request.getAttribute("fb3");
+		
+		%>
 
 
 <script type="text/javascript">
@@ -83,9 +88,7 @@
 		<div class="detail">
 			<div class="fi">
 				<!-- 이전 글 없을 경우 제어 -->
-				<%
-					int nextNum = fdao.nextPost(fa_num);
-				%>
+				
 				<!-- 다음 글 없을 경우 제어 -->
 				<%
 					if (nextNum != 0) {
@@ -99,9 +102,7 @@
 				<%
 					}
 				%>
-				<%
-					int preNum = fdao.previousPost(fa_num);
-				%>
+				
 				<%
 					if (preNum != 0) {
 				%>
@@ -241,9 +242,7 @@
 			<!--  댓글 반복 끝 -->
 			<br> <br>
 			<div id="next-prev">
-				<%
-					FanBean fb2 = fdao.getFanBoard(nextNum);
-				%>
+				
 				<%
 					if (nextNum == 0) {
 				%>
@@ -258,9 +257,7 @@
 				<%
 					}
 				%>
-				<%
-				FanBean fb3 = fdao.getFanBoard(preNum);
-				%>
+				
 				<%
 					if (preNum == 0) {
 				%>

@@ -21,7 +21,6 @@
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		String pageNum = (String) request.getAttribute("pageNum");
 		
-		BoardDAO bdao = new BoardDAO();
 		
 		BoardBean bd = (BoardBean)request.getAttribute("bd");
 		boolean likeCheck = (boolean)request.getAttribute("likeCheck");

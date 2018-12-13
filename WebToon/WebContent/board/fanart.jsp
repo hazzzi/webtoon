@@ -1,4 +1,3 @@
-<%@page import="net.board.db.FanDAO"%>
 <%@page import="net.board.db.FanBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,7 +18,6 @@
 <body>
 	<%
 		FanBean fb = new FanBean();
-		FanDAO fdao = new FanDAO();
 		
 		
 		int count = ((Integer) request.getAttribute("count")).intValue();

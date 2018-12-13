@@ -34,10 +34,20 @@ public class FanBoardContentAction implements Action{
 		fdao.updateReadCount(fa_num);
 		
 		FanBean fb = fdao.getFanBoard(fa_num);
+		int nextNum = fdao.nextPost(fa_num);
+		int preNum = fdao.previousPost(fa_num);	
+		
+		FanBean fb2 = fdao.getFanBoard(nextNum);
+		FanBean fb3 = fdao.getFanBoard(preNum);
+		
 		
 		request.setAttribute("fa_num", fa_num);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("fb", fb);
+		request.setAttribute("nextNum", nextNum);
+		request.setAttribute("preNum", preNum);
+		request.setAttribute("fb2", fb2);
+		request.setAttribute("fb3", fb3);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
