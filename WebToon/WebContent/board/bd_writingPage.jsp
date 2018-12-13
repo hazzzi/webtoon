@@ -27,7 +27,7 @@
 <body>
 	<%
 	String mem_num = (String)session.getAttribute("mem_num");
-		System.out.print(mem_num);
+// 		System.out.print(mem_num);
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>

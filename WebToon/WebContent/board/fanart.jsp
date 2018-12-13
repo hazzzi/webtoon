@@ -37,7 +37,7 @@
 
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
-		System.out.print(fanboardList.size());
+		/* System.out.print(fanboardList.size()); */
 		
 		String mem_num = (String)session.getAttribute("mem_num");
 	
