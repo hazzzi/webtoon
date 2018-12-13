@@ -666,4 +666,31 @@ public class BoardDAO {
 			}
 			return num;
 		}
+		
+		public List<Integer> isLike(String mem_num){
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			List<Integer> check = new ArrayList<Integer>();		
+			
+			try{
+				con = getConnection();
+				String sql = "select * from fb_likecount where fb_mem_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_num);
+
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					check.add(rs.getInt("fb_mem_num"));
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();
+				}
+			}
+			return check;
+		}
 }

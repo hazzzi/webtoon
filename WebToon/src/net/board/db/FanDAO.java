@@ -666,6 +666,8 @@ public class FanDAO {
 		}
 		return num;
 	}
+	
+	
 
 	/*public int likeCount(FanBean fb) {
 		int like = 0;
