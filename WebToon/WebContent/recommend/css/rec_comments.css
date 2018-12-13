@@ -4,7 +4,9 @@
 	font-family: 'NanumBarunpenR';
 	src: url("../main/font/NanumBarunpenR.ttf") format('truetype');
 }
-
+.fa-thumbs-up{
+	color: #1b1526;
+}
 header#header-head{   
     /* 상단바 고정 */
     position: sticky;

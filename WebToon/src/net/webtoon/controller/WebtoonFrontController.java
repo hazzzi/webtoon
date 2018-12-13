@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.webtoon.action.WebtoonCheckAction;
+import net.webtoon.action.WebtoonCommLike;
 import net.webtoon.action.WebtoonDetailAction;
 import net.webtoon.action.WebtoonInsertAction;
 import net.webtoon.action.WebtoonListReview;
@@ -99,6 +100,14 @@ public class WebtoonFrontController extends HttpServlet{
 			}
 		}else if(command.equals("/check_member.wbt")){
 			action = new WebtoonCheckAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/comment_like.wbt")){
+			action = new WebtoonCommLike();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

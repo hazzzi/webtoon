@@ -1,3 +1,4 @@
+<%@page import="net.member.db.MemberBean"%>
 <%@page import="net.webtoon.db.WebtoonBoardBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -38,6 +39,10 @@
 <%
 	List<WebtoonBoardBean> webtoonBoardList = (List<WebtoonBoardBean>)request.getAttribute("webtoonBoardList");
 	System.out.println(webtoonBoardList);
+	List<Integer> check = (List<Integer>)request.getAttribute("check");
+	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
+	String mem_num = (String)session.getAttribute("mem_num");
+	int a = 0;
 %>
 		<div id="rec_c">
 			<div id="rec_c_top">
@@ -50,7 +55,19 @@
 				<%for(WebtoonBoardBean wbb : webtoonBoardList){%>
 				<div class="rec_box1">
 					<div class="rec_user_name">
-						<img src="./main/img/member.png">
+						<%for(MemberBean mb : wbbimg){
+							System.out.println("실행전");
+							if(mb.getNum()==wbb.getWbb_mem_num()){
+								System.out.println("실행");
+								%><img src="<%=mb.getProfileimg() %>" class="rec_memberimg"><%
+								a++;
+								break;
+							}
+						  }
+						if(a==0){
+							%><img src="./main/img/member.png" class="rec_memberimg"><%
+						}
+						%>
 						<p><%=wbb.getWbb_mem_nik() %></p>
 					</div>
 					<hr>
@@ -60,13 +77,56 @@
 					<div class="rec_comment_date"><%=wbb.getWbb_date() %></div>
 					<hr>
 					<div class="rec_comment_like">
-						<i class="fa fa-thumbs-o-up"></i>
+						<i class="fa fa-thumbs-o-up like" title="<%=wbb.getWbb_bdnum()%>" style="cursor: pointer;"></i>
 						<p><%=wbb.getWbb_sumlike() %></p>
 					</div>
+					
 				</div><%}%>
 			</div><%} else{%><h2 style="text-align: center; line-height: 15; font-size: 38px; margin: 20px auto;">
 				<i class="fa fa-search"></i>작성 된 리뷰가 없습니다.
 			</h2><%}%>
+			<script>
+				$(document).ready(function(){
+					$('.like').each(function(index){
+						var check = <%=check%>;
+						if(check.length!=0){
+							for(var i=0; i<check.length; i++){
+								//alert(check[i]);
+								if(check[i]==$(this).attr('title')){
+									$(this).removeClass('fa-thumbs-o-up');
+									$(this).addClass('fa-thumbs-up');
+								}
+							}
+						}
+					});	
+					$('i.like').click(function(){
+						if(<%=mem_num%>==null){
+							alert('로그인이 필요한 서비스 입니다.');
+						}else{
+							$.ajax('comment_like.wbt',{
+								context: this,
+								data:{	
+									wbb_bdnum: $(this).attr('title')
+								},success:function(data){
+									// 이미 좋아요를 했을때
+									//alert(data);
+									var op = data.split(",");
+									if(op[0]=='true'){
+										$(this).removeClass('fa-thumbs-up');
+										$(this).addClass('fa-thumbs-o-up');
+										$(this).next().html(op[1]);
+									// 좋아요 안눌렀을때
+									}else{
+										$(this).removeClass('fa-thumbs-o-up');
+										$(this).addClass('fa-thumbs-up');
+										$(this).next().html(op[1]);
+									}
+								}
+							});
+						}
+					});
+				});
+			</script>
 		</div>
 		<jsp:include page="../main/top.jsp"></jsp:include>
 		<jsp:include page="../main/footer.jsp"></jsp:include>

@@ -20,23 +20,11 @@ public class WebtoonSearchAction implements Action{
 		String query = request.getParameter("query");
 		
 		SearchDAO sdao = new SearchDAO();
-		Vector<List<WebtoonBean>> result = sdao.getSearchResult(query);
+		List<WebtoonBean> result = sdao.getSearchResult(query);
 		
-		List<WebtoonBean> subject = result.get(0);
-		List<WebtoonBean> portal = result.get(1);
-		List<WebtoonBean> author = result.get(2);
 		
-		if(subject!=null){
-			request.setAttribute("subject", subject);
-		}
-		if(author!=null){
-			request.setAttribute("author", author);
-		}
-		if(portal!=null){
-			request.setAttribute("portal", portal);
-		}
-		
-		request.setAttribute("qurey", query);
+		request.setAttribute("result", result);
+		request.setAttribute("query", query);
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./main/search.jsp");
