@@ -212,14 +212,11 @@
 						<br>
 						<%
 							if (mem_num != null) {
-								if (mem_num.equals(bd.getFb_mem_num())) {
+								if (mem_num.equals(bd.getFb_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
-						<input type="button" class="bt" value="수정"
-							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
-						<input type="button" class="bt" value="삭제"
-							onclick="del(<%=fb_num%>)"> <input type="button"
-							class="bt-2" onclick="location.href='./bd_writingPage.bo'"
-							value="새 글 쓰기" />
+						<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt" value="삭제"	onclick="del(<%=fb_num%>)"> 
+						<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
 						<%
 							} else {
 						%>

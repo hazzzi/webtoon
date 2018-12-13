@@ -37,19 +37,18 @@ public class FanBoardWriteAction implements Action {
 		FanBean fb = new FanBean();
 		HttpSession session = request.getSession();
 		String mem_num = (String) session.getAttribute("mem_num");
-		ActionForward forward = new ActionForward();
+		
 
 		String fa_subject = multi.getParameter("fa_subject");
 		String fa_category1 = multi.getParameter("fa_category1");
 		String fa_category2 = multi.getParameter("fa_category2");
 		String fa_content = multi.getParameter("fa_content");
 		String fa_img = multi.getFilesystemName("fa_img");
-
+		ActionForward forward = new ActionForward();
+		
 		if (mem_num == null) {
-
 			forward.setRedirect(true);
 			forward.setPath("./login.me");
-
 			return forward;
 
 		} else if (fa_img == null) {
