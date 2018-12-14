@@ -21,6 +21,7 @@
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		String pageNum = (String) request.getAttribute("pageNum");
 		
+		
 		BoardBean bd = (BoardBean)request.getAttribute("bd");
 		boolean check = (boolean)request.getAttribute("check");
 		
@@ -201,15 +202,10 @@
 							if (mem_num != null) {
 								if (mem_num.equals(bd.getFb_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
-<<<<<<< HEAD
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
 							onclick="del(<%=fb_num%>)"> 
-=======
-						<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
-						<input type="button" class="bt" value="삭제"	onclick="del(<%=fb_num%>)"> 
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 						<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
 						<%
 							} else {
