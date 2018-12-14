@@ -401,7 +401,7 @@ td>a:HOVER {
 	display: none;
 }
 
-.fb_img2 .img_hover2 {
+.fb_img2:HOVER .img_hover2 {
 	width: 300px;
     height: 80px;
     background-color: black;
