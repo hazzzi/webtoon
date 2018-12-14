@@ -1,4 +1,3 @@
-<%@page import="net.board.db.FanDAO"%>
 <%@page import="net.board.db.FanBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,6 +18,7 @@
 <body>
 	<%
 		FanBean fb = new FanBean();
+
 		
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
@@ -33,7 +33,6 @@
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
-		
 		
 		String mem_num = (String)session.getAttribute("mem_num");
 	

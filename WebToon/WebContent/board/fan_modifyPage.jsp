@@ -23,9 +23,7 @@
 		String mem_num = (String) session.getAttribute("mem_num");
 		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
 		String pageNum = request.getParameter("pageNum");
-		
-		FanDAO fdao = new FanDAO();
-		FanBean fb = fdao.getFanBoard(fa_num);
+		FanBean fb = (FanBean)request.getAttribute("fb");
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
@@ -109,7 +107,6 @@
 						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
-
 					<button type="submit" class="bw_pho_icon2">
 						<i class="fa fa-check" id="bw_pho_icon2"
 							style="font-size: 48px; color: gray;"></i>
@@ -121,8 +118,8 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
-			<form id="form1" runat="server" >
-        			<img id="blah" onerror="this.style.visibility='none'" src="./upload/<%=fb.getFa_img()%>">
+			<form id="form1" runat="server">
+        			<img id="blah" onerror="this.style.visibility='none'" src="./upload/<%=fb.getFa_img()%>" value="<%=fb.getFa_img()%>">
   					  </form>
 				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"><%=fb.getFa_content() %></textarea>
 				<hr>

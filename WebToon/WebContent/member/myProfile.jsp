@@ -30,11 +30,11 @@ System.out.println(sessionid);
 </div>
 </a>
 
-<a href="./insertWebtoon.wbt">
+<a href="MemberUpdateAction1.me">
 <div class="mp_img2">
 <img src="./member/img/editw.png">
 <img src="./member/img/edithover.png"><br>
-웹툰 등록하기
+회원정보 수정
 </div>
 </a>
 
@@ -42,7 +42,7 @@ System.out.println(sessionid);
 <div class="mp_img3">
 <img src="./member/img/copyw.png">
 <img src="./member/img/copyhover.png"><br>
-공지사항 입력
+공지사항 관리
 </div>
 </a>
 

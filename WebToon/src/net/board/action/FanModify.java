@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
+import net.board.db.FanBean;
 import net.board.db.FanDAO;
 
 public class FanModify implements Action {
@@ -23,7 +24,10 @@ public class FanModify implements Action {
 		String mem_num = (String) session.getAttribute("mem_num");
 
 		FanDAO fdao = new FanDAO();
-
+		FanBean fb = fdao.getFanBoard(fa_num);
+		
+		request.setAttribute("fb", fb);
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/fan_modifyPage.jsp");
 		forward.setRedirect(false);

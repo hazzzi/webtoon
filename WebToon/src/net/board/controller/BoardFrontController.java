@@ -12,6 +12,7 @@ import net.board.action.BoardContentAction;
 import net.board.action.BoardDeleteAction;
 import net.board.action.BoardLikeAction;
 import net.board.action.BoardList;
+import net.board.action.BoardModify;
 import net.board.action.BoardModifyAction;
 import net.board.action.BoardSearchAction;
 import net.board.action.BoardWriteAction;
@@ -41,9 +42,12 @@ public class BoardFrontController extends HttpServlet {
 
 		} else if (command.equals("/boardModify.bo")) {
 			
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./board/bd_modifyPage.jsp");
+			action= new BoardModify();
+			try { 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 		} else if (command.equals("/boardModifyAction.bo")) {
 

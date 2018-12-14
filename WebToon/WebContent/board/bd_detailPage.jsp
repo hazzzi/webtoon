@@ -21,10 +21,13 @@
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 		String pageNum = (String) request.getAttribute("pageNum");
 		
-		BoardDAO bdao = new BoardDAO();
-		
 		BoardBean bd = (BoardBean)request.getAttribute("bd");
 		boolean check = (boolean)request.getAttribute("check");
+		
+		int nextNum =(Integer)request.getAttribute("nextNum");
+		int preNum =(Integer)request.getAttribute("preNum");
+		BoardBean bd2 = (BoardBean)request.getAttribute("bd2");
+		BoardBean bd3 = (BoardBean)request.getAttribute("bd3");
 %>
 
 <script type="text/javascript">
@@ -69,9 +72,7 @@
 
 		<div class="detail">
 			<div class="fi">
-				<%
-					int nextNum = bdao.nextPost(fb_num);
-				%>
+				
 				<!-- 다음 글 없을 경우 제어 -->
 				<%
 					if (nextNum != 0) {
@@ -85,9 +86,7 @@
 				<%
 					}
 				%>
-				<%
-					int preNum = bdao.previousPost(fb_num);
-				%>
+				
 				<!-- 이전 글 없을 경우 제어 -->
 				<%
 					if (preNum != 0) {
@@ -200,12 +199,17 @@
 						<br>
 						<%
 							if (mem_num != null) {
-								if (mem_num.equals(bd.getFb_mem_num())) {
+								if (mem_num.equals(bd.getFb_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
+<<<<<<< HEAD
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
 							onclick="del(<%=fb_num%>)"> 
+=======
+						<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt" value="삭제"	onclick="del(<%=fb_num%>)"> 
+>>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 						<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
 						<%
 							} else {
@@ -269,9 +273,6 @@
 			<br> <br>
 			<div id="next-prev">
 				<%
-					BoardBean bb2 = bdao.getBoard(nextNum);
-				%>
-				<%
 					if (nextNum == 0) {
 				%>
 				<p>다음 글이 존재하지 않습니다.</p>
@@ -280,14 +281,12 @@
 				%>
 				<p>
 					다음 글 : <a
-						href="./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=bb2.getFb_subject()%></a>
+						href="./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=bd2.getFb_subject()%></a>
 				</p>
 				<%
 					}
 				%>
-				<%
-					BoardBean bb3 = bdao.getBoard(preNum);
-				%>
+				
 				<%
 					if (preNum == 0) {
 				%>
@@ -297,7 +296,7 @@
 				%>
 				<p>
 					이전 글 : <a
-						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=bb3.getFb_subject()%></a>
+						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=bd3.getFb_subject()%></a>
 				</p>
 				<%
 					}

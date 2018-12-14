@@ -76,4 +76,7 @@
     font-size:15px;
     border-bottom:1px solid #cacbc5;
 }
-
+.paging>a{
+	color:#3c2f55;
+	font-size:15px;
+}

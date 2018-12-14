@@ -18,17 +18,21 @@
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 
-	<%
-		String mem_num = (String) session.getAttribute("mem_num");
+<%
+	String mem_num = (String) session.getAttribute("mem_num");
 
-		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
-		String pageNum = (String) request.getAttribute("pageNum");
+	int fa_num = (Integer) request.getAttribute("fa_num");
+	String pageNum = (String) request.getAttribute("pageNum");
 
-		FanDAO fdao = new FanDAO();
-		FanBean fb = fdao.getFanBoard(fa_num);
-		
-		boolean check = (boolean)request.getAttribute("check"); 
-	%>
+	boolean check = (boolean) request.getAttribute("check");
+	FanBean fb = (FanBean) request.getAttribute("fb");
+
+	int nextNum = (Integer) request.getAttribute("nextNum");
+	int preNum = (Integer) request.getAttribute("preNum");
+	FanBean fb2 = (FanBean) request.getAttribute("fb2");
+	FanBean fb3 = (FanBean) request.getAttribute("fb3");
+%>
+
 
 
 <script type="text/javascript">
@@ -73,9 +77,7 @@
 		<div class="detail">
 			<div class="fi">
 				<!-- 이전 글 없을 경우 제어 -->
-				<%
-					int nextNum = fdao.nextPost(fa_num);
-				%>
+
 				<!-- 다음 글 없을 경우 제어 -->
 				<%
 					if (nextNum != 0) {
@@ -89,9 +91,7 @@
 				<%
 					}
 				%>
-				<%
-					int preNum = fdao.previousPost(fa_num);
-				%>
+
 				<%
 					if (preNum != 0) {
 				%>
@@ -120,32 +120,32 @@
 				<div class="detail_content">
 					<table class="main">
 						<tr>
-							<th	style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>] [<%=fb.getFa_category2() %>]  <%=fb.getFa_subject() %></th>
+							<th
+								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
+							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>]
+								[<%=fb.getFa_category2()%>] <%=fb.getFa_subject()%></th>
 						</tr>
 						<hr>
 					</table>
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=fb.getFa_date()%> | </span>
-							<span>닉네임: <%=fb.getFa_mem_nik()%> | </span>
-							<span>조회수: <%=fb.getFa_readcount()%></span>
+							<span><%=fb.getFa_date()%> | </span> <span>닉네임: <%=fb.getFa_mem_nik()%>
+								|
+							</span> <span>조회수: <%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>">
-							<img src="./upload/<%=fb.getFa_img()%>" class="content_img" style="max-width: 100%;"></a> <br>
-							<br>
-							<%=fb.getFa_content()%><br>
-							<br>
+							<a href="./upload/<%=fb.getFa_img()%>"> <img
+								src="./upload/<%=fb.getFa_img()%>" class="content_img"
+								style="max-width: 100%;"></a> <br> <br>
+							<%=fb.getFa_content()%><br> <br>
 						</div>
 					</div>
 
 					<!-- LikeBtn 시작 -->
-						<i class="fa fa-heart-o like" id="likeIcon" 
-						style="margin: 10px 0 0 15px; font-size: 32px; cursor: pointer; color:red;">
-						</i>
-						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
+					<i class="fa fa-heart-o like" id="likeIcon"
+						style="margin: 10px 0 0 15px; font-size: 32px; cursor: pointer; color: red;">
+					</i> <span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike()%></span>
 					<!-- LikeBtn 끝 -->
 				</div>
 				<script>
@@ -199,20 +199,19 @@
 						<br>
 						<%
 							if (mem_num != null) {
-								if (mem_num.equals(fb.getFa_mem_num())) {
+								if (mem_num.equals(fb.getFa_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
 						<input type="button" class="bt" value="수정"
-							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" />
+							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'">
 						<input type="button" class="bt" value="삭제"
-						onclick="del(<%=fa_num %>)">
-<%-- 							onclick="location.href='./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'" /> --%>
-						<input type="button" class="bt-2"
-							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
+							onclick="del(<%=fa_num%>)"> <input type="button"
+							class="bt-2" onclick="location.href='./fanboardWrite.fo'"
+							value="새 글 쓰기">
 						<%
 							} else {
 						%>
 						<input type="button" class="bt-2-if"
-							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기" />
+							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기">
 						<%
 							}
 							}
@@ -268,9 +267,7 @@
 			<!--  댓글 반복 끝 -->
 			<br> <br>
 			<div id="next-prev">
-				<%
-					FanBean fb2 = fdao.getFanBoard(nextNum);
-				%>
+
 				<%
 					if (nextNum == 0) {
 				%>
@@ -280,14 +277,12 @@
 				%>
 				<p>
 					다음 글 : <a
-						href="./fanBoardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=fb2.getFa_subject()%></a>
+						href="./fanboardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>"><%=fb2.getFa_subject()%></a>
 				</p>
 				<%
 					}
 				%>
-				<%
-				FanBean fb3 = fdao.getFanBoard(preNum);
-				%>
+
 				<%
 					if (preNum == 0) {
 				%>
@@ -297,7 +292,7 @@
 				%>
 				<p>
 					이전 글 : <a
-						href="./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
+						href="./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
 				</p>
 				<%
 					}

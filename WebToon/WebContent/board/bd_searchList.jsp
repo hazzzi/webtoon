@@ -30,12 +30,12 @@
 		int pageBlock = ((Integer) request.getAttribute("pageBlock")).intValue();
 		int startPage = ((Integer) request.getAttribute("startPage")).intValue();
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
-
+		int count = ((Integer)request.getAttribute("count")).intValue();
+		
 		List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
 
 		String search = request.getParameter("search");
-		BoardDAO bdao = new BoardDAO();
-		int count = bdao.getBoardCount(search);
+		
 	%>
 	<!-- wrap 영역 시작 -->
 	<div id="wrap">
