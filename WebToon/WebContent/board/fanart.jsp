@@ -70,6 +70,8 @@
 				}
 				%>
 					<%
+					
+					
 						for (int i = 0; i < fanboardList.size(); i++) {
 							fb = fanboardList.get(i);
 					%>
