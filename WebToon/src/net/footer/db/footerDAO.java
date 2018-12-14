@@ -240,4 +240,116 @@ public class footerDAO {
 		return qnaList;
 	}
 
+		public footerBean getnotice(int ni_num){
+			footerBean fb = new footerBean();
+			try{
+				con=getConnection();
+				
+				String sql = "select * from notice_inq_board where ni_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, ni_num);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()){
+					fb.setNi_num(rs.getInt("ni_num"));
+					fb.setNi_category(rs.getString("ni_category"));
+					fb.setNi_content(rs.getString("ni_content"));
+					fb.setNi_date(rs.getTimestamp("ni_date"));
+					fb.setNi_mem_nik(rs.getString("ni_mem_nik"));
+					fb.setNi_subject(rs.getString("ni_subject"));
+					fb.setNi_mem_num(rs.getString("ni_mem_num"));
+				}
+				
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally {
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException e2) {
+					}
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (SQLException e) {
+					}
+			}
+			return fb;
+		}
+		
+		public void updatenotice(footerBean fb){
+			System.out.println(fb.getNi_category());
+			System.out.println(fb.getNi_subject());
+			System.out.println(fb.getNi_content());
+			System.out.println(fb.getNi_num());
+			try{
+				con=getConnection();
+				String sql="update notice_inq_board set ni_content=?, ni_category=?, ni_subject=? where ni_num=? ";
+				pstmt =con.prepareStatement(sql);
+				pstmt.setString(1, fb.getNi_content());
+				pstmt.setString(2, fb.getNi_category());
+				pstmt.setString(3, fb.getNi_subject());
+				pstmt.setInt(4,fb.getNi_num());
+				pstmt.executeUpdate();
+				
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally{
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException e2) {
+					}
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (SQLException e) {
+					}
+			}
+		}
+		
+		public void deletenotice(int ni_num){
+			try{
+				con=getConnection();
+				
+				String sql="delete from notice_inq_board where ni_num=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, ni_num);
+				pstmt.executeUpdate();
+				
+				
+				
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally{
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException e2) {
+					}
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (SQLException e) {
+					}
+			}
+		}
 }

@@ -46,7 +46,7 @@ public class footerNoticewriteAction implements Action {
 		ActionForward farward = new ActionForward();
 		
 		farward.setRedirect(true);
-		farward.setPath("./footerNoticListAction1.ft");
+		farward.setPath("./footerNoticeManagerListAction1.ft");
 		
 		return farward;
 	}

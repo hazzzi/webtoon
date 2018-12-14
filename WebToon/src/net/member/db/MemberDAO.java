@@ -93,7 +93,7 @@ public class MemberDAO {
 					+ "member(mem_num,mem_id,mem_pass,mem_email,mem_nik,mem_ages,mem_gender,mem_date,mem_hintans,mem_hint) "
 					+ "values(?,?,?,?,?,?,?,now(),?,?)";
 			pstmt = con.prepareStatement(sql2);
-			pstmt.setString(1, mb.getNum());// 임시
+			pstmt.setString(1, mb.getNum());
 			pstmt.setString(2, mb.getId());
 			pstmt.setString(3, mb.getPass());
 			pstmt.setString(4, mb.getEmail());
