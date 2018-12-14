@@ -113,7 +113,7 @@
 						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
-					<button type="submit" class="bw_pho_icon2" onclick="modify()">
+					<button type="submit" class="bw_pho_icon2" onclick="return modify()">
 						<i class="fa fa-check" id="bw_pho_icon2"
 							style="font-size: 48px; color: gray;"></i>
 					</button>
