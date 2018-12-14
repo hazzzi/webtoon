@@ -38,6 +38,7 @@ public class BoardList implements Action{
 			boardList = bdao.getBoardList(startRow, pageSize);
 		}
 		
+		
 		int pageCount = (count%pageSize==0)? count/pageSize:count/pageSize+1;
 		int pageBlock = 10;
 		int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;

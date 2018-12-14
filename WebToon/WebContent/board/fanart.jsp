@@ -18,7 +18,6 @@
 <body>
 	<%
 		FanBean fb = new FanBean();
-
 		
 		int count = ((Integer) request.getAttribute("count")).intValue();
 		String pageNum = (String) request.getAttribute("pageNum");
@@ -32,6 +31,7 @@
 		int startPage = ((Integer) request.getAttribute("startPage")).intValue();
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 
+		List<FanBean> likeList = (List<FanBean>)request.getAttribute("likeList");
 		List<FanBean> fanboardList = (List<FanBean>) request.getAttribute("fanboardList");
 		
 		String mem_num = (String)session.getAttribute("mem_num");
@@ -44,7 +44,7 @@
 		<jsp:include page="../main/header.jsp"></jsp:include>
 
 		<!--/ header 끝 -->
-
+		
 		<div class="fan_content">
 			<jsp:include page="header_main.jsp"></jsp:include>
 			<script type="text/javascript">
@@ -54,10 +54,12 @@
 				});
 			</script>
 			<article class="fan_detailContent">
-			<div class="fan_content2">
+			<div class="fan_content_like">
+			
+			
 				<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
 				<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
-
+				<div id="likethat">
 				<table>
 				<!-- 게시물 없으면 게시물 없음 뜨도록 -->
 				<%
@@ -69,6 +71,56 @@
 				<%
 				}
 				%>
+				<div id="top_rank">🏆&nbsp; 이번 주 탑 랭킹&nbsp; 🏆</div>
+				<%
+				for(int j=0; j<likeList.size(); j++){
+					fb=likeList.get(j);%>
+					
+					<%
+						if (j== 0 || (j %4) + 1 == 1) {
+					%>
+					<tr alt="줄바꿈">
+						<%
+							}
+						%>
+					
+					<td alt="사진"> 
+						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>" >
+						<div class="fb_img2">
+							
+								<img style="width: 300px; height: 300px;"
+								src="./upload/<%=fb.getFa_img()%>" class="like_img">
+									
+							 <div class="img_hover2"><br>
+							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
+									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
+									<div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
+								</div> 
+							</div>
+						</a>
+						</td>
+						
+					<%
+							if ((j % 4) + 1 == 0) {
+						%>
+						
+					</tr>
+					<%
+						}
+					%>
+					<%
+						}
+					%>
+					
+					</tr>
+					</table>
+					</div>
+					</div>
+				<hr class="hr">
+				
+				<div class="fan_content2">
+				<table>
+				<!-- 일반 게시글 영역 -->
 					<%
 						for (int i = 0; i < fanboardList.size(); i++) {
 							fb = fanboardList.get(i);
@@ -82,7 +134,7 @@
 						%>
 						<td alt="사진"> 
 						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>" >
-						<div class="fb_img" >
+						<div class="fb_img">
 								<img style="width: 300px; height: 300px;"
 								src="./upload/<%=fb.getFa_img()%>" >
 										

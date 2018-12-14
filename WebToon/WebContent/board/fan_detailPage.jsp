@@ -62,7 +62,8 @@
 			location.href="./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>";
 		}
 	};
- 	
+ 		
+	
 </script>
 </head>
 
@@ -134,9 +135,10 @@
 							</span> <span>조회수: <%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>"> <img
-								src="./upload/<%=fb.getFa_img()%>" class="content_img"
-								style="max-width: 100%;"></a> <br> <br>
+						<%if (fb.getFa_img()!=null) {%>
+							 <img src="./upload/<%=fb.getFa_img()%>" class="content_img" style="max-width: 100%;">
+						<%} %>
+							 <br><br>
 							<%=fb.getFa_content()%><br> <br>
 						</div>
 					</div>
@@ -201,10 +203,9 @@
 								if (mem_num.equals(fb.getFa_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
 						<input type="button" class="bt" value="수정"
-							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'">
-						<input type="button" class="bt" value="삭제"
-							onclick="del(<%=fa_num%>)"> <input type="button"
-							class="bt-2" onclick="location.href='./fanboardWrite.fo'"
+							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
+						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
+						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'"
 							value="새 글 쓰기">
 						<%
 							} else {

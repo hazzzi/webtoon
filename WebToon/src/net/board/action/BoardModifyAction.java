@@ -41,6 +41,10 @@ public class BoardModifyAction implements Action {
 		String fb_content = multi.getParameter("fb_content");
 		String fb_img = multi.getFilesystemName("fb_img");
 
+		if(fb_img==null){
+			fb_img = multi.getParameter("fb_img1");
+		}
+		
 		bd.setFb_category(fb_category);
 		bd.setFb_subject(fb_subject);
 		bd.setFb_img(fb_img);
@@ -48,7 +52,7 @@ public class BoardModifyAction implements Action {
 		bd.setFb_num(fb_num);
 
 		bdao.updateBoard(bd);
-
+				
 		ActionForward forward = new ActionForward();
 		forward.setPath("./boardContent.bo?fb_num=" + fb_num + "&pageNum=" + pageNum);
 		forward.setRedirect(true);
