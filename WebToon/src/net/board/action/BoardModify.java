@@ -25,11 +25,8 @@ public class BoardModify implements Action{
 		
 		BoardDAO bdao = new BoardDAO();
 		BoardBean bd = bdao.getBoard(fb_num);
-<<<<<<< HEAD
-=======
 		
 		request.setAttribute("bd", bd);
->>>>>>> branch 'master' of https://github.com/petbe/webtoon.git
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/bd_modifyPage.jsp");
