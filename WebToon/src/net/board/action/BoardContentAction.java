@@ -1,8 +1,12 @@
 package net.board.action;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.board.controller.Action;
 import net.board.controller.ActionForward;
@@ -22,6 +26,9 @@ public class BoardContentAction implements Action{
 		String mem_num = (String)session.getAttribute("mem_num");
 
 		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+		
+		
+		ServletContext context = request.getServletContext();
 		
 		String pageNum = request.getParameter("pageNum");
 		
@@ -49,9 +56,8 @@ public class BoardContentAction implements Action{
 		request.setAttribute("bd2", bd2);
 		request.setAttribute("bd3", bd3);
 		
-		
-		boolean likeCheck = bdao.isLike(mem_num, fb_num);
-		request.setAttribute("likeCheck", likeCheck);
+		boolean check = bdao.isLike(mem_num, fb_num);
+		request.setAttribute("check", check);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

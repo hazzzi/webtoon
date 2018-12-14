@@ -20,14 +20,32 @@
 <body>
 	<%
 	String mem_num = (String) session.getAttribute("mem_num");
-	int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+	int fb_num = Integer.parseInt(request.getParameter("fb_num"));	
 	String pageNum = (String) request.getAttribute("pageNum");
 	BoardBean bd = (BoardBean)request.getAttribute("bd");
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>
 	<!-- header 영역 끝-->
+	<script type="text/javascript">
+		$(document).ready(
+				function(){
+					$("#bw_pho_file").on('change',function(){
+						readURL(this);
+					});
+				});
+				
+				function readURL(input){
+					if(input.files && input.files[0]){
+						var reader = new FileReader();
+						reader.onload = function(e){
+							$('#img').attr('src',e.target.result);
+						}
+						reader.readAsDataURL(input.files[0]);
+					}
+				}
 	
+	</script>
 	<!-- 본문 영역 시작 -->
 	<div class="bw_writing">
 		<form action="./boardModifyAction.bo?fb_num=<%=fb_num %>&pageNum=<%=pageNum%>" method="post" enctype="multipart/form-data">
@@ -57,6 +75,7 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
+				<input type="image" name="fb_img" src="./upload/<%=bd.getFb_img()%>" disabled="disabled" id="img">
 				<textarea rows="30" cols="120" class="tex01" placeholder="수정할 내용을 입력하세요"	name="fb_content"><%=bd.getFb_content()%></textarea>
 				<hr>
 			</div>

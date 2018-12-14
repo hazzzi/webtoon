@@ -573,7 +573,7 @@ public class FanDAO {
 				pstmt.executeUpdate();
 
 				pstmt.close();
-				sql = "update free_board set fa_sumlike = fa_sumlike-1 where fa_num=? ";
+				sql = "update webtoon_fanart set fa_sumlike = fa_sumlike-1 where fa_num=? ";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, fa_num);
 				pstmt.executeUpdate();
@@ -590,7 +590,7 @@ public class FanDAO {
 				pstmt.executeUpdate();
 
 				pstmt.close();
-				sql = "update free_board set fa_sumlike = fa_sumlike+1 where fa_num=?";
+				sql = "update webtoon_fanart set fa_sumlike = fa_sumlike+1 where fa_num=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, fa_num);
 				pstmt.executeUpdate();
@@ -634,7 +634,7 @@ public class FanDAO {
 		
 		try{
 			con = getConnection();
-			String sql = "select fa_sumlike from free_board where fa_num=?";
+			String sql = "select fa_sumlike from webtoon_fanart where fa_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, fa_num);
 			
@@ -728,5 +728,36 @@ public class FanDAO {
 		
 		return likeList;
 	}
+	
+	public boolean isLike(String mem_num, int fa_num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean check = false;	
+		
+		try{
+			con = getConnection();
+			String sql = "select * from fanart_likecount where fa_mem_num=? and fa_num=? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num);
+			pstmt.setInt(2, fa_num);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				check = true;
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();
+			}
+		}
+		return check;
+	}
+ 
 }
 

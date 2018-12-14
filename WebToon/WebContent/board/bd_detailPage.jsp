@@ -23,7 +23,7 @@
 		
 		
 		BoardBean bd = (BoardBean)request.getAttribute("bd");
-		boolean likeCheck = (boolean)request.getAttribute("likeCheck");
+		boolean check = (boolean)request.getAttribute("check");
 		
 		int nextNum =(Integer)request.getAttribute("nextNum");
 		int preNum =(Integer)request.getAttribute("preNum");
@@ -74,12 +74,13 @@
 		<div class="detail">
 			<div class="fi">
 				
-				<!-- 다음 글 없을 경우 제어 -->
+				<!-- 이전 글 없을 경우 제어 -->
 				<%
-					if (nextNum != 0) {
+					if (preNum != 0) {
 				%>
-				<input type="button" class="bt" value="다음 글"
-					onclick="location.href='./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>'" />
+				
+					<input type="button" class="bt" value="이전 글"
+					onclick="location.href='./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>'" />
 				<%
 					} else {
 				%><input type="button" class="bt-if"
@@ -88,12 +89,12 @@
 					}
 				%>
 				
-				<!-- 이전 글 없을 경우 제어 -->
+				<!-- 다음 글 없을 경우 제어 -->
 				<%
-					if (preNum != 0) {
+					if (nextNum != 0) {
 				%>
-				<input type="button" class="bt" value="이전 글"
-					onclick="location.href='./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>'" /><br>
+				<input type="button" class="bt" value="다음 글"
+					onclick="location.href='./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>'" /><br>
 				<%
 					} else {
 				%><input type="button" class="bt-if"
@@ -127,19 +128,17 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=bd.getFb_date()%> | </span> <span>닉네임 : <%=bd.getFb_mem_nik()%>
-								|
-							</span> <span>조회수 : <%=bd.getFb_readcount()%> |
-							</span>
+							<span><%=bd.getFb_date()%> | </span>
+							<span>닉네임 : <%=bd.getFb_mem_nik()%> |  </span> 
+							<span>조회수 : <%=bd.getFb_readcount()%> |	</span>
 						</div>
 
 						<!-- 내용 영역 -->
 						<div id="article-content">
-							<%-- <a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
 							<%
 								if (bd.getFb_img() != null) {
 							%>
-							<img src="./upload/<%=bd.getFb_img()%>"><br> <br>
+							<img src="./upload/<%=bd.getFb_img()%>"><br><br>
 							<%
 								}
 							%>
@@ -149,13 +148,19 @@
 					<!-- LikeBtn 시작 -->
 					
 					<i class="fa fa-heart-o like" id="likeIcon"
-						style="margin: 10px 0 0 15px; font-size: 32px; 	cursor: pointer;"> 
-						<!-- <input type="button" class="like" onclick="location.href='./boardLikeAction.bo'"> -->
+						style="margin: 10px 0 0 15px; font-size: 32px; 	cursor: pointer; color:red;"> 
 					</i> <span class="likeBtnSp">좋아요 <%=bd.getFb_sumlike()%></span>
 					<!-- LikeBtn 끝 -->
 				</div>
 				<script>
-							
+							$('.like').each(function(){
+								var check = <%=check%>
+								if(check==true){
+									$(this).removeClass('fa-heart-o');
+									$(this).addClass('fa-heart');
+								}
+							});
+														
 							$("i.like").click(function(){
 								if(<%=mem_num%>==null){
 									alert('로그인이 필요합니다');
@@ -196,8 +201,10 @@
 							if (mem_num != null) {
 								if (mem_num.equals(bd.getFb_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
-						<input type="button" class="bt" value="수정" onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
-						<input type="button" class="bt" value="삭제"	onclick="del(<%=fb_num%>)"> 
+						<input type="button" class="bt" value="수정"
+							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
+						<input type="button" class="bt" value="삭제"
+							onclick="del(<%=fb_num%>)"> 
 						<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
 						<%
 							} else {
