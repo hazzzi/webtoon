@@ -86,8 +86,8 @@
 			<hr>
 			<div class="bw_content">
 					<form id="form1" runat="server" >
-        			<img id="blah" onerror="this.style.visibility='none'">
-  					  </form>
+        				<img id="blah" onerror="this.style.visibility='none'">
+  					</form>
 				  <textarea rows="30" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fb_content"></textarea>  
 				<hr>
 			</div>

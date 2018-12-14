@@ -73,7 +73,14 @@
 								});
 							});
 				});
-
+			
+			function modify(){
+				if(<%=fb.getFa_category2()%>==null){
+					alert("카테고리 선택은 필수입니다");
+					history.back();
+				}
+			}
+	
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
@@ -106,7 +113,7 @@
 						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
-					<button type="submit" class="bw_pho_icon2">
+					<button type="submit" class="bw_pho_icon2" onclick="modify()">
 						<i class="fa fa-check" id="bw_pho_icon2"
 							style="font-size: 48px; color: gray;"></i>
 					</button>
@@ -117,7 +124,8 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
-				<input type="image" name="fb_img" src="./upload/<%=fb.getFa_img()%>" disabled="disabled" id="Fimg">
+				<input type="hidden" name="fa_img1" value="<%=fb.getFa_img()%>">
+				<input type="image" name="fa_img" src="./upload/<%=fb.getFa_img()%>" disabled="disabled" id="Fimg">
 				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"><%=fb.getFa_content() %></textarea>
 				<hr>
 			</div>

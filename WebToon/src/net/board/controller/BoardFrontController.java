@@ -43,6 +43,7 @@ public class BoardFrontController extends HttpServlet {
 		} else if (command.equals("/boardModify.bo")) {
 			
 			action= new BoardModify();
+			System.out.println("modify 실행");
 			try { 
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -52,7 +53,7 @@ public class BoardFrontController extends HttpServlet {
 		} else if (command.equals("/boardModifyAction.bo")) {
 
 			action = new BoardModifyAction();
-			
+			System.out.println("modifyAction 실행");
 			try { 
 				forward = action.execute(request, response);
 			} catch (Exception e) {
