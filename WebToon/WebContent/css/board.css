@@ -388,7 +388,7 @@ td>a:HOVER {
     text-align: center;
     position: absolute;
     opacity: 0.5;
-    font-size: 18px;
+    font-size: 25px;
     margin: -92.5px 0 0 12.5px;
     display: inline-block;
 
@@ -409,7 +409,7 @@ td>a:HOVER {
     text-align: center;
     position: absolute;
     opacity: 0.5;
-    font-size: 18px;
+    font-size: 25px;
     margin: -99.5px 0 0 19.5px;
     display: inline-block;
 }
