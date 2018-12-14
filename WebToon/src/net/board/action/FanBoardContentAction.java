@@ -25,7 +25,6 @@ public class FanBoardContentAction implements Action{
 		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
 		
 		String pageNum = request.getParameter("pageNum");
-		
 		if(pageNum==null){
 			pageNum="1";
 		}
@@ -38,6 +37,9 @@ public class FanBoardContentAction implements Action{
 		request.setAttribute("fa_num", fa_num);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("fb", fb);
+		
+		boolean check = fdao.isLike(mem_num, fa_num);
+		request.setAttribute("check", check);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

@@ -26,6 +26,8 @@
 
 		FanDAO fdao = new FanDAO();
 		FanBean fb = fdao.getFanBoard(fa_num);
+		
+		boolean check = (boolean)request.getAttribute("check"); 
 	%>
 
 
@@ -57,18 +59,6 @@
 		}
 	};
  	
- 		
-	$(document).ready(function() {
-		$(".like").click(function(){
-		$ajax('fanboardLike.fo',{
-				data : {
-					fa_sumlike: $(".like")
-				},
-				
-			});
- 		});
-	});
-	
 </script>
 </head>
 
@@ -152,12 +142,46 @@
 					</div>
 
 					<!-- LikeBtn 시작 -->
-						<i class="fa fa-heart" id="likeIcon" style="margin: 10px 0 0 15px; font-size: 32px; color:#c0c0c0;">
-							<input type="button" class="like" onclick="location.href='#'" name="fa_sumlike">
+						<i class="fa fa-heart-o like" id="likeIcon" 
+						style="margin: 10px 0 0 15px; font-size: 32px; cursor: pointer; color:red;">
 						</i>
 						<span class="likeBtnSp">좋아요 <%=fb.getFa_sumlike() %></span>
 					<!-- LikeBtn 끝 -->
 				</div>
+				<script>
+					 
+					 $('.like').each(function(){
+							var check = <%=check%>
+							if(check==true){
+								$(this).removeClass('fa-heart-o');
+								$(this).addClass('fa-heart');
+							}
+						});
+					 
+					 $("i.like").click(function(){
+							if(<%=mem_num%>==null){
+								alert('로그인이 필요합니다');
+							}else{
+								$.ajax('fanboardLikeAction.fo',{
+									context:this,
+									data: {
+										fa_num : <%=fa_num%>
+									},success: function(data){
+										var op = data.split(",");
+										if(op[0]=='true'){
+											$(this).removeClass('fa-heart');
+											$(this).addClass('fa-heart-o');
+											$(this).next().html('좋아요 '+op[1]);
+										}else{
+											$(this).removeClass('fa-heart-o');
+											$(this).addClass('fa-heart');
+											$(this).next().html('좋아요 '+op[1]);
+										}
+									}
+								});
+							}
+						});
+					</script>
 
 				<!-- 파일 다운 및 삭제  -->
 				<div id="file-list" style="text-align: right;">

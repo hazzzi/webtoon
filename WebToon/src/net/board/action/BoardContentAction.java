@@ -38,8 +38,8 @@ public class BoardContentAction implements Action{
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("bd", bd);
 		
-		boolean likeCheck = bdao.isLike(mem_num, fb_num);
-		request.setAttribute("likeCheck", likeCheck);
+		boolean check = bdao.isLike(mem_num, fb_num);
+		request.setAttribute("check", check);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

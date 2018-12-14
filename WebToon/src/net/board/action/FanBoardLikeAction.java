@@ -17,7 +17,6 @@ public class FanBoardLikeAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("FanBoardLikeAction execute()");
-		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
 		String mem_num = (String) session.getAttribute("mem_num");
@@ -28,24 +27,22 @@ public class FanBoardLikeAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('로그인 후 가능합니다.');");
-			out.println("./login.me");
+			out.println("location.href='./login.me'");
 			out.println("</script>");
 			out.close();
 
 		} else {
 
-			FanBean fb = new FanBean();
 			FanDAO fdao = new FanDAO();
 
-			/*
-			 * boolean check = fdao.sumLike(fa_num);
-			 * 
-			 * fb.setFa_mem_num(mem_num); fb.setFa_num(fa_num);
-			 * 
-			 * fdao.likeCount(fb); }
-			 */
-
-			return null;
+			boolean check = fdao.likecount(mem_num, fa_num);
+			int num = fdao.sumLike(fa_num);
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print(check+","+num);
+			
+			
 		}
 		return null;
 

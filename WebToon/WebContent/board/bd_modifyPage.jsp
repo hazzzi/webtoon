@@ -25,8 +25,6 @@
 	int fb_num = Integer.parseInt(request.getParameter("fb_num"));
 	String pageNum = request.getParameter("pageNum");
 	
-	BoardDAO bdao = new BoardDAO();
-	BoardBean borderbean = bdao.getBoard(fb_num);
 	%>
 	<!-- header 영역 시작 -->
 	<jsp:include page="../main/header.jsp"></jsp:include>

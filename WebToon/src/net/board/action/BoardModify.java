@@ -24,6 +24,7 @@ public class BoardModify implements Action{
 		String mem_num = (String)session.getAttribute("mem_num");
 		
 		BoardDAO bdao = new BoardDAO();
+		BoardBean bd = bdao.getBoard(fb_num);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/bd_modifyPage.jsp");

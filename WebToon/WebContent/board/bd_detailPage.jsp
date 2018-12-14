@@ -24,7 +24,7 @@
 		BoardDAO bdao = new BoardDAO();
 		
 		BoardBean bd = (BoardBean)request.getAttribute("bd");
-		boolean likeCheck = (boolean)request.getAttribute("likeCheck");
+		boolean check = (boolean)request.getAttribute("check");
 %>
 
 <script type="text/javascript">
@@ -149,13 +149,19 @@
 					<!-- LikeBtn 시작 -->
 					
 					<i class="fa fa-heart-o like" id="likeIcon"
-						style="margin: 10px 0 0 15px; font-size: 32px; 	cursor: pointer;"> 
-						<!-- <input type="button" class="like" onclick="location.href='./boardLikeAction.bo'"> -->
+						style="margin: 10px 0 0 15px; font-size: 32px; 	cursor: pointer; color:red;"> 
 					</i> <span class="likeBtnSp">좋아요 <%=bd.getFb_sumlike()%></span>
 					<!-- LikeBtn 끝 -->
 				</div>
 				<script>
-							
+							$('.like').each(function(){
+								var check = <%=check%>
+								if(check==true){
+									$(this).removeClass('fa-heart-o');
+									$(this).addClass('fa-heart');
+								}
+							});
+														
 							$("i.like").click(function(){
 								if(<%=mem_num%>==null){
 									alert('로그인이 필요합니다');
@@ -199,9 +205,8 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
-							onclick="del(<%=fb_num%>)"> <input type="button"
-							class="bt-2" onclick="location.href='./bd_writingPage.bo'"
-							value="새 글 쓰기" />
+							onclick="del(<%=fb_num%>)"> 
+						<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
 						<%
 							} else {
 						%>

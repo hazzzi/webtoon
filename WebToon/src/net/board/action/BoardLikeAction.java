@@ -27,7 +27,7 @@ public class BoardLikeAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('로그인 후 가능합니다.');");
-			out.println("./login.me");
+			out.println("location.href='./login.me'");
 			out.println("</script>");
 			out.close();
 		}else {
