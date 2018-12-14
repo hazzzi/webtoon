@@ -666,6 +666,68 @@ public class FanDAO {
 		}
 		return num;
 	}
+		
+	public List<FanBean> getLikeList(int size){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<FanBean> likeList = new ArrayList<FanBean>();
+		
+		try{
+			
+			con = getConnection();
+			
+			String sql = "select * from webtoon_fanart order by fa_sumlike desc limit ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, size);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				FanBean fb = new FanBean();
+
+				fb.setFa_num(rs.getInt("fa_num"));
+				fb.setFa_mem_num(rs.getString("fa_mem_num"));
+				fb.setFa_mem_nik(rs.getString("fa_mem_nik"));
+				fb.setFa_subject(rs.getString("fa_subject"));
+				fb.setFa_category1(rs.getString("fa_category1"));
+				fb.setFa_category2(rs.getString("fa_category2"));
+				fb.setFa_content(rs.getString("fa_content"));
+				fb.setFa_img(rs.getString("fa_img"));
+				fb.setFa_sumlike(rs.getInt("fa_sumlike"));
+				fb.setFa_readcount(rs.getInt("fa_readcount"));
+				fb.setFa_date(rs.getDate("fa_date"));
+
+				likeList.add(fb);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		
+		return likeList;
+	}
 	
 	public boolean isLike(String mem_num, int fa_num){
 		Connection con = null;
