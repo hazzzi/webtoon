@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.footer.action.footerNoticListAction1;
+import net.footer.action.footerNoticeManagerListAction1;
+import net.footer.action.footerNoticedeleteAction;
+import net.footer.action.footerNoticeupdateAction1;
+import net.footer.action.footerNoticeupdateAction2;
 import net.footer.action.footerNoticewriteAction;
 
 
@@ -44,6 +48,42 @@ public class FooterFrontController extends HttpServlet{
 			forward.setPath("./footermenu/noticeQna.jsp");
 		}else if(command.equals("/footerNoticListAction1.ft")){
 			action =new footerNoticListAction1();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/footerNoticeManagerListAction1.ft")){
+			action =new footerNoticeManagerListAction1();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/footerNoticeupdateAction1.ft")){
+			action =new footerNoticeupdateAction1();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/footerNoticeupdateAction2.ft")){
+			action =new footerNoticeupdateAction2();
+			
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}else if(command.equals("/footerNoticedeleteAction.ft")){
+			action =new footerNoticedeleteAction();
 			
 			try{
 				forward=action.execute(request, response);

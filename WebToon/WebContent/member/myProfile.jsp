@@ -38,7 +38,7 @@ System.out.println(sessionid);
 </div>
 </a>
 
-<a href="./noticewrite.ft">
+<a href="footerNoticeManagerListAction1.ft">
 <div class="mp_img3">
 <img src="./member/img/copyw.png">
 <img src="./member/img/copyhover.png"><br>
