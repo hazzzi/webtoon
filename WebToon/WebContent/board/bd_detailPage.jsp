@@ -127,19 +127,17 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=bd.getFb_date()%> | </span> <span>닉네임 : <%=bd.getFb_mem_nik()%>
-								|
-							</span> <span>조회수 : <%=bd.getFb_readcount()%> |
-							</span>
+							<span><%=bd.getFb_date()%> | </span>
+							<span>닉네임 : <%=bd.getFb_mem_nik()%> |  </span> 
+							<span>조회수 : <%=bd.getFb_readcount()%> |	</span>
 						</div>
 
 						<!-- 내용 영역 -->
 						<div id="article-content">
-							<%-- <a href="./upload/"<%=bd.getFb_img()%>"></a> --%>
 							<%
 								if (bd.getFb_img() != null) {
 							%>
-							<img src="./upload/<%=bd.getFb_img()%>"><br> <br>
+							<img src="./upload/<%=bd.getFb_img()%>"><br><br>
 							<%
 								}
 							%>

@@ -19,7 +19,7 @@ public class FanModify implements Action {
 
 		int fa_num = Integer.parseInt(request.getParameter("fa_num"));
 		String pageNum = request.getParameter("pageNum");
-
+		
 		HttpSession session = request.getSession();
 		String mem_num = (String) session.getAttribute("mem_num");
 

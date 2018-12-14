@@ -57,6 +57,7 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
+				<input type="image" name="fb_img" src="./upload/<%=bd.getFb_img()%>">
 				<textarea rows="30" cols="120" class="tex01" placeholder="수정할 내용을 입력하세요"	name="fb_content"><%=bd.getFb_content()%></textarea>
 				<hr>
 			</div>
