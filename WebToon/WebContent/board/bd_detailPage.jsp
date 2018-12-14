@@ -74,12 +74,13 @@
 		<div class="detail">
 			<div class="fi">
 				
-				<!-- 다음 글 없을 경우 제어 -->
+				<!-- 이전 글 없을 경우 제어 -->
 				<%
-					if (nextNum != 0) {
+					if (preNum != 0) {
 				%>
-				<input type="button" class="bt" value="다음 글"
-					onclick="location.href='./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>'" />
+				
+					<input type="button" class="bt" value="이전 글"
+					onclick="location.href='./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>'" />
 				<%
 					} else {
 				%><input type="button" class="bt-if"
@@ -88,12 +89,12 @@
 					}
 				%>
 				
-				<!-- 이전 글 없을 경우 제어 -->
+				<!-- 다음 글 없을 경우 제어 -->
 				<%
-					if (preNum != 0) {
+					if (nextNum != 0) {
 				%>
-				<input type="button" class="bt" value="이전 글"
-					onclick="location.href='./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>'" /><br>
+				<input type="button" class="bt" value="다음 글"
+					onclick="location.href='./boardContent.bo?fb_num=<%=nextNum%>&pageNum=<%=pageNum%>'" /><br>
 				<%
 					} else {
 				%><input type="button" class="bt-if"

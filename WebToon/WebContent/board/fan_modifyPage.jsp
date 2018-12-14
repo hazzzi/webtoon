@@ -42,7 +42,7 @@
 							var reader = new FileReader();
 
 							reader.onload = function(e) {
-								$('#blah').attr('src', e.target.result);
+								$('#Fimg').attr('src', e.target.result);
 							}
 
 							reader.readAsDataURL(input.files[0]);
@@ -117,7 +117,7 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
-				<input type="image" name="fb_img" src="./upload/<%=fb.getFa_img()%>">
+				<input type="image" name="fb_img" src="./upload/<%=fb.getFa_img()%>" disabled="disabled" id="Fimg">
 				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"><%=fb.getFa_content() %></textarea>
 				<hr>
 			</div>
