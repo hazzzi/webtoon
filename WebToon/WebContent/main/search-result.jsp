@@ -218,7 +218,7 @@
 		 			<!-- 링크는 추후수정 -->
 		 			<!-- get방식 이용 id 파라미터 값 넘기기 -->
 		 			<p><!-- <a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>| -->
-		 			   <a href="./fanboardList.bo">더보기</a></p>
+		 			   <a href="./fanboardList.fo">더보기</a></p>
 		 			<div>
 		 			<%
 		 			if(fanList.size()==0){%>
@@ -231,7 +231,7 @@
 			 				<!-- webtoon_fanart 디비 참조 -->
 			 				<!-- 최근에 올라간 팬아트 상위 2개 -->
 			 				<!-- where webtoon-number=?? -->
-			 				<a href="./fanarttmpaddress.wbt?fa_num=<%=f.getFa_num()%>">
+			 				<a href="./fanboardContent.fo?fa_num=<%=f.getFa_num()%>">
 					 			<img src="./upload/<%=f.getFa_img()%>">
 				 			</a>
 		 			<%} 
