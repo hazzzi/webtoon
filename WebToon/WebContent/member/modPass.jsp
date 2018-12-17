@@ -30,7 +30,7 @@
 	</table>
  	</div> <!--id="rif_text" -->
 	<div id="mdps_sub">
-	<input type="button" value="뒤로가기" onclick="location.href='myProfile.jsp'">
+	<input type="button" value="뒤로가기" onclick="location.href='myProfile.me'">
 	<input type="submit" value="수정">
 	</div>
 </div>

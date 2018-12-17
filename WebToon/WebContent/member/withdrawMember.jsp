@@ -29,7 +29,7 @@
 	</table>
  	</div> <!--id="rif_text" -->
 	<div id="wdm_sub">
-	<input type="button" value="뒤로가기" onclick="location.href='myProfile.jsp'">
+	<input type="button" value="뒤로가기" onclick="location.href='myProfile.me'">
 	<input type="submit" value="탈퇴">
 	</div>
 </div>

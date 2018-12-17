@@ -70,12 +70,14 @@
             <tr>
             <td></td>
             <td></td>
-            <td>게시글이 없습니다.</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+    		<td></td>
+    		<td></td>
          </tr>
+         	<tr>
+         	<td colspan="6">게시글이 없습니다.</td>
+         	</tr>
             
             
 				

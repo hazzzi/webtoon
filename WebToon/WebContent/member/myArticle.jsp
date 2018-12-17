@@ -70,15 +70,17 @@
 				<%
 			if(myBoardList_search==null){
 				if(myBoardList==null){%>
-				<tr>
-				<td></td>
-				<td></td>
-				<td>게시글이 없습니다.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+				 <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+    		<td></td>
+    		<td></td>
+         </tr>
+         	<tr>
+         	<td colspan="6">게시글이 없습니다.</td>
+         	</tr>
 				
 				<%}else{
 				for(BoardBean bb: myBoardList){ %>
@@ -98,8 +100,7 @@
 			<tr>
 				<td><%=bb.getFb_num()%></td>
 				<td>[<%=bb.getFb_category()%>]</td>
-				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
-				<td>5</td>
+				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>				
 				<td><%=bb.getFb_mem_nik()%></td>
 				<td><%=bb.getFb_readcount()%></td>
 				<td><%=bb.getFb_date()%></td>
