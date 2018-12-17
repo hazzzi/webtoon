@@ -26,13 +26,12 @@ body {
 }
 
 .rec_show_top_background {
-	width: 100%;
-	height: 52px;
-	float: left;
-	padding-left: 30px;
-	background-color: #d5cde4;
-	/* 메뉴바 고정 */
-	position: sticky;
+    /* width: 100%; */
+    height: 52px;
+    /* float: left; */
+    padding-left: 30px;
+    background-color: #d5cde4;
+    position: sticky;
     top: 100px;
     z-index: 2;
 }
