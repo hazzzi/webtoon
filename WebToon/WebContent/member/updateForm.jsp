@@ -14,11 +14,29 @@
 <link rel="stylesheet" href="member/css/updateForm.css">
 <script type="text/javascript">
 
-   var changeImgbtn = function(){
-      
-      
-   } 
 
+
+$(document).ready(
+		function() {
+
+			$(function() {
+				$("#ex_file").on('change', function() {
+					readURL(this);
+				});
+			});
+
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function(e) {
+						$('#blah').attr('src', e.target.result);
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+		});
 </script>
 </head>
 <body>
@@ -70,7 +88,7 @@ String mem_num=(String)session.getAttribute("mem_num");
 <form action="MemberUpdateAction2.me" method="post" enctype="multipart/form-data">
 <div id="rif"><!--reinfo  -->
    <div id="rif_photo">
-      <div id="profileImg"><%if(mb.getProfileimg()!=null){%><img src="./upload/<%=mb.getProfileimg()%>"/><%}else{%> <img src="http://placehold.it/150x150" /><%} %></div>
+      <div id="profileImg"><%if(mb.getProfileimg()!=null){%><img id="blah" src="./upload/<%=mb.getProfileimg()%>"/><%}else{%> <img id="blah" src="http://placehold.it/150x150" /><%} %></div>
 <div class="filebox">
   <label for="ex_file">사진 등록</label>
   <input type="file" id="ex_file" name="file">

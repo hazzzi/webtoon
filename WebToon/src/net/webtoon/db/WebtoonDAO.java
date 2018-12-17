@@ -67,6 +67,44 @@ public class WebtoonDAO {
 		return wb;
 	}
 	
+	public boolean insertcheck(WebtoonBean webtoon){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		boolean flag=false;//flase-디비에 있음    true-디비에 없음
+		
+		try{
+			con=getConnection();
+			
+			String sql="select * from webtoon where web_subject= ? ";
+			pstmt =con.prepareStatement(sql);
+			
+			pstmt.setString(1, webtoon.getWeb_subject());
+			rs=pstmt.executeQuery();
+			//디비에 있으면  펄스   없으면 트루
+			if(rs.next()){
+				flag=false;
+			}else{
+				flag=true;
+			}
+			
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
+			}
+		}
+		
+		
+		return flag;
+	}
+	
+	
 	public void insertWebtoon(WebtoonBean webtoon) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -74,6 +112,8 @@ public class WebtoonDAO {
 		int num = 0;
 		try {
 			con = getConnection();
+			
+
 			// 게시판 글 번호 구하기
 			// num 구하기, 게시판 글 중에 가장 큰 번호
 			String sql = "select max(web_num) from webtoon";
