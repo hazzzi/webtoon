@@ -63,6 +63,17 @@
 	};
  		
 	
+	<%-- $(document).ready(function(){
+		$.ajax('fanModify.fo',{
+			data:{
+				fan_category1 : <%=fb.getFa_category1()%>
+			},
+			success : function(data){
+				$('')
+			}
+		});
+	}); --%>
+	
 </script>
 </head>
 
@@ -204,8 +215,7 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
 						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
-						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'"
-							value="새 글 쓰기">
+						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기">
 						<%
 							} else {
 						%>
@@ -290,8 +300,7 @@
 					} else {
 				%>
 				<p>
-					이전 글 : <a
-						href="./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
+					이전 글 : <a href="./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
 				</p>
 				<%
 					}
