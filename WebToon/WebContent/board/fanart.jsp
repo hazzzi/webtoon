@@ -60,7 +60,7 @@
 				<!-- 팬아트의 콘텐츠가 들어갈 영역 (시작) -->
 				<!-- 인기순으로 5개를 상단에 배치하고 금띠 또는 장식을 추가할 예정이므로 넉넉하게 공간 잡아 놓은 것  -->
 				<div id="likethat">
-				<table>
+				<table id="fanart_top">
 				<!-- 게시물 없으면 게시물 없음 뜨도록 -->
 				<%
 				if(count ==0){
@@ -75,7 +75,6 @@
 				<%
 				for(int j=0; j<likeList.size(); j++){
 					fb=likeList.get(j);%>
-					
 					<%
 						if (j== 0 || (j %4) + 1 == 1) {
 					%>
@@ -85,19 +84,19 @@
 						%>
 					
 					<td alt="사진"> 
-						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>" >
+						
 						<div class="fb_img2">
-							
+						<a href="./fanboardContent.fo?fa_num=<%=fb.getFa_num()%>&pageNum=<%=pageNum%>" id="top_rink">
+								<img src="./css/images/c9602a21a3e29d6d87b8d1eb8bc5130e.png" class="top_rank_img">							
 								<img style="width: 300px; height: 300px;"
 								src="./upload/<%=fb.getFa_img()%>" class="like_img">
-									
+						</a>	
 							 <div class="img_hover2"><br>
 							 		<div class="hover_div0">[<%=fb.getFa_category1() %>]</div>
 									<div class="hover_div1"><%=fb.getFa_subject()%></div>  
 									<div class="hover_div2"><%=fb.getFa_mem_nik() %></div>
 								</div> 
 							</div>
-						</a>
 						</td>
 						
 					<%
