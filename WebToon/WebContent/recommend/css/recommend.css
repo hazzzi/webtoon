@@ -39,7 +39,8 @@ body {
     font-size: 25px;
     padding-top: 3px;
     top: 100px;
-    z-index: 2
+    z-index: 2;
+    min-width: 1400px;
 }
 #rec_star_menu {
 	width: 100%;
