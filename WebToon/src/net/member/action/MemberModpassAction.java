@@ -29,7 +29,7 @@ public class MemberModpassAction implements Action{
 		if(DBPass.equals(nowpass)){//디비와 입력된 현재비번 비교
 			if(!DBPass.equals(newpass)){//현재 입력된 비번과 새비번이 다른지 비교
 				//비번 업데이트 실행
-				mdao.updateMem_pass(DBPass, newpass);
+				mdao.updateMem_pass(mem_num, newpass);
 				forward.setRedirect(true);
 				forward.setPath("./myProfile.me");
 				System.out.println("성공");
