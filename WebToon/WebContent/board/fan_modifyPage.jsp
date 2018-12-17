@@ -73,13 +73,12 @@
 								});
 							});
 				});
+		
+		
+		
 			
-			function modify(){
-				if(<%=fb.getFa_category2()%>==null){
-					alert("카테고리 선택은 필수입니다");
-					history.back();
-				}
-			}
+	
+			
 	
 	</script>
 	<!-- header 영역 끝-->
@@ -91,7 +90,8 @@
 				<input type="text" value="<%=fb.getFa_subject() %>" class="bw_sub_tex" name="fa_subject"> 
 					<select id="bd_sel" name="fa_category1">
 					<optgroup label="장르 선택"></optgroup>
-					<option id="daily" value="일상" class="fan_cate">일상</option>
+					<option value="<%=fb.getFa_category1()%>"><%=fb.getFa_category1() %></option>
+					<!-- <option id="daily" value="일상" class="fan_cate">일상</option>
 					<option id="gag" value="개그" class="fan_cate">개그</option>
 					<option id="fantasy" value="판타지" class="fan_cate">판타지</option>
 					<option id="action" value="액션" class="fan_cate">액션</option>
@@ -100,11 +100,12 @@
 					<option id="sensitivity" value="감성" class="fan_cate">감성</option>
 					<option id="thriller" value="스릴러" class="fan_cate">스릴러</option>
 					<option id="period" value="시대극" class="fan_cate">시대극</option>
-					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
+					<option id="sports" value="스포츠" class="fan_cate">스포츠</option> -->
 				</select> 
 				
 				<select id="bd_sel2" name="fa_category2">
 					<optgroup label="웹툰 선택"></optgroup>
+					<option value=<%=fb.getFa_category2() %>><%=fb.getFa_category2() %></option>
 				</select>
 
 				<div id="bw_img">
@@ -113,7 +114,7 @@
 						<input type="file" id="bw_pho_file" class="bw_pho_icon" name="fa_img">
 					</i>
 
-					<button type="submit" class="bw_pho_icon2" onclick="return modify()">
+					<button type="submit" class="bw_pho_icon2">
 						<i class="fa fa-check" id="bw_pho_icon2"
 							style="font-size: 48px; color: gray;"></i>
 					</button>
