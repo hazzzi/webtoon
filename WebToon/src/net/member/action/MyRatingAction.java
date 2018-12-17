@@ -18,13 +18,14 @@ public class MyRatingAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		String mem_num = (String)session.getAttribute("mem_num");
+		
 		RecommendDAO rdao = new RecommendDAO();
 		int count_Recommend = rdao.getRecommend(mem_num);
-		request.setAttribute("count_Recommend", count_Recommend);
+		request.setAttribute("count_Recommend", count_Recommend); //내가 평가한 웹툰 수 저장
 		
 		MemberDAO mdao = new MemberDAO();
 		List<WebtoonBean> myRating_list = mdao.myRating(mem_num);
-		request.setAttribute("myRating_list", myRating_list);
+		request.setAttribute("myRating_list", myRating_list); //내가 평가한 웹툰 list저장
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
