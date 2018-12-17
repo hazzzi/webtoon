@@ -46,7 +46,8 @@
 	List<WebtoonBean> rec_list = (List<WebtoonBean>)request.getAttribute("rec_list"); //추천 리스트
 %>
 	<div class="rec_show_top_background">
-		<a href="./main_recommend.rec"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
+		<a href="./main_recommend.rec"><i
+			class="fa fa-caret-square-o-left"></i> 평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
 	</div>
 
 	<article class="rec_show_main">
@@ -71,14 +72,14 @@
 		</div> -->
 		<div style="clear: both;"></div>
 		
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 			$(document).ready(function() {
 				/* 웹툰 리뷰 남기기 영역 보여주기 */
 				$('.review-action').click(function(index) {
 					$('#webtoon-content').show();
 				});
 			});
-		</script>
+		</script> -->
 
 	</article>
 	
