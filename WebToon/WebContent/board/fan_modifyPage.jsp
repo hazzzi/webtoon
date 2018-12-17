@@ -1,5 +1,4 @@
 <%@page import="net.board.db.FanBean"%>
-<%@page import="net.board.db.FanDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
