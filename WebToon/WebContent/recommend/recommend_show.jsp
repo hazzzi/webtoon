@@ -27,8 +27,7 @@
 </head>
 <body>
  	<jsp:include page="../main/header.jsp" /> 
-
-	
+ 	
 	<script>
 		$(document).ready(function(){
 			var scrollPosition;
