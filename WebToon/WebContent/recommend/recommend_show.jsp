@@ -27,8 +27,7 @@
 </head>
 <body>
  	<jsp:include page="../main/header.jsp" /> 
-
-	
+ 	
 	<script>
 		$(document).ready(function(){
 			var scrollPosition;
@@ -47,10 +46,12 @@
 	List<WebtoonBean> rec_list = (List<WebtoonBean>)request.getAttribute("rec_list"); //추천 리스트
 %>
 	<div class="rec_show_top_background">
-		<a href="./main_recommend.rec"><i class="fa fa-caret-square-o-left"></i>  평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
+		<a href="./main_recommend.rec"><i
+			class="fa fa-caret-square-o-left"></i> 평가하기</a><b>평가한 웹툰을 기반으로 추천했습니다. </b>
 	</div>
 
 	<article class="rec_show_main">
+	<%if(rec_list.size() != 0){ %>
 	<%for(WebtoonBean wb : rec_list){%>
 		<div class="rec_show_wrap_div">
 			<div class="rec_show_img_div">
@@ -65,21 +66,22 @@
 			<div class="rec_show_btn_div">
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰보기</button></a>
 			</div>
-		</div>
-		<%}%>
+		</div><%} %>
+		<%}else{%>
+		<div><h2 style="text-align: center; line-height: 15; font-size: 38px; margin-left: -110px;">웹툰 평가 후 이용해주세요.</h2></div><%} %>
 <!-- 		<div id="rec_show_next_div">
 			<button>더보기</button>
 		</div> -->
 		<div style="clear: both;"></div>
 		
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 			$(document).ready(function() {
 				/* 웹툰 리뷰 남기기 영역 보여주기 */
 				$('.review-action').click(function(index) {
 					$('#webtoon-content').show();
 				});
 			});
-		</script>
+		</script> -->
 
 	</article>
 	

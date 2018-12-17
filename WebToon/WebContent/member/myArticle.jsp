@@ -99,7 +99,7 @@
 				for(BoardBean bb: myBoardList_search){ %>
 			<tr>
 				<td><%=bb.getFb_num()%></td>
-				<td>[<%=bb.getFb_category()%>]</td>
+			<td>[자유게시판]</td>
 				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>				
 				<td><%=bb.getFb_mem_nik()%></td>
 				<td><%=bb.getFb_readcount()%></td>

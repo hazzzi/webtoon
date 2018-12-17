@@ -45,12 +45,12 @@
 	
 	<script type="text/javascript">
 		$(function() {
-			$('.rec_wrap_div').slice(0, 15).show();
+			$('.rec_wrap_div').slice(0, 15).show(); //첫 화면 웹툰 15개 보여줌
 			$('#load').click(function(e) {
 				e.preventDefault();
-				$(".rec_wrap_div:hidden").slice(0, 6).fadeToggle('slow');
+				$(".rec_wrap_div:hidden").slice(0, 9).fadeToggle('slow'); //더보기 눌렸을 때 마다 9개씩 보여줌
 				if($('.rec_wrap_div:hidden').length == 0) {
-					$('#load').hide()
+					$('#load').hide() //웹툰이 없으면 버튼 숨김
 				}
 			});
 		});
@@ -60,13 +60,18 @@
 	int num = (int)request.getAttribute("count_Recommend");
 	String mem_num = (String)session.getAttribute("mem_num");
 %>
-test session값 : <%=session.getAttribute("mem_num") %>
+<%-- test session값 : <%=session.getAttribute("mem_num") %> --%>
 	<div class="rec_top_background">
+		<%if(mem_num!=null){ %>
 		평가한 웹툰 수 : <span><%=num%></span>
 		<div id="rec_star_menu">
 			<a class="rec_log" style="cursor: pointer;">★추천 받기★</a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
-		</div>
+		</div><%}else{%>
+		<div id="rec_star_menu">
+			<a>로그인 후 이용하실 수 있어요~</a>
+			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
+		</div><%} %>
 	</div>
 	<article class="rec_main">
 	<%for(WebtoonBean wb:webtoonList){%>
@@ -82,7 +87,7 @@ test session값 : <%=session.getAttribute("mem_num") %>
 			
 			<div class="rec_star_div">
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰보기</button></a>
-				<b class="rec_b">평가하기 test:웹툰ID=<%=wb.getWeb_num() %></b>
+				<b class="rec_b">평가하기</b>
 				 
 				<select id="example<%=wb.getWeb_num()%>" class="test">
 					<option value="">0</option>
@@ -103,17 +108,15 @@ test session값 : <%=session.getAttribute("mem_num") %>
 							/*	mem_num : session
 								wb.getWeb_num() : 웹툰고유번호
 								text : 별점 값  */
-							if(<%=mem_num%>==null){
-								alert('로그인이 필요한 서비스 입니다.');
-								// 수정
-							}else{
-								alert('db동작');
+							if(<%=mem_num%>==null){ //login 안했을 시 로그인 화면으로
+								location.href="login.me";
+							}else{ //Login 후 동작
 								$.ajax('recDB_insert.rec',{
 									data:{
 										rec_web_num:<%=wb.getWeb_num()%>,
 										rec_web_grade:text
 									},success:function(data){
-										$('.rec_top_background>span').html(data)
+										$('.rec_top_background>span').html(data) // 결과(웹툰 평가한 수) 들고옴
 									}
 								});
 							}
@@ -133,16 +136,22 @@ test session값 : <%=session.getAttribute("mem_num") %>
 		
 		<div style="clear: both;"></div>
 		
+		<div id="loading"><img id="loading-image" src="./recommend/img/loading2.gif" /></div><!-- 페이지 로딩화면 hide()-->
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#loading').hide();
+			})
+		</script>
+		
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
-				/* 웹툰 리뷰 남기기 영역 보여주기 */
+				/* 웹툰 추천 페이지 이동 */
 				$('.rec_log').click(function(){
-					if(<%=mem_num%>==null){
-						alert('로그인이 필요한 서비스입니다.');
-					}else{
-						location.href='./recommend_show.rec';
-					}
+					$('#loading').show(); //페이지 로딩화면 show()
+					location.href='./recommend_show.rec';
+					return true;
 				});
 			});
 		</script>

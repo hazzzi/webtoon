@@ -1,5 +1,4 @@
 <%@page import="net.board.db.FanBean"%>
-<%@page import="net.board.db.FanDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -42,7 +41,7 @@
 							var reader = new FileReader();
 
 							reader.onload = function(e) {
-								$('#blah').attr('src', e.target.result);
+								$('#Fimg').attr('src', e.target.result);
 							}
 
 							reader.readAsDataURL(input.files[0]);
@@ -73,7 +72,13 @@
 								});
 							});
 				});
-
+		
+		
+		
+			
+	
+			
+	
 	</script>
 	<!-- header 영역 끝-->
 	<!-- 본문 영역 시작 -->
@@ -84,7 +89,8 @@
 				<input type="text" value="<%=fb.getFa_subject() %>" class="bw_sub_tex" name="fa_subject"> 
 					<select id="bd_sel" name="fa_category1">
 					<optgroup label="장르 선택"></optgroup>
-					<option id="daily" value="일상" class="fan_cate">일상</option>
+					<option value="<%=fb.getFa_category1()%>"><%=fb.getFa_category1() %></option>
+					<!-- <option id="daily" value="일상" class="fan_cate">일상</option>
 					<option id="gag" value="개그" class="fan_cate">개그</option>
 					<option id="fantasy" value="판타지" class="fan_cate">판타지</option>
 					<option id="action" value="액션" class="fan_cate">액션</option>
@@ -93,11 +99,12 @@
 					<option id="sensitivity" value="감성" class="fan_cate">감성</option>
 					<option id="thriller" value="스릴러" class="fan_cate">스릴러</option>
 					<option id="period" value="시대극" class="fan_cate">시대극</option>
-					<option id="sports" value="스포츠" class="fan_cate">스포츠</option>
+					<option id="sports" value="스포츠" class="fan_cate">스포츠</option> -->
 				</select> 
 				
 				<select id="bd_sel2" name="fa_category2">
 					<optgroup label="웹툰 선택"></optgroup>
+					<option value=<%=fb.getFa_category2() %>><%=fb.getFa_category2() %></option>
 				</select>
 
 				<div id="bw_img">
@@ -117,7 +124,8 @@
 			<div class="clear"></div>
 			<hr>
 			<div class="bw_content">
-				<input type="image" name="fb_img" src="./upload/<%=fb.getFa_img()%>">
+				<input type="hidden" name="fa_img1" value="<%=fb.getFa_img()%>">
+				<input type="image" name="fa_img" src="./upload/<%=fb.getFa_img()%>" disabled="disabled" id="Fimg">
 				<textarea rows="25" cols="120" class="tex01" placeholder="내용을 입력하세요" name="fa_content"><%=fb.getFa_content() %></textarea>
 				<hr>
 			</div>

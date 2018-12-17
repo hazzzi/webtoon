@@ -1,5 +1,6 @@
 package net.board.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ public class FanBoardList implements Action {
 		
 		FanDAO fdao = new FanDAO();
 		
+		int size = 4;
 		int count = fdao.getFanBoardCount();
 		int pageSize = 20;
 		String pageNum = request.getParameter("pageNum");
@@ -33,10 +35,17 @@ public class FanBoardList implements Action {
 		int startRow = (currentPage-1)*pageSize+1;
 		int endRow = currentPage*pageSize;
 		
+		List<FanBean> likeList = new ArrayList<FanBean>();
+		if(count!=0){
+			likeList = fdao.getLikeList(size);
+		}
+		
 		List <FanBean> fanboardList = null;
 		if(count!=0){
 			fanboardList = fdao.getBoardList(startRow, pageSize);
 		}
+		
+		
 		
 		int pageCount = (count%pageSize==0)? count/pageSize:count/pageSize+1;
 		int pageBlock = 10;
@@ -45,6 +54,7 @@ public class FanBoardList implements Action {
 		
 		request.setAttribute("count", count);
 		request.setAttribute("pageNum", pageNum);
+		request.setAttribute("likeList", likeList);
 		request.setAttribute("fanboardList", fanboardList);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("pageBlock", pageBlock);

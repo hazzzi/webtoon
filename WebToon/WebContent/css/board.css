@@ -207,7 +207,7 @@ header {
 	padding: 5px;
 }
 
-#hr {
+.hr {
 	width: 100%;
 	margin: 15px 0;
 	border: 1px dotted #c0c0c0;
@@ -361,13 +361,6 @@ td>a:HOVER {
 	padding: 15px 0 83px 0;
 }
 
-.hover_line {
-	display: inline-block;
-	white-space: nowrap;
-	position: static;
-	width: 50px;
-	color: white;
-}
 
 .hover_div2 {
 	width: 69px;
@@ -381,20 +374,80 @@ td>a:HOVER {
 .img_hover {
 	margin-top: 15px;
 	display: none;
-	/*     text-align: center left;  */
+}
+
+.fb_img{
+	float: left;
 }
 
 .fb_img:HOVER .img_hover {
 	width: 300px;
-	height: 80px;
-	background-color: black;
-	color: white;
-	text-align: center;
-	position: absolute;
-	opacity: 0.5;
-	font-size: 25px;
-	margin: -88.5px 0 0 8.5px;
-	display: inline-block;
+    height: 80px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: absolute;
+    opacity: 0.5;
+    font-size: 25px;
+    margin: -92.5px 0 0 12.5px;
+    display: inline-block;
+
+}
+
+
+/* 좋아요 많이 받은 순서대로 띠 그어 주기 */
+.img_hover2 {
+	margin-top: 10px;
+	display: none;
+}
+
+.fb_img2:HOVER .img_hover2 {
+	width: 300px;
+    height: 80px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: absolute;
+    opacity: 0.5;
+    font-size: 25px;
+    margin: -99.5px 0 0 19.5px;
+    display: inline-block;
+}
+
+#top_rink {
+	width: 300px !important;
+	height: 300px !important;
+}
+
+#likethat{
+	margin-left: -22px;
+}
+
+.fan_content_like {
+	width: 1300px;
+	min-height: 300px;
+	margin: 20px auto;
+}
+
+.fan_content_like .like_img {
+    margin: 11.5px;
+    border: 7px solid rgb(208,65,27) !important
+}
+
+#top_rank{
+	font-size: 34px;
+    text-align: center;
+    padding: 32px 15px;
+    color: rgb(81, 72, 98);
+    position: absolute;
+    left: 530px;
+}
+
+.top_rank_img {
+	width: 300px;
+    position: relative;
+    top: 75px;
+    left: 12px;
 }
 
 /*hover하면 제목이랑 작성자 보이게 (끝)*/
@@ -420,7 +473,7 @@ td>a:HOVER {
 }
 
 .fan_content2 img {
-	padding: 8.5px;
+	margin: 12.5px;
 	position: relative;
 }
 
@@ -874,3 +927,6 @@ hr {
 	bottom: 5px;
 	left: 10px;
 }
+
+
+

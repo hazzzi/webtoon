@@ -1,4 +1,3 @@
-<%@page import="net.board.db.BoardDAO"%>
 <%@page import="java.util.Date"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@page import="java.util.List"%>

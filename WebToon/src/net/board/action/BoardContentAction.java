@@ -29,7 +29,7 @@ public class BoardContentAction implements Action{
 		
 		
 		ServletContext context = request.getServletContext();
-	
+		
 		String pageNum = request.getParameter("pageNum");
 		
 		if(pageNum==null){

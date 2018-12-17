@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.wbt_list_div{
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 20px;
+}
+
+.wbt_list_div>table{
+	margin: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+.wbt_list_div>table tr{
+}
+
+.wbt_list_div>a{
+    font-size: 25px;
+    margin: 20px 46%;
+    display: inline-block;
+    width: 117px;
+    background-color: #ddd
+}
+

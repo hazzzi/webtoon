@@ -24,7 +24,7 @@
 	<div class="insert-data">
 	<h1>내용 빠짐없이 다 채워 주세요. 내용빠지면 DB에 안들어갑니다!</h1>
 	<hr>
-	<form action="./WebtoonInsertAction.wbt" method="post" class="data-fr1">
+	<form action="./webtoonInsertAction.wbt" method="post" class="data-fr1">
 		웹툰 제목 <br> <input type="text" name="web_subject"><br> 
 		웹툰 작가  <br> <input type="text" name="web_author"><br>
 		웹툰 장르   <select name="web_genre">

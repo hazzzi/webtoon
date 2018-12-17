@@ -1,5 +1,4 @@
 <%@page import="net.board.db.FanBean"%>
-<%@page import="net.board.db.FanDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,7 +61,19 @@
 			location.href="./fanDelete.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>";
 		}
 	};
- 	
+ 		
+	
+	<%-- $(document).ready(function(){
+		$.ajax('fanModify.fo',{
+			data:{
+				fan_category1 : <%=fb.getFa_category1()%>
+			},
+			success : function(data){
+				$('')
+			}
+		});
+	}); --%>
+	
 </script>
 </head>
 
@@ -77,13 +88,11 @@
 		<div class="detail">
 			<div class="fi">
 				<!-- 이전 글 없을 경우 제어 -->
-
-				<!-- 다음 글 없을 경우 제어 -->
 				<%
-					if (nextNum != 0) {
+					if (preNum != 0) {	
 				%>
-				<input type="button" class="bt" value="다음 글"
-					onclick="location.href='./fanboardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>'" />
+					<input type="button" class="bt" value="이전 글"
+					onclick="location.href='./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>'" />
 				<%
 					} else {
 				%><input type="button" class="bt-if"
@@ -91,12 +100,13 @@
 				<%
 					}
 				%>
-
+				<!-- 다음 글 없을 경우 제어 -->
 				<%
-					if (preNum != 0) {
+					if (nextNum != 0) {
 				%>
-				<input type="button" class="bt" value="이전 글"
-					onclick="location.href='./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>'" /><br>
+				<input type="button" class="bt" value="다음 글"
+					onclick="location.href='./fanboardContent.fo?fa_num=<%=nextNum%>&pageNum=<%=pageNum%>'" />
+				<br>
 				<%
 					} else {
 				%><input type="button" class="bt-if"
@@ -135,9 +145,10 @@
 							</span> <span>조회수: <%=fb.getFa_readcount()%></span>
 						</div>
 						<div id="article-content">
-							<a href="./upload/<%=fb.getFa_img()%>"> <img
-								src="./upload/<%=fb.getFa_img()%>" class="content_img"
-								style="max-width: 100%;"></a> <br> <br>
+						<%if (fb.getFa_img()!=null) {%>
+							 <img src="./upload/<%=fb.getFa_img()%>" class="content_img" style="max-width: 100%;">
+						<%} %>
+							 <br><br>
 							<%=fb.getFa_content()%><br> <br>
 						</div>
 					</div>
@@ -202,11 +213,9 @@
 								if (mem_num.equals(fb.getFa_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
 						<input type="button" class="bt" value="수정"
-							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'">
-						<input type="button" class="bt" value="삭제"
-							onclick="del(<%=fa_num%>)"> <input type="button"
-							class="bt-2" onclick="location.href='./fanboardWrite.fo'"
-							value="새 글 쓰기">
+							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
+						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
+						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기">
 						<%
 							} else {
 						%>
@@ -291,8 +300,7 @@
 					} else {
 				%>
 				<p>
-					이전 글 : <a
-						href="./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
+					이전 글 : <a href="./fanboardContent.fo?fa_num=<%=preNum%>&pageNum=<%=pageNum%>"><%=fb3.getFa_subject()%></a>
 				</p>
 				<%
 					}

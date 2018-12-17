@@ -37,7 +37,6 @@
 <body>
 <%
 	WebtoonBean wb = (WebtoonBean)request.getAttribute("wb");
-	double score = (double)request.getAttribute("score");
 	int count = (int)request.getAttribute("count");
 	List<WebtoonBoardBean> wbb = (List<WebtoonBoardBean>)request.getAttribute("wbb");
 	List<MemberBean> wbbimg = (List<MemberBean>)request.getAttribute("wbbimg");
@@ -47,11 +46,14 @@
 	List<Integer> check = (List<Integer>)request.getAttribute("check");
 	String mem_num = (String)session.getAttribute("mem_num");
 
-	int tmp0 = (int)(score*10);
-	int tmp1 = tmp0%10;
+	
+	// 별점 제어 부분
+	double score = (double)request.getAttribute("score"); // double 형태의 평균별점, 소숫점 첫째자리까지
+	int tmp0 = (int)(score*10); // ex) score = 3.7 -> tmp0 = 37 로 변환
+	int tmp1 = tmp0%10; // tmp1 = 7 : 소숫점 첫째자리 제어하기위해서 10으로 나눈 나머지값
 	int tmp2 = 0;
-	if(tmp1>=5){
-		tmp2 = tmp1;
+	if(tmp1>=5){ // tmp1을 10으로 나눈 나머지가 5보다 높으면
+		tmp2 = tmp1; // tmp2는 7의 값을 가짐 (나머지값)
 	}
 %>
 <div id="main-wrap">
@@ -218,7 +220,7 @@
 		 			<!-- 링크는 추후수정 -->
 		 			<!-- get방식 이용 id 파라미터 값 넘기기 -->
 		 			<p><!-- <a href="../board/fanart_write.jsp?" style="cursor: pointer;">팬아트남기기</a>| -->
-		 			   <a href="./fanboardList.bo">더보기</a></p>
+		 			   <a href="./fanboardList.fo">더보기</a></p>
 		 			<div>
 		 			<%
 		 			if(fanList.size()==0){%>
@@ -231,7 +233,7 @@
 			 				<!-- webtoon_fanart 디비 참조 -->
 			 				<!-- 최근에 올라간 팬아트 상위 2개 -->
 			 				<!-- where webtoon-number=?? -->
-			 				<a href="./fanarttmpaddress.wbt?fa_num=<%=f.getFa_num()%>">
+			 				<a href="./fanboardContent.fo?fa_num=<%=f.getFa_num()%>">
 					 			<img src="./upload/<%=f.getFa_img()%>">
 				 			</a>
 		 			<%} 
@@ -309,16 +311,21 @@
 				$('#webtoon-content').hide();
 			});
 			
+			// 별점 제어
 			$('.star').html(function(index){
-				if(index<<%=tmp0/10%>){
+				// index는 star 갯수만큼 반복됨, star는 5개임			
+				if(index<<%=tmp0/10%>){ // index 값이 반복되면서 tmp0/10의 몫에 해당하면 별을 채우고
 					$(this).removeClass('fa-star-o');
 					$(this).addClass('fa-star');
 				}
-				if(index==<%=tmp0/10%>&&<%=tmp2%>!=0){
+				if(index==<%=tmp0/10%>&&<%=tmp2%>!=0){ // index값이 몫과 같고(마지막 인덱스..?), 나머지값이 0이아니면  
 					$(this).removeClass('fa-star-o');
 					$(this).addClass('fa-star-half-full');
 				}
+				// 3.5 -> 3번째까지 별을 채우고
+				// 0.5부분은 3번째의 바로 다음요소에만 별을 반 채움
 			});
+			
 			// 좋아요를 이미 했을때 보여지는 값
 			$('.like').each(function(index){
 				var check = <%=check%>;
@@ -333,6 +340,7 @@
 					}
 				}
 			});	
+			// 좋아요 기능 구현
 			$('i.like').click(function(){
 				if(<%=mem_num%>==null){
 					alert('로그인이 필요한 서비스 입니다.');

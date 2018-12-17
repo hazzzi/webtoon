@@ -1,5 +1,7 @@
 package net.webtoon.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,14 +27,30 @@ public class WebtoonInsertAction implements Action{
 		wb.setWeb_link((String)request.getParameter("web_link"));
 		wb.setWeb_thumb_link((String)request.getParameter("web_thumb_link"));
 		
+			ActionForward forward = new ActionForward();
+		
+		
+		
 		WebtoonDAO wdao=new WebtoonDAO();
-		wdao.insertWebtoon(wb);
 		
-		ActionForward forward = new ActionForward();
+		if(wdao.insertcheck(wb)){
+			
+			wdao.insertWebtoon(wb);
+			
+			
+			forward.setRedirect(true);
+			forward.setPath("./WebtoonManageListAction.wbt");
+		}else{
+			response.setContentType("text/html; charset=UTF-8"); // jsp 상단의 contentType과 같게함
+			PrintWriter out=response.getWriter(); // response의 권한을 받아오기
+			out.println("<script>");
+			out.println("alert('이미 등록된 웹툰입니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}
 		
-		forward.setRedirect(true);
-		forward.setPath("./myProfile.me");
-		
+
 		return forward;
 	}
 

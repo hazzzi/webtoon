@@ -43,23 +43,32 @@ public class FanModifyAction implements Action {
 		String fa_content = multi.getParameter("fa_content");
 		String fa_img = multi.getFilesystemName("fa_img");
 		
-		System.out.println("fa_img는?"+fa_img);
-
+		System.out.println(fa_category1);
+		System.out.println(fa_category2);		
+		
+		if(fa_img == null){
+			fa_img = multi.getParameter("fa_img1");
+		}
+			
+		
 		fb.setFa_category1(fa_category1);
 		fb.setFa_category2(fa_category2);
 		fb.setFa_subject(fa_subject);
 		fb.setFa_content(fa_content);
 		fb.setFa_img(fa_img);
 		fb.setFa_num(fa_num);
-
-		fdao.updateFanBoard(fb);
 		
+		System.out.println(fa_category1);	
+		System.out.println(fa_category2);
+		
+		fdao.updateFanBoard(fb);
+				
 		ActionForward forward = new ActionForward();
 		forward.setPath("./fanboardContent.fo?fa_num=" + fa_num + "&pageNum=" + pageNum);
 		forward.setRedirect(true);
-
 		return forward;
-
+			
+		}
+		
 	}
 
-}

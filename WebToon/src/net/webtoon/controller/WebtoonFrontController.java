@@ -26,7 +26,7 @@ public class WebtoonFrontController extends HttpServlet{
 		String contextPath = request.getContextPath();
 		
 		String command = requestURI.substring(contextPath.length());
-		System.out.println("뽑아온 가상주소 "+command);
+//		System.out.println("뽑아온 가상주소 "+command);
 		
 		Action action = null;
 		ActionForward forward = null;

@@ -31,7 +31,7 @@ public class FanModify implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/fan_modifyPage.jsp");
 		forward.setRedirect(false);
-
+		
 		return forward;
 	}
 
