@@ -11,7 +11,7 @@ public class WebtoonBean {
 	private String web_ing;
 	private String web_link;
 	private String web_thumb_link;
-	
+	private int my_rating;
 	public int getWeb_num() {
 		return web_num;
 	}
@@ -72,4 +72,11 @@ public class WebtoonBean {
 	public void setWeb_thumb_link(String web_thumb_link) {
 		this.web_thumb_link = web_thumb_link;
 	}
+	public int getMy_rating() {
+		return my_rating;
+	}
+	public void setMy_rating(int my_rating) {
+		this.my_rating = my_rating;
+	}
+	
 }

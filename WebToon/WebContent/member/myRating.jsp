@@ -23,7 +23,7 @@
 <link href="./recommend/css/recommend.css" rel="stylesheet"> <!-- recommend.jsp - css파일 -->
 <link rel="stylesheet" href="./recommend/css/fontawesome-stars.css"> <!-- 별점 css파일 -->
 <script src="./js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="js/jquery.barrating.min.js"></script> <!-- 별점 - script파일 -->
+<script type="text/javascript" src="./js/jquery.barrating.min.js"></script> <!-- 별점 - script파일 -->
 </head>
 <body>
  	<jsp:include page="../main/header.jsp" /> 
@@ -56,25 +56,20 @@
 		});
 	</script>
 <%
-	List<WebtoonBean> webtoonList = (List<WebtoonBean>)request.getAttribute("webtoonList"); //웹툰 리스트
+	List<WebtoonBean> myRating_list = (List<WebtoonBean>)request.getAttribute("myRating_list"); //웹툰 리스트
 	int num = (int)request.getAttribute("count_Recommend");
 	String mem_num = (String)session.getAttribute("mem_num");
 %>
 <%-- test session값 : <%=session.getAttribute("mem_num") %> --%>
 	<div class="rec_top_background">
-		<%if(mem_num!=null){ %>
 		평가한 웹툰 수 : <span><%=num%></span>
 		<div id="rec_star_menu">
 			<a class="rec_log" style="cursor: pointer;">★추천 받기★</a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
-		</div><%}else{%>
-		<div id="rec_star_menu">
-			<a style="cursor: pointer;">로그인 후 이용하실 수 있어요~</a>
-			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
-		</div><%} %>
+		</div>
 	</div>
 	<article class="rec_main">
-	<%for(WebtoonBean wb:webtoonList){%>
+	<%for(WebtoonBean wb:myRating_list){%>
 		<div class="rec_wrap_div" style="display: none;">
 			<div class="rec_img_div">
 				<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"><img
@@ -87,7 +82,7 @@
 			
 			<div class="rec_star_div">
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰보기</button></a>
-				<b class="rec_b">평가하기</b>
+				<b class="rec_b">평가하기 </b>
 				 
 				<select id="example<%=wb.getWeb_num()%>" class="test">
 					<option value="">0</option>
@@ -109,11 +104,10 @@
 								wb.getWeb_num() : 웹툰고유번호
 								text : 별점 값  */
 							if(<%=mem_num%>==null){
-								//alert('로그인이 필요한 서비스 입니다.');
-								location.href="login.me";
+								alert('로그인이 필요한 서비스 입니다.');
 								// 수정
 							}else{
-								alert('db동작');
+								//alert('db동작');
 								$.ajax('recDB_insert.rec',{
 									data:{
 										rec_web_num:<%=wb.getWeb_num()%>,
@@ -126,7 +120,7 @@
 						}
 					});
 					//'set' 을 이용하여 값 설정 
-					<%-- $('#example<%=3%>').barrating('set', 2); --%>
+				 $('#example<%=wb.getWeb_num()%>').barrating('set', <%=wb.getMy_rating()%>);
 				</script>
 			</div>
 
@@ -139,22 +133,16 @@
 		
 		<div style="clear: both;"></div>
 		
-		<div id="loading"><img id="loading-image" src="./recommend/img/loading2.gif" /></div>
-		
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('#loading').hide();
-			})
-		</script>
-		
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
-				/* 웹툰 추천 페이지 이동 */
+				/* 웹툰 리뷰 남기기 영역 보여주기 */
 				$('.rec_log').click(function(){
-					$('#loading').show();
-					location.href='./recommend_show.rec';
-					return true;
+					if(<%=mem_num%>==null){
+						alert('로그인이 필요한 서비스입니다.');
+					}else{
+						location.href='./recommend_show.rec';
+					}
 				});
 			});
 		</script>
