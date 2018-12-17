@@ -23,7 +23,7 @@ header#header-head{
     height: 100px;
     width: 100%;
     font-size: 25px;
-    
+    min-width: 1500px;
     /* 상단바 고정 */
     position: sticky;
     top: 0;
@@ -36,16 +36,17 @@ header#header-head{
 }
 
 div#header-inner-top{
-	width: 1200px;
+/* 	width: 1200px; */
 	margin: 0 auto;
 }
 
 div#header-top{
 	height: 100%;
-	width: 70%;
-	min-width:600px;
-	line-height: 2;
-	margin: 0 auto;
+    width: 70%;
+    min-width: 600px;
+    line-height: 2;
+    margin: 0 auto;
+    position: relative;
 }
 
 
@@ -55,27 +56,28 @@ div#header-logo{
 }
 
 nav#header-menu{
-	display: inline-block;
-	/* margin-left: 25%; */
+    display: inline-block;
+    /* margin-left: 25%; */
     float: right;
-    /* height: 100%;
-    line-height: 4.1; */
     margin: 25px 0;
     height: 50px;
     text-align: center;
     width: 60%;
+    min-width: 600px;
+    position: absolute;
 }
 
 nav#header-menu li{
 	display: inline-block;
 	margin: 0 20px;
 	box-sizing: border-box;
-	float: left;
+/* 	float: left; */
 	transition: all 0.2s;
 }
 
 nav#header-menu li:LAST-CHILD{
 	float: right;
+	margin: 0;
 }
 
 nav#header-menu li:LAST-CHILD:HOVER{

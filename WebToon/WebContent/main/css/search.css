@@ -55,6 +55,7 @@ div.sach-background{
 	width: 100%;
 	background-color: #d5cde4;
 	z-index: 1;
+    min-width: 1400px;
 }
 
 div.sach-rt{
