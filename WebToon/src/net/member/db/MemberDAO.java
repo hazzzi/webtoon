@@ -1120,4 +1120,41 @@ public class MemberDAO {
 		}
 		return myBoardList;
 	}
+	public List<WebtoonBean> myRating(String mem_num){
+		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			String sql = "select w.*, r.rec_web_grade from recommend r JOIN webtoon w on (r.rec_web_num = w.web_num) where rec_mem_num=?"; 
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_num );
+			rs = pstmt.executeQuery();
+			// 5 첫행에 데이터가 있으면
+			while (rs.next()) {
+				WebtoonBean wb = new WebtoonBean();
+				wb.setWeb_num(rs.getInt("web_num"));
+				wb.setWeb_subject(rs.getString("web_subject"));
+				wb.setWeb_author(rs.getString("web_author"));
+				wb.setWeb_genre(rs.getString("web_genre"));
+				wb.setWeb_start(rs.getString("web_start"));
+				wb.setWeb_portal(rs.getString("web_portal"));
+				wb.setWeb_info(rs.getString("web_info"));
+				wb.setWeb_ing(rs.getString("web_ing"));
+				wb.setWeb_link(rs.getString("web_link"));
+				wb.setWeb_thumb_link(rs.getString("web_thumb_link"));
+				wb.setMy_rating(rs.getInt("rec_web_grade"));
+				list.add(wb);
+			}								
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
+		}
+		return list;
+	}
 }

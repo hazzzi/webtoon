@@ -7,6 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="./main/css/test.css">
+<link rel="stylesheet" href="./main/css/header.css">
+<link rel="stylesheet" href="./main/css/footer-main.css">
+<link rel="stylesheet" href="./data/data_list.css">
+<link rel="stylesheet" href="./main/css/webtoon.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="./js/jquery-3.3.1.js"></script>
 </head>
 <body>
 	<%
@@ -20,12 +28,16 @@
 		WebtoonBean wb = (WebtoonBean)request.getAttribute("wb");
 		
 	%>
+	<div id="main-wrap">
+	<jsp:include page="../main/header.jsp" />
+	<div class="insert-data">
 	<h1>내용 빠짐없이 다 채워 주세요. 내용빠지면 DB에 안들어갑니다!</h1>
-	<form action="WebtoonUpdatetAction2.wbt" method="post">
+	<hr>
+	<form action="./WebtoonUpdatetAction2.wbt" method="post" class="data-fr1">
 		<input type="hidden" name="web_num" value="<%=wb.getWeb_num()%>">
-		웹툰 제목 : <input type="text" name="web_subject" value="<%=wb.getWeb_subject()%>"><br> 
-		웹툰 작가 : <input type="text" name="web_author" value="<%=wb.getWeb_author()%>"><br>
-		웹툰 장르 : <%=wb.getWeb_genre() %>
+		웹툰 제목 <br> <input type="text" name="web_subject" value="<%=wb.getWeb_subject()%>"><br> 
+		웹툰 작가 <br> <input type="text" name="web_author" value="<%=wb.getWeb_author()%>"><br>
+		웹툰 장르(수정전 : <%=wb.getWeb_genre() %>)
 				<select name="web_genre">
 					<optgroup label="장르 선택"></optgroup>
 					<option value="일상">일상</option>
@@ -39,7 +51,7 @@
 					<option value="시대극">시대극</option>
 					<option value="스포츠">스포츠</option>
 				</select><br>
-		웹툰 연재시작일 : <%=wb.getWeb_start() %>
+		웹툰 연재시작일 (수정전 : <%=wb.getWeb_start() %>)
 					<select name="web_start">
 						<option value="2018">2018</option>
 						<option value="2017">2017</option>
@@ -61,7 +73,7 @@
 						<option value="2001">2001</option>
 						<option value="2000">2000</option>
 					</select><br>
-		웹툰 연재처 : 	<%=wb.getWeb_portal() %>
+		웹툰 연재처 (수정전 :<%=wb.getWeb_portal() %>)
 					<select name="web_portal">
 						<option value="네이버">네이버</option>
 						<option value="다음">다음</option>
@@ -77,10 +89,13 @@
 					</select><br>
 		
 		웹툰 연재링크 : <input type="text" name="web_link" value="<%=wb.getWeb_link()%>"><br>
-		<img alt="" src="link.JPG" width="500px"><br><br>
 		웹툰 썸네일 링크:<input type="text" name="web_thumb_link" value="<%=wb.getWeb_thumb_link()%>"><br>
-		<img alt="" src="thumb.JPG" width="800px"><br><br><br>
-		<input type="submit" value="웹툰 수정하기" style="width: 300px; height: 100px;">
+		<img src="<%=wb.getWeb_thumb_link()%>"><br><br><br>
+		<input type="submit" value="웹툰 수정하기">
 	</form>
+	</div>
+	<jsp:include page="../main/top.jsp"></jsp:include>
+	<jsp:include page="../main/footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>
