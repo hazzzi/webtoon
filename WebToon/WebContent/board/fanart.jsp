@@ -71,7 +71,7 @@
 				<%
 				}
 				%>
-				<div id="top_rank">🏆&nbsp; 이번 주 탑 랭킹&nbsp; 🏆</div>
+				<div id="top_rank">🏆&nbsp; TOP Ranking&nbsp; 🏆</div>
 				<%
 				for(int j=0; j<likeList.size(); j++){
 					fb=likeList.get(j);%>
