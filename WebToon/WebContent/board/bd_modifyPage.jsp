@@ -76,7 +76,9 @@
 			<hr>
 			<div class="bw_content">
 				<input type="hidden" name="fb_img1" value="<%=bd.getFb_img()%>">
+				<%if(bd.getFb_img()!=null){ %>
 				<input type="image" name="fb_img" src="./upload/<%=bd.getFb_img()%>" disabled="disabled" id="img">
+				<%} %>
 				<textarea rows="30" cols="120" class="tex01" placeholder="수정할 내용을 입력하세요"	name="fb_content"><%=bd.getFb_content()%></textarea>
 				<hr>
 			</div>

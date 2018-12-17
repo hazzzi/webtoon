@@ -1,4 +1,3 @@
-<%@page import="net.board.db.FanDAO"%>
 <%@page import="net.webtoon.db.WebtoonBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

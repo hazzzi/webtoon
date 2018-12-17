@@ -40,7 +40,9 @@
 							<!-- if(사용자의 세션값이 존재하면) -->
 							  <% if(mem_num!=null){ %>
 						      <a href="./myProfile.me">회원정보</a>
-						      <a href="./myRating.me">내 평가</a>
+						      <% if(mem_num.equals("18121220303328")==false) {%>
+						     		 <a href="./myRating.me">내 평가</a>
+						     	 <%} %>
 						      <a href="./MemberLogoutAction.me">로그아웃</a>
 						      <%}else{ %>
 						     <!-- else(사용자의 세션값이 존재하지않으면, ) -->
