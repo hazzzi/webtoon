@@ -414,6 +414,11 @@ td>a:HOVER {
     display: inline-block;
 }
 
+#top_rink {
+	width: 300px !important;
+	height: 300px !important;
+}
+
 #likethat{
 	margin-left: -22px;
 }
@@ -426,17 +431,24 @@ td>a:HOVER {
 
 .fan_content_like .like_img {
     margin: 11.5px;
-    border: 8px solid rgb(255,185,0);
-    border-style: groove;
+    border: 8px solid #fff !important;
 }
 
 #top_rank{
 	font-size: 34px;
     text-align: center;
-    padding: 28px 0;
+    padding: 32px 15px;
     color: rgb(81, 72, 98);
+    position: absolute;
+    left: 530px;
 }
 
+.top_rank_img {
+	width: 300px;
+    position: relative;
+    top: 75px;
+    left: 12px;
+}
 
 /*hover하면 제목이랑 작성자 보이게 (끝)*/
 
