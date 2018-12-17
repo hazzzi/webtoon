@@ -69,7 +69,7 @@
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div><%}else{%>
 		<div id="rec_star_menu">
-			<a style="cursor: pointer;">로그인 후 이용하실 수 있어요~</a>
+			<a>로그인 후 이용하실 수 있어요~</a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div><%} %>
 	</div>

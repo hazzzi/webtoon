@@ -69,6 +69,7 @@
 		</div>
 	</div>
 	<article class="rec_main">
+	<%if(myRating_list.size() !=0){ %>
 	<%for(WebtoonBean wb:myRating_list){%>
 		<div class="rec_wrap_div" style="display: none;">
 			<div class="rec_img_div">
@@ -129,8 +130,8 @@
 		<%} %>
 		<div id="rec_next_div">
 			<button id="load">더보기</button>
-		</div>
-		
+		</div><%}else{ %>
+		<div><h2 style="text-align: center; line-height: 15; font-size: 38px">평가한 웹툰이 없습니다.</h2></div><%} %>
 		<div style="clear: both;"></div>
 		
 		
