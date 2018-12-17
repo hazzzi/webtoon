@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet" href="member/css/myArticle.css">
-<script src="./js/jquery-3.3.1.js"></script>
 </head>
 <body>
 <%	request.setCharacterEncoding("utf-8");
@@ -71,15 +70,17 @@
 				<%
 			if(myBoardList_search==null){
 				if(myBoardList==null){%>
-				<tr>
-				<td></td>
-				<td></td>
-				<td>게시글이 없습니다.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+				 <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+    		<td></td>
+    		<td></td>
+         </tr>
+         	<tr>
+         	<td colspan="6">게시글이 없습니다.</td>
+         	</tr>
 				
 				<%}else{
 				for(BoardBean bb: myBoardList){ %>
@@ -98,9 +99,8 @@
 				for(BoardBean bb: myBoardList_search){ %>
 			<tr>
 				<td><%=bb.getFb_num()%></td>
-				<td>[<%=bb.getFb_category()%>]</td>
-				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>
-				<td>5</td>
+			<td>[자유게시판]</td>
+				<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a></td>				
 				<td><%=bb.getFb_mem_nik()%></td>
 				<td><%=bb.getFb_readcount()%></td>
 				<td><%=bb.getFb_date()%></td>

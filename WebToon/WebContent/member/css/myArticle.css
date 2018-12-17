@@ -120,14 +120,15 @@ select {
 }
 
 .mya_back>input {
-	float: right;
-	width: 100px; height: 30px;
-	margin: 10px;
-	font-weight: bold;
-	border: none;
-	background-color:#cac1dd;
-    color:#3c2f55;
-    font-family: 'NanumBarunpenR', sans-serif;	
+	   /* float: right; */
+    width: 100px;
+    height: 30px;
+    margin: 10px 20px 10px 1784px;
+    font-weight: bold;
+    border: none;
+    background-color: #cac1dd;
+    color: #3c2f55;
+    font-family: 'NanumBarunpenR', sans-serif;
 }
 
 .mya_back>input:HOVER {

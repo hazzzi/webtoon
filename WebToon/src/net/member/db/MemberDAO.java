@@ -345,13 +345,13 @@ public class MemberDAO {
 		return mem_pass;
 	}
 
-	public void updateMem_pass(String DBPass, String newpass) {
+	public void updateMem_pass(String mem_num, String newpass) {
 		try {
 			con = getConnection();
 			String sql = "update member set mem_pass=? where mem_num=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, newpass);
-			pstmt.setString(2, DBPass);
+			pstmt.setString(2, mem_num);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception

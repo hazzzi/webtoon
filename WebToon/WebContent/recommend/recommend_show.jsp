@@ -51,6 +51,7 @@
 	</div>
 
 	<article class="rec_show_main">
+	<%if(rec_list.size() != 0){ %>
 	<%for(WebtoonBean wb : rec_list){%>
 		<div class="rec_show_wrap_div">
 			<div class="rec_show_img_div">
@@ -65,8 +66,9 @@
 			<div class="rec_show_btn_div">
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰보기</button></a>
 			</div>
-		</div>
-		<%}%>
+		</div><%} %>
+		<%}else{%>
+		<div><h2 style="text-align: center; line-height: 15; font-size: 38px; margin-left: -110px;">웹툰 평가 후 이용해주세요.</h2></div><%} %>
 <!-- 		<div id="rec_show_next_div">
 			<button>더보기</button>
 		</div> -->
