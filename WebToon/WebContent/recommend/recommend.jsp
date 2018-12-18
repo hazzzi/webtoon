@@ -68,8 +68,8 @@
 			<a class="rec_log" style="cursor: pointer;">추천 받기 <i class="fa fa-search"> </i><b style="font-size: 14px; letter-spacing: 2px; ">(click)</b></a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div><%}else{%>
-		<div id="rec_star_menu">
-			<a>로그인 후 웹툰들에 별점을 주세요!<br>이용자의 취향에 맞게 웹툰을 추천해 드립니다.</a>
+		<div id="rec_star_menu2">
+			<a href="./login.me">로그인 후 웹툰들에 별점을 주세요!<br>이용자의 취향에 맞게 웹툰을 추천해 드립니다.</a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div><%} %>
 	</div>
