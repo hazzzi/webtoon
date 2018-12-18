@@ -54,7 +54,7 @@ body {
 
 #rec_star_menu>a {
 	color: black;
-	font-size: 30px;
+	font-size: 28px;
 }
 #rec_star_menu:HOVER{
 	background-image: url(../../main/img/banner.jpg);
@@ -65,6 +65,19 @@ body {
 #rec_star_menu:HOVER .rec_log{
 	color: white;
 	
+}
+#rec_star_menu2 {
+	width: 100%;
+    text-align: center;
+    background-color: #d5cde4;
+    position: sticky;
+    top: 165px;
+    padding: 4px 0;
+    z-index: 3;
+}
+#rec_star_menu2>a{
+	color: black;
+	font-size: 23px;
 }
 
 .rec_main {
