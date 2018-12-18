@@ -36,8 +36,8 @@ body {
     background-color: #d5cde4;
     color: black;
     text-align: center;
-    font-size: 25px;
-    padding-top: 3px;
+    font-size: 18px;
+    padding-top: 6px;
     top: 100px;
     z-index: 2;
     min-width: 1400px;
@@ -48,12 +48,23 @@ body {
     background-color: #d5cde4;
     position: sticky;
     top: 165px;
+    padding: 4px 0;
     z-index: 3;
 }
 
 #rec_star_menu>a {
 	color: black;
 	font-size: 30px;
+}
+#rec_star_menu:HOVER{
+	background-image: url(../../main/img/banner.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: cover;
+}
+#rec_star_menu:HOVER .rec_log{
+	color: white;
+	
 }
 
 .rec_main {
@@ -119,22 +130,61 @@ body {
 }
 
 .rec_webtoon_btn {
-	width: 120px;
+	width: 130px;
 	margin-left: 32px;
 	position: relative;
 	top: -8px;
 	color: #ffffff;
-	border: none;
 	text-align: center;
 	font-size: 15px;
 	padding: 3px;
-	border-radius: 2px 2px;
 	float: left;
 	font-weight: bold;
+	
+	display: inline-block;
+    text-decoration: none;
+    outline: none;
+    z-index: 2;
+    background-color: #333;
+    border: 2px solid #333;
+    border-radius: 5px 5px;
 }
 
-.rec_webtoon_btn:HOVER {
-	background-color: #c3c3c3;
+.rec_webtoon_btn:hover {
+	background-color: #fff;
+	border-color: #2d0059;
+	color: #2d0059;
+}
+.rec_webtoon_btn::before,
+.rec_webtoon_btn::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';top: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #333;
+}
+.rec_webtoon_btn,
+.rec_webtoon_btn::before,
+.rec_webtoon_btn::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.rec_webtoon_btn::before {
+	right: 0;
+}
+.rec_webtoon_btn::after {
+	left: 0;
+}
+.rec_webtoon_btn:hover::before,
+.rec_webtoon_btn:hover::after {
+	width: 0;
+	background-color: #2d0059;
 }
 
 .rec_b {
@@ -224,6 +274,7 @@ body {
 	background-color: #2d0059;
 }
 
+/* 로딩화면  */
 #loading {
  width: 100%;  
  height: 100%;  
@@ -243,5 +294,8 @@ body {
  z-index: 100;
  width: 50px;
   }
+
+
+
 
 
