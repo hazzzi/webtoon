@@ -665,6 +665,7 @@ td>a:HOVER {
 .comments {
 	border-top: 1px solid #ebebeb;
 	margin-left: 10px;
+    padding-top: 15px;
 }
 /* 댓글 작성자 ID */
 .comments>span.writer {
@@ -709,7 +710,7 @@ td>a:HOVER {
 .comments>p {
 	clear: both;
 	margin: 0;
-	padding: 0 3px 3px 3px;
+	padding: 10px 3px 3px 3px;
 	color: #555;
 	font-size: 15px;
 }
