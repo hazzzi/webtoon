@@ -1,3 +1,4 @@
+<%@page import="net.comm.db.CommentBean"%>
 <%@page import="java.util.List"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,42 +16,41 @@
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <%
-		String mem_num = (String) session.getAttribute("mem_num");
+	String mem_num = (String) session.getAttribute("mem_num");
 
-		int fb_num = Integer.parseInt(request.getParameter("fb_num"));
-		String pageNum = (String) request.getAttribute("pageNum");
-		
-		
-		BoardBean bd = (BoardBean)request.getAttribute("bd");
-		boolean check = (boolean)request.getAttribute("check");
-		
-		int nextNum =(Integer)request.getAttribute("nextNum");
-		int preNum =(Integer)request.getAttribute("preNum");
-		BoardBean bd2 = (BoardBean)request.getAttribute("bd2");
-		BoardBean bd3 = (BoardBean)request.getAttribute("bd3");
+	int fb_num = Integer.parseInt(request.getParameter("fb_num"));
+	String pageNum = (String) request.getAttribute("pageNum");
+
+	BoardBean bd = (BoardBean) request.getAttribute("bd");
+	boolean check = (boolean) request.getAttribute("check");
+
+	int nextNum = (Integer) request.getAttribute("nextNum");
+	int preNum = (Integer) request.getAttribute("preNum");
+	BoardBean bd2 = (BoardBean) request.getAttribute("bd2");
+	BoardBean bd3 = (BoardBean) request.getAttribute("bd3");
 %>
 
 <script type="text/javascript">
-	function modifyCommentToggle(articleNo) {
-		var p_id = "comment" + articleNo;
-		var p = document.getElementById(p_id);
-
-		var form_id = "modifyCommentForm" + articleNo;
-		var form = document.getElementById(form_id);
-
-		var p_display;
-		var form_display;
-
-		if (p.style.display) {
-			p_display = '';
-			form_display = 'none';
-		} else {
-			p_display = 'none';
-			form_display = '';
-		}
-		p.style.display = p_display;
-		form.style.display = form_display;
-	}
+function modifyCommentToggle(articleNo) {
+    var p_id = "comment" + articleNo;
+    var p = document.getElementById(p_id);
+    
+    var form_id = "modifyCommentForm" + articleNo;
+    var form = document.getElementById(form_id);
+    
+    var p_display;
+    var form_display;
+    
+    if (p.style.display) {
+            p_display = '';
+            form_display = 'none';
+    } else {
+            p_display = 'none';
+            form_display = '';
+    }
+    p.style.display = p_display;
+    form.style.display = form_display;
+}
 	
 	function del(fb_num){
 		if(confirm("해당 글을 삭제하시겠습니까?")==true){
@@ -72,13 +72,13 @@
 
 		<div class="detail">
 			<div class="fi">
-				
+
 				<!-- 이전 글 없을 경우 제어 -->
 				<%
 					if (preNum != 0) {
 				%>
-				
-					<input type="button" class="bt" value="이전 글"
+
+				<input type="button" class="bt" value="이전 글"
 					onclick="location.href='./boardContent.bo?fb_num=<%=preNum%>&pageNum=<%=pageNum%>'" />
 				<%
 					} else {
@@ -87,7 +87,7 @@
 				<%
 					}
 				%>
-				
+
 				<!-- 다음 글 없을 경우 제어 -->
 				<%
 					if (nextNum != 0) {
@@ -127,9 +127,10 @@
 					<div id="content">
 						<hr>
 						<div id="date-writer-hit">
-							<span><%=bd.getFb_date()%> | </span>
-							<span>닉네임 : <%=bd.getFb_mem_nik()%> |  </span> 
-							<span>조회수 : <%=bd.getFb_readcount()%> |	</span>
+							<span><%=bd.getFb_date()%> | </span> <span>닉네임 : <%=bd.getFb_mem_nik()%>
+								|
+							</span> <span>조회수 : <%=bd.getFb_readcount()%> |
+							</span>
 						</div>
 
 						<!-- 내용 영역 -->
@@ -137,7 +138,8 @@
 							<%
 								if (bd.getFb_img() != null) {
 							%>
-							<img src="./upload/<%=bd.getFb_img()%>"><br><br>
+							<img src="./upload/<%=bd.getFb_img()%>"><br>
+							<br>
 							<%
 								}
 							%>
@@ -145,9 +147,9 @@
 						</div>
 					</div>
 					<!-- LikeBtn 시작 -->
-					
+
 					<i class="fa fa-heart-o like" id="likeIcon"
-						style="margin: 10px 0 0 15px; font-size: 32px; 	cursor: pointer; color:red;"> 
+						style="margin: 10px 0 0 15px; font-size: 32px; cursor: pointer; color: red;">
 					</i> <span class="likeBtnSp">좋아요 <%=bd.getFb_sumlike()%></span>
 					<!-- LikeBtn 끝 -->
 				</div>
@@ -203,8 +205,9 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
-							onclick="del(<%=fb_num%>)"> 
-						<input type="button" class="bt-2" onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+							onclick="del(<%=fb_num%>)"> <input type="button"
+							class="bt-2" onclick="location.href='./bd_writingPage.bo'"
+							value="새 글 쓰기" />
 						<%
 							} else {
 						%>
@@ -226,44 +229,56 @@
 			</article>
 			<!--  댓글 쓰기 -->
 			<div class="clear"></div>
-			<form id="addCommentForm" style="margin: 10px 0;"
-				action="addComment.jsp" method="post">
-				<div id="addComment">
-
-					<textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요."></textarea>
-				</div>
-
-				<input type="button" class="bt_c_write" value="댓글 남기기" />
-
-			</form>
-			<div class="clear"></div>
-
-
-			<!--  댓글 반복 시작 -->
-			<div class="comments">
-				<span class="writer">야옹</span> <span class="date">2018.11.16</span>
-				<span class="modify-del"> <a
-					href="javascript:modifyCommentToggle('5')">수정</a> | <a
-					href="javascript:deleteComment('5')">삭제</a>
-				</span>
-				<p id="comment5">야오오ㅗㅇㅇ</p>
-				<form id="modifyCommentForm5" class="comment-form"
-					action="updateComment.jsp" method="post" style="display: none;">
-					<input type="hidden" name="commentNo" value="5" /> <input
-						type="hidden" name="boardCd" value="free" /> <input type="hidden"
-						name="articleNo" value="12" /> <input type="hidden"
-						name="curPage" value="1" /> <input type="hidden"
-						name="searchWord" value="" />
-					<div class="fr">
-						<a href="javascript:document.forms.modifyCommentForm5.submit()">수정하기</a>
-						| <a href="javascript:modifyCommentToggle('5')">취소</a>
-					</div>
-					<div>
-						<textarea class="comment-textarea" name="memo" rows="7" cols="50">김야옹</textarea>
-					</div>
+				<form id="addCommentForm" style="margin: 10px 0;" action="CommWriteAction.bo" method="post" >
+    				<div id="addComment">
+					<input type="hidden" name="fb_num" value="<%=fb_num%>">
+       				 <textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요." name="fbcom_content"></textarea>
+   					 </div>
+   			
+      				  <input type="submit"  class="bt_c_write" value="댓글 남기기" />
+   				
 				</form>
-			</div>
-			<!--  댓글 반복 끝 -->
+				<div class="clear"></div>
+			
+<!--  댓글 반복 시작 -->
+<%		
+		List<CommentBean> CommentList = (List<CommentBean>)request.getAttribute("CommentList");
+
+		for( int i=0; i< CommentList.size(); i++) {
+		CommentBean cb = CommentList.get(i);
+%>
+	 
+	 <div class="comments">
+   	 <span class="writer"> <%=cb.getFbcom_mem_nik() %>&nbsp;&nbsp;</span>
+   	 <span class="date">  <%=cb.getFbcom_date() %> </span>
+   	 
+   	<%  
+   	if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%>
+   	 <span class="modify-del">
+       	 	<a href="javascript:modifyCommentToggle('5')">수정</a> |	
+         	<input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기">
+    	</span><%} %>
+    <p id="comment5"><%=cb.getFbcom_content() %> </p> <br><br>
+    <form id="modifyCommentForm5" class="comment-form" action="./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>" method="post" style="display: none;">
+    <input type="hidden" name="commentNo" value="5" />
+    <input type="hidden" name="boardCd" value="free" />
+    <input type="hidden" name="articleNo" value="12" />
+    <input type="hidden" name="curPage" value="1" />
+    <input type="hidden" name="searchWord" value="" />
+    	<!-- 수정버튼 -->
+   		 <div>
+   		 	<input type="hidden" name="fb_num" value="<%=fb_num%>">
+     	    <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getFbcom_content()%></textarea>
+  		 </div> 
+  		 <div class="fr">
+      		  <input type="submit" value="수정하기">
+            | <a href="javascript:modifyCommentToggle('5')">취소</a>
+   			 </div>
+  		<!-- 수정버튼 -->
+  		
+    </form>
+</div> <% } %>
+<!--  댓글 반복 끝 -->
 			<br> <br>
 			<div id="next-prev">
 				<%
@@ -280,7 +295,7 @@
 				<%
 					}
 				%>
-				
+
 				<%
 					if (preNum == 0) {
 				%>

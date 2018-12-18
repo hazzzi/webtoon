@@ -27,7 +27,7 @@
 		<form action="./footerNoticeupdateAction2.ft" method="post">
 		<div class="ni_write">
 	<h1 id="ssss">공지사항 수정</h1>
-			 <div class="ni_nik"><%=nik%></div> 
+			 <div class="ni_nik"></div> 
 			 
 			<div class="ni_inputbox">
 				<select name="category" required>

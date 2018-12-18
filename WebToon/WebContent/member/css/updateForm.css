@@ -19,7 +19,7 @@ body {
 
  
 #update_wrap{
-   border:1px solid red;
+   /* border:1px solid red; */
    text-align: center;
    height: 700px; width: 100%;
 }
@@ -134,7 +134,7 @@ select {
   vertical-align: middle;
   background-color: #cac1dd;
   cursor: pointer;
-  border: 1px solid #4cae4c;
+  border: 1px solid #cac1dd;
   border-radius: .25em;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;

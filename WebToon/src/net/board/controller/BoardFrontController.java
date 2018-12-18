@@ -16,6 +16,9 @@ import net.board.action.BoardModify;
 import net.board.action.BoardModifyAction;
 import net.board.action.BoardSearchAction;
 import net.board.action.BoardWriteAction;
+import net.board.comm.action.CommDeleteAction;
+import net.board.comm.action.CommModifyAction;
+import net.board.comm.action.CommWriteAction;
 
 public class BoardFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -115,7 +118,33 @@ public class BoardFrontController extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/CommWriteAction.bo")){
+			
+			action = new CommWriteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
 		}
+	
+	}	else if(command.equals("/CommDelete.bo")){
+		action = new CommDeleteAction();
+		try {
+			forward = action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	else if (command.equals("/CommModifyAction.bo")) {
+
+		action = new CommModifyAction();
+		
+		try {
+			forward = action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	} 
 
 		// 이동 시작
 		if (forward != null) {

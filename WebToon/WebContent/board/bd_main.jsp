@@ -1,3 +1,4 @@
+<%@page import="net.comm.db.CommentBean"%>
 <%@page import="java.util.Date"%>
 <%@page import="net.board.db.BoardBean"%>
 <%@page import="java.util.List"%>
@@ -31,7 +32,11 @@
 		int startPage = ((Integer) request.getAttribute("startPage")).intValue();
 		int endPage = ((Integer) request.getAttribute("endPage")).intValue();
 
+		//댓글 카운트
 		List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
+		List commentcount = (List)request.getAttribute("commentcount");
+		//댓글 카운트
+		
 		
 		String mem_num = (String)session.getAttribute("mem_num");
 	%>
@@ -78,7 +83,9 @@
 						</tr>
 						<%
 							} else {
-								for (BoardBean bb : boardList) {
+								for (int i=0; i<boardList.size(); i++) {
+									int comcount = (Integer)commentcount.get(i);
+									BoardBean bb =boardList.get(i);
 						%>
 						<tr
 							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>'">
@@ -109,8 +116,11 @@
 											if (inputDate.equals(now)) {
 								%> <img src="./images/63_0000.gif" alt="new"> <%
  	}
- %></td>
-							<td>5</td>
+ %></td><%	//댓글 카운트
+ 							CommentBean cb = new CommentBean();
+ 							System.out.println("??"+cb.getFbcom_fb_num()+cb.getFbcom_count());
+ 							%>
+							<td><%=comcount%></td>
 							<td><%=bb.getFb_mem_nik()%></td>
 							<td><%=bb.getFb_readcount()%></td>
 							<td><%=bb.getFb_date()%></td>
