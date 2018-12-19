@@ -694,7 +694,7 @@ td>a {
 }
 /* 댓글 수정|삭제 */
 .comments>span.modify-del {
-	display: block;
+	display: inline;
 	float: right;
 	margin: 3px;
 	padding: 0;
@@ -746,6 +746,10 @@ td>a {
     background-color: #eee;
     font-size: 15px;
     resize: none;
+}
+#modi2{
+	/* border: 1px solid red; */
+	    margin-left: 1103px;
 }
 
 #addComment {

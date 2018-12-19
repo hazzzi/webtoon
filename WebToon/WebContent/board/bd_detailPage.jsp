@@ -260,7 +260,7 @@
    if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%> 
     <!-- mem_num과 맞을때 수정버튼 뜨게 -->
    	 	<span class="modify-del">
-       	 	<a class="modi<%=cb.getFbcom_bdnum()%>">수정  </a>
+       	 	<a class="modi<%=cb.getFbcom_bdnum()%>" id="modi2">수정  </a>
        	 	<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
        	 	<div class="fr<%=cb.getFbcom_bdnum()%>" style="display: none;" >
        	 		 <form id="modifyComment" class="comment-form" action="./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>" method="post">
