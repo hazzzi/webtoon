@@ -17,6 +17,9 @@ import net.board.action.FanBoardWriteAction;
 import net.board.action.FanDeleteAction;
 import net.board.action.FanModify;
 import net.board.action.FanModifyAction;
+import net.wtf.comm.action.ComsDeleteAction;
+import net.wtf.comm.action.ComsModifyAction;
+import net.wtf.comm.action.ComsWriteAction;
 
 public class FanBoardFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -123,6 +126,27 @@ public class FanBoardFrontController extends HttpServlet {
 			
 		}else if(command.equals("/fanboardLikeAction.fo")){
 			action =new FanBoardLikeAction();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ComsWriteAction.fo")){
+			action = new ComsWriteAction();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ComsDelete.fo")){
+			action = new ComsDeleteAction();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ComsModifyAction.fo")){
+			action = new ComsModifyAction();
 			try{
 				forward = action.execute(request, response);
 			}catch (Exception e) {

@@ -1,5 +1,7 @@
 package net.board.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,6 +10,8 @@ import net.board.controller.Action;
 import net.board.controller.ActionForward;
 import net.board.db.FanBean;
 import net.board.db.FanDAO;
+import net.wtf.comm.db.CommentsBean;
+import net.wtf.comm.db.CommentsDAO;
 
 public class FanBoardContentAction implements Action{
 
@@ -39,6 +43,12 @@ public class FanBoardContentAction implements Action{
 		FanBean fb2 = fdao.getFanBoard(nextNum);
 		FanBean fb3 = fdao.getFanBoard(preNum);
 		
+		//댓글출력
+		String wtf_content = request.getParameter("new_content");
+		CommentsDAO cdao = new CommentsDAO();
+		List<CommentsBean> CommentsList = cdao.getCommentList(fa_num);
+		request.setAttribute("CommentsList", CommentsList);
+		//댓글출력
 		
 		request.setAttribute("fa_num", fa_num);
 		request.setAttribute("pageNum", pageNum);
