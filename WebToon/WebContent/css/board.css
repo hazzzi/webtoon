@@ -15,7 +15,6 @@
 	margin: 0;
 	padding: 0;
 }
-
 li {
 	list-style: none;
 }
@@ -736,6 +735,7 @@ td>a {
 .comment-form {
 	clear: both;
 	padding: 0.22em 2.22em 0.22em 3.22em;
+	margin-right: 700px;
 }
 
 .comment-textarea {
