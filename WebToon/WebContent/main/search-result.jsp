@@ -96,7 +96,7 @@
 						<p><%=wb.getWeb_subject() %></p>
 						<!-- db 쿼리문 이용-->
 						<!-- select mean(grade) from recommend where id=?? -->
-						<p>평점 <i class="fa fa-star"></i><%=score %></p>
+						<p style="color: black;">평점 <i class="fa fa-star"></i><%=score %></p>
 						<!-- 작가 -->
 						<p><%=wb.getWeb_author() %></p>
 						<!-- 장르 -->
