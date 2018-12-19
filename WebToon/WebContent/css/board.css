@@ -15,7 +15,6 @@
 	margin: 0;
 	padding: 0;
 }
-
 li {
 	list-style: none;
 }
@@ -408,7 +407,7 @@ td>a {
 }
 
 .fb_img2:HOVER .img_hover2 {
-	width: 300px;
+	width: 301px;
     height: 80px;
     background-color: black;
     color: white;
@@ -416,7 +415,7 @@ td>a {
     position: absolute;
     opacity: 0.7;
     font-size: 25px;
-    margin: -99.5px 0 0 19.5px;
+    margin: -98.5px 0 0 18px;
     display: inline-block;
 }
 
@@ -436,8 +435,8 @@ td>a {
 }
 
 .fan_content_like .like_img {
-    margin: 11.5px;
-    border: 7px solid rgb(208,65,27) !important
+       margin: 11.5px;
+    border: 8px solid rgb(208,65,27) !important;
 }
 
 #top_rank{
@@ -695,7 +694,7 @@ td>a {
 }
 /* 댓글 수정|삭제 */
 .comments>span.modify-del {
-	display: block;
+	display: inline;
 	float: right;
 	margin: 3px;
 	padding: 0;
@@ -735,7 +734,8 @@ td>a {
 
 .comment-form {
 	clear: both;
-	padding: 0.22em 2.22em 0.22em 3.22em;
+    padding: 0.22em 2.22em 0.22em 3.22em;
+    margin-right: 655px;
 }
 
 .comment-textarea {
@@ -745,6 +745,11 @@ td>a {
     color: #555;
     background-color: #eee;
     font-size: 15px;
+    resize: none;
+}
+#modi2{
+	/* border: 1px solid red; */
+	    margin-left: 1103px;
 }
 
 #addComment {
@@ -909,12 +914,13 @@ hr {
 }
 
 #dtl_tex {
-font-family: 'NanumBarunpenR';
+	font-family: 'NanumBarunpenR';
     width: 1014px;
     height: 136px;
     font-size: 20px;
     font-weight: bold;
     margin-left: 15px;
+    resize: none;
 }
 
 /*좋아요*/
@@ -972,6 +978,7 @@ font-family: 'NanumBarunpenR';
     text-decoration: none;
     font-size: 17px;
     font-weight: bold;	
+    margin-left: 279px;
 }
 
 .modify_butt:HOVER {

@@ -43,13 +43,12 @@ public class FanBoardContentAction implements Action{
 		FanBean fb2 = fdao.getFanBoard(nextNum);
 		FanBean fb3 = fdao.getFanBoard(preNum);
 		
-		//댓글출력
+		//댓글 출력
 		String wtf_content = request.getParameter("new_content");
 		CommentsDAO cdao = new CommentsDAO();
 		List<CommentsBean> CommentsList = cdao.getCommentList(fa_num);
 		request.setAttribute("CommentsList", CommentsList);
-		//댓글출력
-		
+		//댓글 출력
 		request.setAttribute("fa_num", fa_num);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("fb", fb);

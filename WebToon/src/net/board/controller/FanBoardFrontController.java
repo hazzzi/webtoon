@@ -29,7 +29,7 @@ public class FanBoardFrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 
-		//System.out.println("가상 주소 확인: " + command);
+		System.out.println("가상 주소 확인: " + command);
 
 		ActionForward forward = null;
 		Action action = null;
@@ -131,28 +131,35 @@ public class FanBoardFrontController extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}else if(command.equals("/ComsWriteAction.fo")){
-			action = new ComsWriteAction();
-			try{
-				forward = action.execute(request, response);
-			}catch (Exception e) {
-				e.printStackTrace();
+				
+				action = new ComsWriteAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
 			}
-		}else if(command.equals("/ComsDelete.fo")){
+		
+		}	else if(command.equals("/ComsDelete.fo")){
 			action = new ComsDeleteAction();
-			try{
+			try {
 				forward = action.execute(request, response);
-			}catch (Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/ComsModifyAction.fo")){
+		}	else if (command.equals("/ComsModifyAction.fo")) {
+
 			action = new ComsModifyAction();
-			try{
+			
+			try {
 				forward = action.execute(request, response);
-			}catch (Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+
+		
 
 		// 이동 시작
 		if (forward != null) {
