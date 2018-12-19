@@ -29,7 +29,7 @@ public class FanBoardFrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 
-		System.out.println("가상 주소 확인: " + command);
+		//System.out.println("가상 주소 확인: " + command);
 
 		ActionForward forward = null;
 		Action action = null;
