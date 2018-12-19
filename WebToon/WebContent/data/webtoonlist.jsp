@@ -55,7 +55,7 @@
 				<td><%=wb.getWeb_ing()%></td>
 			</tr>
 			<%
-				}
+				} 
 			%>
 		</table>
 	</div>

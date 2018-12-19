@@ -33,4 +33,6 @@
     text-align:center;
     background-color: #ddd
 }
-
+.wbt_list_div>a:HOVER{
+	background-color: #cac1dd;
+}
