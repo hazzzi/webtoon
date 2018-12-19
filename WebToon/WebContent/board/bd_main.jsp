@@ -88,7 +88,7 @@
 									BoardBean bb =boardList.get(i);
 						%>
 						<tr
-							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>'">
+							onclick="location.href='./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>'" class="bd_tr">
 							<td><%=bb.getFb_num()%></td>
 							<td>[<%=bb.getFb_category()%>]
 							</td>
@@ -104,8 +104,7 @@
  	}
  %>
 							</td>
-							<td><a
-								href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a>
+							<td><a href="./boardContent.bo?fb_num=<%=bb.getFb_num()%>&pageNum=<%=pageNum%>"><%=bb.getFb_subject()%></a>
 								<%
 									SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 
