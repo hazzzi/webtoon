@@ -267,7 +267,7 @@
    if(mem_num.equals(cb.getWtf_mem_num())){%> 
     <!-- mem_num과 맞을때 수정버튼 뜨게 -->
    	 	<span class="modify-del">
-       	 	<a class="modi<%=cb.getWtf_num()%>">수정  </a>
+       	 	<a class="modi<%=cb.getWtf_num()%>" id="modi2">수정  </a>
        	 	<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
        	 	<div class="fr<%=cb.getWtf_num()%>" style="display: none;" >
        	 		 <form id="modifyComment" class="comment-form" action="./ComsModifyAction.fo?wtf_num=<%=cb.getWtf_num()%>" method="post">

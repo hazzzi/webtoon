@@ -268,10 +268,10 @@
        	 		 <form id="modifyComment" class="comment-form" action="./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>" method="post">
        	 		 <input type="hidden" name="fb_num" value="<%=fb_num%>">
      	   		 <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getFbcom_content()%></textarea><br>
-      			 <input type="submit" value="수정하기"> <%-- | <a class="dell<%=cb.getFbcom_bdnum()%>">취소</a> --%>
+      			 <input type="submit" value="수정하기 | " class="modify_butt">  <%-- | <a class="dell<%=cb.getFbcom_bdnum()%>">취소</a> --%>
       			 <%-- <input type="button" value="수정하기" onclick="location.href='./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'"> --%>
       			 
-      			 <input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기">
+      			 <input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기" class="del_butt">
    		 		</form>
    		 	</div>
     	</span>
