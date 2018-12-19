@@ -79,7 +79,9 @@ nav#header-menu li:LAST-CHILD{
 	float: right;
 	margin: 0;
 }
-
+nav#header-menu li:NTH-OF-TYPE(2){
+	position: relative;
+}
 nav#header-menu li:LAST-CHILD:HOVER{
 	border: none;
 }
@@ -106,7 +108,7 @@ nav#header-menu li>a:HOVER {
 
 #header-srch>input[type="text"]{
 box-sizing: border-box;
-    width: 450px;
+    width: 350px;
     height: 100%;
     margin-right: -40px;
     display: block;
@@ -136,7 +138,7 @@ box-sizing: border-box;
     display: block;
     position: absolute;
     top: 0px;
-    left: 400px;
+    left: 300px;
     float: right;
     width: 50px;
     height: 100%;
@@ -179,5 +181,5 @@ form.example::after {
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #e8e3f0;
 }
