@@ -686,11 +686,12 @@ td>a {
 /* 댓글 작성일 */
 .comments>span.date {
 	display: block;
-	float: left;
-	margin: 3px;
-	padding: 0;
-	font-size: 20px;
-	color: #555;
+    float: left;
+    margin: 8px 0 0 3px;
+    padding: 0;
+    color: #555;
+    font-size: 17px;
+    position: relative;
 }
 /* 댓글 수정|삭제 */
 .comments>span.modify-del {
@@ -705,7 +706,7 @@ td>a {
 .comments a {
 	color: #555;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 17px;
 }
 
 .comments a:hover {
@@ -713,12 +714,22 @@ td>a {
 	text-decoration: underline;
 }
 /* 댓글 내용 */
+
+.comm_me {
+	position: relative;
+	right: 10px;
+    border: 2px solid #3F51B5;
+    top: 3px;
+    border-radius: 30px;
+    padding: 4px;
+}
+
 .comments>p {
 	clear: both;
-	margin: 0;
-	padding: 10px 3px 3px 3px;
-	color: #555;
-	font-size: 15px;
+	margin-left: 3px;
+    color: #555;
+    font-size: 17px;
+    padding: 15px 0 15px 0;
 }
 
 .comment-form {
@@ -943,7 +954,7 @@ font-family: 'NanumBarunpenR';
 	font-family: 'NanumBarunpenR';
 	color: #555;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
 }
 
