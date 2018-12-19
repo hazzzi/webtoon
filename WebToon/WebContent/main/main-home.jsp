@@ -99,15 +99,15 @@
 					<nav id="main-banner-nav">
 						<ul>
 							<!-- 추천 서비스로 이동 -->
-							<li><a href="./main_recommend.rec">추천</a></li>
+							<li><a href="./main_recommend.rec">시작하기</a></li>
 							<!-- 자유 게시판으로 이동 -->
-							<li><a href="./boardList.bo">게시판</a></li>
+							<!-- <li><a href="./boardList.bo">게시판</a></li> -->
 						</ul>
 					</nav>
 					<!-- ★이후의 평가 갯수는 db에서 쿼리문 이용 -->
 					<!-- select count(*) from recommend (쿼리는 수정될 수 있음) -->
-					<span>지금까지 ★ <%=count_Recommend%> 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을
-						받아보세요.</span>
+					<span>" 지금까지 <i class="fa fa-star"></i><%=count_Recommend%> 개의 평가가 쌓였어요. 내 취향에 딱 맞는 웹툰 추천을
+						받아보세요! "</span>
 				</div>
 			</div>
 		</div>
@@ -124,7 +124,7 @@
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3>높은 평점순 랭킹</h3>
+					<h3><i class="fa fa-star" style="margin-right: 15px"></i>높은 평점순 랭킹</h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
@@ -149,7 +149,7 @@
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3>최다 평가수 랭킹</h3>
+					<h3><i class="fa fa-star" style="margin-right: 15px"></i>최다 평가수 랭킹</h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
@@ -174,7 +174,7 @@
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3>인기 만화 랭킹(여)</h3>
+					<h3><i class="fa fa-star" style="margin-right: 15px"></i>인기 만화 랭킹(여)</h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
@@ -199,7 +199,7 @@
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3>인기 만화 랭킹(남)</h3>
+					<h3><i class="fa fa-star" style="margin-right: 15px"></i>인기 만화 랭킹(남)</h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
@@ -226,7 +226,7 @@
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3>인기 만화 랭킹(<%=++index %>0대)</h3>
+					<h3><i class="fa fa-star" style="margin-right: 15px"></i>인기 만화 랭킹(<%=++index %>0대)</h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
@@ -253,7 +253,7 @@
 			<div id="sildeshow">
 				<div id="content">
 					<!-- 주제 이름  -->
-					<h3><%=g %></h3>
+					<h3><i class="fa fa-star" style="margin-right: 15px"></i><%=g %></h3>
 					<div id="con-img" class="owl-carousel owl-theme">
 						<!-- db에서 webtoon의 정보 가져오기  -->
 						<!-- 반복문 시작2 -->
