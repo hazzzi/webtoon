@@ -276,6 +276,7 @@ function modifyCommentToggle(articleNo) {
 							cols="50"><%=cb.getFbcom_content()%></textarea>
 					</div>
 					<div class="fr">
+
 						<input type="submit" value="수정하기" class="modify_butt"> | <a
 							href="javascript:modifyCommentToggle('5')">취소</a>
 					</div>
