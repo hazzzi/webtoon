@@ -15,10 +15,6 @@ public class MemberBean {
 	private Timestamp date;
 	private String profileimg;
 	
-	
-	
-	
-	
 	public Timestamp getDate() {
 		return date;
 	}
