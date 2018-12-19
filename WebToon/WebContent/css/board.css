@@ -408,7 +408,7 @@ td>a {
 }
 
 .fb_img2:HOVER .img_hover2 {
-	width: 300px;
+	width: 301px;
     height: 80px;
     background-color: black;
     color: white;
@@ -416,7 +416,7 @@ td>a {
     position: absolute;
     opacity: 0.7;
     font-size: 25px;
-    margin: -99.5px 0 0 19.5px;
+    margin: -98.5px 0 0 18px;
     display: inline-block;
 }
 
@@ -436,8 +436,8 @@ td>a {
 }
 
 .fan_content_like .like_img {
-    margin: 11.5px;
-    border: 7px solid rgb(208,65,27) !important
+       margin: 11.5px;
+    border: 8px solid rgb(208,65,27) !important;
 }
 
 #top_rank{
