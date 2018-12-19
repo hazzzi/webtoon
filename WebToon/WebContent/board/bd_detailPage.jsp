@@ -288,22 +288,7 @@ function modifyCommentToggle(articleNo) {
 			%>
 			<!--  댓글 반복 끝 -->
 			<%}else{ %>
-			<!--  댓글 쓰기 -->
-			<div class="clear"></div>
-			<form id="addCommentForm" style="margin: 10px 0;"
-				action="CommWriteAction.bo" method="post">
-				<div id="addComment">
-					<input type="hidden" name="fb_num" value="<%=fb_num%>">
-					<textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요."
-						name="fbcom_content"></textarea>
-				</div>
-
-		
-				<input type="submit" class="bt_c_write" value="댓글 남기기" />
-
-			</form>
-			<div class="clear"></div>
-
+			
 			<!--  댓글 반복 시작 -->
 			<%
 				List<CommentBean> CommentList = (List<CommentBean>) request.getAttribute("CommentList");
@@ -315,23 +300,15 @@ function modifyCommentToggle(articleNo) {
 			<div class="comments">
 				<span class="writer"> <%=cb.getFbcom_mem_nik()%>&nbsp;&nbsp;
 				</span> <span class="date"> 
-				<% 
-				SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					String inputDate = date.format(cb.getFbcom_date());
-				%>
-				
-				
-				<%=inputDate%>
+				<%=cb.getFbcom_date()%>
 				</span>
 
 				<%if(mem_num!=null){
 					if (mem_num.equals(cb.getFbcom_mem_num())) {
 				%>
-				<span class="modify-del"> <a
-					href="javascript:modifyCommentToggle('5')">수정</a> | <input
-					type="button"
-					onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'"
-					value="삭제하기">
+				<span class="modify-del"> <a href="javascript:modifyCommentToggle('5')">수정</a> | 
+				<input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'"
+					value="삭제하기" class="del_butt">
 				</span>
 				<%
 					}}
@@ -355,7 +332,7 @@ function modifyCommentToggle(articleNo) {
 							cols="50"><%=cb.getFbcom_content()%></textarea>
 					</div>
 					<div class="fr">
-						<input type="submit" value="수정하기"> | <a
+						<input type="submit" value="수정하기" class="modify_butt"> | <a
 							href="javascript:modifyCommentToggle('5')">취소</a>
 					</div>
 					<!-- 수정버튼 -->

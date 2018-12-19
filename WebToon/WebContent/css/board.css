@@ -784,17 +784,19 @@ hr {
 
 /*버튼 호버*/
 .bt {
-	width: 100px;
-	height: 41px;
-	background-color: white;
-	margin-left: 10px; /* 345px; */
-	position: relative;
-	border: 2px solid #74668c;
-	border-radius: 30px;
-	font-family: 'NanumBarunpenR', sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-	float: left;
+    width: 100px;
+    height: 41px;
+    background-color: white;
+    margin-left: 10px;
+    position: relative;
+    border: 2px solid #74668c;
+    border-radius: 30px;
+    font-family: 'NanumBarunpenR', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    left: 925px;
+    margin-bottom: 25px;
 }
 
 .bt:HOVER {
