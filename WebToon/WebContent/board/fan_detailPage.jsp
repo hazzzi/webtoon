@@ -213,8 +213,7 @@
 							if (mem_num != null) {
 								if (mem_num.equals(fb.getFa_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
-						<input type="button" class="bt" value="수정"
-							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
+						<input type="button" class="bt" value="수정" onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'">
 						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
 						<%
 								} 
