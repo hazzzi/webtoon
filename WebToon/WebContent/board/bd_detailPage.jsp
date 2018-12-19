@@ -256,43 +256,33 @@
 	 <div class="comments">
    	 <span class="writer"> <%=cb.getFbcom_mem_nik() %>&nbsp;&nbsp;</span>
    	 <span class="date">  <%=cb.getFbcom_date() %> </span>
-   	 
    	<%  
-   if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%>
-   	
+   if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%> 
+    <!-- mem_num과 맞을때 수정버튼 뜨게 -->
    	 	<span class="modify-del">
-       	 	<a class="modi<%=cb.getFbcom_bdnum()%>">수정  </a>|
-       	 	
-       	 <div class="fr<%=cb.getFbcom_bdnum()%>" style="display: none;" >
-     	    <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getFbcom_content()%></textarea>
-      		<input type="submit" value="수정하기"> | <a class="dell<%=cb.getFbcom_bdnum()%>">취소</a>
-   		 </div>
-   		 
-         	<input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기">
+       	 	<a class="modi<%=cb.getFbcom_bdnum()%>">수정  </a>
+       	 	<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
+       	 	<div class="fr<%=cb.getFbcom_bdnum()%>" style="display: none;" >
+       	 		 <form id="modifyComment" class="comment-form" action="./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>" method="post">
+       	 		 <input type="hidden" name="fb_num" value="<%=fb_num%>">
+     	   		 <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getFbcom_content()%></textarea><br>
+      			 <input type="submit" value="수정하기"> <%-- | <a class="dell<%=cb.getFbcom_bdnum()%>">취소</a> --%>
+      			 <%-- <input type="button" value="수정하기" onclick="location.href='./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'"> --%>
+      			 
+      			 <input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기">
+   		 		</form>
+   		 	</div>
     	</span>
-    	
     	<%} %>
     <p id="comment"><%=cb.getFbcom_content() %> </p> <br><br>
-    <form id="modifyComment" class="comment-form" action="./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>" method="post" style="display: none;">
-    <input type="hidden" id="commentNo" value="<%=cb.getFbcom_bdnum()%>" />
-    <input type="hidden" name="boardCd" value="free" />
-    <input type="hidden" name="articleNo" value="<%=fb_num%>" />
-    <input type="hidden" name="curPage" value="1" />
-    <input type="hidden" name="searchWord" value="" />
-    
-    	<!-- 수정버튼 -->
-	
-   			 
+    	<!-- 수정하기 토글 -->
    		<script>
-   		
    			$(document).ready(function() {
-   				/* $(".fr").hide(); */
    				$(".modi<%=cb.getFbcom_bdnum()%>").click(function(){
    					/* alert("ddd"); */
    					$(this).next().toggle();
    						
    				});
-   					/* 	$(".fr").toggle(500); */
    				$(".dell<%=cb.getFbcom_bdnum()%>").click(function(){
    					$(".fr").toggle();		
    				
@@ -300,51 +290,8 @@
    			});
    			
    		</script>
-  		<!-- 수정버튼 -->
-<%--   		<!--  댓글 반복 시작 -->
-<%		
-		List<CommentBean> CommentList = (List<CommentBean>)request.getAttribute("CommentList");
+  		<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
 
-		for( int i=0; i< CommentList.size(); i++) {
-		CommentBean cb = CommentList.get(i);
-%>
-	 
-	 <div class="comments">
-   	 <span class="writer"> <%=cb.getFbcom_mem_nik() %>&nbsp;&nbsp;</span>
-   	 <span class="date">  <%=cb.getFbcom_date() %> </span>
-   	 
-   	<%  
-   	if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%>
-   	 <span class="modify-del">
-   	 		<!--  수정전 수정레이어를 호출하는 부분 -->
-       	 	<a href="javascript:modifyCommentToggle('<%=cb.getFbcom_bdnum()%>')">수정</a> |	
-         	<input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기">
-    	</span><%} %>
-    <p id="comment<%=cb.getFbcom_bdnum()%>"><%=cb.getFbcom_content() %> </p> <br><br>
-    <!--  댓글 수정을 위한 레이어 -->
-    <form id="modifyCommentForm<%=cb.getFbcom_bdnum()%>" class="comment-form" action="./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>" method="post" style="display: none;">
-    <input type="hidden" id="commentNo" name="commentNo" value="<%=cb.getFbcom_bdnum()%>" />
-    <input type="hidden" name="boardCd" value="free" />
-    <input type="hidden" id="articleNo" name="articleNo" value="<%=fb_num%>" />
-    <input type="hidden" name="curPage" value="1" />
-    <input type="hidden" name="searchWord" value="" />
-    	<!-- 수정버튼  -->
-   		 <div id="ff">
-     	    <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getFbcom_content()%></textarea>
-  		 </div> 
-  		 <div class="fr">
-  		
-      		  <input type= "submit" value="수정하기">
-            | <a href="javascript:modifyCommentToggle('<%=cb.getFbcom_bdnum()%>')">취소</a>
-   			 </div>
-  		<!-- 수정버튼 -->
-  		
-    </form>
-    <!--  댓글 수정을 위한 레이어 //-->
-</div> <% } %>
-<!--  댓글 반복 끝 --> --%>
-  		
-    </form>
 </div> <% } %>
 <!--  댓글 반복 끝 -->
 			<br> <br>

@@ -64,7 +64,7 @@
 	<div class="rec_top_background">
 		평가한 웹툰 수 : <span><%=num%></span>
 		<div id="rec_star_menu">
-			<a class="rec_log" style="cursor: pointer;">★추천 받기★</a>
+			<a class="rec_log" style="cursor: pointer;">추천 받기 <i class="fa fa-search"> </i><b style="font-size: 14px; letter-spacing: 2px; ">(click)</b></a>
 			<!-- * 눌렸을때 추천사이트로 페이지 이동(recommend DB 불러옴) **협업 필터링 -->
 		</div>
 	</div>
@@ -82,7 +82,7 @@
 			</div>
 			
 			<div class="rec_star_div">
-				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰보기</button></a>
+				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰 보러가기</button></a>
 				<b class="rec_b">평가하기 </b>
 				 
 				<select id="example<%=wb.getWeb_num()%>" class="test">

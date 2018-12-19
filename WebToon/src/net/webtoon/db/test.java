@@ -11,7 +11,7 @@ public class test {
 
 	public static void main(String[] args) {
 		Date d = new Date();
-		SimpleDateFormat date = new SimpleDateFormat("yyMMddHHmmss");
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 

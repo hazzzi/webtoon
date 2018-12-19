@@ -71,7 +71,7 @@
 				<%
 				}
 				%>
-				<div id="top_rank">🏆&nbsp; TOP Ranking&nbsp; 🏆</div>
+				<div id="top_rank">&nbsp;  TOP Ranking&nbsp; </div>
 				<%
 				for(int j=0; j<likeList.size(); j++){
 					fb=likeList.get(j);%>
@@ -182,7 +182,7 @@
 			<jsp:include page="fb_search_engine.jsp"></jsp:include>
 			
 			<%if(mem_num!=null) {	%>
-			<input type="button" value="글 쓰기" class="write"
+			<input type="button" value="글쓰기" class="write"
 				onclick="location.href='./fan_writingPage.fo'">
 				<%
 				}

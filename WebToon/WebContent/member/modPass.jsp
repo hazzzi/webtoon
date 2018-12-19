@@ -9,6 +9,30 @@
 <link rel="stylesheet" href="./main/css/footer-main.css">
 <link rel="stylesheet" href="member/css/modPass.css">
 <script src="./js/jquery-3.3.1.js"></script>
+
+<script type="text/javascript">
+function checking(){
+	var newpass = document.f.newpass.value;
+	var renewpass = document.f.renewpass.value;
+ 	
+	// 비밀번호 일치 여부
+	if (document.f.newpass.value != document.f.renewpass.value) { 
+ 		alert("새로운 비밀번호가 일치하지 않습니다")
+        document.f.newpass.value = ""
+        document.f.renewpass.value = ""
+        document.f.newpass.focus()
+        return false;
+     }
+ 	// passward 길이 체크
+ 	if(document.f.newpass.value.length <= 7){ 
+ 		alert("비밀번호는 8자리 이상이여야합니다.")
+ 		document.f.newpass.value = ""
+        document.f.renewpass.value = ""
+        document.f.newpass.focus()
+ 		return false;
+ 	}
+}
+</script>
 </head>
 <body>
 						<!--  mdps=modPass		-->
@@ -19,7 +43,7 @@
 <!--회원 정보 수정 부분  -->	
 <div id="mdps_title"><h1>비밀 번호 변경</h1></div>
 
-<form action="MemberModpassAction.me" method="post">
+<form action="MemberModpassAction.me" method="post" name="f" onsubmit="return checking();">
 <div id="mdps"><!--reinfo  -->
 	
 	

@@ -1,5 +1,7 @@
 package net.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,12 +31,17 @@ public class naverLoginAction2 implements Action{
 		
 		session.removeAttribute("nmb");
 		
-		ActionForward forward =new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./home.today");
+		//ActionForward forward =new ActionForward();
+		//forward.setRedirect(false);
+		//forward.setPath("./home.today");
 		
-		return forward;
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("window.opener.location.href='./home.today'");
+		out.println("window.close();");
+		out.println("</script>");
+		
+		return null;
 	}
-	
 
 }

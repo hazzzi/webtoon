@@ -23,8 +23,8 @@
 		<jsp:include page="../main/header.jsp"></jsp:include>
 		<form action="./footerNoticewriteAction.ft?mem_num=<%=mem_num%>" method="post">
 		<div class="ni_write">
-	<h1 id="ssss">공지사항 작성</h1>
-			 <div class="ni_nik"><%=nik%></div> 
+				<div id="ssss"><h1 >공지사항 작성</h1></div>
+			 <div class="ni_nik"></div> 
 			 
 			<div class="ni_inputbox">
 				<select name="category" required>

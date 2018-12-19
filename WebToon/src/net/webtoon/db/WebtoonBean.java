@@ -11,7 +11,9 @@ public class WebtoonBean {
 	private String web_ing;
 	private String web_link;
 	private String web_thumb_link;
-	private int my_rating;
+	
+	private int my_rating; // 나의 별점
+	private double score; //웹툰 평균점수
 	public int getWeb_num() {
 		return web_num;
 	}
@@ -78,5 +80,12 @@ public class WebtoonBean {
 	public void setMy_rating(int my_rating) {
 		this.my_rating = my_rating;
 	}
+	public double getScore() {
+		return score;
+	}
+	public void setScore(double score) {
+		this.score = score;
+	}
+	
 	
 }
