@@ -25,8 +25,9 @@
 <script src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="./js/jquery.barrating.min.js"></script>
 </head>
+
 <body>
- 	<jsp:include page="../main/header.jsp" /> 
+	<jsp:include page="../main/header.jsp" /> 
  	
 	<script>
 		$(document).ready(function(){
@@ -62,16 +63,15 @@
 				<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"><%=wb.getWeb_subject() %></a>
 				<p><%=wb.getWeb_author() %></p> 
 				<p><%=wb.getWeb_genre() %> · <%=wb.getWeb_portal() %></p>
+				<p style="color: #210042;">평점<i class="fa fa-star"></i><%=wb.getScore() %>
 			</div>
 			<div class="rec_show_btn_div">
-				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰보기</button></a>
+				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰 보러가기</button></a>
 			</div>
 		</div><%} %>
 		<%}else{%>
 		<div><h2 style="text-align: center; line-height: 15; font-size: 38px; margin-left: -110px;">웹툰 평가 후 이용해주세요.</h2></div><%} %>
-<!-- 		<div id="rec_show_next_div">
-			<button>더보기</button>
-		</div> -->
+
 		<div style="clear: both;"></div>
 		
 <!-- 		<script type="text/javascript">

@@ -232,19 +232,15 @@ function modifyCommentToggle(articleNo) {
 			<div class="comments">
 			
 				<% 
-				if(bd.getFb_mem_nik() == cb.getFbcom_mem_nik()) {
+				if(bd.getFb_mem_num().equals(cb.getFbcom_mem_num())) {
 				%>
-				<span class="writer"> <%=cb.getFbcom_mem_nik()%>&nbsp;&nbsp;</span><p>글쓴이</p>
+				<span class="writer"> <%=cb.getFbcom_mem_nik()%>&nbsp;&nbsp;</span><span class="comm_me">글쓴이</span>
 				
 				<%}else{ %>
 				<span class="writer"> <%=cb.getFbcom_mem_nik()%>&nbsp;&nbsp;</span> 
 				
 				<%}%>
 				
-				
-				<span class="date"> 
-				<%=cb.getFbcom_date()%>
-				</span>
 
 				<%if(mem_num!=null){
 					if (mem_num.equals(cb.getFbcom_mem_num())) {
@@ -259,6 +255,9 @@ function modifyCommentToggle(articleNo) {
 				%>
 				<p id="comment5"><%=cb.getFbcom_content()%>
 				</p>
+				<span class="date"> 
+				<%=cb.getFbcom_date()%>
+				</span>
 				<br>
 				<br>
 				<form id="modifyCommentForm5" class="comment-form"
