@@ -35,7 +35,7 @@ body {
 	height:100px;
 	margin:0 auto;
 	font-size:30px;
-	margin-top:20px;
+	margin-top:100px;
 	margin-bottom:20px;
 	}
 	
@@ -89,6 +89,7 @@ select {
 
 #mdps_sub>input:HOVER {
 	cursor: pointer;
+	background-color:#b9afce;
 }
 
 

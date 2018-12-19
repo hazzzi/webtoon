@@ -12,14 +12,25 @@
     text-align: center;
 }
 
-.wbt_list_div>table tr{
+.wbt_list_div>table th{
+	background-color: #cac1dd;
+}
+
+.wbt_list_div>table td{
+	padding: 5px 0;
+}
+
+.wbt_list_div>table tr:HOVER{
+	background-color: #cac1dd;
 }
 
 .wbt_list_div>a{
     font-size: 25px;
     margin: 20px 46%;
     display: inline-block;
-    width: 117px;
+    width: 130px;
+    padding:10px;
+    text-align:center;
     background-color: #ddd
 }
 
