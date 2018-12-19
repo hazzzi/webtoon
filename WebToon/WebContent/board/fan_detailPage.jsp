@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="net.wtf.comm.db.CommentsBean"%>
 <%@page import="net.board.db.FanBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -237,43 +239,60 @@
 			</article>
 			<!--  댓글 쓰기 -->
 			<div class="clear"></div>
-			<form id="addCommentForm" style="margin: 10px 0;"
-				action="addComment.jsp" method="post">
-				<div id="addComment">
-					<textarea id="dtl_tex" rows="6" cols="202"></textarea>
-				</div>
-
-				<input type="button" class="bt_c_write" value="댓글 남기기" />
-
-			</form>
-			<div class="clear"></div>
-
-
-			<!--  댓글 반복 시작 -->
-			<div class="comments">
-				<span class="writer">야옹</span> <span class="date">2018.11.16</span>
-				<span class="modify-del"> <a
-					href="javascript:modifyCommentToggle('5')">수정</a> | <a
-					href="javascript:deleteComment('5')">삭제</a>
-				</span>
-				<p id="comment5">야오오ㅗㅇㅇ</p>
-				<form id="modifyCommentForm5" class="comment-form"
-					action="updateComment.jsp" method="post" style="display: none;">
-					<input type="hidden" name="commentNo" value="5" /> <input
-						type="hidden" name="boardCd" value="free" /> <input type="hidden"
-						name="articleNo" value="12" /> <input type="hidden"
-						name="curPage" value="1" /> <input type="hidden"
-						name="searchWord" value="" />
-					<div class="fr">
-						<a href="javascript:document.forms.modifyCommentForm5.submit()">수정하기</a>
-						| <a href="javascript:modifyCommentToggle('5')">취소</a>
-					</div>
-					<div>
-						<textarea class="comment-textarea" name="memo" rows="7" cols="50">김야옹</textarea>
-					</div>
+				<form id="addCommentForm" style="margin: 10px 0;" action="ComsWriteAction.fo" method="post" >
+    				<div id="addComment">
+					<input type="hidden" name="fa_num" value="<%=fa_num%>">
+       				 <textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요." name="wtf_content"></textarea>
+   					 </div>
+   			
+      				  <input type="submit"  class="bt_c_write" value="댓글 남기기" />
+   				
 				</form>
-			</div>
-			<!--  댓글 반복 끝 -->
+				<div class="clear"></div>
+			
+<!--  댓글 반복 시작 -->
+<%		
+		List<CommentsBean> CommentList = (List<CommentsBean>)request.getAttribute("CommentsList");
+
+		for( int i=0; i< CommentList.size(); i++) {
+		CommentsBean cb = CommentList.get(i);
+%>
+	 
+	 <div class="comments">
+   			 <span class="writer"> <%=cb.getWtf_mem_nik() %>&nbsp;&nbsp;</span>
+   			 <span class="date">  <%=cb.getWtf_date() %> </span>
+   	 
+  		 	<%  
+   			/* String mem_num = (String)session.getAttribute("mem_num"); */
+   			if(session.getAttribute("mem_num").equals(cb.getWtf_mem_num())){%>
+   			 <span class="modify-del">
+       		 	<a href="javascript:modifyCommentToggle('5')">수정</a> |	
+         		<input type="button" onclick="location.href='./ComsDelete.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num%>'" value="삭제">
+    		 </span>	<%} %>
+   		 
+   		 
+   		 <p id="comment5"><%=cb.getWtf_content() %> </p> <br><br>
+    		<form id="modifyCommentForm5" class="comment-form" action="./ComsModifyAction.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num %>" method="post" style="display: none;">
+    		<input type="hidden" name="commentNo" value="5" />
+    		<input type="hidden" name="boardCd" value="free" />
+    		<input type="hidden" name="articleNo" value="12" />
+    		<input type="hidden" name="curPage" value="1" />
+    		<input type="hidden" name="searchWord" value="" />
+    	
+    	<!-- 수정버튼 -->
+   				<div>
+   		 		 	<input type="hidden" name="fa_num" value="<%=fa_num%>">
+     	   			<textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getWtf_content()%></textarea>
+  		 		</div> 
+  		 		
+  		 <div class="fr">
+      		  <input type="submit" value="수정하기"> | <a href="javascript:modifyCommentToggle('5')">취소</a>
+   		 </div>
+  		<!-- 수정버튼 -->
+  		
+    </form>
+</div> <% } %>
+<!--  댓글 반복 끝 -->
 			<br> <br>
 			<div id="next-prev">
 
