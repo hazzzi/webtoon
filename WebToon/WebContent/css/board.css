@@ -734,8 +734,8 @@ td>a {
 
 .comment-form {
 	clear: both;
-	padding: 0.22em 2.22em 0.22em 3.22em;
-	margin-right: 700px;
+    padding: 0.22em 2.22em 0.22em 3.22em;
+    margin-right: 655px;
 }
 
 .comment-textarea {
@@ -974,6 +974,7 @@ hr {
     text-decoration: none;
     font-size: 17px;
     font-weight: bold;	
+    margin-left: 285px;
 }
 
 .modify_butt:HOVER {

@@ -233,6 +233,7 @@
 			</article>
 			<!--  댓글 쓰기 -->
 			<div class="clear"></div>
+			<%if(mem_num!=null){ %>
 				<form id="addCommentForm" style="margin: 10px 0;" action="CommWriteAction.bo" method="post" >
     				<div id="addComment">
 					<input type="hidden" name="fb_num" value="<%=fb_num%>">
@@ -243,7 +244,7 @@
    				
 				</form>
 				<div class="clear"></div>
-			 
+			 <%} %>
 			
 <!--  댓글 반복 시작 -->
 <%		
@@ -257,7 +258,8 @@
    	 <span class="writer"> <%=cb.getFbcom_mem_nik() %>&nbsp;&nbsp;</span>
    	 <span class="date">  <%=cb.getFbcom_date() %> </span>
    	<%  
-   if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%> 
+   	if(mem_num!=null){
+   if(mem_num.equals(cb.getFbcom_mem_num())){%> 
     <!-- mem_num과 맞을때 수정버튼 뜨게 -->
    	 	<span class="modify-del">
        	 	<a class="modi<%=cb.getFbcom_bdnum()%>">수정  </a>
@@ -273,6 +275,7 @@
    		 		</form>
    		 	</div>
     	</span>
+    	<%} %>
     	<%} %>
     <p id="comment"><%=cb.getFbcom_content() %> </p> <br><br>
     	<!-- 수정하기 토글 -->
@@ -292,7 +295,7 @@
    		</script>
   		<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
 
-</div> <% } %>
+</div> <% }%>
 <!--  댓글 반복 끝 -->
 			<br> <br>
 			<div id="next-prev">
