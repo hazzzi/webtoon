@@ -407,7 +407,7 @@ td>a {
 }
 
 .fb_img2:HOVER .img_hover2 {
-	width: 300px;
+	width: 301px;
     height: 80px;
     background-color: black;
     color: white;
@@ -415,7 +415,7 @@ td>a {
     position: absolute;
     opacity: 0.7;
     font-size: 25px;
-    margin: -99.5px 0 0 19.5px;
+    margin: -98.5px 0 0 18px;
     display: inline-block;
 }
 
@@ -435,8 +435,8 @@ td>a {
 }
 
 .fan_content_like .like_img {
-    margin: 11.5px;
-    border: 7px solid rgb(208,65,27) !important
+       margin: 11.5px;
+    border: 8px solid rgb(208,65,27) !important;
 }
 
 #top_rank{
@@ -734,8 +734,8 @@ td>a {
 
 .comment-form {
 	clear: both;
-	padding: 0.22em 2.22em 0.22em 3.22em;
-	margin-right: 700px;
+    padding: 0.22em 2.22em 0.22em 3.22em;
+    margin-right: 655px;
 }
 
 .comment-textarea {
@@ -978,6 +978,7 @@ hr {
     text-decoration: none;
     font-size: 17px;
     font-weight: bold;	
+    margin-left: 285px;
 }
 
 .modify_butt:HOVER {
