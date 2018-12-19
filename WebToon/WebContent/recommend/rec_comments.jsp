@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="net.member.db.MemberBean"%>
 <%@page import="net.webtoon.db.WebtoonBoardBean"%>
 <%@page import="java.util.List"%>
@@ -79,7 +81,7 @@
 					<div class="rec_comment">
 						<p><%=wbb.getWbb_comment() %></p>
 					</div>
-					<div class="rec_comment_date"><%=wbb.getWbb_date() %></div>
+					<div class="rec_comment_date"><%=wbb.getWbb_date()%></div>
 					<hr>
 					<div class="rec_comment_like">
 						<i class="fa fa-heart-o like" title="<%=wbb.getWbb_bdnum()%>" style="cursor: pointer;"></i>
