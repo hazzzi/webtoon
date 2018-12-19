@@ -52,13 +52,13 @@ int q_endPage = ((Integer) request.getAttribute("q_endPage")).intValue();
 		<div class="nq">
 			<div class="no">
 
-				<div class="titles">
-					<h1>공지사항</h1>
-				</div>
+				<div class="titlesout"><div class="titles">
+					<h1>|공지사항|</h1>
+				</div></div>
 				<% for(footerBean fb:noticelist){ %>
 				<a href="footerNoticeupdateAction1.ft?ni_num=<%=fb.getNi_num()%>">
 				<div class="nq_header">
-					<%=fb.getNi_subject() %>
+					<p><%=fb.getNi_subject() %></p><div class="pdate"><%=fb.getNi_date() %></div>
 
 				</div>
 				</a>
@@ -95,13 +95,13 @@ int q_endPage = ((Integer) request.getAttribute("q_endPage")).intValue();
 			<!-- div class="no"> -->
 
 			<div class="qn">
-				<div class="titles">
-					<h1>FQA</h1>
-				</div>
+				<div class="titlesout"><div class="titles">
+					<h1>|FQA|</h1>
+				</div></div>
 				<% for(footerBean fb:qnalist){ %>
 				<a href="footerNoticeupdateAction1.ft?ni_num=<%=fb.getNi_num()%>">
 				<div class="nq_header">
-					<%=fb.getNi_subject() %>
+					<p><%=fb.getNi_subject() %></p><div class="pdate"><%=fb.getNi_date() %></div>
 				</div>
 				</a>
 
