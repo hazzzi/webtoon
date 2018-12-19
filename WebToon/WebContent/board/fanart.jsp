@@ -182,7 +182,7 @@
 			<jsp:include page="fb_search_engine.jsp"></jsp:include>
 			
 			<%if(mem_num!=null) {	%>
-			<input type="button" value="글 쓰기" class="write"
+			<input type="button" value="글쓰기" class="write"
 				onclick="location.href='./fan_writingPage.fo'">
 				<%
 				}
