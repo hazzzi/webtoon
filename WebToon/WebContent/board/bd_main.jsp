@@ -114,8 +114,8 @@
 
 											if (inputDate.equals(now)) {
 								%> <img src="./images/63_0000.gif" alt="new"> <%
- 	}
- %></td><%	//댓글 카운트
+ 									}						
+								 %></td><%	//댓글 카운트
  							CommentBean cb = new CommentBean();
  							System.out.println("??"+cb.getFbcom_fb_num()+cb.getFbcom_count());
  							%>
