@@ -91,7 +91,15 @@ public class FooterFrontController extends HttpServlet{
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-		}
+		}else if(command.equals("/policyPrivacy.ft")){
+	         forward = new ActionForward();
+	         forward.setRedirect(false);
+	         forward.setPath("./footermenu/policyPrivacy.jsp");
+	      }else if(command.equals("/termsConditions.ft")){
+	         forward = new ActionForward();
+	         forward.setRedirect(false);
+	         forward.setPath("./footermenu/termsConditions.jsp");
+	      }
 		
 		
 		if(forward!=null){

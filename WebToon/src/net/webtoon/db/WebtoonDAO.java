@@ -446,7 +446,7 @@ public class WebtoonDAO {
 		List<FanBean> list = new ArrayList<FanBean>();
 		try {
 			con = getConnection();
-			String sql = "select * from webtoon_fanart where fa_web_num=? order by fa_sumlike limit 0,2;";
+			String sql = "select * from webtoon_fanart where fa_web_num=? order by fa_sumlike desc limit 0,2;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();

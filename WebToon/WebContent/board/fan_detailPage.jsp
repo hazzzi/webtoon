@@ -258,39 +258,45 @@
 		CommentsBean cb = CommentList.get(i);
 %>
 	 
-	 <div class="comments">
-   			 <span class="writer"> <%=cb.getWtf_mem_nik() %>&nbsp;&nbsp;</span>
-   			 <span class="date">  <%=cb.getWtf_date() %> </span>
-   	 
-  		 	<%  
-   			/* String mem_num = (String)session.getAttribute("mem_num"); */
-   			if(session.getAttribute("mem_num").equals(cb.getWtf_mem_num())){%>
-   			 <span class="modify-del">
-       		 	<a href="javascript:modifyCommentToggle('5')">수정</a> |	
-         		<input type="button" onclick="location.href='./ComsDelete.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num%>'" value="삭제">
-    		 </span>	<%} %>
-   		 
-   		 
-   		 <p id="comment5"><%=cb.getWtf_content() %> </p> <br><br>
-    		<form id="modifyCommentForm5" class="comment-form" action="./ComsModifyAction.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num %>" method="post" style="display: none;">
-    		<input type="hidden" name="commentNo" value="5" />
-    		<input type="hidden" name="boardCd" value="free" />
-    		<input type="hidden" name="articleNo" value="12" />
-    		<input type="hidden" name="curPage" value="1" />
-    		<input type="hidden" name="searchWord" value="" />
-    	
-    	<!-- 수정버튼 -->
-   				<div>
-   		 		 	<input type="hidden" name="fa_num" value="<%=fa_num%>">
-     	   			<textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getWtf_content()%></textarea>
-  		 		</div> 
-  		 		
-  		 <div class="fr">
-      		  <input type="submit" value="수정하기"> | <a href="javascript:modifyCommentToggle('5')">취소</a>
-   		 </div>
-  		<!-- 수정버튼 -->
-  		
-    </form>
+		 <div class="comments">
+   	 <span class="writer"> <%=cb.getWtf_mem_nik() %>&nbsp;&nbsp;</span>
+   	 <span class="date">  <%=cb.getWtf_date() %> </span>
+   	<%  
+   if(session.getAttribute("mem_num").equals(cb.getWtf_mem_num())){%> 
+    <!-- mem_num과 맞을때 수정버튼 뜨게 -->
+   	 	<span class="modify-del">
+       	 	<a class="modi<%=cb.getWtf_num()%>">수정  </a>
+       	 	<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
+       	 	<div class="fr<%=cb.getWtf_num()%>" style="display: none;" >
+       	 		 <form id="modifyComment" class="comment-form" action="./ComsModifyAction.fo?wtf_num=<%=cb.getWtf_num()%>" method="post">
+       	 		 <input type="hidden" name="fa_num" value="<%=fa_num%>">
+     	   		 <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getWtf_content()%></textarea><br>
+      			 <input type="submit" value="수정하기"> <%-- | <a class="dell<%=cb.getFbcom_bdnum()%>">취소</a> --%>
+      			 <%-- <input type="button" value="수정하기" onclick="location.href='./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'"> --%>
+      			 
+      			 <input type="button" onclick="location.href='./ComsDelete.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num%>'" value="삭제하기">
+   		 		</form>
+   		 	</div>
+    	</span>
+    	<%} %>
+    <p id="comment"><%=cb.getWtf_content() %> </p> <br><br>
+    	<!-- 수정하기 토글 -->
+   		<script>
+   			$(document).ready(function() {
+   				$(".modi<%=cb.getWtf_num()%>").click(function(){
+   					/* alert("ddd"); */
+   					$(this).next().toggle();
+   						
+   				});
+   				$(".dell<%=cb.getWtf_num()%>").click(function(){
+   					$(".fr").toggle();		
+   				
+   				});
+   			});
+   			
+   		</script>
+  		<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
+
 </div> <% } %>
 <!--  댓글 반복 끝 -->
 			<br> <br>

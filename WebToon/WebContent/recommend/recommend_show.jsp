@@ -63,7 +63,7 @@
 				<a href="./detail.wbt?num=<%=wb.getWeb_num()%>"><%=wb.getWeb_subject() %></a>
 				<p><%=wb.getWeb_author() %></p> 
 				<p><%=wb.getWeb_genre() %> · <%=wb.getWeb_portal() %></p>
-				<p style="color: #210042;">평점<i class="fa fa-star"></i><%=wb.getScore() %>
+				<p style="color: #210042;">평점 <i class="fa fa-star"></i><%=wb.getScore() %>
 			</div>
 			<div class="rec_show_btn_div">
 				<a href="<%=wb.getWeb_link()%>"><button class="rec_show_webtoon_btn">웹툰 보러가기</button></a>

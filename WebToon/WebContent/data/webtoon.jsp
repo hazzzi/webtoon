@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>웹툰 등록</title>
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="./main/css/test.css">

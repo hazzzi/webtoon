@@ -16,7 +16,7 @@ public class WebtoonManageListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("WebtoonManageListAction execute()");
+		//System.out.println("WebtoonManageListAction execute()");
 		List<WebtoonBean> wbList = null;
 		WebtoonDAO wbtdao = new WebtoonDAO();
 		wbList=wbtdao.getWebtoonList();
