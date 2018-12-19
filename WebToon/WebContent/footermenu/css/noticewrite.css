@@ -14,7 +14,7 @@
 
 .ni_write{
 	/* background-color:#f5f4e7; */
-	background-color:#3c2f55;
+	background-color:#b9afce;
 	width:900px;
 	display: inline-block;
 	margin-top:100px;
@@ -24,7 +24,7 @@
 #ssss{
 	margin-top:50px;
 }
-h1{color:white;}
+h1{color:#3c2f55;}
 .ni_nik{
 	width:100px;
 	height:50px;
@@ -68,8 +68,8 @@ h1{color:white;}
 	display: block;
 	width:60px;
 	height:40px;
-	background-color: #cac1dd;
-    color: #3c2f55;
+	background-color: #3c2f55;
+    color: #fff;
     font-weight: bold;
     font-family: 'NanumBarunpenR', sans-serif;
 }
