@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>웹툰 수정</title>
 <link rel="stylesheet" href="./main/css/test.css">
 <link rel="stylesheet" href="./main/css/header.css">
 <link rel="stylesheet" href="./main/css/footer-main.css">
