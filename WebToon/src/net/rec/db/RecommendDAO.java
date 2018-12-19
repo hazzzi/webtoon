@@ -24,6 +24,7 @@ import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import net.webtoon.db.WebtoonBean;
+import net.webtoon.db.WebtoonDAO;
 
 public class RecommendDAO {
 	private Connection getConnection() throws Exception {
@@ -187,6 +188,7 @@ public class RecommendDAO {
 		ResultSet rs = null;
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		String sql = "";
+		WebtoonDAO wdao = new WebtoonDAO();
 		try {
 			con = getConnection();
 				for(RecommendedItem recommendation : recommendations ){
@@ -197,6 +199,7 @@ public class RecommendDAO {
 					if(rs.next()){
 						WebtoonBean wb = new WebtoonBean();
 						wb.setWeb_num(rs.getInt("web_num"));
+						wb.setScore(wdao.getMeanScore(rs.getInt("web_num")));
 						wb.setWeb_subject(rs.getString("web_subject"));
 						wb.setWeb_author(rs.getString("web_author"));
 						wb.setWeb_genre(rs.getString("web_genre"));

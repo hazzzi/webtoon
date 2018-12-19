@@ -82,7 +82,7 @@
 			</div>
 			
 			<div class="rec_star_div">
-				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰보기</button></a>
+				<a href="<%=wb.getWeb_link()%>"><button class="rec_webtoon_btn">웹툰 보러가기</button></a>
 				<b class="rec_b">평가하기 </b>
 				 
 				<select id="example<%=wb.getWeb_num()%>" class="test">
