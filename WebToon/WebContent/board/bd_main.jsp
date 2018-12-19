@@ -161,7 +161,7 @@
 
 				<!-- 검색창 영역 -->
 				<%if(mem_num!=null) {%>
-				<input type="button" value="글 쓰기" class="write"
+				<input type="button" value="글쓰기" class="write"
 					onclick="location.href='./bd_writingPage.bo'">
 					<%
 					}	

@@ -253,7 +253,7 @@ function modifyCommentToggle(articleNo) {
    	 <span class="date">  <%=cb.getFbcom_date() %> </span>
    	 
    	<%  
-   	if(session.getAttribute("mem_num").equals(cb.getFbcom_mem_num())){%>
+   	if(mem_num.equals(cb.getFbcom_mem_num())){%>
    	 <span class="modify-del">
        	 	<a href="javascript:modifyCommentToggle('5')">수정</a> |	
          	<input type="button" onclick="location.href='./CommDelete.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'" value="삭제하기">
