@@ -19,7 +19,7 @@ public class RecommendFrontController extends HttpServlet {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
-		System.out.println(command);
+		//System.out.println(command);
 
 		ActionForward forward = null;
 		Action action = null;

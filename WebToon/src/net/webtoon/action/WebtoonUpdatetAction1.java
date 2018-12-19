@@ -17,7 +17,7 @@ public class WebtoonUpdatetAction1 implements Action{
 		int wbnum=Integer.parseInt(request.getParameter("num"));
 		WebtoonDAO wbdao = new WebtoonDAO();
 		WebtoonBean wb = wbdao.updategetwebtoon(wbnum);
-		System.out.println("업데이트할 웹툰 넘버"+wb.getWeb_num());
+		//System.out.println("업데이트할 웹툰 넘버"+wb.getWeb_num());
 		request.setAttribute("wb", wb);
 		
 		ActionForward forward = new ActionForward();

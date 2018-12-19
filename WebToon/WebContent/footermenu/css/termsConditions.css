@@ -5,31 +5,31 @@
 *{margin:0;padding:0;}
 
 
-.pp_wrap{
-   border:1px solid red;
+.tc_wrap{
+/*    border:1px solid red; */
    width:100%;
    text-align: center;
 	min-height: -webkit-fill-available;
 }
 
-.policyPrivacy{
+.termsConditions{
 	display: inline-block;
 /* 	border:1px solid red; */
 	width:600px;
 	margin:50px;
 }
-.policyPrivacy>h1{
+.termsConditions>h1{
 	margin-bottom: 30px;
 	margin-top: 30px;
 }
-.policyPrivacy h2{margin-bottom: 20px;}
-.policytext{
+.termsConditions h2{margin-bottom: 20px;}
+.termtext{
 	padding:30px;
 	border:1px dotted #bbb;
 	text-align: left;
 	line-height: 20px;
 }
-.policytext p{
+.termtext p{
 	line-height:20px;
 	font-size:15px;
 }
