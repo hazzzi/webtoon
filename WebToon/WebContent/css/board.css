@@ -617,13 +617,13 @@ td>a {
 /* 글 내용 전체 content 영역 */
 .tex01 {
 	border-style: none;
-	max-width: 1360px;
-	padding: 10px;
-	font-size: 30px;
-	font-family: 'NanumBarunpenR';
-	resize: none;
-	max-height: 300px;
-	margin: 20px 0 10px 0;
+    max-width: 1360px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'NanumBarunpenR';
+    resize: none;
+    max-height: 300px;
+    margin: 20px 0 20px 0;
 }
 
 /* bd_detailPage */
