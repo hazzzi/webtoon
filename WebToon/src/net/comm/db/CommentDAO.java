@@ -62,8 +62,9 @@ public class CommentDAO {
 	        } catch (Exception e) {
 	          e.printStackTrace();
 	        }finally {
-	        	try{rs.close();}catch(SQLException s){}
-	        	try{pstmt.close();}catch(SQLException s){}
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (conn != null)try {conn.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 	        }
 	        return result;
 	    }
@@ -127,21 +128,9 @@ public class CommentDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				if (rs != null)
-					try {
-						rs.close();
-					} catch (SQLException e2) {
-					}
-				if (pstmt != null)
-					try {
-						pstmt.close();
-					} catch (SQLException e) {
-					}
-				if (con != null)
-					try {
-						con.close();
-					} catch (SQLException e) {
-					}
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 
 			return;
@@ -164,21 +153,9 @@ public class CommentDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				if (rs != null)
-					try {
-						rs.close();
-					} catch (SQLException e2) {
-					}
-				if (pstmt != null)
-					try {
-						pstmt.close();
-					} catch (SQLException e) {
-					}
-				if (con != null)
-					try {
-						con.close();
-					} catch (SQLException e) {
-					}
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 			return;
 		}
@@ -208,21 +185,9 @@ public class CommentDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				if (rs != null)
-					try {
-						rs.close();
-					} catch (SQLException e2) {
-					}
-				if (pstmt != null)
-					try {
-						pstmt.close();
-					} catch (SQLException e) {
-					}
-				if (con != null)
-					try {
-						con.close();
-					} catch (SQLException e) {
-					}
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 			return cb;
 		}
@@ -263,21 +228,9 @@ public class CommentDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				if (rs != null)
-					try {
-						rs.close();
-					} catch (SQLException e2) {
-					}
-				if (pstmt != null)
-					try {
-						pstmt.close();
-					} catch (SQLException e) {
-					}
-				if (con != null)
-					try {
-						con.close();
-					} catch (SQLException e) {
-					}
+				if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+				if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
+				if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			}
 
 			return commentcount;

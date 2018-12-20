@@ -180,6 +180,7 @@ public class RecommendDAO {
 	            System.out.println(recommendation);
 	         }
 	      }catch (Exception e) { e.printStackTrace();  }
+	      
 	      return recommendations;
 	}
 	public List<WebtoonBean> showRecommend_list(List<RecommendedItem> recommendations){
@@ -214,9 +215,10 @@ public class RecommendDAO {
 			}
 		} catch (Exception e) { e.printStackTrace();	}
 		finally {
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
 			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
-			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
+			
 		}
 		return list;
 	}
