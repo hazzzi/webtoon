@@ -149,6 +149,7 @@ body {
 	background-color: #2d2442;
 	border: 2px solid #2d2442;
 	border-radius: 5px 5px;
+    font-family: inherit;
 }
 
 .rec_show_webtoon_btn:hover {
