@@ -218,15 +218,9 @@
 							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
 						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
 						<%
-							} else {
-						%>
-						<input type="button" class="bt-2-if"
-							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기">
-						<%
-							}
+								} 
 							}
 						%>
-
 					</div>
 
 

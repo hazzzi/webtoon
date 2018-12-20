@@ -14,21 +14,19 @@ public class MembermanagementDelete implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
+		String delmem_num=request.getParameter("mem_num");
 		
-		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("var con = confirm('삭제 하시겠습니까?')");
-		out.println("if(con){");
-		out.println("location.href='./MembermanagementDelete2.me'");
-		out.println("}else {");
-		out.println("history.back();}");
-		out.println("</script>");
-		out.close();
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("delmem_num",delmem_num);
 		
 		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("./MembermanagementDelete2.me");	
 
-		return null;
+		return forward;
 	}
 
 }

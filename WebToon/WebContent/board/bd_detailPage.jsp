@@ -209,23 +209,12 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./boardModify.bo?fb_num=<%=fb_num%>&pageNum=<%=pageNum%>'" />
 						<input type="button" class="bt" value="삭제"
-							onclick="del(<%=fb_num%>)"> <input type="button"
-							class="bt-2" onclick="location.href='./bd_writingPage.bo'"
-							value="새 글 쓰기" />
-						<%
-							} else {
-						%>
-						<input type="button" class="bt-2-if"
-							onclick="location.href='./bd_writingPage.bo'" value="새 글 쓰기" />
+							onclick="del(<%=fb_num%>)"> 
 						<%
 							}
 							}
 						%>
-
 					</div>
-
-
-
 				</div>
 
 				<!-- 수정 삭제 다음글 이전글 버튼끝 -->
