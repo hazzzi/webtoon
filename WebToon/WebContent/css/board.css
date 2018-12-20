@@ -810,6 +810,7 @@ hr {
     font-weight: bold;
     float: left;
     margin-bottom: 25px;
+    cursor: pointer;
 }
 
 .bt:HOVER {
@@ -846,6 +847,7 @@ hr {
 	font-size: 20px;
 	font-weight: bold;
 	margin-left: 924px;
+	cursor: pointer;
 }
 
 .bt-if:HOVER {
