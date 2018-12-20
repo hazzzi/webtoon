@@ -14,12 +14,12 @@ public class MembermanagementDelete2 implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String mem_num = (String)session.getAttribute("mem_num");
+		String delmem_num = (String)session.getAttribute("delmem_num");
 //		String mem_num = (String)request.getParameter("mem_num");
 		MemberDAO mdao = new MemberDAO();
 		ActionForward forward = new ActionForward();
 		MemberBean mb=new MemberBean();
-		mb=mdao.getMember(mem_num);
+		mb=mdao.getMember(delmem_num);
 		mdao.deleteMember(mb);
 		forward.setRedirect(true);
 		forward.setPath("./memberList.me");
