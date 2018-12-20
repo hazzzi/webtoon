@@ -690,7 +690,7 @@ td>a {
 .comments>span.date {
 	display: block;
     float: left;
-    margin: 8px 0 0 3px;
+ 	margin: 3px 0 0 3px;
     padding: 0;
     color: #555;
     font-size: 17px;
