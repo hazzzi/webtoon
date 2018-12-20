@@ -1,5 +1,5 @@
-<%@page import="net.wtf.comm.db.CommentsBean"%>
 <%@page import="java.util.List"%>
+<%@page import="net.wtf.comm.db.CommentsBean"%>
 <%@page import="net.board.db.FanBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -134,7 +134,8 @@
 						<tr>
 							<th
 								style="text-align: left; vertical-align: center center; font-size: 30px; display: inline;">&nbsp;&nbsp;</th>
-							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>][<%=fb.getFa_category2()%>] <%=fb.getFa_subject()%></th>
+							<th style="text-align: left; font-size: 30px;">[<%=fb.getFa_category1()%>]
+								[<%=fb.getFa_category2()%>] <%=fb.getFa_subject()%></th>
 						</tr>
 						<hr>
 					</table>
@@ -213,10 +214,16 @@
 							if (mem_num != null) {
 								if (mem_num.equals(fb.getFa_mem_num()) || mem_num.equals("18121220303328")) {
 						%>
-						<input type="button" class="bt" value="수정" onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>'">
+						<input type="button" class="bt" value="수정"
+							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
 						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
 						<%
-								} 
+							} else {
+						%>
+						<input type="button" class="bt-2-if"
+							onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기">
+						<%
+							}
 							}
 						%>
 
@@ -229,19 +236,21 @@
 				<!-- 수정 삭제 다음글 이전글 버튼끝 -->
 
 			</article>
-		 <!--  댓글 쓰기 -->
-   <div class="clear"></div>
-    <form id="addCommentForm" style="margin: 10px 0;" action="ComsWriteAction.fo" method="post" >
-        <div id="addComment">
-     <input type="hidden" name="fa_num" value="<%=fa_num%>">
-            <textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요." name="wtf_content"></textarea>
-         </div>
-      
-            <input type="submit"  class="bt_c_write" value="댓글 남기기" />
-       
-    </form>
-    <div class="clear"></div>
-	<!--  댓글 반복 시작 -->
+			<!--  댓글 쓰기 -->
+			<div class="clear"></div>
+			<%if(mem_num!=null){ %>
+				<form id="addCommentForm" style="margin: 10px 0;" action="ComsWriteAction.fo" method="post" >
+    				<div id="addComment">
+					<input type="hidden" name="fa_num" value="<%=fa_num%>">
+       				 <textarea id="dtl_tex" rows="4" cols="100" placeholder="댓글을 입력하세요." name="wtf_content"></textarea>
+   					 </div>
+   			
+      				  <input type="submit"  class="bt_c_write" value="댓글 남기기" />
+   				
+				</form>
+				<div class="clear"></div>
+			<%} %>
+<!--  댓글 반복 시작 -->
 <%		
 		List<CommentsBean> CommentList = (List<CommentsBean>)request.getAttribute("CommentsList");
 
@@ -249,40 +258,48 @@
 		CommentsBean cb = CommentList.get(i);
 %>
 	 
-	 <div class="comments">
-   			 <span class="writer"> <%=cb.getWtf_mem_nik() %>&nbsp;&nbsp;</span>
-   			 <span class="date">  <%=cb.getWtf_date() %> </span>
-   	 
-  		 	<%  
-   			/* String mem_num = (String)session.getAttribute("mem_num"); */
-   			if(session.getAttribute("mem_num").equals(cb.getWtf_mem_num())){%>
-   			 <span class="modify-del">
-       		 	<a href="javascript:modifyCommentToggle('5')">수정</a> |	
-         		<input type="button" onclick="location.href='./ComsDelete.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num%>'" value="삭제">
-    		 </span>	<%} %>
-   		 
-   		 
-   		 <p id="comment5"><%=cb.getWtf_content() %> </p> <br><br>
-    		<form id="modifyCommentForm5" class="comment-form" action="./ComsModifyAction.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num %>" method="post" style="display: none;">
-    		<input type="hidden" name="commentNo" value="5" />
-    		<input type="hidden" name="boardCd" value="free" />
-    		<input type="hidden" name="articleNo" value="12" />
-    		<input type="hidden" name="curPage" value="1" />
-    		<input type="hidden" name="searchWord" value="" />
-    	
-    	<!-- 수정버튼 -->
-   				<div>
-   		 		 	<input type="hidden" name="fa_num" value="<%=fa_num%>">
-     	   			<textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getWtf_content()%></textarea>
-  		 		</div> 
-  		 		
-  		 <div class="fr">
-      		  <input type="submit" value="수정하기"> | <a href="javascript:modifyCommentToggle('5')">취소</a>
-   		 </div>
-  		<!-- 수정버튼 -->
-  		
-    </form>
-</div> <% } %>
+		 <div class="comments">
+   	 <span class="writer"> <%=cb.getWtf_mem_nik() %>&nbsp;&nbsp;</span>
+   	 <span class="date">  <%=cb.getWtf_date() %> </span>
+   	<%  
+	if(mem_num!=null){
+   if(mem_num.equals(cb.getWtf_mem_num())){%> 
+    <!-- mem_num과 맞을때 수정버튼 뜨게 -->
+   	 	<span class="modify-del">
+       	 	<a class="modi<%=cb.getWtf_num()%>" id="modi2">수정  </a>
+       	 	<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
+       	 	<div class="fr<%=cb.getWtf_num()%>" style="display: none;" >
+       	 		 <form id="modifyComment" class="comment-form" action="./ComsModifyAction.fo?wtf_num=<%=cb.getWtf_num()%>" method="post">
+       	 		 <input type="hidden" name="fa_num" value="<%=fa_num%>">
+     	   		 <textarea class="comment-textarea" name="new_content" rows="7" cols="50"><%=cb.getWtf_content()%></textarea><br>
+      			 <input type="submit" class="modify_butt" value="수정하기 | "> <%-- | <a class="dell<%=cb.getFbcom_bdnum()%>">취소</a> --%>
+      			 <%-- <input type="button" value="수정하기" onclick="location.href='./CommModifyAction.bo?fbcom_bdnum=<%=cb.getFbcom_bdnum()%>&fb_num=<%=fb_num%>'"> --%>
+      			 
+      			 <input type="button" class="del_butt" onclick="location.href='./ComsDelete.fo?wtf_num=<%=cb.getWtf_num()%>&fa_num=<%=fa_num%>'" value="삭제하기">
+   		 		</form>
+   		 	</div>
+    	</span>
+    	<%} %>
+    	<%} %>
+    <p id="comment"><%=cb.getWtf_content() %> </p> <br><br>
+    	<!-- 수정하기 토글 -->
+   		<script>
+   			$(document).ready(function() {
+   				$(".modi<%=cb.getWtf_num()%>").click(function(){
+   					/* alert("ddd"); */
+   					$(this).next().toggle();
+   						
+   				});
+   				$(".dell<%=cb.getWtf_num()%>").click(function(){
+   					$(".fr").toggle();		
+   				
+   				});
+   			});
+   			
+   		</script>
+  		<!-- 수정버튼을 누르면 수정하기/삭제하기 토글 -->
+
+</div> <%} %>
 <!--  댓글 반복 끝 -->
 			<br> <br>
 			<div id="next-prev">
@@ -314,14 +331,14 @@
 				</p>
 				<%
 					}
+		
 				%>
 			</div>
 
 		</div>
 
 	</div>
-
-	</div>
+</div>
 </body>
 
 
