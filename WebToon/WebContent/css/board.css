@@ -617,13 +617,13 @@ td>a {
 /* 글 내용 전체 content 영역 */
 .tex01 {
 	border-style: none;
-	max-width: 1360px;
-	padding: 10px;
-	font-size: 30px;
-	font-family: 'NanumBarunpenR';
-	resize: none;
-	max-height: 300px;
-	margin: 20px 0 10px 0;
+    max-width: 1360px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'NanumBarunpenR';
+    resize: none;
+    max-height: 300px;
+    margin: 20px 0 20px 0;
 }
 
 /* bd_detailPage */
@@ -747,10 +747,7 @@ td>a {
     font-size: 15px;
     resize: none;
 }
-#modi2{
-	/* border: 1px solid red; */
-	    margin-left: 1103px;
-}
+
 
 #addComment {
 	float: left;
@@ -813,6 +810,7 @@ hr {
     font-weight: bold;
     float: left;
     margin-bottom: 25px;
+    cursor: pointer;
 }
 
 .bt:HOVER {
@@ -849,6 +847,7 @@ hr {
 	font-size: 20px;
 	font-weight: bold;
 	margin-left: 924px;
+	cursor: pointer;
 }
 
 .bt-if:HOVER {
@@ -924,7 +923,6 @@ hr {
 }
 
 /*좋아요*/
-
 .like {
 	border: none;
 	outline: none;
@@ -984,4 +982,9 @@ hr {
 .modify_butt:HOVER {
 	text-decoration: underline;
 	cursor: pointer;
+}
+/*토글 전 수정버튼 위치*/
+#modi2{
+	/* border: 1px solid red; */
+	    margin-left: 1103px;
 }

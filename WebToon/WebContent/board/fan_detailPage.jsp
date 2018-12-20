@@ -217,7 +217,6 @@
 						<input type="button" class="bt" value="수정"
 							onclick="location.href='./fanModify.fo?fa_num=<%=fa_num%>&pageNum=<%=pageNum%>';">
 						<input type="button" class="bt" value="삭제" onclick="del(<%=fa_num%>)"> 
-						<input type="button" class="bt-2" onclick="location.href='./fanboardWrite.fo'" value="새 글 쓰기">
 						<%
 							} else {
 						%>
