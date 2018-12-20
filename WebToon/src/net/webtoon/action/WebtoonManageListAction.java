@@ -24,7 +24,7 @@ public class WebtoonManageListAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./data/webtoonlist.jsp");
-		return forward;
+		return forward; 
 	}
 
 }

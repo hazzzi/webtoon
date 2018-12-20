@@ -35,6 +35,12 @@ public class RecommendDAO {
 		return con;
 	}
 	
+	private DataSource getDataSource() throws Exception {
+		Context init = new InitialContext(); // import javax.naming
+		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+		return ds;
+	}
+	
 	public List<WebtoonBean> getWebtoon(String mem_num){
 		List<WebtoonBean> list = new ArrayList<WebtoonBean>();
 		
@@ -160,14 +166,15 @@ public class RecommendDAO {
 	    Long.toHexString(id2) // 16진수 -> String 변환 메서드
 	    */
 	      try{
-	    	 //Long id = Long.parseLong(session,16);
-	  	     
-	         MysqlDataSource dataSource = new MysqlDataSource();
-	         dataSource.setServerName("192.168.2.9");
-	         dataSource.setUser("jspid");
-	         dataSource.setPassword("jsppass");
-	         dataSource.setDatabaseName("mydb");
-
+	    	//Long id = Long.parseLong(session,16);
+	  	    
+	    	// connection pool 을 이용한 성능개선
+	        DataSource dataSource = getDataSource();
+	        //dataSource.setServerName("localhost");
+	        //dataSource.setUser("itwillbs3");
+	        //dataSource.setPassword("itwillbs8030909");
+	        //dataSource.setDatabaseName("itwillbs3");
+	        
 			JDBCDataModel dataModel = new MySQLJDBCDataModel(dataSource, "recommend", "rec_mem_num", "rec_web_num",
 					"rec_web_grade", null);
 	         
@@ -179,8 +186,8 @@ public class RecommendDAO {
 	         for(RecommendedItem recommendation : recommendations){
 	            System.out.println(recommendation);
 	         }
+	         
 	      }catch (Exception e) { e.printStackTrace();  }
-	      
 	      return recommendations;
 	}
 	public List<WebtoonBean> showRecommend_list(List<RecommendedItem> recommendations){
@@ -222,8 +229,8 @@ public class RecommendDAO {
 		}
 		return list;
 	}
-	public List AvgScore(List<WebtoonBean> rec_list){
+/*	public List AvgScore(List<WebtoonBean> rec_list){
 		return null;
 		
-	}
+	}*/
 }

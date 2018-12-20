@@ -329,7 +329,7 @@ public class MemberDAO {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
-
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 			if (pstmt != null)
 				try {
 					pstmt.close();
@@ -394,6 +394,7 @@ public class MemberDAO {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 			if (pstmt != null)
 				try {
 					pstmt.close();

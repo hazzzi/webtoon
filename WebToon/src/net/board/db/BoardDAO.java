@@ -297,7 +297,7 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		List<BoardBean> list = new ArrayList<BoardBean>();
-
+		ResultSet rs= null;
 		try {
 
 			con = getConnection();
@@ -312,7 +312,7 @@ public class BoardDAO {
 			pstmt.setInt(4, startRow - 1);
 			pstmt.setInt(5, pageSize);
 
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				BoardBean bb = new BoardBean();
@@ -346,6 +346,7 @@ public class BoardDAO {
 					con.close();
 				} catch (SQLException e) {
 				}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace(); }
 		}
 
 		return list;

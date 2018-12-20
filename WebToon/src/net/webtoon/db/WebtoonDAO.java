@@ -61,8 +61,7 @@ public class WebtoonDAO {
 		} finally {
 			if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
 			if (con != null)try {con.close();} catch (SQLException e) {	e.printStackTrace();}
-			if(rs!=null){try{rs.close();}catch(SQLException e){e.printStackTrace();}
-			}
+			if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 		}
 		return wb;
 	}

@@ -59,8 +59,9 @@ public class CommentsDAO {
 		        } catch (Exception e) {
 		          e.printStackTrace();
 		        }finally {
-		        	try{rs.close();}catch(SQLException s){}
-		        	try{pstmt.close();}catch(SQLException s){}
+		        	if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+					if (conn != null)try {conn.close();} catch (SQLException e) {	e.printStackTrace();}
+					if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 		        }
 		        return result;
 		    }
@@ -101,8 +102,9 @@ public class CommentsDAO {
 		         } catch (Exception e) {
 			          e.printStackTrace();
 			        }finally {
-			        	try{rs.close();}catch(SQLException s){}
-			        	try{pstmt.close();}catch(SQLException s){}
+			        	if (pstmt != null)try {pstmt.close();} catch (SQLException e) {	e.printStackTrace();}
+						if (conn != null)try {conn.close();} catch (SQLException e) {	e.printStackTrace();}
+						if(rs!=null)try{rs.close();}catch(SQLException e){e.printStackTrace();}
 			        }
 					return CommentList;
 			    }
