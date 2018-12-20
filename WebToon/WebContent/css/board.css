@@ -315,6 +315,7 @@ td>a {
 	font-family: 'NanumBarunpenR', sans-serif;
 	font-size: 20px;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 .write:HOVER {
@@ -577,6 +578,7 @@ td>a {
 	outline: none;
 	background-color: #fff;
 	width: 30px;
+	cursor: pointer;
 }
 
 #bw_pho_file {
@@ -587,6 +589,7 @@ td>a {
 	bottom: 21px;
 	display: inline-block;
 	opacity: 0;
+	cursor: pointer;
 }
 
 .bw_pho_icon2 {
@@ -594,6 +597,7 @@ td>a {
 	outline: none;
 	background-color: #fff;
 	width: 30px;
+	cursor: pointer;
 }
 
 #bw_pho_icon:HOVER {
@@ -829,6 +833,7 @@ hr {
 	font-size: 20px;
 	font-weight: bold;
 	margin-left: 818px;
+	cursor: pointer;
 }
 
 .bt-pri:HOVER {
